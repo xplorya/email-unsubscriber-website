@@ -1,13 +1,27 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import {
+    hasConsentBeenGiven,
+    saveConsent,
+    type ConsentPreferences
+  } from '$lib/utilities/consent'
 
-  const STORAGE_KEY = 'cookie-consent'
+  const LEGACY_LS_KEY = 'cookie-consent'
 
   let visible = $state(false)
 
   onMount(() => {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (!stored) {
+    // Migrate legacy localStorage consent to cookie format
+    const legacyConsent = localStorage.getItem(LEGACY_LS_KEY)
+    if (legacyConsent && !hasConsentBeenGiven()) {
+      const prefs: ConsentPreferences = {
+        essential: true,
+        analytics: legacyConsent === 'accepted'
+      }
+      saveConsent(prefs)
+    }
+
+    if (!hasConsentBeenGiven()) {
       // Small delay for a smooth fade-in after page load
       requestAnimationFrame(() => {
         visible = true
@@ -16,12 +30,12 @@
   })
 
   function accept() {
-    localStorage.setItem(STORAGE_KEY, 'accepted')
+    saveConsent({ essential: true, analytics: true })
     visible = false
   }
 
   function reject() {
-    localStorage.setItem(STORAGE_KEY, 'rejected')
+    saveConsent({ essential: true, analytics: false })
     visible = false
   }
 </script>
@@ -39,7 +53,7 @@
         <p class="text-sm text-(--color-text-secondary) sm:flex-1">
           We use cookies to improve your experience. By continuing to browse, you agree to our
           <a
-            href="/privacy"
+            href="/privacy#cookies"
             class="underline text-(--color-text-link) hover:text-(--color-text) transition-colors"
           >
             Privacy Policy</a

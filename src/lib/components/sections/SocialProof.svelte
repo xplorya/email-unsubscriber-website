@@ -1,8 +1,14 @@
 <script lang="ts">
   import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
+  import { icons } from '$lib/icons'
   import type { Action } from 'svelte/action'
 
-  const TARGET_COUNT = 2754
+  // TODO: - Add CCPA Compliant
+  // TODO: - Hook counter to backend to update dynamically (poll, webhook, socket, whatever's lightest)
+  // TODO: - Add "give feedback/suggestions" to webapp (and here?) - if possible through PostHog's survey?, if easy enough - implement In-House form
+  // TODO: - Hook feedback to this testimonials section
+
+  const TARGET_COUNT = 182
   const ANIMATION_DURATION = 2000
 
   let displayCount = $state(TARGET_COUNT)
@@ -56,10 +62,10 @@
   const formattedCount = $derived(displayCount.toLocaleString('en-US'))
 
   const trustBadges = [
-    { label: 'GDPR Compliant', icon: 'shield-check' },
-    { label: 'No Data Selling', icon: 'ban' },
-    { label: 'Browser-Only Processing', icon: 'browser' },
-    { label: 'One-Time Payment', icon: 'credit-card' }
+    { label: 'GDPR Compliant', icon: icons.shieldCheck },
+    { label: 'No Data Selling', icon: icons.ban },
+    { label: 'Browser-Only Processing', icon: icons.monitor },
+    { label: 'One-Time Payment', icon: icons.creditCard }
   ] as const
 
   const testimonials = [
@@ -80,13 +86,14 @@
     }
   ]
 
-  const mediaLogos = ['TechCrunch', 'Product Hunt', 'Hacker News', 'The Verge']
+  // TODO: - Quite importaint: Reach out to these to ask for featuring
+  const mediaLogos = ['TechCrunch', 'Product Hunt', 'Hacker News', 'The Verge', "Trust Pilot"]
 </script>
 
 <section id="trust" class="bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
-      Trusted by Thousands
+      Trusted by Many
     </h2>
 
     <!-- Animated Counter -->
@@ -104,28 +111,7 @@
       {#each trustBadges as badge (badge.label)}
         <div class="flex flex-col items-center gap-3 p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg)">
           <div class="w-10 h-10 flex items-center justify-center">
-            {#if badge.icon === 'shield-check'}
-              <svg class="w-8 h-8 text-(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <polyline points="9 12 11 14 15 10"/>
-              </svg>
-            {:else if badge.icon === 'ban'}
-              <svg class="w-8 h-8 text-(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
-              </svg>
-            {:else if badge.icon === 'browser'}
-              <svg class="w-8 h-8 text-(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            {:else}
-              <svg class="w-8 h-8 text-(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                <line x1="1" y1="10" x2="23" y2="10"/>
-              </svg>
-            {/if}
+            <span class="inline-block w-8 h-8 text-(--color-primary) [&>svg]:w-full [&>svg]:h-full">{@html badge.icon}</span>
           </div>
           <span class="text-sm font-medium text-(--color-text) text-center">{badge.label}</span>
         </div>

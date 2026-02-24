@@ -10,8 +10,8 @@
 </script>
 
 <Hero />
-<HowItWorks />
 <Mission />
+<HowItWorks />
 <Pricing />
 <Comparison />
 <SocialProof />

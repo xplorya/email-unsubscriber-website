@@ -1,5 +1,6 @@
 <script lang="ts">
   import { CONTACT_EMAIL } from '$lib/utilities/constants'
+  import { icons } from '$lib/icons'
 </script>
 
 <div class="max-w-3xl mx-auto px-4 pt-24 py-8 sm:px-6 lg:px-8">
@@ -8,9 +9,7 @@
     href="/"
     class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 mb-8 transition-colors"
   >
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-    </svg>
+    <span class="inline-block w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.backArrow}</span>
     Back to Home
   </a>
 
@@ -24,35 +23,25 @@
         <div>
           <div class="flex items-start gap-2 mb-2">
             <div class="shrink-0">
-              <svg class="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
+              <span class="inline-block w-8 h-8 text-emerald-600 dark:text-emerald-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.shieldVerified}</span>
             </div>
             <h2 class="text-xl font-semibold text-emerald-800 dark:text-emerald-200 mt-0 mb-2">Your Privacy is Our Priority</h2>
           </div>
           <div class="space-y-2 text-emerald-700 dark:text-emerald-300">
             <p class="flex items-center gap-2 m-0">
-              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
+              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
               <strong>100% Browser-Based:</strong> All email scanning happens entirely in YOUR browser
             </p>
             <p class="flex items-center gap-2 m-0">
-              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
+              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
               <strong>Never Leaves Your Device:</strong> Your emails NEVER leave your computer
             </p>
             <p class="flex items-center gap-2 m-0">
-              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
+              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
               <strong>Zero Server Storage:</strong> We NEVER see, store, or process your email content
             </p>
             <p class="flex items-center gap-2 m-0">
-              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
+              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
               <strong>No AI blackbox:</strong> Our approach is purely algorithmic, leaving no room for surprises
             </p>
           </div>
@@ -78,33 +67,23 @@
         <p class="text-(--color-text) font-medium mb-3">We want to be absolutely clear about what we never access:</p>
         <ul class="space-y-2 text-(--color-text-secondary)">
           <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
             <span><strong>Email content</strong> - We never see the body, subject lines, or text of your emails</span>
           </li>
           <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
             <span><strong>Email metadata</strong> - Senders, recipients, timestamps, or any header information</span>
           </li>
           <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
             <span><strong>Subscription lists</strong> - Your scan results and subscription data stay on your device</span>
           </li>
           <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
             <span><strong>Inbox data</strong> - Any information from your email inbox</span>
           </li>
           <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
             <span><strong>Email provider access tokens</strong> - The credentials that allow reading your emails stay in your browser and are never sent to our servers</span>
           </li>
         </ul>
@@ -119,21 +98,15 @@
       </p>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li class="flex items-start gap-2">
-          <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
+          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Account Email Address:</strong> Used solely for account identification and authentication</span>
         </li>
         <li class="flex items-start gap-2">
-          <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
+          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Subscription Status:</strong> For paid users, we track payment status to provide full access to all features</span>
         </li>
         <li class="flex items-start gap-2">
-          <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
+          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Basic Usage Analytics:</strong> Anonymous page views and feature usage (not tied to email data)</span>
         </li>
       </ul>
@@ -176,9 +149,28 @@
       </div>
     </section>
 
-    <!-- Section 5: Local Data Storage -->
+    <!-- Section 5: Cookies -->
+    <section id="cookies" class="mb-8">
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">5. Cookies</h2>
+      <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+        We use cookies to enhance your browsing experience. Cookies are small text files stored in your browser.
+      </p>
+      <ul class="space-y-3 text-(--color-text-secondary)">
+        <li>
+          <strong>Essential Cookies:</strong> These are required for the site to function. They store your theme preference (light/dark mode) and your cookie consent choice. These cannot be disabled.
+        </li>
+        <li>
+          <strong>Analytics Cookies:</strong> With your consent, we use anonymous analytics cookies to understand how visitors interact with our site. These cookies do not collect personally identifiable information. You can opt in or out at any time via the cookie consent banner.
+        </li>
+      </ul>
+      <p class="text-(--color-text-secondary) leading-relaxed mt-4">
+        Cookies are set with a domain of <code class="text-sm bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">.email-unsubscriber.com</code> so your preferences carry across our sites. They expire after 400 days. You can delete cookies at any time through your browser settings.
+      </p>
+    </section>
+
+    <!-- Section 6: Local Data Storage -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">5. Local Data Storage</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">6. Local Data Storage</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         Your scan results and authentication data are stored locally in your browser:
       </p>
@@ -192,9 +184,9 @@
       </p>
     </section>
 
-    <!-- Section 6: Third-Party Services -->
+    <!-- Section 7: Third-Party Services -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">6. Third-Party Services</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">7. Third-Party Services</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         We integrate with the following third-party services:
       </p>
@@ -206,7 +198,7 @@
           <strong>Microsoft (OAuth & Outlook API):</strong> We use Microsoft's OAuth 2.0 for authentication. Your browser communicates directly with Microsoft's Graph API to read email data. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">Microsoft's privacy statement</a> applies to data they process.
         </li>
         <li>
-          <strong>Stripe (Payment Processing):</strong> If you subscribe to a paid plan, Stripe handles payment processing. We never see or store your full credit card information.
+          <strong>Stripe (Payment Processing):</strong> If you subscribe to a paid plan, Stripe handles payment features. We never see or store your full credit card information.
         </li>
         <li>
           <strong>Cloudflare (Hosting & CDN):</strong> Our service is hosted on Cloudflare. Cloudflare may collect standard server logs (IP addresses, request times) as part of their service.
@@ -217,19 +209,19 @@
       </ul>
     </section>
 
-    <!-- Section 7: Data Retention & Account Deletion -->
+    <!-- Section 8: Data Retention & Account Deletion -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">7. Data Retention & Account Deletion</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">8. Data Retention & Account Deletion</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You can delete your account at any time using the "Erase Data" feature in your profile. When you erase your account, we process your data as follows:
       </p>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">7.1 Anonymization Process</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.1 Anonymization Process</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
         Account deletion is performed through anonymization rather than hard deletion. All personally identifiable information (PII) associated with your account (which is your email address only as we never collect any other PII) is permanently replaced with an irreversible, one-way cryptographic hash. After this process, your account record can no longer be linked back to you.
       </p>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">7.2 Data That Is Permanently Deleted</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.2 Data That Is Permanently Deleted</h3>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li>
           <strong>Unsubscribe history:</strong> All records of your unsubscribe actions, which may contain third-party sender information, are permanently and fully deleted — not anonymized.
@@ -239,7 +231,7 @@
         </li>
       </ul>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">7.3 Data That Is Retained</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.3 Data That Is Retained</h3>
       <p class="text-(--color-text-secondary) leading-relaxed mb-3">
         Certain data is retained after account deletion for legal and security purposes. In all cases, personally identifiable information is replaced with the anonymized hash described above.
       </p>
@@ -255,15 +247,15 @@
         </li>
       </ul>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">7.4 Local Browser Data</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.4 Local Browser Data</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
         The "Erase Data" feature removes your account from our servers. Data stored locally in your browser (localStorage, IndexedDB) is not affected by this process. You can clear local data at any time through your browser settings.
       </p>
     </section>
 
-    <!-- Section 8: Your Rights -->
+    <!-- Section 9: Your Rights -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">8. Your Rights</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">9. Your Rights</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You have full control over your data and access:
       </p>
@@ -275,7 +267,7 @@
           <strong>Clear Local Data:</strong> Clear your browser's localStorage and IndexedDB to remove all locally stored data.
         </li>
         <li>
-          <strong>Account Deletion:</strong> Use the "Erase Data" feature in your profile to anonymize and remove your account data from our servers. See Section 7 for details on what is deleted, what is anonymized, and what is retained.
+          <strong>Account Deletion:</strong> Use the "Erase Data" feature in your profile to anonymize and remove your account data from our servers. See Section 8 for details on what is deleted, what is anonymized, and what is retained.
         </li>
         <li>
           <strong>Data Export:</strong> Since all scan data is stored locally in your browser, you already have direct access to your data.
@@ -283,9 +275,9 @@
       </ul>
     </section>
 
-    <!-- Section 9: Contact -->
+    <!-- Section 10: Contact -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">9. Contact Us</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">10. Contact Us</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
         If you have any questions about this Privacy Policy or our data practices, please contact us at:
       </p>
@@ -294,9 +286,9 @@
       </p>
     </section>
 
-    <!-- Section 10: Changes to This Policy -->
+    <!-- Section 11: Changes to This Policy -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">10. Changes to This Policy</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">11. Changes to This Policy</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
         We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
       </p>
@@ -309,9 +301,7 @@
       href="/"
       class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
     >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
+      <span class="inline-block w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.backArrow}</span>
       Back to Home
     </a>
   </div>

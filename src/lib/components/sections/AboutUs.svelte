@@ -1,23 +1,24 @@
 <script lang="ts">
   import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
   import { CONTACT_EMAIL, COMPANY_NAME } from '$lib/utilities/constants'
+  import { icons } from '$lib/icons'
 
   const values = [
     {
       title: 'Privacy First',
       description: "Every technical decision starts with 'does this protect user data?'",
-      icon: 'shield'
+      icon: icons.shield
     },
     {
       title: 'Simplicity',
       description: 'One product, one purpose, one payment. No bloat.',
-      icon: 'sparkle'
+      icon: icons.star
     },
     {
       title: 'Transparency',
       description:
-        "Our architecture is our proof. Browser-only processing isn't just a claim — it's verifiable.",
-      icon: 'eye'
+        "Our architecture is our proof. Browser-only features isn't just a claim — it's verifiable.",
+      icon: icons.eye
     }
   ] as const
 </script>
@@ -29,8 +30,7 @@
     </h2>
 
     <p class="mt-6 text-center text-(--color-text-secondary) text-lg max-w-3xl mx-auto leading-relaxed">
-      Email Unsubscriber is built by {COMPANY_NAME} — a small team obsessed with
-      digital privacy and inbox sanity. We believe your email is your business, not ours.
+      Email Unsubscriber is built by "{COMPANY_NAME}", an EU-based development studio delivering solutions focused on solving individual problems and solving them well. We always build with digital privacy and consumer protection in mind.
     </p>
 
     <!-- Values -->
@@ -38,20 +38,7 @@
       {#each values as value, i (value.title)}
         <div use:revealStaggered={{ delay: i * 100 }} class="text-center p-6 sm:p-8">
           <div class="w-12 h-12 rounded-lg bg-(--color-bg-secondary) border border-(--color-border) flex items-center justify-center mx-auto">
-            {#if value.icon === 'shield'}
-              <svg class="w-6 h-6 text-(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            {:else if value.icon === 'sparkle'}
-              <svg class="w-6 h-6 text-(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-            {:else}
-              <svg class="w-6 h-6 text-(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-            {/if}
+            <span class="inline-block w-6 h-6 text-(--color-primary) [&>svg]:w-full [&>svg]:h-full">{@html value.icon}</span>
           </div>
 
           <h3 class="mt-4 text-lg font-semibold text-(--color-text)">

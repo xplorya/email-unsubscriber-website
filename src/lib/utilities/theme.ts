@@ -1,3 +1,5 @@
+import { setCookie, getCookie } from './cookies'
+
 export type Theme = 'light' | 'dark'
 
 const STORAGE_KEY = 'theme.preference'
@@ -6,6 +8,8 @@ const isBrowser = typeof window !== 'undefined'
 
 function getStoredTheme(): Theme | null {
   if (!isBrowser) return null
+  const cookieVal = getCookie('theme')
+  if (cookieVal === 'light' || cookieVal === 'dark') return cookieVal
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') return stored
   return null
@@ -30,11 +34,18 @@ function applyThemeToDOM(theme: Theme, isExplicit: boolean): void {
 
 export function toggleTheme(): void {
   const next: Theme = getEffectiveTheme() === 'dark' ? 'light' : 'dark'
+  setCookie('theme', next)
   localStorage.setItem(STORAGE_KEY, next)
   applyThemeToDOM(next, true)
 }
 
 export function initTheme(): void {
+  // Migrate localStorage -> cookie (one-time)
+  const lsTheme = localStorage.getItem(STORAGE_KEY)
+  if ((lsTheme === 'light' || lsTheme === 'dark') && !getCookie('theme')) {
+    setCookie('theme', lsTheme)
+  }
+
   const stored = getStoredTheme()
   if (stored) {
     applyThemeToDOM(stored, true)

@@ -5,8 +5,8 @@
 
   const NAV_ITEMS = [
     { label: 'Home', href: '/#home' },
-    { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Why Us', href: '/#why' },
+    { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Pricing', href: '/#pricing' },
     { label: 'Compare', href: '/#comparison' },
     { label: 'Trust', href: '/#trust' },
@@ -59,64 +59,68 @@
     }
     motionQuery.addEventListener('change', onMotionChange)
 
-    // Scroll tracking for header background
-    function onScroll() {
-      scrolled = window.scrollY > 80
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-
-    // IntersectionObserver for hero CTA visibility
-    let ctaObserver: IntersectionObserver | undefined
+    // Resolve elements once for scroll-based tracking
     const ctaEl = document.getElementById('hero-cta')
-    if (ctaEl) {
-      ctaObserver = new IntersectionObserver(
-        ([entry]) => {
-          heroCTAVisible = entry.isIntersecting
-        },
-        { threshold: 0 }
-      )
-      ctaObserver.observe(ctaEl)
-    } else {
-      // If no hero CTA element, show header CTA
+    if (!ctaEl) {
       heroCTAVisible = false
     }
 
-    // IntersectionObserver for active section tracking
-    const sectionIds = NAV_ITEMS.map((item) => item.href.split('#')[1]).filter(Boolean)
-    const sectionEls = sectionIds
+    const sectionEls = NAV_ITEMS.map((item) => item.href.split('#')[1])
+      .filter(Boolean)
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null)
 
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            activeSection = entry.target.id
-          }
-        }
-      },
-      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
-    )
+    // Sort by actual DOM position so scroll logic picks the correct section
+    sectionEls.sort((a, b) => a.offsetTop - b.offsetTop)
 
-    for (const el of sectionEls) {
-      sectionObserver.observe(el)
+    let lastSyncedSection = ''
+
+    function onScroll() {
+      // Header background toggle
+      scrolled = window.scrollY > 80
+
+      // Hero CTA visibility: show header CTA once hero CTA scrolls above viewport
+      if (ctaEl) {
+        const ctaRect = ctaEl.getBoundingClientRect()
+        heroCTAVisible = ctaRect.bottom > 0
+      }
+
+      // Active section tracking:
+      // Find the section whose top is closest to (but above) 30% of the viewport.
+      // This replicates the rootMargin: '-20% 0px -60% 0px' observation band.
+      const trigger = window.innerHeight * 0.3
+      let current = sectionEls[0]?.id ?? 'home'
+
+      for (const el of sectionEls) {
+        if (el.getBoundingClientRect().top <= trigger) {
+          current = el.id
+        }
+      }
+
+      activeSection = current
+
+      // Sync URL hash only when section actually changes
+      if (current !== lastSyncedSection) {
+        lastSyncedSection = current
+        const hash = current === 'home' ? '' : current
+        history.replaceState(null, '', hash ? '#' + hash : '/')
+      }
     }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
       window.removeEventListener('scroll', onScroll)
       motionQuery.removeEventListener('change', onMotionChange)
-      ctaObserver?.disconnect()
-      sectionObserver.disconnect()
     }
   })
 </script>
 
 <header
-  class="fixed top-0 left-0 right-0 z-50 header-base"
+  class="sticky top-0 z-50 header-base"
   class:header-scrolled={scrolled}
 >
-  <nav class="grid grid-cols-[1fr_auto_1fr] items-center h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <nav class="flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Left: Logo -->
     <div class="flex items-center">
       <a
@@ -127,16 +131,14 @@
       </a>
     </div>
 
-    <!-- Center: Nav links (always centered) -->
+    <!-- Center: Nav links (desktop only, always centered) -->
     <div class="hidden md:flex items-center justify-center gap-1">
       {#each NAV_ITEMS as item (item.href)}
+        {@const id = item.href.split('#')[1]}
+        {@const isActive = activeSection === id}
         <a
           href={item.href}
-          class="px-3 py-2 text-sm font-medium rounded-md transition-colors"
-          class:text-(--color-text)={activeSection === item.href.split('#')[1]}
-          class:font-semibold={activeSection === item.href.split('#')[1]}
-          class:text-(--color-text-secondary)={activeSection !== item.href.split('#')[1]}
-          class:hover:text-(--color-text)={activeSection !== item.href.split('#')[1]}
+          class="px-3 py-2 text-sm font-medium rounded-md transition-colors {isActive ? 'text-(--color-text) font-semibold' : 'text-(--color-text-secondary) hover:text-(--color-text)'}"
         >
           {item.label}
         </a>
@@ -158,8 +160,18 @@
       <ThemeToggle />
     </div>
 
-    <!-- Mobile right side: Theme Toggle + Hamburger -->
+    <!-- Mobile right side: CTA + Theme Toggle + Hamburger -->
     <div class="flex md:hidden items-center justify-end gap-2">
+      {#if !heroCTAVisible}
+        <a
+          href={APP_URL}
+          class="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-md bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors"
+          in:ctaIn
+          out:ctaOut
+        >
+          Open App
+        </a>
+      {/if}
       <ThemeToggle />
       <button
         onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
@@ -193,12 +205,12 @@
   >
     <nav class="flex flex-col items-center justify-center h-full gap-6 pt-16">
       {#each NAV_ITEMS as item (item.href)}
+        {@const id = item.href.split('#')[1]}
+        {@const isActive = activeSection === id}
         <a
           href={item.href}
           onclick={handleNavClick}
-          class="text-xl font-medium transition-colors"
-          class:text-(--color-text)={activeSection === item.href.split('#')[1]}
-          class:text-(--color-text-secondary)={activeSection !== item.href.split('#')[1]}
+          class="text-xl font-medium transition-colors {isActive ? 'text-(--color-text)' : 'text-(--color-text-secondary)'}"
         >
           {item.label}
         </a>

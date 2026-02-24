@@ -1,5 +1,6 @@
 <script lang="ts">
   import { CONTACT_EMAIL } from '$lib/utilities/constants'
+  import { icons } from '$lib/icons'
 </script>
 
 <div class="max-w-3xl mx-auto px-4 pt-24 py-8 sm:px-6 lg:px-8">
@@ -8,9 +9,7 @@
     href="/"
     class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 mb-8 transition-colors"
   >
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-    </svg>
+    <span class="inline-block w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.backArrow}</span>
     Back to Home
   </a>
 
@@ -307,9 +306,7 @@
       href="/"
       class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
     >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
+      <span class="inline-block w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.backArrow}</span>
       Back to Home
     </a>
   </div>
