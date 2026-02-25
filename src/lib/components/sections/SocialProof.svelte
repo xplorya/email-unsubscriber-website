@@ -61,33 +61,35 @@
 
   const formattedCount = $derived(displayCount.toLocaleString('en-US'))
 
+  // TODO: - Update when California compliant
   const trustBadges = [
     { label: 'GDPR Compliant', icon: icons.shieldCheck },
     { label: 'No Data Selling', icon: icons.ban },
     { label: 'Browser-Only Processing', icon: icons.monitor },
-    { label: 'One-Time Payment', icon: icons.creditCard }
+    { label: 'One-Off Payments', icon: icons.creditCard }
   ] as const
 
   const testimonials = [
-    {
-      quote: "Finally, an unsubscribe tool I actually trust. No creepy email reading, and I only paid once.",
-      name: 'Sarah K.',
-      role: 'Product Manager'
-    },
-    {
-      quote: "I was skeptical, but the browser-only approach sold me. Cleaned up 200+ subscriptions in minutes.",
-      name: 'Marcus T.',
-      role: 'Software Engineer'
-    },
-    {
-      quote: "No subscription? No data selling? Take my money. Best purchase I've ever made for productivity.",
-      name: 'Priya R.',
-      role: 'Freelance Designer'
-    }
+    // {
+    //   quote: "Finally, an unsubscribe tool I actually trust. No creepy email reading, and I only paid once.",
+    //   name: 'Sarah K.',
+    //   role: 'Product Manager'
+    // },
+    // {
+    //   quote: "I was skeptical, but the browser-only approach sold me. Cleaned up 200+ subscriptions in minutes.",
+    //   name: 'Marcus T.',
+    //   role: 'Software Engineer'
+    // },
+    // {
+    //   quote: "No subscription? No data selling? Take my money. Best purchase I've ever made for productivity.",
+    //   name: 'Priya R.',
+    //   role: 'Freelance Designer'
+    // }
   ]
 
   // TODO: - Quite importaint: Reach out to these to ask for featuring
-  const mediaLogos = ['TechCrunch', 'Product Hunt', 'Hacker News', 'The Verge', "Trust Pilot"]
+  // const mediaLogos = ['TechCrunch', 'Product Hunt', 'Hacker News', 'The Verge', "Trust Pilot"]
+  const mediaLogos: string[] = []
 </script>
 
 <section id="trust" class="bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
@@ -140,7 +142,7 @@
 
     <!-- Media Logos -->
     <div class="mt-12 sm:mt-16">
-      <p class="text-center text-sm text-(--color-text-secondary) mb-6">As seen in</p>
+<!--      <p class="text-center text-sm text-(&#45;&#45;color-text-secondary) mb-6">As seen in</p>-->
       <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
         {#each mediaLogos as logo (logo)}
           <div class="px-6 py-3 rounded-lg bg-(--color-bg) border border-(--color-border) text-sm font-medium text-(--color-text-secondary)/50">

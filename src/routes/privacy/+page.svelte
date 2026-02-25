@@ -15,7 +15,7 @@
 
   <article class="max-w-none">
     <h1 class="text-3xl font-bold text-(--color-text) mb-2">Privacy Policy</h1>
-    <p class="text-sm text-slate-500 mb-8">Last Updated: February 23, 2026</p>
+    <p class="text-sm text-slate-500 mb-8">Last Updated: February 25, 2026</p>
 
     <!-- Privacy-First Hero Section -->
     <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-4 mb-8">
@@ -53,7 +53,7 @@
     <section class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">1. Introduction</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        Email Unsubscriber ("The company", "we", "us", or "our") provides a browser-based tool that helps you identify and unsubscribe from unwanted email subscriptions. This Privacy Policy explains how we handle your information when you use our service.
+        Email Unsubscriber, operated by Micro Solutions LLC ("The company", "we", "us", or "our") provides a browser-based tool that helps you identify and unsubscribe from unwanted email subscriptions. This Privacy Policy explains how we handle your information when you use our service.
       </p>
       <p class="text-(--color-text-secondary) leading-relaxed">
         We built this service with privacy as the foundation. Unlike other email management tools, we designed our architecture so that your email data never touches our servers.
@@ -109,12 +109,42 @@
           <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Basic Usage Analytics:</strong> Anonymous page views and feature usage (not tied to email data)</span>
         </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Unsubscribe History:</strong> When you unsubscribe from a sender through our service, we store a record of the sender's email address and name as part of your unsubscribe audit log. This data enables our Unsubscribe Violation Detection feature, which monitors whether senders comply with your unsubscribe requests by flagging any non-individual emails received from them after your request.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Referral Data:</strong> If you participate in our referral program, we store your unique referral code and track your referral progress (number of successful referrals). Referral relationships are tracked using anonymized identifiers, not raw email addresses.</span>
+        </li>
       </ul>
     </section>
 
-    <!-- Section 4: How Our Service Works -->
+    <!-- Section 4: Legal Basis for Processing -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">4. How Our Service Works</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">4. Legal Basis for Processing</h2>
+      <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+        We process your personal data under the following legal bases as defined by GDPR Article 6:
+      </p>
+      <ul class="space-y-3 text-(--color-text-secondary)">
+        <li>
+          <strong>Contract Performance (Art. 6(1)(b)):</strong> Processing your email address and account data to provide the email unsubscription service, process payments, and maintain your account.
+        </li>
+        <li>
+          <strong>Consent (Art. 6(1)(a)):</strong> Analytics cookies, session recording, and behavioral tracking — only activated when you explicitly consent via our cookie banner.
+        </li>
+        <li>
+          <strong>Legitimate Interest (Art. 6(1)(f)):</strong> Essential error tracking and performance monitoring to maintain service reliability; security measures including blacklist maintenance for fraud and abuse prevention.
+        </li>
+        <li>
+          <strong>Legal Obligation (Art. 6(1)(c)):</strong> Retention of anonymized payment records for 7 years as required by applicable tax and financial regulations.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 5: How Our Service Works -->
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">5. How Our Service Works</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         Understanding our architecture helps explain why your data stays private:
       </p>
@@ -149,9 +179,9 @@
       </div>
     </section>
 
-    <!-- Section 5: Cookies -->
+    <!-- Section 6: Cookies -->
     <section id="cookies" class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">5. Cookies</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">6. Cookies</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         We use cookies to enhance your browsing experience. Cookies are small text files stored in your browser.
       </p>
@@ -162,15 +192,18 @@
         <li>
           <strong>Analytics Cookies:</strong> With your consent, we use anonymous analytics cookies to understand how visitors interact with our site. These cookies do not collect personally identifiable information. You can opt in or out at any time via the cookie consent banner.
         </li>
+        <li>
+          <strong>Session Recording:</strong> When you consent to analytics cookies, we may also enable session recording through PostHog. Session recordings capture your interactions with the application (clicks, scrolling, page navigation) to help us identify usability issues and improve the user experience. Session recordings are tied to your anonymized identifier, not your email address. You can opt out at any time by rejecting analytics cookies.
+        </li>
       </ul>
       <p class="text-(--color-text-secondary) leading-relaxed mt-4">
         Cookies are set with a domain of <code class="text-sm bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">.email-unsubscriber.com</code> so your preferences carry across our sites. They expire after 400 days. You can delete cookies at any time through your browser settings.
       </p>
     </section>
 
-    <!-- Section 6: Local Data Storage -->
+    <!-- Section 7: Local Data Storage -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">6. Local Data Storage</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">7. Local Data Storage</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         Your scan results and authentication data are stored locally in your browser:
       </p>
@@ -184,9 +217,9 @@
       </p>
     </section>
 
-    <!-- Section 7: Third-Party Services -->
+    <!-- Section 8: Third-Party Services -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">7. Third-Party Services</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">8. Third-Party Services</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         We integrate with the following third-party services:
       </p>
@@ -198,7 +231,7 @@
           <strong>Microsoft (OAuth & Outlook API):</strong> We use Microsoft's OAuth 2.0 for authentication. Your browser communicates directly with Microsoft's Graph API to read email data. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">Microsoft's privacy statement</a> applies to data they process.
         </li>
         <li>
-          <strong>Stripe (Payment Processing):</strong> If you subscribe to a paid plan, Stripe handles payment features. We never see or store your full credit card information.
+          <strong>Stripe (Payment Processing):</strong> If you purchase access to our service, Stripe handles payment processing. We never see or store your full credit card information. Please note that after account deletion, your email address and payment details may still be retained by Stripe in accordance with their own data retention policies. We anonymize all payment records stored on our servers, but cannot force deletion of data held by Stripe.
         </li>
         <li>
           <strong>Cloudflare (Hosting & CDN):</strong> Our service is hosted on Cloudflare. Cloudflare may collect standard server logs (IP addresses, request times) as part of their service.
@@ -209,19 +242,19 @@
       </ul>
     </section>
 
-    <!-- Section 8: Data Retention & Account Deletion -->
+    <!-- Section 9: Data Retention & Account Deletion -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">8. Data Retention & Account Deletion</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">9. Data Retention & Account Deletion</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You can delete your account at any time using the "Erase Data" feature in your profile. When you erase your account, we process your data as follows:
       </p>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.1 Anonymization Process</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.1 Anonymization Process</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
         Account deletion is performed through anonymization rather than hard deletion. All personally identifiable information (PII) associated with your account (which is your email address only as we never collect any other PII) is permanently replaced with an irreversible, one-way cryptographic hash. After this process, your account record can no longer be linked back to you.
       </p>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.2 Data That Is Permanently Deleted</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.2 Data That Is Permanently Deleted</h3>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li>
           <strong>Unsubscribe history:</strong> All records of your unsubscribe actions, which may contain third-party sender information, are permanently and fully deleted — not anonymized.
@@ -231,13 +264,13 @@
         </li>
       </ul>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.3 Data That Is Retained</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.3 Data That Is Retained</h3>
       <p class="text-(--color-text-secondary) leading-relaxed mb-3">
         Certain data is retained after account deletion for legal and security purposes. In all cases, personally identifiable information is replaced with the anonymized hash described above.
       </p>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li>
-          <strong>Payment records (up to 7 years):</strong> Anonymized payment records are retained to comply with tax and financial reporting obligations. This retention is permitted under GDPR Article 17(3)(b), which allows data controllers to retain data necessary for compliance with a legal obligation.
+          <strong>Payment records (up to 7 years):</strong> Anonymized payment records — including payment amounts, dates, currency, and Stripe transaction identifiers — are retained to comply with tax and financial reporting obligations. This retention is permitted under GDPR Article 17(3)(b), which allows data controllers to retain data necessary for compliance with a legal obligation.
         </li>
         <li>
           <strong>Anonymized user identifier:</strong> A one-way cryptographic hash derived from your email address is retained to detect returning users and prevent abuse of promotional offers (such as referral incentives). This hash cannot be reversed to recover your email address. This retention is justified under legitimate interest as recognized by GDPR Recital 47 — specifically, the prevention of fraud and misuse of services.
@@ -247,15 +280,15 @@
         </li>
       </ul>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.4 Local Browser Data</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.4 Local Browser Data</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
         The "Erase Data" feature removes your account from our servers. Data stored locally in your browser (localStorage, IndexedDB) is not affected by this process. You can clear local data at any time through your browser settings.
       </p>
     </section>
 
-    <!-- Section 9: Your Rights -->
+    <!-- Section 10: Your Rights -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">9. Your Rights</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">10. Your Rights</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You have full control over your data and access:
       </p>
@@ -267,7 +300,7 @@
           <strong>Clear Local Data:</strong> Clear your browser's localStorage and IndexedDB to remove all locally stored data.
         </li>
         <li>
-          <strong>Account Deletion:</strong> Use the "Erase Data" feature in your profile to anonymize and remove your account data from our servers. See Section 8 for details on what is deleted, what is anonymized, and what is retained.
+          <strong>Account Deletion:</strong> Use the "Erase Data" feature in your profile to anonymize and remove your account data from our servers. See Section 9 for details on what is deleted, what is anonymized, and what is retained.
         </li>
         <li>
           <strong>Data Export:</strong> Since all scan data is stored locally in your browser, you already have direct access to your data.
@@ -275,20 +308,31 @@
       </ul>
     </section>
 
-    <!-- Section 10: Contact -->
+    <!-- Section 11: Contact -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">10. Contact Us</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">11. Contact Us</h2>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">Data Protection Contact</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        If you have any questions about this Privacy Policy or our data practices, please contact us at:
+        For data protection inquiries, you may contact our Data Protection Officer:
+      </p>
+      <p class="text-(--color-text-secondary)">
+        <strong>Dyanko Yovchev</strong><br />
+        Email: <a href="mailto:gdpr@email-unsubscriber.com" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">gdpr@email-unsubscriber.com</a>
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">General Inquiries</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        For general inquiries about this Privacy Policy or our data practices, contact us at:
       </p>
       <p class="text-(--color-text-secondary)">
         <strong>Email:</strong> {CONTACT_EMAIL}
       </p>
     </section>
 
-    <!-- Section 11: Changes to This Policy -->
+    <!-- Section 12: Changes to This Policy -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">11. Changes to This Policy</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">12. Changes to This Policy</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
         We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
       </p>

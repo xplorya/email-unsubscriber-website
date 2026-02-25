@@ -16,8 +16,8 @@
       links: [
         { label: 'About Us', href: '/#about' },
         { label: 'Mission', href: '/#why' },
-        { label: 'Blog', href: '#' },
-        { label: 'Careers', href: '#' }
+        // { label: 'Blog', href: '#' },
+        // { label: 'Careers', href: '#' }
       ]
     },
     {
@@ -32,7 +32,8 @@
       title: 'Support',
       links: [
         { label: 'Contact', href: `mailto:${CONTACT_EMAIL}` },
-        { label: 'FAQ', href: '#' }
+        { label: 'GDPR', href: '#' }
+        // { label: 'FAQ', href: '#' }
       ]
     }
   ] as const

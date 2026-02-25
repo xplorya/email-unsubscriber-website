@@ -15,13 +15,13 @@
 
   <article class="max-w-none">
     <h1 class="text-3xl font-bold text-(--color-text) mb-2">Terms of Service</h1>
-    <p class="text-sm text-slate-500 mb-8">Last Updated: 23.02.2026</p>
+    <p class="text-sm text-slate-500 mb-8">Last Updated: February 25, 2026</p>
 
     <!-- Section 1: Service Description -->
     <section class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">1. Service Description</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        Email Unsubscriber ("Xplorya LLC", "we", "us", or "our") provides a browser-based email management tool that helps you identify email subscriptions and facilitates unsubscribe requests. Our service scans your email inbox (Google/Gmail or Microsoft/Outlook) locally in your browser to detect newsletters and marketing emails, then assists you in unsubscribing from unwanted communications.
+        Email Unsubscriber ("Micro Solutions LLC", "we", "us", or "our") provides a browser-based email management tool that helps you identify email subscriptions and facilitates unsubscribe requests. Our service scans your email inbox (Google/Gmail or Microsoft/Outlook) locally in your browser to detect newsletters and marketing emails, then assists you in unsubscribing from unwanted communications.
       </p>
       <p class="text-(--color-text-secondary) leading-relaxed">
         By using our service, you agree to these Terms of Service. Please read them carefully before using Email Unsubscriber.
@@ -197,7 +197,7 @@
       </p>
       <ul class="space-y-2 text-(--color-text-secondary) mt-4">
         <li>Adding, modifying, or removing features</li>
-        <li>Changing pricing or subscription tiers</li>
+        <li>Changing pricing or access tiers</li>
         <li>Updating these Terms of Service</li>
       </ul>
       <p class="text-(--color-text-secondary) leading-relaxed mt-4">
