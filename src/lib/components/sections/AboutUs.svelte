@@ -1,6 +1,6 @@
 <script lang="ts">
   import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
-  import { CONTACT_EMAIL, COMPANY_NAME } from '$lib/utilities/constants'
+  import {CONTACT_EMAIL, COMPANY_NAME, COMPANY_UIC} from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
 
   const values = [
@@ -30,7 +30,7 @@
     </h2>
 
     <p class="mt-6 text-center text-(--color-text-secondary) text-lg max-w-3xl mx-auto leading-relaxed">
-      Email Unsubscriber is built by "{COMPANY_NAME}", an EU-based development studio delivering solutions focused on solving individual problems and solving them well. We always build with digital privacy and consumer protection in mind.
+      Email Unsubscriber is built by "{COMPANY_NAME}" <span class="text-xs">UIC: {COMPANY_UIC}</span>, an EU-based development studio delivering solutions focused on solving individual problems and solving them well. We always build with digital privacy and consumer protection in mind.
     </p>
 
     <!-- Values -->

@@ -99,8 +99,9 @@
 
       activeSection = current
 
-      // Sync URL hash only when section actually changes
-      if (current !== lastSyncedSection) {
+      // Sync URL hash only when section actually changes and only on the homepage
+      const isHomePage = window.location.pathname === '/' || window.location.pathname === ''
+      if (isHomePage && current !== lastSyncedSection) {
         lastSyncedSection = current
         const hash = current === 'home' ? '' : current
         history.replaceState(null, '', hash ? '#' + hash : '/')

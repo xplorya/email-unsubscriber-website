@@ -58,22 +58,25 @@
   --color-button-solid-fg: theme(colors.slate.900);
 }
 
-/* Scroll reveal animation */
+/* Scroll reveal animation
+ *
+ * Initial hiding is done via JS inline styles (not CSS) so that:
+ *  - Pre-rendered HTML is fully visible (no class = no hiding)
+ *  - JS bots that don't scroll still see above-fold content
+ *    (IntersectionObserver reveals in-viewport elements before hiding is applied)
+ *  - Real users get the full fade-in animation on scroll
+ */
 .reveal-target {
-  opacity: 0;
-  transform: translateY(1.5rem);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .reveal-target.revealed {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-target {
-    opacity: 1;
-    transform: none;
     transition: none;
   }
 }
