@@ -100,9 +100,13 @@
 
     <!-- Animated Counter -->
     <div use:observeCounter class="mt-10 sm:mt-12 text-center">
-      <p class="text-4xl sm:text-5xl font-bold text-(--color-text)">
+      <p class="text-4xl sm:text-5xl font-bold text-(--color-accent-text)">
         {formattedCount}
       </p>
+      <div
+        class="w-16 h-1 rounded-full mx-auto mt-2"
+        style="background: var(--color-accent); box-shadow: 0 0 8px var(--color-accent-glow);"
+      ></div>
       <p class="mt-2 text-(--color-text-secondary) text-lg">
         users have already decluttered their inboxes
       </p>
@@ -111,9 +115,9 @@
     <!-- Trust Badges -->
     <div class="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
       {#each trustBadges as badge (badge.label)}
-        <div class="flex flex-col items-center gap-3 p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg)">
-          <div class="w-10 h-10 flex items-center justify-center">
-            <span class="inline-block w-8 h-8 text-(--color-primary) [&>svg]:w-full [&>svg]:h-full">{@html badge.icon}</span>
+        <div class="group card-elevated flex flex-col items-center gap-3 p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg)">
+          <div class="icon-glow w-10 h-10 flex items-center justify-center rounded-full">
+            <span class="icon-hover-scale inline-block w-8 h-8 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html badge.icon}</span>
           </div>
           <span class="text-sm font-medium text-(--color-text) text-center">{badge.label}</span>
         </div>

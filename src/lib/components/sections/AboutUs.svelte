@@ -30,7 +30,7 @@
     </h2>
 
     <p class="mt-6 text-center text-(--color-text-secondary) text-lg max-w-3xl mx-auto leading-relaxed">
-      Email Unsubscriber is built by "{COMPANY_NAME}" <span class="text-xs">UIC: {COMPANY_UIC}</span>, an EU-based development studio delivering solutions focused on solving individual problems and solving them well. We always build with digital privacy and consumer protection in mind.
+      Email Unsubscriber<span class="text-sm align-text-top">&trade;</span> is built by "{COMPANY_NAME}", an EU-based development studio delivering solutions focused on solving individual problems and solving them well. We always build with digital privacy and consumer protection in mind.
     </p>
 
     <!-- Values -->

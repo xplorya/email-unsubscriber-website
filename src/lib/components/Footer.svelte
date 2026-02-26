@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { APP_URL, CONTACT_EMAIL, COMPANY_NAME } from '$lib/utilities/constants'
+  import {APP_URL, CONTACT_EMAIL, COMPANY_NAME, COMPANY_UIC} from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
 
   const COLUMNS = [
@@ -84,9 +84,12 @@
     </div>
 
     <!-- Bottom bar -->
-    <div class="mt-8 border-t border-(--color-border) pt-8 text-center">
-      <p class="text-sm text-(--color-text-secondary)">
-        &copy; {new Date().getFullYear()} {COMPANY_NAME} &middot; Made for inbox sanity
+    <div class="mt-4 border-t border-(--color-border) pt-2 text-center max-h-0">
+      <p class="text-xs text-(--color-text-secondary)">
+        Email Unsubscriber&trade; is a product of {COMPANY_NAME}
+      </p>
+      <p class="text-xs text-(--color-text-secondary)">
+        Reg. No. {COMPANY_UIC} &middot; &copy; {new Date().getFullYear()} All rights reserved
       </p>
     </div>
   </div>

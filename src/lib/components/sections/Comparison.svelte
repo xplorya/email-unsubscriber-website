@@ -79,7 +79,7 @@
 <section id="comparison" class="bg-(--color-bg) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
-      Our Place Under The Sun
+      The Landscape
     </h2>
     <p class="mt-4 text-center text-(--color-text-secondary) text-lg max-w-2xl mx-auto">
       See how we compare on the things that matter
@@ -93,7 +93,7 @@
             <th class="p-4 text-sm font-medium text-(--color-text-secondary) border-b border-(--color-border)">
               Aspect
             </th>
-            <th class="p-4 text-sm font-semibold text-(--color-text) border-b-2 border-(--color-primary) bg-(--color-bg-secondary) rounded-t-lg">
+            <th class="featured-column-header p-4 text-sm font-semibold text-(--color-text) rounded-t-lg">
               {us.name}
             </th>
             {#each competitors as comp (comp.name)}
@@ -104,12 +104,12 @@
           </tr>
         </thead>
         <tbody>
-          {#each features as feature (feature.key)}
+          {#each features as feature, i (feature.key)}
             <tr>
               <td class="p-4 text-sm font-medium text-(--color-text) border-b border-(--color-border)">
                 {feature.label}
               </td>
-              <td class="p-4 text-sm font-semibold text-(--color-text) border-b border-(--color-border) bg-(--color-bg-secondary)">
+              <td class="featured-column-cell p-4 text-sm font-semibold text-(--color-text) border-b border-(--color-border) {i === features.length - 1 ? 'rounded-b-lg' : ''}">
                 {@html us[feature.key]}
               </td>
               {#each competitors as comp (comp.name)}
@@ -126,7 +126,7 @@
     <!-- Mobile: card-based comparison -->
     <div class="mt-12 sm:mt-16 lg:hidden space-y-6">
       <!-- Our card (highlighted) -->
-      <div class="rounded-xl border-2 border-(--color-primary) bg-(--color-bg-secondary) p-6">
+      <div class="featured-mobile-card card-elevated rounded-xl border-2 border-(--color-accent) p-6">
         <h3 class="text-lg font-bold text-(--color-text) mb-4">{us.name}</h3>
         <dl class="space-y-3">
           {#each features as feature (feature.key)}
@@ -155,8 +155,37 @@
         </div>
       {/each}
     </div>
-    <div class=" pt-6 px-2 text-(--color-text-secondary) text-sm">
-      Let's be clear, we know we are not a full-suite mailbox management software packed with features and if you're looking for that, some of the options above would be a better suite for you. Our north-star is not to be jam-packed with features, it is to be the best at ensuring your data stays yours, even if we mess up.
+    <div class="pt-6 pl-4 pr-2 border-l-2 border-(--color-accent) mt-4 text-(--color-text-secondary) text-sm italic">
+      We're not a full-suite mailbox management tool — and that's by design. If you need a feature-packed inbox manager, the options above may serve you better. Our north star is simple: providing a solid, working solution while being the best at ensuring your data stays yours, no matter what.
     </div>
   </div>
 </section>
+
+<style>
+  /* Desktop: featured column header with gradient + top accent */
+  .featured-column-header {
+    background: linear-gradient(
+      to right,
+      var(--color-accent-gradient-from),
+      var(--color-accent-gradient-to)
+    );
+    border-top: 2px solid var(--color-accent);
+  }
+
+  /* Desktop: featured column body cells with subtle tint + shadow */
+  .featured-column-cell {
+    background-color: var(--color-accent-light);
+    box-shadow:
+      -4px 0 8px -4px var(--color-card-shadow),
+       4px 0 8px -4px var(--color-card-shadow);
+  }
+
+  /* Mobile: our product card gradient background */
+  .featured-mobile-card {
+    background: linear-gradient(
+      to bottom,
+      var(--color-accent-gradient-from),
+      var(--color-bg)
+    );
+  }
+</style>
