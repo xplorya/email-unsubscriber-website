@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { APP_URL, SITE_URL } from '$lib/utilities/constants'
+  import { APP_URL } from '$lib/utilities/constants'
 </script>
 
 <section id="home" class="min-h-screen flex items-center justify-center bg-(--color-bg) px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -34,12 +34,6 @@
 
     <p class="mt-4 sm:mt-6 text-sm text-(--color-text-secondary)">
       No subscription. Pay once. Done.
-    </p>
-
-    <p class="mt-4 text-xs text-(--color-text-secondary)">
-      Privacy Policy: <a href="{SITE_URL}/privacy" class="underline hover:text-(--color-text)">{SITE_URL}/privacy</a>
-      <span class="mx-1">|</span>
-      Terms of Service: <a href="{SITE_URL}/terms" class="underline hover:text-(--color-text)">{SITE_URL}/terms</a>
     </p>
   </div>
 </section>
