@@ -18,16 +18,16 @@
     <p class="text-sm text-slate-500 mb-8">Last Updated: February 25, 2026</p>
 
     <!-- Privacy-First Hero Section -->
-    <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-4 mb-8">
+    <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4 mb-8">
       <div class="flex items-start gap-4">
         <div>
           <div class="flex items-start gap-2 mb-2">
             <div class="shrink-0">
-              <span class="inline-block w-8 h-8 text-emerald-600 dark:text-emerald-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.shieldVerified}</span>
+              <span class="inline-block w-8 h-8 text-teal-600 dark:text-teal-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.shieldVerified}</span>
             </div>
-            <h2 class="text-xl font-semibold text-emerald-800 dark:text-emerald-200 mt-0 mb-2">Your Privacy is Our Priority</h2>
+            <h2 class="text-xl font-semibold text-teal-800 dark:text-teal-200 mt-0 mb-2">Your Privacy is Our Priority</h2>
           </div>
-          <div class="space-y-2 text-emerald-700 dark:text-emerald-300">
+          <div class="space-y-2 text-teal-700 dark:text-teal-300">
             <p class="flex items-center gap-2 m-0">
               <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
               <strong>100% Browser-Based:</strong> All email scanning happens entirely in YOUR browser
@@ -98,23 +98,23 @@
       </p>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li class="flex items-start gap-2">
-          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Account Email Address:</strong> Used solely for account identification and authentication</span>
         </li>
         <li class="flex items-start gap-2">
-          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Subscription Status:</strong> For paid users, we track payment status to provide full access to all features</span>
         </li>
         <li class="flex items-start gap-2">
-          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Basic Usage Analytics:</strong> Anonymous page views and feature usage (not tied to email data)</span>
         </li>
         <li class="flex items-start gap-2">
-          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Unsubscribe History:</strong> When you unsubscribe from a sender through our service, we store a record of the sender's email address and name as part of your unsubscribe audit log. This data enables our Unsubscribe Violation Detection feature, which monitors whether senders comply with your unsubscribe requests by flagging any non-individual emails received from them after your request.</span>
         </li>
         <li class="flex items-start gap-2">
-          <span class="inline-block w-5 h-5 text-emerald-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
           <span><strong>Referral Data:</strong> If you participate in our referral program, we store your unique referral code and track your referral progress (number of successful referrals). Referral relationships are tracked using anonymized identifiers, not raw email addresses.</span>
         </li>
       </ul>
