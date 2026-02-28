@@ -23,7 +23,7 @@
   ] as const
 </script>
 
-<section id="about" class="bg-(--color-bg) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+<section id="about" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       About Us
@@ -36,9 +36,9 @@
     <!-- Values -->
     <div class="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
       {#each values as value, i (value.title)}
-        <div use:revealStaggered={{ delay: i * 100 }} class="text-center p-6 sm:p-8">
-          <div class="w-12 h-12 rounded-lg bg-(--color-bg-secondary) border border-(--color-border) flex items-center justify-center mx-auto">
-            <span class="inline-block w-6 h-6 text-(--color-primary) [&>svg]:w-full [&>svg]:h-full">{@html value.icon}</span>
+        <div use:revealStaggered={{ delay: i * 100 }} class="group card-elevated rounded-xl border border-(--color-border) bg-(--color-bg) text-center p-6 sm:p-8">
+          <div class="icon-glow w-12 h-12 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mx-auto">
+            <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html value.icon}</span>
           </div>
 
           <h3 class="mt-4 text-lg font-semibold text-(--color-text)">

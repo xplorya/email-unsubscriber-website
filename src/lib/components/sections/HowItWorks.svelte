@@ -81,7 +81,7 @@
   ]
 </script>
 
-<section id="how-it-works" class="bg-(--color-bg) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+<section id="how-it-works" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       How It Works
@@ -121,7 +121,7 @@
         <span class="inline-flex items-center gap-1.5 cursor-not-allowed" title="Coming soon">
           <span class="w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.eye}</span>
           See onboarding guide
-          <span class="text-xs px-1.5 py-0.5 rounded bg-(--color-bg-secondary) border border-(--color-border)">Coming soon</span>
+          <span class="text-xs px-1.5 py-0.5 rounded bg-(--color-bg-secondary-solid) border border-(--color-border)">Coming soon</span>
         </span>
       </p>
     </FootnoteExpander>

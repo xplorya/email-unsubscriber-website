@@ -6,7 +6,8 @@
   --color-primary: theme(colors.slate.600);
   --color-primary-hover: theme(colors.slate.700);
   --color-bg: theme(colors.white);
-  --color-bg-secondary: theme(colors.slate.50);
+  --color-bg-secondary: rgba(250, 250, 249, 0.88);
+  --color-bg-secondary-solid: theme(colors.stone.50);
   --color-text: theme(colors.slate.900);
   --color-text-secondary: theme(colors.slate.600);
   --color-text-link: theme(colors.slate.800);
@@ -18,19 +19,20 @@
   --color-button-solid-bg: theme(colors.slate.800);
   --color-button-solid-bg-hover: theme(colors.slate.700);
   --color-button-solid-fg: theme(colors.white);
-  --color-accent: theme(colors.emerald.500);
-  --color-accent-hover: theme(colors.emerald.600);
-  --color-accent-light: theme(colors.emerald.50);
-  --color-accent-border: theme(colors.emerald.200);
-  --color-accent-text: theme(colors.emerald.700);
+  --color-accent: theme(colors.teal.500);
+  --color-accent-hover: theme(colors.teal.600);
+  --color-accent-light: theme(colors.teal.50);
+  --color-accent-border: theme(colors.teal.200);
+  --color-accent-text: theme(colors.teal.700);
   --color-accent-glow: color-mix(in srgb, var(--color-accent) 15%, transparent);
-  --color-accent-gradient-from: #ecfdf5;
-  --color-accent-gradient-to: rgba(209, 250, 229, 0.5);
+  --color-accent-gradient-from: #f0fdfa;
+  --color-accent-gradient-to: rgba(153, 246, 228, 0.3);
   --color-card-shadow: rgba(15, 23, 42, 0.06);
   --color-card-shadow-hover: rgba(15, 23, 42, 0.12);
   --color-connector: #cbd5e1;
-  --color-connector-accent: #6ee7b7;
-  --color-hero-dot: rgba(226, 232, 240, 0.5);
+  --color-connector-accent: #5eead4;
+  --color-dot-grid: rgba(200, 210, 220, 0.4);
+  --color-halo-opacity: 0.09;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,7 +40,8 @@
     --color-primary: theme(colors.slate.400);
     --color-primary-hover: theme(colors.slate.300);
     --color-bg: theme(colors.slate.900);
-    --color-bg-secondary: theme(colors.slate.800);
+    --color-bg-secondary: rgba(30, 41, 59, 0.88);
+    --color-bg-secondary-solid: theme(colors.slate.800);
     --color-text: theme(colors.slate.100);
     --color-text-secondary: theme(colors.slate.400);
     --color-text-link: theme(colors.slate.200);
@@ -50,19 +53,20 @@
     --color-button-solid-bg: theme(colors.slate.200);
     --color-button-solid-bg-hover: theme(colors.slate.300);
     --color-button-solid-fg: theme(colors.slate.900);
-    --color-accent: theme(colors.emerald.500);
-    --color-accent-hover: theme(colors.emerald.400);
-    --color-accent-light: theme(colors.emerald.950);
-    --color-accent-border: theme(colors.emerald.800);
-    --color-accent-text: theme(colors.emerald.400);
+    --color-accent: theme(colors.teal.500);
+    --color-accent-hover: theme(colors.teal.400);
+    --color-accent-light: theme(colors.teal.950);
+    --color-accent-border: theme(colors.teal.800);
+    --color-accent-text: theme(colors.teal.400);
     --color-accent-glow: color-mix(in srgb, var(--color-accent) 8%, transparent);
-    --color-accent-gradient-from: #041f19;
-    --color-accent-gradient-to: rgba(6, 78, 59, 0.3);
+    --color-accent-gradient-from: #042f2e;
+    --color-accent-gradient-to: rgba(15, 118, 110, 0.3);
     --color-card-shadow: rgba(0, 0, 0, 0.2);
     --color-card-shadow-hover: rgba(0, 0, 0, 0.35);
     --color-connector: #475569;
-    --color-connector-accent: #065f46;
-    --color-hero-dot: rgba(51, 65, 85, 0.4);
+    --color-connector-accent: #0f766e;
+    --color-dot-grid: rgba(71, 85, 105, 0.25);
+    --color-halo-opacity: 0.10;
   }
 }
 
@@ -70,7 +74,8 @@
   --color-primary: theme(colors.slate.400);
   --color-primary-hover: theme(colors.slate.300);
   --color-bg: theme(colors.slate.900);
-  --color-bg-secondary: theme(colors.slate.800);
+  --color-bg-secondary: rgba(30, 41, 59, 0.88);
+  --color-bg-secondary-solid: theme(colors.slate.800);
   --color-text: theme(colors.slate.100);
   --color-text-secondary: theme(colors.slate.400);
   --color-text-link: theme(colors.slate.200);
@@ -82,19 +87,20 @@
   --color-button-solid-bg: theme(colors.slate.200);
   --color-button-solid-bg-hover: theme(colors.slate.300);
   --color-button-solid-fg: theme(colors.slate.900);
-  --color-accent: theme(colors.emerald.500);
-  --color-accent-hover: theme(colors.emerald.400);
-  --color-accent-light: theme(colors.emerald.950);
-  --color-accent-border: theme(colors.emerald.800);
-  --color-accent-text: theme(colors.emerald.400);
+  --color-accent: theme(colors.teal.500);
+  --color-accent-hover: theme(colors.teal.400);
+  --color-accent-light: theme(colors.teal.950);
+  --color-accent-border: theme(colors.teal.800);
+  --color-accent-text: theme(colors.teal.400);
   --color-accent-glow: color-mix(in srgb, var(--color-accent) 8%, transparent);
-  --color-accent-gradient-from: #041f19;
-  --color-accent-gradient-to: rgba(6, 78, 59, 0.3);
+  --color-accent-gradient-from: #042f2e;
+  --color-accent-gradient-to: rgba(15, 118, 110, 0.3);
   --color-card-shadow: rgba(0, 0, 0, 0.2);
   --color-card-shadow-hover: rgba(0, 0, 0, 0.35);
   --color-connector: #475569;
-  --color-connector-accent: #065f46;
-  --color-hero-dot: rgba(51, 65, 85, 0.4);
+  --color-connector-accent: #0f766e;
+  --color-dot-grid: rgba(71, 85, 105, 0.25);
+  --color-halo-opacity: 0.10;
 }
 
 /* Scroll reveal animation
@@ -131,7 +137,65 @@ html {
 
 body {
   @apply bg-(--color-bg) text-(--color-text) antialiased;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ═══ Parallax Background: Dot Grid & Gradient Halo ═══ */
+
+/*
+ * Pseudo-random dot grid with 45° rotation and slow parallax scroll.
+ * Three overlapping radial-gradient layers at different spacings/offsets
+ * create an organic, non-uniform dot distribution while retaining CSS
+ * variable support for theme-aware colors.
+ *
+ * --scroll-offset is driven by JS (1/10th of scrollY) for parallax.
+ * translateY is applied BEFORE rotate so movement stays vertical.
+ * scale(1.42) ≈ √2 ensures full viewport coverage after 45° rotation.
+ * Negative inset prevents corner gaps from the rotated element.
+ */
+#site-dots {
+  position: fixed;
+  inset: -50%;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateY(var(--scroll-offset, 0px)) rotate(45deg) scale(1.42);
+  will-change: transform;
+  background-image:
+    radial-gradient(circle, var(--color-dot-grid) 1px, transparent 1px),
+    radial-gradient(circle, var(--color-dot-grid) 0.8px, transparent 0.8px),
+    radial-gradient(circle, var(--color-dot-grid) 0.6px, transparent 0.6px);
+  background-size:
+    36px 36px,
+    44px 44px,
+    28px 28px;
+  background-position:
+    0 0,
+    13px 9px,
+    -7px 15px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #site-dots {
+    transform: rotate(45deg) scale(1.42);
+  }
+}
+
+/*
+ * Teal radial gradient halo — fixed behind all content for a subtle glow.
+ * Rendered via a dedicated element (#site-halo) placed in the layout.
+ */
+#site-halo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 90%);
+  opacity: var(--color-halo-opacity);
+  filter: blur(80px);
 }
 
 /* ═══ Visual Polish: Card & Icon Utilities ═══ */
@@ -174,5 +238,61 @@ body {
   }
   .group:hover .icon-hover-scale {
     transform: none !important;
+  }
+}
+
+/* ═══ Section Transition Utilities ═══ */
+
+/*
+ * Soft gradient fade at the top of a section.
+ * Apply to a section that already has position: relative and overflow: hidden.
+ * Uses --color-bg-secondary-solid as the fade color (intended for bg-secondary sections).
+ */
+.section-fade-top {
+  position: relative;
+  overflow: hidden;
+}
+.section-fade-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: linear-gradient(to bottom, var(--color-bg-secondary-solid), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ═══ Dark Mode Noise Texture ═══ */
+
+/*
+ * Barely-perceptible SVG noise overlay in dark mode.
+ * Uses an inlined feTurbulence filter for a subtle film-grain effect.
+ * Visible only when .dark class is set or OS prefers dark color scheme.
+ */
+:root.dark body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
   }
 }

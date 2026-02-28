@@ -235,7 +235,7 @@
   }
 
   .header-scrolled {
-    background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+    background: color-mix(in srgb, var(--color-bg) 30%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom-color: var(--color-border);

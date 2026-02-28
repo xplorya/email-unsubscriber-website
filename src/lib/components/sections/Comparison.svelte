@@ -76,7 +76,7 @@
   ]
 </script>
 
-<section id="comparison" class="bg-(--color-bg) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+<section id="comparison" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       The Landscape

@@ -215,7 +215,7 @@
            card-elevated transition-all duration-200 cursor-pointer"
     class:opacity-40={isFirst}
     class:cursor-not-allowed={isFirst}
-    style="color: var(--color-text-secondary); background-color: var(--color-bg-secondary); border: 1px solid var(--color-border)"
+    style="color: var(--color-text-secondary); background-color: var(--color-bg-secondary-solid); border: 1px solid var(--color-border)"
     aria-label="Previous page"
   >
     <span class="w-5 h-5">{@html icons.chevronLeft}</span>
@@ -230,7 +230,7 @@
            card-elevated transition-all duration-200 cursor-pointer"
     class:opacity-40={isLast}
     class:cursor-not-allowed={isLast}
-    style="color: var(--color-text-secondary); background-color: var(--color-bg-secondary); border: 1px solid var(--color-border)"
+    style="color: var(--color-text-secondary); background-color: var(--color-bg-secondary-solid); border: 1px solid var(--color-border)"
     aria-label="Next page"
   >
     <span class="w-5 h-5">{@html icons.chevronRight}</span>

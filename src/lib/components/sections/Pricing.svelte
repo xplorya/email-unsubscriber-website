@@ -54,7 +54,7 @@
   ]
 </script>
 
-<section id="pricing" class="bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+<section id="pricing" class="section-fade-top bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       Pricing
@@ -63,9 +63,12 @@
       It doesn't get any simpler
     </p>
 
-    <div class="flex flex-col min-[860px]:flex-row justify-center items-center gap-8 lg:gap-12 mt-12 sm:mt-16">
+    <div class="relative flex flex-col min-[860px]:flex-row justify-center items-center gap-8 lg:gap-12 mt-12 sm:mt-16">
+      <!-- Decorative radial accent glow -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none -z-0" style="background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%); opacity: 0.04;"></div>
+
       <!-- Pricing Card -->
-      <div class="max-w-md">
+      <div class="relative z-10 max-w-md">
         <div class="card-elevated rounded-2xl border-2 border-(--color-border) border-t-4 border-t-(--color-accent) p-8 sm:p-10 text-center" style="background: linear-gradient(to bottom, var(--color-accent-gradient-from), var(--color-bg))">
           <p class="text-5xl sm:text-6xl font-bold text-(--color-text)">
             {PRICE}
@@ -81,7 +84,7 @@
             href={APP_URL}
             class="mt-8 inline-block w-full px-6 py-3.5 text-lg font-semibold rounded-lg bg-(--color-accent) text-white hover:bg-(--color-accent-hover) transition-colors duration-200"
           >
-            Get Started
+            Start Cleaning
           </a>
         </div>
       </div>
@@ -107,7 +110,7 @@
     <FootnoteExpander id="pricing-referral" triggerText="We also have a Referral Program — tap to learn more">
       <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-0">
         {#each referralSteps as step, i (step.number)}
-          <div class="group card-elevated p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg-secondary) flex flex-col items-center text-center max-w-xs w-full">
+          <div class="group card-elevated p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg-secondary-solid) flex flex-col items-center text-center max-w-xs w-full">
             <div class="relative">
               <div class="icon-glow w-10 h-10 rounded-full border-2 border-(--color-accent-border) bg-(--color-accent-light) flex items-center justify-center">
                 <span class="icon-hover-scale w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html step.icon}</span>

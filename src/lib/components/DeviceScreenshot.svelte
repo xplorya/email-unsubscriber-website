@@ -60,7 +60,7 @@
 <div class="rounded-lg overflow-hidden">
   {#if hasError}
     <div
-      class="flex min-h-[200px] items-center justify-center rounded-lg border-2 border-dashed border-(--color-border) bg-(--color-bg-secondary)"
+      class="flex min-h-[200px] items-center justify-center rounded-lg border-2 border-dashed border-(--color-border) bg-(--color-bg-secondary-solid)"
     >
       <p class="text-sm text-(--color-text-secondary)">Screenshot coming soon</p>
     </div>

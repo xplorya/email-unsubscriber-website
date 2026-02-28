@@ -84,7 +84,7 @@
     </div>
 
     <!-- Bottom bar -->
-    <div class="mt-4 border-t border-(--color-border) pt-2 text-center max-h-0">
+    <div class="mt-4 border-t border-(--color-border) pt-2 text-center">
       <p class="text-xs text-(--color-text-secondary)">
         Email Unsubscriber&trade; is a product of {COMPANY_NAME}
       </p>
