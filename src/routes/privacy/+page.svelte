@@ -1,21 +1,31 @@
 <script lang="ts">
-  import { CONTACT_EMAIL } from '$lib/utilities/constants'
+  import {CONTACT_EMAIL, GDPR_EMAIL} from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
+
+  function handleClose() {
+    window.close()
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 </script>
 
-<div class="max-w-3xl mx-auto px-4 pt-24 py-8 sm:px-6 lg:px-8">
-  <!-- Back link -->
-  <a
-    href="/"
-    class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 mb-8 transition-colors"
-  >
-    <span class="inline-block w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.backArrow}</span>
-    Back to Home
-  </a>
-
+<div class="max-w-3xl mx-auto px-4 pt-4 py-8 sm:px-6 lg:px-8">
   <article class="max-w-none">
-    <h1 class="text-3xl font-bold text-(--color-text) mb-2">Privacy Policy</h1>
-    <p class="text-sm text-slate-500 mb-8">Last Updated: February 25, 2026</p>
+    <div class="flex justify-between items-start">
+      <!-- Header title -->
+      <h1 class="text-3xl font-bold text-(--color-text) mb-2">Email Unsubscriber<span class="align-super text-sm">&trade;</span> Privacy Policy</h1>
+      <!-- Close button -->
+      <button
+        onclick={handleClose}
+        class="inline-flex items-center justify-center w-9 h-9 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        aria-label="Close"
+      >
+        <span class="inline-block w-5 h-5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+      </button>
+    </div>
+    <p class="text-sm text-slate-500 mb-8">Last Updated: March 04, 2026</p>
 
     <!-- Privacy-First Hero Section -->
     <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4 mb-8">
@@ -317,8 +327,8 @@
         For data protection inquiries, you may contact our Data Protection Officer:
       </p>
       <p class="text-(--color-text-secondary)">
-        <strong>Dyanko Yovchev</strong><br />
-        Email: <a href="mailto:gdpr@email-unsubscriber.com" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">gdpr@email-unsubscriber.com</a>
+        <strong>Email: </strong>
+        <span class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">{GDPR_EMAIL}</span>
       </p>
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">General Inquiries</h3>
@@ -326,7 +336,8 @@
         For general inquiries about this Privacy Policy or our data practices, contact us at:
       </p>
       <p class="text-(--color-text-secondary)">
-        <strong>Email:</strong> {CONTACT_EMAIL}
+        <strong>Email: </strong>
+        <span class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">{CONTACT_EMAIL}</span>
       </p>
     </section>
 
@@ -339,14 +350,14 @@
     </section>
   </article>
 
-  <!-- Back to Home button at bottom -->
+  <!-- Go to Top button at bottom -->
   <div class="mt-8 pt-8 border-t border-(--color-border)">
-    <a
-      href="/"
+    <button
+      onclick={scrollToTop}
       class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
     >
-      <span class="inline-block w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.backArrow}</span>
-      Back to Home
-    </a>
+      <span class="inline-block w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.chevronUp}</span>
+      Go to Top
+    </button>
   </div>
 </div>

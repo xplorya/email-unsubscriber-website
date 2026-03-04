@@ -15,12 +15,16 @@
     <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
       <a
         href="/privacy"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-(--color-border) bg-(--color-bg) text-(--color-text-link) hover:bg-(--color-button-ghost-bg-hover) transition-colors duration-200"
       >
         Privacy Policy
       </a>
       <a
         href="/terms"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-(--color-border) bg-(--color-bg) text-(--color-text-link) hover:bg-(--color-button-ghost-bg-hover) transition-colors duration-200"
       >
         Terms of Service
