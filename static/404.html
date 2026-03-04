@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Email Unsubscriber</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+    <script>
+      (function() {
+        var m = document.cookie.match('(?:^|; )theme=([^;]*)');
+        var theme = m ? m[1] : localStorage.getItem('theme.preference');
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+        else if (theme === 'light') document.documentElement.classList.add('light');
+        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <style>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+      :root {
+        --bg: #ffffff;
+        --bg-secondary: #fafaf9;
+        --text: #0f172a;
+        --text-secondary: #475569;
+        --accent: #14b8a6;
+        --accent-hover: #0d9488;
+        --accent-light: #f0fdfa;
+        --accent-text: #0f766e;
+        --border: #e2e8f0;
+        --dot-grid: rgba(200, 210, 220, 0.4);
+        --halo-opacity: 0.09;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not(.light) {
+          --bg: #0f172a;
+          --bg-secondary: #1e293b;
+          --text: #f1f5f9;
+          --text-secondary: #94a3b8;
+          --accent: #14b8a6;
+          --accent-hover: #2dd4bf;
+          --accent-light: #042f2e;
+          --accent-text: #2dd4bf;
+          --border: #334155;
+          --dot-grid: rgba(71, 85, 105, 0.55);
+          --halo-opacity: 0.10;
+        }
+      }
+
+      :root.dark {
+        --bg: #0f172a;
+        --bg-secondary: #1e293b;
+        --text: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --accent: #14b8a6;
+        --accent-hover: #2dd4bf;
+        --accent-light: #042f2e;
+        --accent-text: #2dd4bf;
+        --border: #334155;
+        --dot-grid: rgba(71, 85, 105, 0.55);
+        --halo-opacity: 0.10;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Dot grid background */
+      .dots {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image: radial-gradient(circle, var(--dot-grid) 0.8px, transparent 0.8px);
+        background-size: 32px 32px;
+      }
+
+      /* Teal halo glow */
+      .halo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(circle, var(--accent) 0%, transparent 90%);
+        opacity: var(--halo-opacity);
+        filter: blur(80px);
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        max-width: 480px;
+      }
+
+      .error-code {
+        font-size: 8rem;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--accent);
+        letter-spacing: -0.04em;
+        margin-bottom: 0.25rem;
+      }
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--text);
+      }
+
+      .description {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        font-family: inherit;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: #ffffff;
+        background-color: var(--accent);
+        border: none;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .button:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+
+      .button:active {
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .button {
+          transition: none;
+        }
+        .button:hover {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .error-code {
+          font-size: 5rem;
+        }
+        .title {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dots"></div>
+    <div class="halo"></div>
+    <div class="container">
+      <div class="error-code">404</div>
+      <h1 class="title">Page not found</h1>
+      <p class="description">The page you are looking for does not exist or has been moved.</p>
+      <a href="/" class="button">Back to Homepage</a>
+    </div>
+  </body>
+</html>
