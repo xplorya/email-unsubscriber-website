@@ -54,6 +54,8 @@
           We use cookies to improve your experience. By continuing to browse, you agree to our
           <a
             href="/privacy#cookies"
+            target="_blank"
+            rel="noopener noreferrer"
             class="underline text-(--color-text-link) hover:text-(--color-text) transition-colors"
           >
             Privacy Policy</a
