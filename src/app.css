@@ -65,7 +65,7 @@
     --color-card-shadow-hover: rgba(0, 0, 0, 0.35);
     --color-connector: #475569;
     --color-connector-accent: #0f766e;
-    --color-dot-grid: rgba(71, 85, 105, 0.25);
+    --color-dot-grid: rgba(71, 85, 105, 0.55);
     --color-halo-opacity: 0.10;
   }
 }
@@ -99,7 +99,7 @@
   --color-card-shadow-hover: rgba(0, 0, 0, 0.35);
   --color-connector: #475569;
   --color-connector-accent: #0f766e;
-  --color-dot-grid: rgba(71, 85, 105, 0.25);
+  --color-dot-grid: rgba(71, 85, 105, 0.55);
   --color-halo-opacity: 0.10;
 }
 
@@ -143,40 +143,26 @@ body {
 /* ═══ Parallax Background: Dot Grid & Gradient Halo ═══ */
 
 /*
- * Pseudo-random dot grid with 45° rotation and slow parallax scroll.
- * Three overlapping radial-gradient layers at different spacings/offsets
- * create an organic, non-uniform dot distribution while retaining CSS
- * variable support for theme-aware colors.
+ * Simple uniform dot grid with subtle parallax scroll.
+ * Single radial-gradient layer at fixed 32px spacing.
+ * Parallax is achieved via translateY at 1/10th scroll speed,
+ * driven by an inline style set from the layout component.
  *
- * --scroll-offset is driven by JS (1/10th of scrollY) for parallax.
- * translateY is applied BEFORE rotate so movement stays vertical.
- * scale(1.42) ≈ √2 ensures full viewport coverage after 45° rotation.
- * Negative inset prevents corner gaps from the rotated element.
+ * Uses position: fixed with inset: 0 (no oversizing) and
+ * no will-change to avoid GPU compositor layer accumulation.
  */
 #site-dots {
   position: fixed;
-  inset: -50%;
+  inset: 0 0 -100vh 0;
   z-index: 1;
   pointer-events: none;
-  transform: translateY(var(--scroll-offset, 0px)) rotate(45deg) scale(1.42);
-  will-change: transform;
-  background-image:
-    radial-gradient(circle, var(--color-dot-grid) 1px, transparent 1px),
-    radial-gradient(circle, var(--color-dot-grid) 0.8px, transparent 0.8px),
-    radial-gradient(circle, var(--color-dot-grid) 0.6px, transparent 0.6px);
-  background-size:
-    36px 36px,
-    44px 44px,
-    28px 28px;
-  background-position:
-    0 0,
-    13px 9px,
-    -7px 15px;
+  background-image: radial-gradient(circle, var(--color-dot-grid) 0.8px, transparent 0.8px);
+  background-size: 32px 32px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   #site-dots {
-    transform: rotate(45deg) scale(1.42);
+    transform: none !important;
   }
 }
 
