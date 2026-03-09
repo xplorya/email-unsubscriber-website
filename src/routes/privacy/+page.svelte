@@ -25,7 +25,7 @@
         <span class="inline-block w-5 h-5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
       </button>
     </div>
-    <p class="text-sm text-slate-500 mb-8">Last Updated: March 04, 2026</p>
+    <p class="text-sm text-slate-500 mb-8">Last Updated: March 09, 2026</p>
 
     <!-- Privacy-First Hero Section -->
     <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4 mb-8">
@@ -33,7 +33,7 @@
         <div>
           <div class="flex items-start gap-2 mb-2">
             <div class="shrink-0">
-              <span class="inline-block w-8 h-8 text-teal-600 dark:text-teal-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.shieldVerified}</span>
+              <span class="inline-block w-8 h-8 text-teal-600 dark:text-teal-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.shieldCheck}</span>
             </div>
             <h2 class="text-xl font-semibold text-teal-800 dark:text-teal-200 mt-0 mb-2">Your Privacy is Our Priority</h2>
           </div>
@@ -211,25 +211,9 @@
       </p>
     </section>
 
-    <!-- Section 7: Local Data Storage -->
+    <!-- Section 7: Third-Party Services -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">7. Local Data Storage</h2>
-      <p class="text-(--color-text-secondary) leading-relaxed mb-4">
-        Your scan results and authentication data are stored locally in your browser:
-      </p>
-      <ul class="space-y-2 text-(--color-text-secondary)">
-        <li><strong>IndexedDB:</strong> Scan results and subscription data are stored in your browser's IndexedDB</li>
-        <li><strong>localStorage:</strong> OAuth tokens are stored in browser localStorage for session persistence</li>
-        <li><strong>Data Clearing:</strong> All local data is automatically cleared when you clear your browser data</li>
-      </ul>
-      <p class="text-(--color-text-secondary) leading-relaxed mt-4">
-        This data never leaves your device and is only accessible to you.
-      </p>
-    </section>
-
-    <!-- Section 8: Third-Party Services -->
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">8. Third-Party Services</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">7. Third-Party Services</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         We integrate with the following third-party services:
       </p>
@@ -250,21 +234,225 @@
           <strong>PostHog (Product Analytics):</strong> We use PostHog for basic product analytics. To protect your privacy, we only ever send a cryptographically hashed (obfuscated) version of your email address to PostHog — your real email address is never transmitted and cannot be recovered, even by PostHog themselves. The hashed identifier is used solely to distinguish between users, not to identify them. No email content, metadata, or inbox data is ever sent to PostHog. <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">PostHog's privacy policy</a> applies to data they process.
         </li>
       </ul>
+
+      <div class="mt-6 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4">
+
+        <!-- Prohibited Uses of Email User Data -->
+        <div class="">
+          <div class="flex items-start gap-2 mb-3">
+            <p class="font-semibold text-teal-800 dark:text-teal-200 m-0">Prohibited Uses of Email User Data</p>
+          </div>
+          <p class="text-sm text-teal-700 dark:text-teal-300 mb-3">
+            Email Unsubscriber <strong>never</strong> uses email user data obtained from any provider (Google, Microsoft, or any future integration) for any of the following purposes:
+          </p>
+          <ul class="space-y-2 text-sm text-teal-700 dark:text-teal-300">
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Targeted advertising, personalized advertising, retargeted advertising, or interest-based advertising</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Serving advertisements or ad-related profiling of any kind</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Selling, renting, or providing data to data brokers or information resellers</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Determining credit-worthiness, lending eligibility, or insurance underwriting</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Creating, compiling, or augmenting databases for sale, rental, or transfer to third parties</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Training, fine-tuning, or improving machine learning or artificial intelligence models (including generative AI, large language models, or any automated decision-making systems)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Market research, email campaign tracking, or competitive intelligence</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Surveillance, user profiling, or behavioral tracking beyond what is necessary for the core email unsubscribe functionality</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+              <span>Any purpose other than providing or improving the Email Unsubscriber service as described in this Privacy Policy</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Third-Party Transfer Restrictions -->
+        <div class="mt-5 pt-4 border-t border-teal-200 dark:border-teal-700">
+          <div class="flex items-start gap-2 mb-3">
+            <p class="font-semibold text-teal-800 dark:text-teal-200 m-0">Third-Party Transfer Restrictions</p>
+          </div>
+          <p class="text-sm text-teal-700 dark:text-teal-300 mb-3">
+            Sensitive email user data — including email content, metadata, headers, and access tokens — is <strong>never transferred to any third party, for any purpose whatsoever</strong>, regardless of whether you use Gmail, Outlook, or any other supported email provider. This data is processed exclusively within your browser and is architecturally inaccessible to our servers and any third party. Specifically:
+          </p>
+          <ul class="space-y-2 text-sm text-teal-700 dark:text-teal-300">
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>We do not share, sell, rent, or disclose email content, metadata, headers, or access tokens to any third party for any reason — including for service-related purposes</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>No email content, email metadata, email headers, sender information, or email access tokens are ever transmitted to any third party, or any external system</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>The only data shared with third-party services (such as our analytics provider, PostHog) consists of irreversibly hashed identifiers that cannot be used to recover any email user data, email addresses, or personal information</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>For payment processing, Stripe collects payment information directly from your browser — we never collect, handle, or transmit your payment or banking data to Stripe or any other party. Data retained by Stripe is subject to Stripe's own privacy policy and is outside our control</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>These restrictions apply equally to all email user data from all supported providers (Google, Microsoft, and any future integrations), regardless of whether it is processed on our servers or in your browser</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Google API Services Limited Use Disclosure -->
+        <div class="mt-5 pt-4 border-t border-teal-200 dark:border-teal-700">
+          <p class="font-semibold text-teal-800 dark:text-teal-200 mb-3">Google API Services Limited Use Disclosure</p>
+          <p class="text-sm text-teal-700 dark:text-teal-300 mb-3">
+            Email Unsubscriber's use and transfer of information received from Google APIs adheres to the
+            <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" class="text-teal-800 dark:text-teal-200 underline font-medium hover:text-teal-900 dark:hover:text-teal-100">Google API Services User Data Policy</a>,
+            including the Limited Use requirements. Specifically:
+          </p>
+          <ul class="space-y-2 text-sm text-teal-700 dark:text-teal-300">
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>Email data accessed through the Gmail API is used exclusively to identify subscription senders and extract unsubscribe methods, enabling you to unsubscribe from unwanted emails</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>All email content is processed locally in your browser and is never transmitted to or stored on our servers</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>Email data is not used for serving advertisements, market research, email campaign tracking, or any purpose unrelated to the core unsubscribe functionality</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>Email data is not transferred to third parties</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+              <span>Email data is not used for training machine learning or artificial intelligence models</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- Section 9: Data Retention & Account Deletion -->
+    <!-- Section 8: Local Data Storage -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">9. Data Retention & Account Deletion</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">8. Local Data Storage</h2>
+      <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+        Your scan results and authentication data are stored locally in your browser:
+      </p>
+      <ul class="space-y-2 text-(--color-text-secondary)">
+        <li><strong>IndexedDB:</strong> Scan results and subscription data are stored in your browser's IndexedDB</li>
+        <li><strong>localStorage:</strong> OAuth tokens are stored in browser localStorage for session persistence</li>
+        <li><strong>Data Clearing:</strong> All local data is automatically cleared when you clear your browser data</li>
+      </ul>
+      <p class="text-(--color-text-secondary) leading-relaxed mt-4">
+        This data never leaves your device and is only accessible to you.
+      </p>
+    </section>
+
+    <!-- Section 9: Data Protection & Security -->
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">9. Data Protection & Security</h2>
+
+      <!-- Summary info box -->
+      <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4 mb-6 mt-4">
+        <div class="flex items-start gap-2 mb-3">
+          <div class="shrink-0">
+            <span class="inline-block w-7 h-7 text-teal-600 dark:text-teal-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.lock}</span>
+          </div>
+          <p class="font-semibold text-teal-800 dark:text-teal-200 m-0">Your Data Is Protected by Design</p>
+        </div>
+        <div class="space-y-2 text-sm text-teal-700 dark:text-teal-300">
+          <p class="flex items-start gap-2 m-0">
+            <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+            <span>All data encrypted in transit with industry-standard TLS</span>
+          </p>
+          <p class="flex items-start gap-2 m-0">
+            <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+            <span>Email data processed entirely in your browser — never on our servers</span>
+          </p>
+          <p class="flex items-start gap-2 m-0">
+            <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+            <span>Email access tokens never leave your browser or reach our backend</span>
+          </p>
+          <p class="flex items-start gap-2 m-0">
+            <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+            <span>Personal identifiers are irreversibly hashed before storage or analytics transmission</span>
+          </p>
+          <p class="flex items-start gap-2 m-0">
+            <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+            <span>Open-source token exchange service enables independent security audits</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 9.1 Encryption in Transit -->
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.1 Encryption in Transit</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        All communications between your browser and email providers (Google, Microsoft), as well as between your browser and our services, are encrypted using industry-standard TLS (Transport Layer Security). This ensures your data cannot be intercepted or tampered with during transmission.
+      </p>
+
+      <!-- 9.2 Client-Side Processing Architecture -->
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.2 Client-Side Processing Architecture</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        All email data — including content, headers, metadata, and subscription information — is processed entirely within your browser. Email data never reaches our servers, architecturally eliminating the possibility of server-side data breaches for this information.
+      </p>
+
+      <!-- 9.3 Token Isolation -->
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.3 Token Isolation</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        Your email access tokens (which grant the ability to read your emails) never leave your browser and are never sent to our backend servers. Our backend only receives identity tokens (JWTs) that verify your identity but cannot be used to access your email data. The token exchange is handled by a standalone, open-source service that is fully isolated from our main backend.
+      </p>
+
+      <!-- 9.4 PII Protection Through One-Way Hashing -->
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.4 PII Protection Through One-Way Hashing</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        Before any personally identifiable information (such as email addresses) is stored in our database or transmitted to any third-party service (such as our analytics provider), it is irreversibly transformed using one-way cryptographic hashing (SHA-256). The original email address cannot be recovered from these hashes, even by us or our service providers.
+      </p>
+
+      <!-- 9.5 Data Minimization -->
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.5 Data Minimization</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        We follow the principle of data minimization — we collect only the absolute minimum data required to provide and improve the Email Unsubscriber service. We do not collect or retain any data beyond what is strictly necessary for service functionality.
+      </p>
+
+      <!-- 9.6 Open-Source Transparency -->
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.6 Open-Source Transparency</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        Our OAuth token exchange service is open-source and publicly auditable, enabling independent verification of our data handling practices.
+      </p>
+    </section>
+
+    <!-- Section 10: Data Retention & Account Deletion -->
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">10. Data Retention & Account Deletion</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You can delete your account at any time using the "Erase Data" feature in your profile. When you erase your account, we process your data as follows:
       </p>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.1 Anonymization Process</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.1 Anonymization Process</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
         Account deletion is performed through anonymization rather than hard deletion. All personally identifiable information (PII) associated with your account (which is your email address only as we never collect any other PII) is permanently replaced with an irreversible, one-way cryptographic hash. After this process, your account record can no longer be linked back to you.
       </p>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.2 Data That Is Permanently Deleted</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.2 Data That Is Permanently Deleted</h3>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li>
           <strong>Unsubscribe history:</strong> All records of your unsubscribe actions, which may contain third-party sender information, are permanently and fully deleted — not anonymized.
@@ -274,7 +462,7 @@
         </li>
       </ul>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.3 Data That Is Retained</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.3 Data That Is Retained</h3>
       <p class="text-(--color-text-secondary) leading-relaxed mb-3">
         Certain data is retained after account deletion for legal and security purposes. In all cases, personally identifiable information is replaced with the anonymized hash described above.
       </p>
@@ -290,15 +478,15 @@
         </li>
       </ul>
 
-      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.4 Local Browser Data</h3>
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.4 Local Browser Data</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
         The "Erase Data" feature removes your account from our servers. Data stored locally in your browser (localStorage, IndexedDB) is not affected by this process. You can clear local data at any time through your browser settings.
       </p>
     </section>
 
-    <!-- Section 10: Your Rights -->
+    <!-- Section 11: Your Rights -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">10. Your Rights</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">11. Your Rights</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You have full control over your data and access:
       </p>
@@ -310,7 +498,7 @@
           <strong>Clear Local Data:</strong> Clear your browser's localStorage and IndexedDB to remove all locally stored data.
         </li>
         <li>
-          <strong>Account Deletion:</strong> Use the "Erase Data" feature in your profile to anonymize and remove your account data from our servers. See Section 9 for details on what is deleted, what is anonymized, and what is retained.
+          <strong>Account Deletion:</strong> Use the "Erase Data" feature in your profile to anonymize and remove your account data from our servers. See Section 10 for details on what is deleted, what is anonymized, and what is retained.
         </li>
         <li>
           <strong>Data Export:</strong> Since all scan data is stored locally in your browser, you already have direct access to your data.
@@ -318,9 +506,9 @@
       </ul>
     </section>
 
-    <!-- Section 11: Contact -->
+    <!-- Section 12: Contact -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">11. Contact Us</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">12. Contact Us</h2>
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">Data Protection Contact</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
@@ -341,9 +529,9 @@
       </p>
     </section>
 
-    <!-- Section 12: Changes to This Policy -->
+    <!-- Section 13: Changes to This Policy -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">12. Changes to This Policy</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">13. Changes to This Policy</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
         We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
       </p>

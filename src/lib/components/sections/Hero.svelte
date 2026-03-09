@@ -18,7 +18,7 @@
 
       <p class="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-(--color-text-secondary) max-w-2xl mx-auto lg:mx-0 leading-relaxed">
         Scan your inbox, find every subscription, and unsubscribe in few clicks.
-        No monthly fees. No data harvesting. Just a clean inbox.
+        No ongoing fees. No data harvesting. Just a clean inbox.
       </p>
 
       <div class="mt-8 sm:mt-10">
@@ -32,7 +32,7 @@
       </div>
 
       <p class="mt-4 sm:mt-6 text-sm text-(--color-text-secondary)">
-        No subscriptions. Make a one-off payment only when in use. Done.
+        No monthly or annual plans. Make a one-off payment for 30d of unlimited access. Done.
       </p>
     </div>
 
