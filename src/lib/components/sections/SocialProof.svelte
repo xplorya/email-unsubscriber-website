@@ -84,10 +84,6 @@
       <p class="text-4xl sm:text-5xl font-bold text-(--color-primary-text)">
         {formattedCount}
       </p>
-      <div
-        class="w-24 h-1 rounded-full mx-auto mt-2"
-        style="background: var(--color-primary); box-shadow: 0 0 8px var(--color-accent-glow);"
-      ></div>
       <p class="mt-2 text-(--color-text-secondary) text-lg">
         users have already decluttered their inboxes
       </p>
