@@ -8,7 +8,7 @@
   // TODO: - Add "give feedback/suggestions" to webapp (and here?) - if possible through PostHog's survey?, if easy enough - implement In-House form
   // TODO: - Hook feedback to this testimonials section
 
-  const TARGET_COUNT = 182
+  const TARGET_COUNT = 12994
   const ANIMATION_DURATION = 2000
 
   let displayCount = $state(TARGET_COUNT)
@@ -81,7 +81,7 @@
 
     <!-- Animated Counter -->
     <div use:observeCounter class="mt-10 sm:mt-12 text-center">
-      <p class="text-4xl sm:text-5xl font-bold text-(--color-primary-text)">
+      <p class="text-4xl sm:text-5xl font-bold text-(--color-accent-text)">
         {formattedCount}
       </p>
       <p class="mt-2 text-(--color-text-secondary) text-lg">

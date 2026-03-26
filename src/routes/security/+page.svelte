@@ -1,6 +1,63 @@
 <script lang="ts">
-  import { CONTACT_EMAIL } from '$lib/utilities/constants'
+  import { onMount, onDestroy } from 'svelte'
   import { icons } from '$lib/icons'
+  import { setCookie } from '$lib/utilities/cookies'
+
+  const REQUIRED_TIME_SEC = 60
+  const COOKIE_MAX_AGE_SEC = 30 * 24 * 60 * 60 // 30 days
+
+  let startTime: number | undefined
+  let reachedBottom = false
+  let cookieSet = false
+  let observer: IntersectionObserver | undefined
+  let sentinel: HTMLDivElement | undefined
+
+  function trySetCookie(): void {
+    if (cookieSet || !reachedBottom || startTime === undefined) return
+    const elapsed = (Date.now() - startTime) / 1000
+    if (elapsed < REQUIRED_TIME_SEC) return
+    setCookie('security_read', 'true', COOKIE_MAX_AGE_SEC)
+    cookieSet = true
+    cleanup()
+  }
+
+  function cleanup(): void {
+    if (observer) {
+      observer.disconnect()
+      observer = undefined
+    }
+  }
+
+  onMount(() => {
+    startTime = Date.now()
+
+    if (sentinel) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              reachedBottom = true
+              trySetCookie()
+              // If time hasn't elapsed yet, schedule a check for when it will
+              if (!cookieSet && startTime !== undefined) {
+                const elapsed = (Date.now() - startTime) / 1000
+                const remaining = REQUIRED_TIME_SEC - elapsed
+                if (remaining > 0) {
+                  setTimeout(trySetCookie, remaining * 1000)
+                }
+              }
+            }
+          }
+        },
+        { threshold: 1.0, rootMargin: '0px 0px 40px 0px' }
+      )
+      observer.observe(sentinel)
+    }
+  })
+
+  onDestroy(() => {
+    cleanup()
+  })
 
   function handleClose() {
     window.close()
@@ -27,39 +84,14 @@
     </div>
     <p class="text-sm text-slate-500 mb-8">Last Updated: March 16, 2026</p>
 
-    <!-- Verifiable Security Hero Section -->
-    <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4 mb-8">
-      <div class="flex items-start gap-4">
-        <div>
-          <div class="flex items-start gap-2 mb-2">
-            <div class="shrink-0">
-              <span class="inline-block w-8 h-8 text-teal-600 dark:text-teal-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.shieldVerified}</span>
-            </div>
-            <h2 class="text-xl font-semibold text-teal-800 dark:text-teal-200 mt-0 mb-2">Verifiable Security</h2>
-          </div>
-          <div class="space-y-2 text-teal-700 dark:text-teal-300">
-            <p class="flex items-center gap-2 m-0">
-              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              All Google verification reviews passed — security assessment in progress
-            </p>
-            <p class="flex items-center gap-2 m-0">
-              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              Continuous vulnerability scanning with zero open findings
-            </p>
-            <p class="flex items-center gap-2 m-0">
-              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              Open-source authentication — audit our code yourself
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <p class="text-(--color-text-secondary) leading-relaxed mb-8">
+      We believe security claims should be verifiable, not just marketable. This report details our verification status, security tooling, and how to confirm our claims yourself.
+    </p>
 
     <!-- Section 1: Google Verification Status -->
     <section class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">1. Google Verification Status</h2>
-      <p class="text-(--color-text-secondary) leading-relaxed">
-        Our Google OAuth integration is in Google's multi-stage verification pipeline:
+      <p class="text-(--color-text-secondary) leading-relaxed">Our Google OAuth integration is in Google's multi-stage verification pipeline. The final step is <a href="https://appdefensealliance.dev/casa" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">CASA</a> (Cloud Application Security Assessment) — a security framework administered by the <a href="https://appdefensealliance.dev" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">App Defense Alliance</a> that Google requires for apps accessing sensitive user data:
       </p>
       <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-4 mb-4">
         <ul class="space-y-3 text-(--color-text-secondary)">
@@ -144,7 +176,7 @@
       </div>
 
       <p class="text-(--color-text-secondary) leading-relaxed">
-        We don't limit ourselves to the minimum CASA threshold. Every finding is resolved before release, regardless of severity.
+        Our most recent assessment found <strong>0 open CWEs</strong> across all severity levels. We don't limit ourselves to the minimum CASA threshold — every finding is resolved before release, regardless of severity. Our testing covers the full <a href="https://owasp.org/www-project-application-security-verification-standard/" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">OWASP ASVS</a> catalog, not just the 73 CWEs required by CASA Tier 2.
       </p>
     </section>
 
@@ -174,23 +206,19 @@
         </p>
       </div>
 
+    </section>
+
+    <!-- Section 4: Verify It Yourself -->
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">4. Verify It Yourself</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
         Our OAuth service is fully open source. Audit exactly how we handle authentication and confirm that email tokens never reach our infrastructure:
+      </p>
+      <p class="text-(--color-text-secondary)">
         <a href="https://github.com/xplorya/email-unsubscriber-open-oauth" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">github.com/xplorya/email-unsubscriber-open-oauth</a>
       </p>
     </section>
 
-    <!-- Section 4: Contact -->
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">4. Questions?</h2>
-      <p class="text-(--color-text-secondary) leading-relaxed">
-        If you have questions about our security practices or verification status, contact us at:
-      </p>
-      <p class="text-(--color-text-secondary)">
-        <strong>Email: </strong>
-        <span class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">{CONTACT_EMAIL}</span>
-      </p>
-    </section>
   </article>
 
   <!-- Go to Top button at bottom -->
@@ -203,4 +231,7 @@
       Go to Top
     </button>
   </div>
+
+  <!-- Invisible sentinel for scroll-to-bottom detection -->
+  <div bind:this={sentinel} aria-hidden="true" class="h-px w-px"></div>
 </div>

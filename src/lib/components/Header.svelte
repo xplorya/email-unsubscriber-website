@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import { replaceState } from '$app/navigation'
   import { APP_URL } from '$lib/utilities/constants'
   import ThemeToggle from './ThemeToggle.svelte'
 
@@ -104,7 +105,7 @@
       if (isHomePage && current !== lastSyncedSection) {
         lastSyncedSection = current
         const hash = current === 'home' ? '' : current
-        history.replaceState(null, '', hash ? '#' + hash : '/')
+        replaceState(hash ? '#' + hash : '/', {})
       }
     }
 

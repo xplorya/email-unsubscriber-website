@@ -10,7 +10,7 @@
   let { children } = $props()
 
   const isLegalPage = $derived(
-    page.url.pathname === '/privacy' || page.url.pathname === '/terms'
+    page.url.pathname === '/privacy' || page.url.pathname === '/terms' || page.url.pathname === '/security'
   )
 
   let scrollY = $state(0)

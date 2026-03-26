@@ -25,7 +25,7 @@
         <span class="inline-block w-5 h-5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
       </button>
     </div>
-    <p class="text-sm text-slate-500 mb-8">Last Updated: March 09, 2026</p>
+    <p class="text-sm text-slate-500 mb-8">Last Updated: March 18, 2026</p>
 
     <!-- Privacy-First Hero Section -->
     <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4 mb-8">
@@ -197,7 +197,7 @@
       </p>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li>
-          <strong>Essential Cookies:</strong> These are required for the site to function. They store your theme preference (light/dark mode) and your cookie consent choice. These cannot be disabled.
+          <strong>Essential Cookies:</strong> These are required for the site to function. They store your theme preference (light/dark mode) and your cookie consent choice. They also include a cookie that tracks whether you have read our Security Transparency Report, used to gate access to Google sign-in while our Google verification is being finalized (30-day expiry). These cannot be disabled.
         </li>
         <li>
           <strong>Analytics Cookies:</strong> With your consent, we use anonymous analytics cookies to understand how visitors interact with our site. These cookies do not collect personally identifiable information. You can opt in or out at any time via the cookie consent banner.
@@ -207,7 +207,7 @@
         </li>
       </ul>
       <p class="text-(--color-text-secondary) leading-relaxed mt-4">
-        Cookies are set with a domain of <code class="text-sm bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">.email-unsubscriber.com</code> so your preferences carry across our sites. They expire after 400 days. You can delete cookies at any time through your browser settings.
+        Cookies are set with a domain of <code class="text-sm bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">.email-unsubscriber.com</code> so your preferences carry across our sites. Most cookies expire after 400 days (the <code class="text-sm bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">security_read</code> cookie has a shorter 30-day expiry). You can delete cookies at any time through your browser settings.
       </p>
     </section>
 
@@ -485,7 +485,7 @@
     </section>
 
     <!-- Section 11: Your Rights -->
-    <section class="mb-8">
+    <section id="your-rights" class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">11. Your Rights</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You have full control over your data and access:

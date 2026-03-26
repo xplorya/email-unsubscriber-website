@@ -7,13 +7,14 @@ function getCookieDomain(): string {
   return '.email-unsubscriber.com'
 }
 
-export function setCookie(name: string, value: string): void {
+export function setCookie(name: string, value: string, maxAgeSec?: number): void {
   if (typeof document === 'undefined') return
 
   const domain = getCookieDomain()
   const secure = location.protocol === 'https:'
+  const age = maxAgeSec ?? MAX_AGE_SECONDS
 
-  let cookie = `${name}=${value}; path=/; max-age=${MAX_AGE_SECONDS}; SameSite=Lax`
+  let cookie = `${name}=${value}; path=/; max-age=${age}; SameSite=Lax`
   if (domain) cookie += `; domain=${domain}`
   if (secure) cookie += '; Secure'
 

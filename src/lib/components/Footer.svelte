@@ -42,14 +42,15 @@
       links: [
         { label: 'Privacy Policy', href: '/privacy', external: true },
         { label: 'Terms of Service', href: '/terms', external: true },
-        { label: 'Cookie Policy', href: '/privacy#cookies', external: true }
+        { label: 'Cookie Policy', href: '/privacy#cookies', external: true },
+        { label: 'Security', href: '/security', external: true }
       ]
     },
     {
       title: 'Support',
       links: [
         { label: 'Contact', href: `mailto:${CONTACT_EMAIL}` },
-        { label: 'GDPR', href: '#' }
+        { label: 'GDPR', href: '/privacy#your-rights', external: true }
         // { label: 'FAQ', href: '#' }
       ]
     }
