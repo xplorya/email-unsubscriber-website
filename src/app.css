@@ -254,11 +254,10 @@ body {
 /* Card hover elevation */
 .card-elevated {
   box-shadow: 0 1px 3px var(--color-card-shadow), 0 1px 2px var(--color-card-shadow);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  transition: box-shadow 0.25s ease;
 }
 .card-elevated:hover {
   box-shadow: 0 4px 12px var(--color-card-shadow-hover), 0 2px 4px var(--color-card-shadow);
-  transform: translateY(-2px);
 }
 
 /* Icon scale on parent group hover */
@@ -294,9 +293,6 @@ body {
   .icon-hover-scale,
   .icon-glow {
     transition: none !important;
-  }
-  .card-elevated:hover {
-    transform: none !important;
   }
   .group:hover .icon-hover-scale {
     transform: none !important;

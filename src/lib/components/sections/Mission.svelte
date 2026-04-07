@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { onMount, tick } from 'svelte'
+  import { onMount, onDestroy, tick } from 'svelte'
   import {icons} from "$lib/icons";
-  import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
+  import { reveal } from '$lib/utilities/scroll-reveal'
+  import { loadGsap, revealHeading, prefersReducedMotion } from '$lib/utilities/gsap-utils'
   import ParticleField from "$lib/components/ParticleField.svelte";
   import FootnoteExpander from "$lib/components/FootnoteExpander.svelte";
   import ArchitectureDiagram from "$lib/components/sections/ArchitectureDiagram.svelte";
@@ -17,16 +18,55 @@
 
   const cell2height = $derived(expanded ? (isWide ? 178 : 152) : (isWide ? 86 : 84))
 
+  let sectionEl: HTMLElement | undefined = $state()
+
+  /** ScrollTrigger instances created by entrance animations (NOT Flip) */
+  const scrollTriggers: Array<{ kill: () => void }> = []
+
   onMount(async () => {
     const mq = window.matchMedia('(min-width: 880px)')
     isWide = mq.matches
     mq.addEventListener('change', (e) => isWide = e.matches)
 
-    const gsap = (await import('gsap')).default
-    // @ts-ignore
-    const { Flip: FlipPlugin } = await import('gsap/Flip')
-    gsap.registerPlugin(FlipPlugin)
+    const { Flip: FlipPlugin, gsap, ScrollTrigger } = await loadGsap()
     Flip = FlipPlugin
+
+    // --- Entrance animations (skip if reduced motion) ---
+    if (!prefersReducedMotion() && sectionEl) {
+      // 1. Set initial hidden state BEFORE creating the batch trigger
+      //    (prevents visible→invisible→animate flash)
+      const cells = gsap.utils.toArray('.bento-cell') as HTMLElement[]
+      gsap.set(cells, { autoAlpha: 0, y: 30, scale: 0.95 })
+
+      // 2. Batch reveal for bento cells
+      ScrollTrigger.batch('.bento-cell', {
+        onEnter: (batch: Element[]) => {
+          gsap.to(batch, {
+            y: 0,
+            autoAlpha: 1,
+            scale: 1,
+            stagger: 0.08,
+            duration: 0.7,
+            ease: 'back.out(1.7)'
+          })
+        },
+        start: 'top 90%',
+        once: true
+      })
+      // Collect the batch ScrollTrigger for cleanup
+      const batchTriggers = ScrollTrigger.getAll().filter(
+        (st: any) => st.vars?.once === true
+      )
+      scrollTriggers.push(...batchTriggers)
+    }
+  })
+
+  onDestroy(() => {
+    // Kill only the entrance-animation ScrollTriggers, NOT the Flip plugin
+    for (const st of scrollTriggers) {
+      st.kill()
+    }
+    scrollTriggers.length = 0
   })
 
   let gridEl: HTMLElement | undefined = $state()
@@ -34,7 +74,7 @@
   async function toggle() {
     if (!Flip || !gridEl) { expanded = !expanded; return }
 
-    const gsapInstance = (await import('gsap')).default
+    const { gsap: gsapInstance } = await loadGsap()
 
     // 1. Capture old state + old grid height
     const state = Flip.getState('.cell')
@@ -83,8 +123,7 @@
 <!--    Cell 1 -->
 {#snippet cell1()}
   <div class="cell cell-1 rounded-xl flex">
-    <div class="cell cell-1 group bento-cell card-elevated rounded-xl p-6 pb-2 flex flex-col grow border border-(--color-border) border-l-4 border-l-(--color-accent-border) min-h-86"
-         use:revealStaggered={{ delay: 0, variant: 'scale' }}
+    <div class="cell cell-1 group bento-cell card-elevated rounded-xl p-6 pb-2 flex flex-col grow border border-(--color-border) border-l-4 border-l-(--color-accent-border)"
          style="background: linear-gradient(135deg, var(--color-accent-gradient-from), var(--color-bg-secondary-solid));">
       <div class="shrink-0 icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
         <span class="icon-hover-scale inline-block w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.monitor}</span>
@@ -106,7 +145,6 @@
   <div class="cell cell-2 relative rounded-xl z-10 min-w-67"
        style:height="{cell2height * 0.25}rem">
     <div
-      use:revealStaggered={{ delay: 100, variant: 'scale' }}
       class="cell cell-2 group bento-cell card-elevated rounded-xl p-6 sm:p-8 relative border border-(--color-border) border-l-4 border-l-(--color-accent-border) bg-(--color-bg-secondary-solid) overflow-hidden h-full"
     >
       <div class="cell-2-dots"></div>
@@ -162,9 +200,9 @@
 
 <!--    Cell 3 -->
 {#snippet cell3()}
-  <div class="cell cell-3 rounded-xl h-{cellMinHeight} min-w-70">
+  <div class="cell cell-3 rounded-xl min-w-70"
+       style="height: {cellMinHeight * 0.25}rem">
     <div
-      use:revealStaggered={{ delay: 200, variant: 'scale' }}
       class="cell cell-3 rounded-xl p-6 sm:p-8 group bento-cell card-elevated h-full border border-(--color-border) border-l-4 border-l-(--color-accent-border)"
       style="background: linear-gradient(to bottom, var(--color-bg-secondary-solid), var(--color-accent-gradient-from));"
     >
@@ -183,7 +221,6 @@
 {#snippet cell4()}
   <div class="cell cell-4 rounded-xl h-{cellMinHeight} min-w-60">
     <div
-      use:revealStaggered={{ delay: 300, variant: 'scale' }}
       class="cell-4 rounded-xl p-6 sm:p-8 relative group bento-cell card-elevated h-full overflow-hidden border-2 border-(--color-accent-border) bg-(--color-bg-secondary-solid)"
     >
       <ParticleField />
@@ -204,7 +241,6 @@
 <!--    Cell 5 -->
 {#snippet cell5()}
   <div
-    use:revealStaggered={{ delay: 400, variant: 'scale' }}
     class="cell-5 group bento-cell card-elevated rounded-xl p-6 sm:p-8 border border-(--color-border) border-l-4 border-l-(--color-accent-border) bg-(--color-bg-secondary-solid)"
   >
     <div class="icon-glow w-12 h-12 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
@@ -228,7 +264,6 @@
 <!--    Cell 6 -->
 {#snippet cell6()}
   <div
-    use:revealStaggered={{ delay: 500, variant: 'scale' }}
     class="cell-6 group bento-cell card-elevated rounded-xl p-6 sm:p-8 border border-(--color-border) border-b-4 border-b-(--color-accent-border)"
     style="background: linear-gradient(to right, var(--color-accent-gradient-from), var(--color-bg-secondary-solid));"
   >
@@ -266,8 +301,8 @@
   </div>
 {/snippet}
 
-<section id="why" class="section-fade-top bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-  <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
+<section bind:this={sectionEl} id="why" class="section-fade-top bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+  <h2 use:revealHeading class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
     Why Email Unsubscriber?
   </h2>
   <p class="mt-4 text-center text-(--color-text-secondary) text-lg max-w-2xl mx-auto">

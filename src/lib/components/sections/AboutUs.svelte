@@ -1,5 +1,6 @@
 <script lang="ts">
   import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
+  import { revealHeading } from '$lib/utilities/gsap-utils'
   import {CONTACT_EMAIL, COMPANY_NAME, COMPANY_UIC} from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
 
@@ -25,7 +26,7 @@
 
 <section id="about" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
+    <h2 use:revealHeading class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       About Us
     </h2>
 

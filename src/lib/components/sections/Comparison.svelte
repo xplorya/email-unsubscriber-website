@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { reveal } from '$lib/utilities/scroll-reveal'
+  import { onMount, onDestroy } from 'svelte'
+  import { loadGsap, prefersReducedMotion, revealHeading } from '$lib/utilities/gsap-utils'
 
   // TODO: - This section needs work in the features comparison row and the footnote
 
@@ -74,11 +75,120 @@
     { label: 'Persistent Access', key: 'persistentAccess' as const },
     { label: 'Features', key: 'features' as const },
   ]
+
+  /* ── GSAP cleanup tracking ─────────────────────────────── */
+  let tweens: { kill: () => void }[] = []
+  let triggers: { kill: () => void }[] = []
+  let matchMediaInstance: { revert: () => void } | null = null
+
+  function trackTween(t: any) {
+    tweens.push(t)
+    if (t.scrollTrigger) triggers.push(t.scrollTrigger)
+    return t
+  }
+
+  let sectionEl: HTMLElement | undefined = $state()
+
+  onMount(async () => {
+    if (prefersReducedMotion()) return
+
+    const { gsap, ScrollTrigger } = await loadGsap()
+
+    // Guard: component may have unmounted during async load
+    if (!sectionEl?.isConnected) return
+
+    const mm = gsap.matchMedia()
+    matchMediaInstance = mm
+
+    /* ═══ DESKTOP: Table row batch reveals + featured glow ═══ */
+    mm.add('(min-width: 1024px)', () => {
+      const rows = sectionEl!.querySelectorAll('.comparison-row')
+      if (rows.length > 0) {
+        gsap.set(rows, { autoAlpha: 0, y: 20 })
+
+        ScrollTrigger.batch('.comparison-row', {
+          onEnter: (batch: Element[]) => {
+            trackTween(
+              gsap.to(batch, {
+                y: 0,
+                autoAlpha: 1,
+                stagger: 0.05,
+                duration: 0.6,
+                ease: 'back.out(1.7)'
+              })
+            )
+          },
+          start: 'top 90%',
+          once: true
+        })
+      }
+
+      /* Featured column glow intensification on scroll.
+       * Uses hex rgba for the glow color (teal-500 = #14b8a6) to
+       * avoid GSAP's inability to parse oklch values from theme(). */
+      const tableEl = sectionEl!.querySelector('table')
+      const glowCells = sectionEl!.querySelectorAll('.featured-column-cell')
+      if (tableEl && glowCells.length > 0) {
+        trackTween(
+          gsap.to(glowCells, {
+            scrollTrigger: {
+              trigger: tableEl,
+              start: 'top 80%',
+              end: 'bottom 40%',
+              scrub: true
+            },
+            boxShadow: '-4px 0 16px -2px rgba(20, 184, 166, 0.25), 4px 0 16px -2px rgba(20, 184, 166, 0.25)',
+            ease: 'none'
+          })
+        )
+      }
+
+      return () => {
+        // matchMedia revert callback — ScrollTrigger cleans up automatically
+      }
+    })
+
+    /* ═══ MOBILE: Card batch reveals ═════════════════════════ */
+    mm.add('(max-width: 1023px)', () => {
+      const cards = sectionEl!.querySelectorAll('.comparison-mobile-card')
+      if (cards.length > 0) {
+        gsap.set(cards, { autoAlpha: 0, y: 30 })
+
+        ScrollTrigger.batch('.comparison-mobile-card', {
+          onEnter: (batch: Element[]) => {
+            trackTween(
+              gsap.to(batch, {
+                y: 0,
+                autoAlpha: 1,
+                stagger: 0.08,
+                duration: 0.7,
+                ease: 'back.out(1.7)'
+              })
+            )
+          },
+          start: 'top 85%',
+          once: true
+        })
+      }
+
+      return () => {
+        // matchMedia revert callback
+      }
+    })
+  })
+
+  onDestroy(() => {
+    matchMediaInstance?.revert()
+    for (const t of tweens) t.kill()
+    for (const st of triggers) st.kill()
+    tweens = []
+    triggers = []
+  })
 </script>
 
-<section id="comparison" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-  <div use:reveal class="max-w-7xl mx-auto">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
+<section id="comparison" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8" bind:this={sectionEl}>
+  <div class="max-w-7xl mx-auto">
+    <h2 use:revealHeading class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       The Landscape
     </h2>
     <p class="mt-4 text-center text-(--color-text-secondary) text-lg max-w-2xl mx-auto">
@@ -105,7 +215,7 @@
         </thead>
         <tbody>
           {#each features as feature, i (feature.key)}
-            <tr>
+            <tr class="comparison-row">
               <td class="p-4 text-sm font-medium text-(--color-text) border-b border-(--color-border)">
                 {feature.label}
               </td>
@@ -126,7 +236,7 @@
     <!-- Mobile: card-based comparison -->
     <div class="mt-12 sm:mt-16 lg:hidden space-y-6">
       <!-- Our card (highlighted) -->
-      <div class="featured-mobile-card card-elevated rounded-xl border-2 border-(--color-accent) p-6">
+      <div class="comparison-mobile-card featured-mobile-card card-elevated rounded-xl border-2 border-(--color-accent) p-6">
         <h3 class="text-lg font-bold text-(--color-text) mb-4">{us.name}</h3>
         <dl class="space-y-3">
           {#each features as feature (feature.key)}
@@ -140,7 +250,7 @@
 
       <!-- Competitor cards -->
       {#each competitors as comp (comp.name)}
-        <div class="rounded-xl border border-(--color-border) bg-(--color-bg) p-6">
+        <div class="comparison-mobile-card rounded-xl border border-(--color-border) bg-(--color-bg) p-6">
           <h3 class="text-lg font-medium text-(--color-text-secondary) mb-4">{comp.name}</h3>
           <dl class="space-y-3">
             {#each features as feature (feature.key)}

@@ -1,6 +1,7 @@
 
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
+  import { loadGsap } from '$lib/utilities/gsap-utils'
 
   let journeyEl: HTMLDivElement | undefined = $state()
   let rootEl: HTMLDivElement | undefined = $state()
@@ -26,7 +27,7 @@
       !progressBar
     ) return
 
-    const gsap = (await import('gsap')).default
+    const { gsap } = await loadGsap()
 
     // Component may have been destroyed during the async import (e.g. layout switch on hydration)
     if (!rootEl?.isConnected) return

@@ -140,7 +140,8 @@
         {@const isActive = activeSection === id}
         <a
           href={item.href}
-          class="px-3 py-2 text-sm font-medium rounded-md transition-colors {isActive ? 'text-(--color-text) font-semibold' : 'text-(--color-text-secondary) hover:text-(--color-text)'}"
+          data-nav-id={id}
+          class="nav-link px-3 py-2 text-sm rounded-md {isActive ? 'nav-link-active' : 'text-(--color-text-secondary) hover:text-(--color-text)'}"
         >
           {item.label}
         </a>
@@ -212,7 +213,7 @@
         <a
           href={item.href}
           onclick={handleNavClick}
-          class="text-xl font-medium transition-colors {isActive ? 'text-(--color-text)' : 'text-(--color-text-secondary)'}"
+          class="text-xl font-medium transition-colors {isActive ? 'text-(--color-accent-text) font-semibold' : 'text-(--color-text-secondary)'}"
         >
           {item.label}
         </a>
@@ -280,5 +281,20 @@
 
   .hamburger-line-3.hamburger-open {
     transform: rotate(-45deg);
+  }
+
+  /* Nav link — smooth transition for active tab styling */
+  .nav-link {
+    font-weight: 500;
+    font-size: 0.875rem; /* text-sm baseline */
+    transition: font-size 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                font-weight 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .nav-link-active {
+    color: var(--color-accent-text);
+    font-weight: 600;
+    font-size: 0.935rem;
   }
 </style>
