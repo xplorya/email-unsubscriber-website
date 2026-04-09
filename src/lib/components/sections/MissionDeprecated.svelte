@@ -145,7 +145,7 @@
                   and independent verification. You don't have to trust our word — you can
                   inspect every line of code yourself.
                 </p>
-                <a href="https://github.com/xplorya/email-unsubscriber-open-oauth" target="_blank" rel="noopener noreferrer"
+                <a href="https://github.com/micro-solutions-llc/email-unsubscriber-open-oauth" target="_blank" rel="noopener noreferrer"
                    class="mt-3 inline-flex items-center gap-2 text-sm font-medium text-(--color-accent-text) hover:text-(--color-accent-hover) hover:underline transition-colors">
                   <span class="w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.github}</span>
                   View on GitHub

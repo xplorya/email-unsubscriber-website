@@ -185,7 +185,7 @@
               inspect every line of code yourself.
             </p>
             <div class="grow flex items-end justify-end mt-4 mb-6">
-              <a href="https://github.com/xplorya/email-unsubscriber-open-oauth" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/micro-solutions-llc/email-unsubscriber-open-oauth" target="_blank" rel="noopener noreferrer"
                  class="inline-flex items-end gap-2 text-sm font-medium text-(--color-accent-text) hover:text-(--color-accent-hover) hover:underline transition-colors">
                 <span class="w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.github}</span>
                 View on GitHub

@@ -215,7 +215,7 @@
         Our OAuth service is fully open source. Audit exactly how we handle authentication and confirm that email tokens never reach our infrastructure:
       </p>
       <p class="text-(--color-text-secondary)">
-        <a href="https://github.com/xplorya/email-unsubscriber-open-oauth" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">github.com/xplorya/email-unsubscriber-open-oauth</a>
+        <a href="https://github.com/micro-solutions-llc/email-unsubscriber-open-oauth" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">github.com/micro-solutions-llc/email-unsubscriber-open-oauth</a>
       </p>
     </section>
 
