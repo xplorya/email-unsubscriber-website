@@ -1,31 +1,32 @@
 <script lang="ts">
   import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
-  import {CONTACT_EMAIL, COMPANY_NAME, COMPANY_UIC} from '$lib/utilities/constants'
+  import { revealHeading } from '$lib/utilities/gsap-utils'
+  import {CONTACT_EMAIL, COMPANY_NAME} from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
 
   const values = [
     {
       title: 'Privacy First',
       description: "Every technical decision starts with 'does this protect user data?'",
-      icon: icons.shield
+      icon: icons.privateDataProtect
     },
     {
       title: 'Simplicity',
-      description: 'One product, one purpose, one payment. No bloat.',
-      icon: icons.star
+      description: 'One product, one purpose, one simple process. No bloat.',
+      icon: icons.easyToUse
     },
     {
       title: 'Transparency',
       description:
         "Our architecture is our proof. Browser-only features isn't just a claim — it's verifiable.",
-      icon: icons.eye
+      icon: icons.openBook
     }
   ] as const
 </script>
 
 <section id="about" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
+    <h2 use:revealHeading class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       About Us
     </h2>
 

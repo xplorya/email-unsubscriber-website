@@ -10,7 +10,10 @@
   let { children } = $props()
 
   const isLegalPage = $derived(
-    page.url.pathname === '/privacy' || page.url.pathname === '/terms'
+    page.url.pathname === '/privacy' || page.url.pathname === '/terms' || page.url.pathname === '/security'
+  )
+  const isBlogRoute = $derived(
+    page.url.pathname === '/blog' || page.url.pathname.startsWith('/blog/')
   )
 
   let scrollY = $state(0)
@@ -33,11 +36,18 @@
 <div id="site-halo" aria-hidden="true"></div>
 <div id="site-dots" aria-hidden="true" style:transform="translateY({dotOffset}px)"></div>
 
+<a
+  href="#main-content"
+  class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-3 focus:py-2 focus:bg-(--color-bg) focus:border focus:border-(--color-accent) focus:rounded"
+>
+  Skip to content
+</a>
+
 <div class="relative z-10 min-h-screen flex flex-col">
-  {#if !isLegalPage}
+  {#if !isLegalPage && !isBlogRoute}
     <Header />
   {/if}
-  <main class="flex-1">
+  <main id="main-content" class="flex-1">
     {@render children()}
   </main>
   <Footer minimal={isLegalPage} />

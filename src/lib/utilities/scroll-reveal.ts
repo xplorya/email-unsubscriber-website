@@ -14,13 +14,20 @@ function isInViewport(node: HTMLElement): boolean {
   return rect.top < window.innerHeight && rect.bottom > 0
 }
 
+type RevealVariant = 'default' | 'scale'
+
 /**
  * Hides an element via inline styles (not CSS classes) so that
  * pre-rendered HTML stays visible for bots/crawlers.
+ * Optionally applies a variant CSS class for alternative reveal effects.
  */
-function hideElement(node: HTMLElement): void {
+function hideElement(node: HTMLElement, variant: RevealVariant = 'default'): void {
   node.style.opacity = '0'
   node.style.transform = 'translateY(1.5rem)'
+
+  if (variant === 'scale') {
+    node.classList.add('reveal-scale')
+  }
 }
 
 /**
@@ -96,6 +103,8 @@ export const reveal: Action<HTMLElement, RevealOptions | undefined> = (node, opt
 interface StaggeredOptions extends RevealOptions {
   /** Delay in milliseconds before adding the `revealed` class. Default: 0 */
   delay?: number
+  /** Reveal effect variant. Default: 'default' (translateY fade-in) */
+  variant?: RevealVariant
 }
 
 export const revealStaggered: Action<HTMLElement, StaggeredOptions | undefined> = (
@@ -104,6 +113,7 @@ export const revealStaggered: Action<HTMLElement, StaggeredOptions | undefined> 
 ) => {
   const threshold = options?.threshold ?? 0.15
   const delay = options?.delay ?? 0
+  const variant = options?.variant ?? 'default'
 
   node.classList.add('reveal-target')
 
@@ -121,14 +131,16 @@ export const revealStaggered: Action<HTMLElement, StaggeredOptions | undefined> 
   }
 
   // Elements below the fold: hide via inline styles, reveal on scroll
-  hideElement(node)
+  hideElement(node, variant)
+
+  let timeoutId: ReturnType<typeof setTimeout> | undefined
 
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
           if (delay > 0) {
-            setTimeout(() => {
+            timeoutId = setTimeout(() => {
               entry.target.classList.add('revealed')
             }, delay)
           } else {
@@ -145,6 +157,7 @@ export const revealStaggered: Action<HTMLElement, StaggeredOptions | undefined> 
 
   return {
     destroy() {
+      clearTimeout(timeoutId)
       observer.disconnect()
     }
   }

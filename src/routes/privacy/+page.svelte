@@ -25,7 +25,7 @@
         <span class="inline-block w-5 h-5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
       </button>
     </div>
-    <p class="text-sm text-slate-500 mb-8">Last Updated: March 09, 2026</p>
+    <p class="text-sm text-slate-500 mb-8">Last Updated: April 22, 2026</p>
 
     <!-- Privacy-First Hero Section -->
     <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4 mb-8">
@@ -153,7 +153,7 @@
     </section>
 
     <!-- Section 5: How Our Service Works -->
-    <section class="mb-8">
+    <section id="how-it-works" class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">5. How Our Service Works</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         Understanding our architecture helps explain why your data stays private:
@@ -444,7 +444,7 @@
     <section class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">10. Data Retention & Account Deletion</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
-        You can delete your account at any time using the "Erase Data" feature in your profile. When you erase your account, we process your data as follows:
+        You can delete your account at any time using the "Erase Account" feature in your profile. When you erase your account, we process your data as follows:
       </p>
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.1 Anonymization Process</h3>
@@ -480,12 +480,12 @@
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.4 Local Browser Data</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        The "Erase Data" feature removes your account from our servers. Data stored locally in your browser (localStorage, IndexedDB) is not affected by this process. You can clear local data at any time through your browser settings.
+        The "Erase Account" feature removes your account from our servers. Data stored locally in your browser (localStorage, IndexedDB) is not affected by this process. You can clear local data at any time through your browser settings.
       </p>
     </section>
 
     <!-- Section 11: Your Rights -->
-    <section class="mb-8">
+    <section id="your-rights" class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">11. Your Rights</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
         You have full control over your data and access:
@@ -498,7 +498,7 @@
           <strong>Clear Local Data:</strong> Clear your browser's localStorage and IndexedDB to remove all locally stored data.
         </li>
         <li>
-          <strong>Account Deletion:</strong> Use the "Erase Data" feature in your profile to anonymize and remove your account data from our servers. See Section 10 for details on what is deleted, what is anonymized, and what is retained.
+          <strong>Account Deletion:</strong> Use the "Erase Account" feature in your profile to anonymize and remove your account data from our servers. See Section 10 for details on what is deleted, what is anonymized, and what is retained.
         </li>
         <li>
           <strong>Data Export:</strong> Since all scan data is stored locally in your browser, you already have direct access to your data.
@@ -506,9 +506,186 @@
       </ul>
     </section>
 
-    <!-- Section 12: Contact -->
+    <!-- Section 12: California Privacy Rights -->
+    <section id="california" class="mb-8">
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">12. California Privacy Rights (CCPA/CPRA)</h2>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.1 Scope</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        This section applies to California residents and supplements the rest of this Privacy Policy with the disclosures required by the California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA). Where this section conflicts with another part of this Policy for California residents, this section controls.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.2 We Do Not Sell or Share Your Personal Information</h3>
+      <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-4">
+        <p class="text-teal-800 dark:text-teal-200 leading-relaxed m-0">
+          We have <strong>not sold</strong> and have <strong>not shared</strong> personal information of California residents in the preceding 12 months, and we do not do so as an ongoing practice. "Sale" and "share" are used here as defined under CCPA/CPRA, including sharing for cross-context behavioral advertising. Because we do not engage in either activity, there is no opt-out mechanism to provide.
+        </p>
+      </div>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.3 Your Rights</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+        California residents have the following rights under CCPA/CPRA:
+      </p>
+      <ul class="space-y-3 text-(--color-text-secondary)">
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Right to Know:</strong> request the categories and specific pieces of personal information we have collected about you, the sources, the purposes for collection, and the categories of recipients.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Right to Delete:</strong> request that we delete personal information we have collected from you, subject to legal exceptions.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Right to Correct:</strong> request that we correct inaccurate personal information we hold about you.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Right to Opt-Out of Sale/Share:</strong> opt out of the sale or sharing of personal information. <em>Not applicable here</em> &mdash; we do not sell or share personal information.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Right to Limit Use of Sensitive PI:</strong> direct us to limit our use of sensitive personal information to purposes permitted under CPRA &sect;1798.121. See section 12.6.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Right to Non-Discrimination:</strong> we will not deny service, charge different prices, or provide a different level of quality because you exercised any of these rights.</span>
+        </li>
+      </ul>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.4 Categories of Personal Information We Collect</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed mb-4">We collect:</p>
+      <ul class="space-y-3 text-(--color-text-secondary)">
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Identifiers:</strong> your email address (used as your account identifier).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Commercial information:</strong> payment amounts, transaction identifiers, and subscription/payment status.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Internet or other electronic network activity:</strong> analytics page views and session recordings (consent-gated via our cookie banner).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span><strong>Inferences:</strong> aggregate usage statistics derived from your interactions with the service.</span>
+        </li>
+      </ul>
+
+      <p class="text-(--color-text-secondary) leading-relaxed mt-6 mb-4">We do <strong>NOT</strong> collect:</p>
+      <ul class="space-y-3 text-(--color-text-secondary)">
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Sensitive government identifiers (SSN, driver's license, passport, state ID).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Biometric data (fingerprints, facial geometry, voiceprints).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Health, medical, or genetic information.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Precise geolocation (we have no GPS-level location data).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Contact lists, address books, or your email content.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Racial or ethnic origin.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Religious or philosophical beliefs.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Sexual orientation or sex life.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+          <span>Union membership.</span>
+        </li>
+      </ul>
+      <p class="text-(--color-text-secondary) leading-relaxed mt-4">
+        The categories above reflect our ongoing practice and will be updated if our sources, purposes, or recipients materially change.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.5 Sources, Purposes, and Recipients</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+        For each category we collect, the source, business purpose, and recipients are as follows:
+      </p>
+      <ul class="space-y-3 text-(--color-text-secondary)">
+        <li><strong>Identifiers (email address):</strong> collected directly from you via OAuth sign-in with your email provider. Used for authentication, account identification, transactional communication, and service provision. Shared with Google or Microsoft (your chosen identity provider for sign-in), Stripe (for payment receipt and customer matching), Cloudflare (CDN/edge processing of authentication requests), and PostHog (only if you have consented to analytics &mdash; as a hashed identifier for product analytics).</li>
+        <li><strong>Commercial information (payment data):</strong> collected from Stripe upon successful payment. Used to determine your subscription/payment status and provide paid features. Shared with Stripe (the source and processor of this data) and stored on our backend.</li>
+        <li><strong>Internet/network activity (analytics, session recordings):</strong> collected from your browser/device when you interact with our service. Used for product analytics, debugging, and improving the user experience. Shared only with PostHog, and only if you have granted analytics consent through our cookie banner.</li>
+        <li><strong>Inferences (usage statistics):</strong> derived internally from your interactions with the service. Used to inform product decisions and personalize your experience. Not shared with third parties.</li>
+      </ul>
+      <p class="text-(--color-text-secondary) leading-relaxed mt-4">
+        This list reflects ongoing practice and will be updated if sources, purposes, or recipients materially change.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.6 Sensitive Personal Information</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        Under CPRA, an email address used in combination with a password or security credential is considered "sensitive personal information" (SPI). We use your email address only for the purposes permitted under CPRA &sect;1798.121: authenticating you, providing the service you have requested, ensuring the security and integrity of our service, and complying with legal obligations. Because we do not use SPI to infer characteristics about you or for any other purpose, the "Right to Limit Use of Sensitive PI" is already satisfied by our existing practice &mdash; no further action is needed from you.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.7 How to Exercise Your Rights</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+        You may exercise any of the rights described above by either:
+      </p>
+      <ul class="space-y-3 text-(--color-text-secondary)">
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span>Emailing <span class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">{GDPR_EMAIL}</span> from the email address associated with your account, or</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
+          <span>Using the <strong>"Erase Account"</strong> feature in your account profile within the web app to initiate account deletion directly.</span>
+        </li>
+      </ul>
+      <p class="text-(--color-text-secondary) leading-relaxed mt-4">
+        We will acknowledge receipt of your request within <strong>10 business days</strong> and respond substantively within <strong>45 calendar days</strong>. If we need more time, we may extend the response window by an additional 45 days and will notify you of the extension and the reasons for it. There is no charge for submitting or fulfilling a request, although we may decline to act on requests that are manifestly unfounded or excessive (for example, repetitive requests). If we decline a request, we will explain why.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.8 Authorized Agents</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        You may designate an authorized agent to make a CCPA/CPRA request on your behalf. The agent must provide written authorization signed by you, along with government-issued photo identification for both you and the agent. We may also contact you directly to verify the request. If the agent has a power of attorney pursuant to California Probate Code &sect;&sect;4000-4465, the foregoing requirements may be satisfied by providing that documentation.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.9 Non-Discrimination</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        We will not discriminate against you for exercising any of your CCPA/CPRA rights. Specifically, we will not deny you our service, charge you different prices or rates, provide a different level or quality of service, or suggest that you will receive a different price, rate, level, or quality of service because you exercised your rights.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.10 Minors</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        We do not knowingly collect personal information from anyone under 16 years of age. Our Terms of Service additionally require all users to be at least 18 years old. If we become aware that we have collected personal information from a minor without verified parental or guardian consent, we will delete that information promptly. To report such a situation, contact us at <span class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">{GDPR_EMAIL}</span>.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.11 Financial Incentives</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        Our referral program qualifies as a "financial incentive" under CCPA &sect;1798.125(b). The program offers percentage-based discounts to both new users (when they sign up using a referral) and to referrers (when their referrals reach qualifying milestones). The current material terms &mdash; including the percentage discounts, qualifying actions, and program rules &mdash; are available on the in-app referral page within your account profile and may change from time to time.
+      </p>
+      <p class="text-(--color-text-secondary) leading-relaxed mt-4">
+        Participation in the referral program is entirely voluntary. To opt out, simply do not participate &mdash; do not share your referral code and do not redeem one. Choosing not to participate does not affect the price you pay for the service or the level of service you receive in any way.
+      </p>
+
+      <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">12.12 Shine the Light (CA Civil Code &sect;1798.83)</h3>
+      <p class="text-(--color-text-secondary) leading-relaxed">
+        California's "Shine the Light" law permits California residents to request information regarding the disclosure of personal information to third parties for those third parties' direct marketing purposes. <strong>We do not disclose personal information to third parties for their own direct marketing purposes</strong>, so there is nothing to report under this law. If you have questions about this practice, contact us at <span class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">{GDPR_EMAIL}</span>.
+      </p>
+    </section>
+
+    <!-- Section 13: Contact -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">12. Contact Us</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">13. Contact Us</h2>
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">Data Protection Contact</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
@@ -529,9 +706,9 @@
       </p>
     </section>
 
-    <!-- Section 13: Changes to This Policy -->
+    <!-- Section 14: Changes to This Policy -->
     <section class="mb-8">
-      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">13. Changes to This Policy</h2>
+      <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">14. Changes to This Policy</h2>
       <p class="text-(--color-text-secondary) leading-relaxed">
         We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
       </p>

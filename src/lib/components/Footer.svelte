@@ -33,7 +33,7 @@
       links: [
         { label: 'About Us', href: '/#about' },
         { label: 'Mission', href: '/#why' },
-        // { label: 'Blog', href: '#' },
+        { label: 'Blog (coming soon)', href: '/blog' }
         // { label: 'Careers', href: '#' }
       ]
     },
@@ -42,14 +42,16 @@
       links: [
         { label: 'Privacy Policy', href: '/privacy', external: true },
         { label: 'Terms of Service', href: '/terms', external: true },
-        { label: 'Cookie Policy', href: '/privacy#cookies', external: true }
+        { label: 'Cookie Policy', href: '/privacy#cookies', external: true },
+        { label: 'Security', href: '/security', external: true },
+        { label: 'Your California Privacy Rights', href: '/privacy#california', external: true }
       ]
     },
     {
       title: 'Support',
       links: [
         { label: 'Contact', href: `mailto:${CONTACT_EMAIL}` },
-        { label: 'GDPR', href: '#' }
+        { label: 'GDPR', href: '/privacy#your-rights', external: true }
         // { label: 'FAQ', href: '#' }
       ]
     }
