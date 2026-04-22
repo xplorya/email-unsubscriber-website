@@ -45,7 +45,7 @@ The assessment was carried out by TAC Security -- Google's preferred authorized 
 
 - **Independent proof, not a marketing claim.** A third-party lab, authorized by ADA, reviewed our code and our operating practices. The word "secure" on our site is no longer a self-report.
 - **Reassurance that "No access to email data" was the right approach.** A recurring theme in the review: "Where does user data live and how do you protect it?" Our answer stayed simple — we don't store any of the users' email data anywhere because we never access it. Only the user's browser does - the scanner runs there directly.
-- **Formal confirmation of what we already built.** The assessment validates the things we architected from day one: read-only OAuth scopes, AES-256 encryption at rest, browser-side scanning, and one-off payments that remove the incentive to [hoard data for retention metrics](/blog/one-off-payments-as-a-business-model).
+- **Formal confirmation of what we already built.** The assessment validates the things we architected from day one: read-only OAuth scopes, AES-256 encryption at rest, browser-side scanning, and one-off payments that remove the incentive to hoard data for retention metrics.
 
 ## What this unlocks
 
@@ -53,8 +53,7 @@ The assessment was carried out by TAC Security -- Google's preferred authorized 
 
 ## What's next
 
-We're committed to making Email Unsubscriber available to as many users as possibl, so expanding the support to other well-known email providers -- and maybe even custom integrations, who knows? -- is on the roadmap. Stay tuned!
+We're committed to making Email Unsubscriber available to as many users as possible, so expanding the support to other well-known email providers -- and maybe even custom integrations, who knows? -- is on the roadmap. Stay tuned!
 
 Thanks for being patient while we worked through it. It took us a few weeks of infrastructure improvements, paperwork, and back-and-forth with Google and our chosen assessor, but it was worth it: outside validation is the only way a privacy claim means anything.
 
-**Read next: [Passing CASA Tier 2 as a small team — what the process actually looks like](/blog/passing-casa-t2-small-team-field-guide).**

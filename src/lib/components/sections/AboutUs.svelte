@@ -1,7 +1,7 @@
 <script lang="ts">
   import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
   import { revealHeading } from '$lib/utilities/gsap-utils'
-  import {CONTACT_EMAIL, COMPANY_NAME, COMPANY_UIC} from '$lib/utilities/constants'
+  import {CONTACT_EMAIL, COMPANY_NAME} from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
 
   const values = [
