@@ -56,6 +56,21 @@
   --arch-code-lit: rgba(94, 234, 212, 0.65);
   --arch-progress: #14b8a6;
   --arch-progress-flash: #99f6e4;
+
+  /* ═══ Prose (long-form content) ═══ */
+  --prose-heading: var(--color-text);
+  --prose-body: theme(colors.slate.700);
+  --prose-link: var(--color-accent-text);
+  --prose-link-hover: var(--color-accent-hover);
+  --prose-code-bg: theme(colors.slate.100);
+  --prose-code-text: theme(colors.slate.900);
+  --prose-inline-code-bg: theme(colors.slate.100);
+  --prose-inline-code-text: theme(colors.slate.900);
+  --prose-blockquote-border: var(--color-accent);
+  --prose-blockquote-bg: color-mix(in srgb, var(--color-accent) 4%, transparent);
+  --prose-blockquote-text: theme(colors.slate.700);
+  --prose-hr: var(--color-border);
+  --prose-table-border: var(--color-border);
 }
 
 /* DARK THEME */
@@ -111,6 +126,15 @@
     --arch-code-lit: rgba(240, 253, 250, 0.65);
     --arch-progress: #5eead4;
     --arch-progress-flash: #f0fdfa;
+
+    /* Prose overrides — dark */
+    --prose-body: theme(colors.slate.300);
+    --prose-code-bg: #0b1120;
+    --prose-code-text: theme(colors.slate.200);
+    --prose-inline-code-bg: theme(colors.slate.800);
+    --prose-inline-code-text: theme(colors.slate.100);
+    --prose-blockquote-bg: color-mix(in srgb, var(--color-accent) 6%, transparent);
+    --prose-blockquote-text: theme(colors.slate.300);
   }
 }
 
@@ -166,6 +190,15 @@
   --arch-code-lit: rgba(240, 253, 250, 0.65);
   --arch-progress: #5eead4;
   --arch-progress-flash: #f0fdfa;
+
+  /* Prose overrides — explicit dark */
+  --prose-body: theme(colors.slate.300);
+  --prose-code-bg: #0b1120;
+  --prose-code-text: theme(colors.slate.200);
+  --prose-inline-code-bg: theme(colors.slate.800);
+  --prose-inline-code-text: theme(colors.slate.100);
+  --prose-blockquote-bg: color-mix(in srgb, var(--color-accent) 6%, transparent);
+  --prose-blockquote-text: theme(colors.slate.300);
 }
 
 /* Scroll reveal animation
@@ -203,6 +236,18 @@ html {
 body {
   @apply bg-(--color-bg) text-(--color-text) antialiased;
   font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /*
+   * Prevent decorative absolutes (hero/pricing blobs, gradient halos) from
+   * causing horizontal page scroll on narrow viewports.
+   * overflow-x: clip is preferred over hidden because it does not establish
+   * a scroll container, so `position: sticky` in descendants keeps working
+   * (unlike overflow-x: hidden, which breaks sticky in some browsers).
+   */
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
 }
 
 /* ═══ Parallax Background: Dot Grid & Gradient Halo ═══ */
@@ -357,3 +402,276 @@ body {
     background-size: 128px 128px;
   }
 }
+
+/* ═══ Prose (long-form content) ═══ */
+
+.prose {
+  color: var(--prose-body);
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .prose {
+    font-size: 18px;
+  }
+}
+
+.prose > * + * {
+  margin-top: 1.25em;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--prose-heading);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  scroll-margin-top: 6rem;
+  font-weight: 700;
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  margin-top: 2.5em;
+}
+
+@media (min-width: 640px) {
+  .prose h2 {
+    font-size: 2rem;
+  }
+}
+
+.prose h3 {
+  font-size: 1.375rem;
+  margin-top: 2em;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .prose h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.prose h4 {
+  font-size: 1.125rem;
+  margin-top: 1.75em;
+  font-weight: 600;
+}
+
+.prose p {
+  margin: 1.25em 0;
+}
+
+.prose a {
+  color: var(--prose-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--prose-link) 40%, transparent);
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+.prose a:hover {
+  color: var(--prose-link-hover);
+  text-decoration-color: var(--prose-link-hover);
+}
+
+.prose a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.6em;
+}
+
+.prose ul > li {
+  position: relative;
+  padding-left: 0.5em;
+  margin: 0.5em 0;
+  list-style: none;
+}
+
+.prose ul > li::before {
+  content: "";
+  position: absolute;
+  left: -1em;
+  top: 0.7em;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose ol > li {
+  margin: 0.5em 0;
+}
+
+.prose ol > li::marker {
+  color: var(--color-accent-text);
+  font-weight: 600;
+}
+
+.prose li > p {
+  margin: 0.5em 0;
+}
+
+.prose blockquote {
+  margin: 1.75em 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--prose-blockquote-border);
+  background: var(--prose-blockquote-bg);
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: var(--prose-blockquote-text);
+  font-style: normal;
+}
+
+.prose blockquote > p {
+  margin: 0;
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--prose-hr);
+  margin: 3em 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+}
+
+.prose figure {
+  margin: 1.75em 0;
+}
+
+.prose figcaption {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--prose-inline-code-bg);
+  color: var(--prose-inline-code-text);
+  padding: 0.125em 0.4em;
+  border: 1px solid var(--color-border);
+  border-radius: 0.3rem;
+}
+
+.prose pre {
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  /*
+   * No `background` / `color` here — Shiki emits inline CSS variables
+   * (`--shiki-light-bg`, `--shiki-dark-bg`, etc.) on `<pre class="shiki">`
+   * and the `.shiki` rules below paint the pre with the active theme's
+   * native colors. Setting bg here would override Shiki's dark bg in
+   * light mode and muddy the aesthetic.
+   * `--prose-code-bg` / `--prose-code-text` are kept as a fallback for
+   * non-Shiki `<pre>` elements (plain fenced blocks without highlighting).
+   */
+  padding: 1.125rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  overflow-x: auto;
+  margin: 1.75em 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+/* Fallback bg/fg for plain (non-Shiki) fenced code blocks only. */
+.prose pre:not(.shiki) {
+  background: var(--prose-code-bg);
+  color: var(--prose-code-text);
+}
+
+/* Reset inline-code styling inside fenced blocks; inherit Shiki font stack. */
+.prose pre code {
+  font-family: inherit;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75em 0;
+  display: block;
+  overflow-x: auto;
+}
+
+.prose th {
+  background: var(--color-bg-secondary-solid);
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: left;
+  padding: 0.65em 0.75em;
+  border-bottom: 1px solid var(--prose-table-border);
+}
+
+.prose td {
+  padding: 0.65em 0.75em;
+  border-bottom: 1px solid var(--prose-table-border);
+  text-align: left;
+}
+
+/* Autolink headings (rehype-autolink-headings) — keep the h2/h3 text clean;
+ * the plugin wraps the heading content in an <a>. Suppress link styling. */
+.prose h2 > a,
+.prose h3 > a,
+.prose h4 > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.prose h2 > a:hover,
+.prose h3 > a:hover,
+.prose h4 > a:hover {
+  color: var(--color-accent-text);
+}
+
+/* ═══ Shiki dual-theme ═══
+ * Shiki with `themes: { light, dark }` emits per-token inline CSS vars
+ * `--shiki-light` / `--shiki-dark` + matching `-bg` vars. We switch between
+ * them based on the site theme. */
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+:root.dark .shiki,
+:root.dark .shiki span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .shiki,
+  :root:not(.light) .shiki span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
+}
+

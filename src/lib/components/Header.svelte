@@ -14,8 +14,16 @@
     { label: 'About', href: '/#about' }
   ] as const
 
+  let { hideNav = false }: { hideNav?: boolean } = $props()
+
   let scrolled = $state(false)
-  let heroCTAVisible = $state(true)
+  // Default to `false` so the header CTA is rendered in SSR on every route
+  // (blog routes have no #hero-cta, so they always need the header CTA;
+  // homepage SSR also renders the CTA, then `onMount` flips it to `true`
+  // once the hero CTA is confirmed in-viewport, causing the header CTA to
+  // fade out via the transition). This avoids a FOUC where the CTA pops in
+  // on hydrate.
+  let heroCTAVisible = $state(false)
   let activeSection = $state('home')
   let mobileMenuOpen = $state(false)
   let prefersReducedMotion = $state(false)
@@ -60,16 +68,23 @@
     }
     motionQuery.addEventListener('change', onMotionChange)
 
-    // Resolve elements once for scroll-based tracking
-    const ctaEl = document.getElementById('hero-cta')
-    if (!ctaEl) {
-      heroCTAVisible = false
+    // Resolve elements once for scroll-based tracking. On blog routes
+    // (`hideNav=true`) there is no hero CTA to mirror and no nav sections to
+    // scroll-spy — keep the header CTA visible and skip those observers.
+    const ctaEl = hideNav ? null : document.getElementById('hero-cta')
+    if (ctaEl) {
+      // On the homepage, set the initial visibility based on whether the
+      // hero CTA is currently in viewport — this flips the header CTA to
+      // hidden if the user lands at the top of the page.
+      heroCTAVisible = ctaEl.getBoundingClientRect().bottom > 0
     }
 
-    const sectionEls = NAV_ITEMS.map((item) => item.href.split('#')[1])
-      .filter(Boolean)
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null)
+    const sectionEls = hideNav
+      ? []
+      : NAV_ITEMS.map((item) => item.href.split('#')[1])
+          .filter(Boolean)
+          .map((id) => document.getElementById(id))
+          .filter((el): el is HTMLElement => el !== null)
 
     // Sort by actual DOM position so scroll logic picks the correct section
     sectionEls.sort((a, b) => a.offsetTop - b.offsetTop)
@@ -78,7 +93,7 @@
 
     function onScroll() {
       // Header background toggle
-      scrolled = window.scrollY > 80
+      scrolled = window.scrollY > 8
 
       // Hero CTA visibility: show header CTA once hero CTA scrolls above viewport
       if (ctaEl) {
@@ -89,6 +104,8 @@
       // Active section tracking:
       // Find the section whose top is closest to (but above) 30% of the viewport.
       // This replicates the rootMargin: '-20% 0px -60% 0px' observation band.
+      if (sectionEls.length === 0) return
+
       const trigger = window.innerHeight * 0.3
       let current = sectionEls[0]?.id ?? 'home'
 
@@ -133,20 +150,25 @@
       </a>
     </div>
 
-    <!-- Center: Nav links (desktop only, always centered) -->
-    <div class="hidden md:flex items-center justify-center gap-1">
-      {#each NAV_ITEMS as item (item.href)}
-        {@const id = item.href.split('#')[1]}
-        {@const isActive = activeSection === id}
-        <a
-          href={item.href}
-          data-nav-id={id}
-          class="nav-link px-3 py-2 text-sm rounded-md {isActive ? 'nav-link-active' : 'text-(--color-text-secondary) hover:text-(--color-text)'}"
-        >
-          {item.label}
-        </a>
-      {/each}
-    </div>
+    {#if !hideNav}
+      <!-- Center: Nav links (desktop only, always centered) -->
+      <div class="hidden md:flex items-center justify-center gap-1">
+        {#each NAV_ITEMS as item (item.href)}
+          {@const id = item.href.split('#')[1]}
+          {@const isActive = activeSection === id}
+          <a
+            href={item.href}
+            data-nav-id={id}
+            class="nav-link px-3 py-2 text-sm rounded-md {isActive ? 'nav-link-active' : 'text-(--color-text-secondary) hover:text-(--color-text)'}"
+          >
+            {item.label}
+          </a>
+        {/each}
+      </div>
+    {:else}
+      <!-- Placeholder keeps 3-track grid intact so right cluster lands in col 3. -->
+      <div class="hidden md:block" aria-hidden="true"></div>
+    {/if}
 
     <!-- Right: CTA + Theme Toggle (desktop) -->
     <div class="hidden md:flex items-center justify-end gap-3">
@@ -176,31 +198,33 @@
         </a>
       {/if}
       <ThemeToggle />
-      <button
-        onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
-        aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-        aria-expanded={mobileMenuOpen}
-        class="relative w-8 h-8 flex items-center justify-center rounded-md text-(--color-text) hover:bg-(--color-button-ghost-bg-hover) transition-colors"
-      >
-        <span
-          class="hamburger-line hamburger-line-1"
-          class:hamburger-open={mobileMenuOpen}
-        ></span>
-        <span
-          class="hamburger-line hamburger-line-2"
-          class:hamburger-open={mobileMenuOpen}
-        ></span>
-        <span
-          class="hamburger-line hamburger-line-3"
-          class:hamburger-open={mobileMenuOpen}
-        ></span>
-      </button>
+      {#if !hideNav}
+        <button
+          onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileMenuOpen}
+          class="relative w-8 h-8 flex items-center justify-center rounded-md text-(--color-text) hover:bg-(--color-button-ghost-bg-hover) transition-colors"
+        >
+          <span
+            class="hamburger-line hamburger-line-1"
+            class:hamburger-open={mobileMenuOpen}
+          ></span>
+          <span
+            class="hamburger-line hamburger-line-2"
+            class:hamburger-open={mobileMenuOpen}
+          ></span>
+          <span
+            class="hamburger-line hamburger-line-3"
+            class:hamburger-open={mobileMenuOpen}
+          ></span>
+        </button>
+      {/if}
     </div>
   </nav>
 </header>
 
 <!-- Mobile menu overlay -->
-{#if mobileMenuOpen}
+{#if mobileMenuOpen && !hideNav}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
     class="fixed inset-0 z-40 bg-(--color-bg)/95 backdrop-blur-md"
@@ -241,6 +265,14 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom-color: var(--color-border);
+  }
+
+  /* Fallback for browsers without backdrop-filter support (older Safari, etc.)
+     Use fully opaque background so the header does not appear to disappear. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .header-scrolled {
+      background: var(--color-bg);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

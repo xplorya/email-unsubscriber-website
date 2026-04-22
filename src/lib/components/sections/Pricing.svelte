@@ -11,19 +11,19 @@
       number: 1,
       title: 'Share',
       description: 'Share your unique referral link with friends and family',
-      icon: icons.gift
+      icon: icons.share
     },
     {
       number: 2,
       title: 'Friends Join',
       description: 'When they sign up using your link, they get a discount on their purchase',
-      icon: icons.userCircle
+      icon: icons.userPlus
     },
     {
       number: 3,
       title: 'You Earn',
       description: 'You receive discount coupons as rewards when your referrals pay — everyone wins',
-      icon: icons.creditCard
+      icon: icons.wallet
     }
   ] as const
 
@@ -143,7 +143,7 @@
             {PRICE}
           </p>
           <p class="mt-2 text-lg font-medium text-(--color-accent-text)">
-            One-Time Payment
+            One-Off Payment
           </p>
           <p class="mt-4 text-(--color-text-secondary)">
             One price. Full Access for 30 days. Unlimited usage. No strings attached.
@@ -174,13 +174,13 @@
       </div>
     </div>
 
-    <FootnoteExpander id="pricing-referral" triggerText="We also have a Referral Program — tap to learn more">
+    <FootnoteExpander id="pricing-referral" triggerText="We also have a Referral Program — tap to expand">
       <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-0">
         {#each referralSteps as step, i (step.number)}
           <div class="group card-elevated p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg-secondary-solid) flex flex-col items-center text-center max-w-xs w-full">
             <div class="relative">
-              <div class="icon-glow w-10 h-10 rounded-full border-2 border-(--color-accent-border) bg-(--color-accent-light) flex items-center justify-center">
-                <span class="icon-hover-scale w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html step.icon}</span>
+              <div class="icon-glow w-12 h-12 rounded-full border-2 border-(--color-accent-border) bg-(--color-accent-light) flex items-center justify-center">
+                <span class="icon-hover-scale w-6  h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html step.icon}</span>
               </div>
               <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-(--color-accent) text-white text-xs font-bold flex items-center justify-center">
                 {step.number}

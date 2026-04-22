@@ -175,7 +175,7 @@
           class="flex items-center justify-center w-14 h-14 rounded-full mb-4 icon-glow"
           style="background-color: var(--color-accent-light); color: var(--color-accent-text); box-shadow: 0 0 12px var(--color-accent-glow)"
         >
-          <span class="icon-hover-scale">
+          <span class="icon-hover-scale inline-block w-8 h-8 [&>svg]:w-full [&>svg]:h-full">
             {@html page.icon}
           </span>
         </div>

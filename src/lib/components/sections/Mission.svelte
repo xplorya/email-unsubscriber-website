@@ -7,16 +7,10 @@
   import FootnoteExpander from "$lib/components/FootnoteExpander.svelte";
   import ArchitectureDiagram from "$lib/components/sections/ArchitectureDiagram.svelte";
 
-  const cellMinHeight = 86
-
-  const cellMinWidth = '85'
-  const gridMaxHeight = '178'
   let isWide = $state(false)
 
   let expanded = $state(false)
   let Flip: any = $state(null)
-
-  const cell2height = $derived(expanded ? (isWide ? 178 : 152) : (isWide ? 86 : 84))
 
   let sectionEl: HTMLElement | undefined = $state()
 
@@ -122,15 +116,15 @@
 
 <!--    Cell 1 -->
 {#snippet cell1()}
-  <div class="cell cell-1 rounded-xl flex">
+  <div class="cell cell-1 rounded-xl flex h-full">
     <div class="cell cell-1 group bento-cell card-elevated rounded-xl p-6 pb-2 flex flex-col grow border border-(--color-border) border-l-4 border-l-(--color-accent-border)"
          style="background: linear-gradient(135deg, var(--color-accent-gradient-from), var(--color-bg-secondary-solid));">
       <div class="shrink-0 icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
-        <span class="icon-hover-scale inline-block w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.monitor}</span>
+        <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.neverReadYourMails}</span>
       </div>
-      <h3 class="text-lg font-semibold text-(--color-text)">We never read your emails - Everything stays in your browser</h3>
+      <h3 class="text-lg font-semibold text-(--color-text)">We Never Read Your Emails — Everything Stays in Your Browser</h3>
       <p class="mt-2 text-(--color-text-secondary) leading-relaxed">
-        Our Backend only serves the algorithm to your browser, which then executes it locally to do all the scanning directly in on your device. Your email data never touches our servers.
+        Our backend only serves the algorithm to your browser, which executes it locally to scan everything directly on your device. Your email data never touches our servers.
       </p>
       <div class="w-full mt-auto rounded-xl">
         <ArchitectureDiagram />
@@ -142,19 +136,19 @@
 
 <!--    Cell 2 -->
 {#snippet cell2()}
-  <div class="cell cell-2 relative rounded-xl z-10 min-w-67"
-       style:height="{cell2height * 0.25}rem">
+  <div class="cell cell-2 relative rounded-xl z-10 min-w-67 h-full cell-2-mobile"
+       class:is-expanded={expanded}>
     <div
       class="cell cell-2 group bento-cell card-elevated rounded-xl p-6 sm:p-8 relative border border-(--color-border) border-l-4 border-l-(--color-accent-border) bg-(--color-bg-secondary-solid) overflow-hidden h-full"
     >
       <div class="cell-2-dots"></div>
       <div class="relative z-10 h-full">
         <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center ">
-          <span class="icon-hover-scale inline-block w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.lock}</span>
+          <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.verifyRibbonNoTail}</span>
         </div>
-        <h3 class="mt-3 text-lg font-semibold text-(--color-text)">Verifiable Zero-Trust approach</h3>
+        <h3 class="mt-3 text-lg font-semibold text-(--color-text)">Verifiable Zero-Trust Approach</h3>
         <p class="mt-2 text-(--color-text-secondary) leading-relaxed">
-          We don't want you to have to trust us. That's why <span class="font-bold">your</span> email <code class="text-sm bg-(--color-bg) px-1.5 py-0.5 rounded border border-(--color-border)">access_token</code> is never sent to, or passed through our backend - and you can verify this.
+          We don't want you to have to trust us. That's why <span class="font-bold">your</span> email <code class="text-sm bg-(--color-bg) px-1.5 py-0.5 rounded border border-(--color-border)">access_token</code> is never sent to our backend or passed through it — and you can verify this.
         </p>
         <div class="absolute top-65 bottom-6">
           <button
@@ -174,10 +168,13 @@
           <!-- Always rendered, clipped by overflow:hidden when collapsed -->
           <div class="pt-4 mt-4 border-t border-(--color-border) h-full flex flex-col">
             <div class="flex items-center gap-3 mb-3">
-                              <div class="icon-glow w-10 h-10 rounded-full bg-(--color-accent-light) flex items-center justify-center">
-                                <span class="icon-hover-scale w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.code}</span>
-                              </div>
-              <h4 class="font-semibold text-(--color-text)">Auditable Open-Source Auth</h4>
+<!--              <div class="icon-glow w-10 h-10 rounded-full bg-(&#45;&#45;color-accent-light) flex items-center justify-center">-->
+<!--                <span class="icon-hover-scale w-7 h-7 text-(&#45;&#45;color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.magnifyingGlassCode}</span>-->
+<!--              </div>-->
+              <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center ">
+                <span class="icon-hover-scale inline-block w-7 h-7 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.magnifyingGlassCode}</span>
+              </div>
+            <h4 class="font-semibold text-(--color-text)">Auditable Open-Source Auth</h4>
             </div>
             <p class="text-sm text-(--color-text-secondary) leading-relaxed">
               Our authentication service is fully open-source for complete transparency
@@ -200,18 +197,17 @@
 
 <!--    Cell 3 -->
 {#snippet cell3()}
-  <div class="cell cell-3 rounded-xl min-w-70"
-       style="height: {cellMinHeight * 0.25}rem">
+  <div class="cell cell-3 rounded-xl min-w-70 h-full">
     <div
       class="cell cell-3 rounded-xl p-6 sm:p-8 group bento-cell card-elevated h-full border border-(--color-border) border-l-4 border-l-(--color-accent-border)"
       style="background: linear-gradient(to bottom, var(--color-bg-secondary-solid), var(--color-accent-gradient-from));"
     >
       <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
-        <span class="icon-hover-scale inline-block w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.heart}</span>
+        <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.privacyByDesignGitCompare}</span>
       </div>
-      <h3 class="text-lg font-semibold text-(--color-text)">Privacy by design, not by marketing</h3>
+      <h3 class="text-lg font-semibold text-(--color-text)">Privacy by Design, Not by Marketing</h3>
       <p class="mt-2 text-(--color-text-secondary) leading-relaxed">
-        Most tools say they care about privacy. We built our entire architecture around it. Browser-only features and authentication service segregation isn't a feature - it's the foundation.
+        Most tools say they care about privacy. We built our entire architecture around it. Browser-only execution and isolated authentication aren't add-ons — they're the foundation.
       </p>
     </div>
   </div>
@@ -219,18 +215,18 @@
 
 <!--    Cell 4 -->
 {#snippet cell4()}
-  <div class="cell cell-4 rounded-xl h-{cellMinHeight} min-w-60">
+  <div class="cell cell-4 rounded-xl min-w-60 h-full">
     <div
       class="cell-4 rounded-xl p-6 sm:p-8 relative group bento-cell card-elevated h-full overflow-hidden border-2 border-(--color-accent-border) bg-(--color-bg-secondary-solid)"
     >
       <ParticleField />
       <div class="relative z-10">
         <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
-          <span class="icon-hover-scale inline-block w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.monitor}</span>
+          <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.committedToCompliance}</span>
         </div>
-        <h3 class="text-lg font-semibold text-(--color-text)">Everything stays in your browser</h3>
+        <h3 class="text-lg font-semibold text-(--color-text)">Compliant by Conviction</h3>
         <p class="mt-2 text-(--color-text-secondary) leading-relaxed">
-          All scanning happens locally in your browser. Your email data never touches our servers. Not during the scan, not after, not ever.
+          We align with GDPR, CCPA, and leading data protection frameworks worldwide. We follow them proactively, not because we're always legally required to, but because that's the straight path to peace of mind — yours and ours.
         </p>
       </div>
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background: radial-gradient(ellipse at 50% 80%, var(--color-accent-glow), transparent 70%);"></div>
@@ -268,7 +264,7 @@
     style="background: linear-gradient(to right, var(--color-accent-gradient-from), var(--color-bg-secondary-solid));"
   >
     <div class="icon-glow w-12 h-12 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
-      <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.eye}</span>
+      <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.transparent}</span>
     </div>
     <h3 class="text-lg font-semibold text-(--color-text)">No Tracking. No Profiling.</h3>
     <p class="mt-2 text-(--color-text-secondary) leading-relaxed">
@@ -322,12 +318,12 @@
       <div class="group card-elevated p-6 rounded-xl border border-(--color-border)" style="background: linear-gradient(to bottom, var(--color-accent-gradient-from), var(--color-bg));">
         <div class="flex items-center gap-3 mb-4">
           <div class="icon-glow w-10 h-10 rounded-full bg-(--color-accent-light) flex items-center justify-center">
-            <span class="icon-hover-scale w-5 h-5 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.cpu}</span>
+            <span class="icon-hover-scale w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.cpu}</span>
           </div>
           <h4 class="font-semibold text-(--color-text)">Proprietary On-Device Algorithm</h4>
         </div>
         <p class="text-sm text-(--color-text-secondary) leading-relaxed">
-          Email scanning and analysis happens entirely on your device. No email content is ever sent to or stored on our servers. The processing algorithm gets dynamically fetched on your device on-demand so it can analyze the emails locally — your inbox data never leaves your browser.
+          The full process of fetching your emails, scanning and analyzing them, then discarding the content runs as a single uninterrupted sequence on your device. Once the scan completes, no residual email content stays in your browser's memory, so leaving your device unlocked or using a shared one won't expose it. Worth noting: your session token stays active for about 1 hour, so you (or someone else with access to your device and browser) can run unlimited re-scans during that window unless you explicitly log out.
         </p>
       </div>
     </FootnoteExpander>
@@ -344,6 +340,8 @@
   @media (min-width: 880px) {
     .grid {
       grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 1fr;
+      align-items: stretch;
     }
 
     /* Collapsed:
@@ -363,6 +361,17 @@
     .expanded .cell-2 { grid-column: 3; grid-row: 1 / span 2; }
     .expanded .cell-3 { grid-column: 1; grid-row: 2; }
     .expanded .cell-4 { grid-column: 2; grid-row: 2; }
+  }
+
+  /* Mobile: cell-2 needs explicit height (absolute-positioned Learn More block) */
+  @media (max-width: 879px) {
+    .cell-2-mobile {
+      height: 21rem;
+      transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cell-2-mobile.is-expanded {
+      height: 38rem;
+    }
   }
 
   .cell-2-dots {

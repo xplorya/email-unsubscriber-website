@@ -8,10 +8,10 @@
   const steps = [
     {
       number: 1,
-      title: 'Connect',
+      title: 'Authenticate',
       description:
         'Sign in securely with Google or Microsoft. We use read-only access — no stored passwords, no persistent tokens.',
-      icon: icons.shield
+      icon: icons.authenticate
     },
     {
       number: 2,
@@ -25,7 +25,7 @@
       title: 'Unsubscribe',
       description:
         "Review the list and unsubscribe from what you don't want. One click per subscription. That's it.",
-      icon: icons.check
+      icon: icons.mailUnsubscribe
     }
   ] as const
 
@@ -67,7 +67,7 @@
       screenshotFeature: 'filtered-view'
     },
     {
-      icon: icons.clock,
+      icon: icons.history,
       title: 'History & Records',
       description: 'Track all your past unsubscribe actions in your profile.',
       screenshotFeature: 'history-records'
@@ -284,7 +284,7 @@
         >
           {#each steps as step, i (step.number)}
             <div
-              class="step-card group flex flex-col items-center text-center max-w-xs md:max-w-[280px] lg:max-w-sm"
+              class="step-card group flex flex-col items-center text-center max-w-xs md:max-w-70 lg:max-w-sm"
             >
               <div class="relative">
                 <div
@@ -389,7 +389,7 @@
     <div class="max-w-7xl mx-auto">
       <FootnoteExpander
         id="features-detail"
-        triggerText="Explore all features in detail — tap to learn more"
+        triggerText="Explore all features in detail — tap to expand"
       >
         <FeatureCarousel pages={featurePages} />
         <p class="mt-6 text-center text-sm text-(--color-text-secondary)/50">

@@ -15,15 +15,15 @@
 
   const us: Competitor = {
     name: 'Email Unsubscriber',
-    privacy: 'On-device in full isolation',
+    privacy: 'On your device in full isolation',
     pricing: '€2.99 / 30 days',
-    dataAccess: 'No access to emails or access tokens',
+    dataAccess: 'Read-only, <a href="/privacy#how-it-works" target="_blank" rel="noopener noreferrer" class="underline hover:text-(--color-accent)">browser-contained</a>',
     features: "Unwanted emails detection<br>" +
       "Real unsubscribing assistance<br>" +
       "Filtering and cleanup assistance<br>" +
 
       "Unsubscribe Violation Detection<br>" +
-      "Cost-reduction programs / discounts<br>" +
+      "Coupons & discounts<br>" +
       "Audit Log",
     persistentAccess: 'No, refresh tokens not utilized by design'
   }
@@ -31,39 +31,47 @@
   const competitors: Competitor[] = [
     {
       name: 'Unroll.me',
-      privacy: 'On cloud',
+      privacy: 'On their loud',
       pricing: 'Free (sells data)',
-      dataAccess: 'Full email access',
-      features: "Email unsubscribing<br>" +
-        "Inbox Management<br>" +
-        "Rollups",
+      dataAccess: 'Full read/write access',
+      features: "Unsubscribing<br>" +
+        "Rollup digest",
       persistentAccess: 'Yes'
     },
     {
       name: 'Clean Email',
-      privacy: 'On cloud',
-      pricing: '€11.99/month',
-      dataAccess: 'Full email access',
-      features: "Email Unsubscribing<br>" +
-        "Full-suite management",
+      privacy: 'On their cloud',
+      pricing: '€11.99 / month',
+      dataAccess: 'Full read/write access',
+      features: "Unsubscribing<br>" +
+        "Auto categories and digests<br>" +
+        "Cleaning rules<br>" +
+        "Sender blocking<br>" +
+        "Email size analysis",
       persistentAccess: 'Yes'
     },
     {
       name: 'Leave Me Alone',
-      privacy: 'On cloud',
-      pricing: '€17 / 1 week or limited features for €8/month',
-      dataAccess: 'Full email access',
-      features: "Email Unsubscribing<br>" +
-        "Full-suite management",
+      privacy: 'On their cloud',
+      pricing: '€17 / 7 days unlimited<br>Or limited features for €8 / month',
+      dataAccess: 'Full read/write access',
+      features: "Unsubscribing<br>" +
+        "Rollup digests<br>" +
+        "Automatic filtering<br>" +
+        "Curated blocklists<br>" +
+        "Two addresses under one account",
       persistentAccess: 'Yes'
     },
     {
       name: 'Cleanfox',
-      privacy: 'On cloud',
-      pricing: '$30/month',
-      dataAccess: 'Full email access',
-      features: "Email Unsubscribing<br>" +
-        "Full-suite management",
+      privacy: 'On their cloud',
+      pricing: 'Free (sells data)',
+      dataAccess: 'Full read/write access',
+      features: "Unsubscribing<br>" +
+        "Bulk deletes<br>" +
+        "Automatic filtering<br>" +
+        "Sources scoring<br>" +
+        "Carbon footprint tracker",
       persistentAccess: 'Yes'
     }
   ]
@@ -71,7 +79,7 @@
   const features = [
     { label: 'Pricing', key: 'pricing' as const },
     { label: 'Data processing', key: 'privacy' as const },
-    { label: 'Access Control', key: 'dataAccess' as const },
+    { label: 'Granted Permissions', key: 'dataAccess' as const },
     { label: 'Persistent Access', key: 'persistentAccess' as const },
     { label: 'Features', key: 'features' as const },
   ]
@@ -266,7 +274,7 @@
       {/each}
     </div>
     <div class="pt-6 pl-4 pr-2 border-l-2 border-(--color-accent) mt-4 text-(--color-text-secondary) text-sm italic">
-      We're not a full-suite mailbox management tool — and that's by design. If you need a feature-packed inbox manager, the options above may serve you better. Our north star is simple: providing a solid, working solution while being the best at ensuring your data stays yours, no matter what.
+      We're not a full-suite mailbox management tool — and that's by design. If something more feature-packed is what matters most to you, the options above might be a better fit for you. However, you should know that most of these extra features that our competitors have (automated bulk deletes, pre-filtering &amp; blacklists, rollups, auto-categorization, etc) are only possible when the service has direct access and write/delete permissions to your mailbox and its full content. That's exactly the reason we don't support many of these features. Our north star is simple: providing a solid, working solution while being the best at ensuring your data stays yours, no matter what.
     </div>
   </div>
 </section>
