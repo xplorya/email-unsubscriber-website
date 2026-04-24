@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from 'svelte'
   import { APP_URL } from '$lib/utilities/constants'
   import { loadGsap, prefersReducedMotion } from '$lib/utilities/gsap-utils'
+  import { icons } from '$lib/icons'
   import DeviceScreenshot from '$lib/components/DeviceScreenshot.svelte'
 
   let h1El: HTMLHeadingElement | undefined = $state()
@@ -16,16 +17,14 @@
   let mainTimeline: { kill: () => void } | null = null
   let glowTween: { kill: () => void } | null = null
   let blobTween: { kill: () => void } | null = null
-  let parallaxTween: { kill: () => void } | null = null
   let splitH1: { revert: () => void } | null = null
   let splitSubtitle: { revert: () => void } | null = null
-  let matchMediaInstance: { revert: () => void } | null = null
 
   onMount(async () => {
     if (prefersReducedMotion()) return
     if (!h1El || !subtitleEl || !descriptionEl || !ctaEl || !screenshotWrapperEl || !gradientBlobEl) return
 
-    const { gsap, SplitText, ScrollTrigger } = await loadGsap()
+    const { gsap, SplitText } = await loadGsap()
 
     // Guard: component may have been destroyed during the async import
     if (!h1El?.isConnected) return
@@ -118,38 +117,12 @@
       ease: 'sine.inOut'
     })
 
-    // DeviceScreenshot parallax (desktop only)
-    const mm = gsap.matchMedia()
-    mm.add('(min-width: 1024px)', () => {
-      if (!screenshotWrapperEl) return
-      parallaxTween = gsap.fromTo(screenshotWrapperEl, {
-        y: -60
-      }, {
-        y: 60,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: h1El?.closest('section'),
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true
-        }
-      })
-
-      // Return cleanup for matchMedia context
-      return () => {
-        parallaxTween?.kill()
-        parallaxTween = null
-      }
-    })
-    matchMediaInstance = mm
   })
 
   onDestroy(() => {
     mainTimeline?.kill()
     glowTween?.kill()
     blobTween?.kill()
-    parallaxTween?.kill()
-    matchMediaInstance?.revert()
     splitH1?.revert()
     splitSubtitle?.revert()
   })
@@ -159,19 +132,26 @@
 
   <!-- Gradient blob background -->
   <div bind:this={gradientBlobEl}
-    class="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full pointer-events-none z-0"
+    class="absolute -top-32 -right-32 w-175 h-175 rounded-full pointer-events-none z-0"
     style="background: radial-gradient(circle, rgba(20, 184, 166, 0.5) 0%, transparent 70%); opacity: 0.15; filter: blur(40px);"
   ></div>
 
-  <div class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 py-12 lg:py-0">
-    <!-- Left column: text content -->
-    <div class="flex-1 text-center lg:text-left">
-      <h1 bind:this={h1El} class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-(--color-text)">
-        Email Unsubscriber
-      </h1>
+  <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col lg:flex-row items-start lg:items-stretch gap-12 lg:gap-16 py-12 lg:py-0">
+    <!-- Left column: logo+title row, then subtitle/description/CTA/note -->
+    <div class="flex-2 min-w-0 text-center lg:text-left mx-auto lg:mx-0">
+      <!-- Logo + title row -->
+      <div class="flex items-stretch gap-3 sm:gap-6 lg:gap-8 justify-center lg:justify-start min-w-0">
+        <div class="shrink-0 flex items-center" aria-hidden="true">
+          <span class="hero-logo inline-block [&>svg]:h-full [&>svg]:w-auto">{@html icons.logoMark}</span>
+        </div>
 
-      <p bind:this={subtitleEl} class="mt-4 sm:mt-6 text-xl sm:text-2xl md:text-3xl font-medium text-(--color-primary)">
-        Clean your inbox. For good.
+        <h1 bind:this={h1El} class="min-w-0 lg:flex-1 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-(--color-text) leading-[1.1] text-left break-words">
+          Email<br>Unsubscriber
+        </h1>
+      </div>
+
+      <p bind:this={subtitleEl} class="mt-8 lg:mt-12 text-xl sm:text-2xl md:text-3xl font-medium text-(--color-primary)">
+        Break the chains of your mailbox. For good.
       </p>
 
       <p bind:this={descriptionEl} class="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-(--color-text-secondary) max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -195,9 +175,9 @@
       </p>
     </div>
 
-    <!-- Right column: product screenshot -->
-    <div bind:this={screenshotWrapperEl} class="flex-1 w-full max-w-lg lg:max-w-none">
-      <DeviceScreenshot feature="hero" alt="Email Unsubscriber app screenshot" />
+    <!-- Right column: product screenshot — desktop stretches to match left column height (lg:items-stretch on parent) -->
+    <div bind:this={screenshotWrapperEl} class="flex-1 w-full max-w-lg lg:max-w-none mx-auto lg:mx-0 lg:self-stretch lg:relative">
+      <DeviceScreenshot feature="hero" alt="Email Unsubscriber app screenshot" fill />
     </div>
   </div>
 </section>
@@ -212,6 +192,21 @@
       0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -4px rgba(0, 0, 0, 0.1),
       0 0 20px var(--color-accent-glow);
+  }
+
+  /* Logo height matches ~2 lines of H1 (font-size * line-height[1.1] * 2).
+     Mirrors H1 responsive font-size breakpoints: 3xl/5xl/6xl/7xl. */
+  .hero-logo {
+    height: calc(1.875rem * 1.1 * 2); /* text-3xl -> 30px */
+  }
+  @media (min-width: 640px) {
+    .hero-logo { height: calc(3rem * 1.1 * 2); } /* sm: text-5xl -> 48px */
+  }
+  @media (min-width: 768px) {
+    .hero-logo { height: calc(3.75rem * 1.1 * 2); } /* md: text-6xl -> 60px */
+  }
+  @media (min-width: 1024px) {
+    .hero-logo { height: calc(4.5rem * 1.1 * 2); } /* lg: text-7xl -> 72px */
   }
 
   @media (prefers-reduced-motion: reduce) {

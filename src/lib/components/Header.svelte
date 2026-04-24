@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
   import { replaceState } from '$app/navigation'
   import { APP_URL } from '$lib/utilities/constants'
+  import { icons } from '$lib/icons'
   import ThemeToggle from './ThemeToggle.svelte'
 
   const NAV_ITEMS = [
@@ -136,30 +137,32 @@
 </script>
 
 <header
-  class="sticky top-0 z-50 header-base"
+  class="sticky top-0 z-50 header-base px-4 sm:px-6 lg:px-8"
   class:header-scrolled={scrolled}
 >
-  <nav class="flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <nav class="flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between h-16 max-w-7xl mx-auto">
     <!-- Left: Logo -->
     <div class="flex items-center">
       <a
         href="/"
-        class="text-lg font-bold text-(--color-text) hover:text-(--color-primary) transition-colors"
+        aria-label="Email Unsubscriber home"
+        class="flex items-center gap-2 text-lg font-bold text-(--color-text) hover:text-(--color-primary) transition-colors"
       >
-        Email Unsubscriber
+        <span class="inline-block h-7 shrink-0 [&>svg]:h-full [&>svg]:w-auto" aria-hidden="true">{@html icons.logoMark}</span>
+        <span class="whitespace-nowrap text-xs">Email<br>Unsubscriber</span>
       </a>
     </div>
 
     {#if !hideNav}
       <!-- Center: Nav links (desktop only, always centered) -->
-      <div class="hidden md:flex items-center justify-center gap-1">
+      <div class="hidden md:flex items-center justify-center gap-0.5">
         {#each NAV_ITEMS as item (item.href)}
           {@const id = item.href.split('#')[1]}
           {@const isActive = activeSection === id}
           <a
             href={item.href}
             data-nav-id={id}
-            class="nav-link px-3 py-2 text-sm rounded-md {isActive ? 'nav-link-active' : 'text-(--color-text-secondary) hover:text-(--color-text)'}"
+            class="nav-link whitespace-nowrap px-2 py-2 text-sm rounded-md {isActive ? 'nav-link-active' : 'text-(--color-text-secondary) hover:text-(--color-text)'}"
           >
             {item.label}
           </a>
@@ -171,11 +174,11 @@
     {/if}
 
     <!-- Right: CTA + Theme Toggle (desktop) -->
-    <div class="hidden md:flex items-center justify-end gap-3">
+    <div class="hidden md:flex items-center justify-end gap-2">
       {#if !heroCTAVisible}
         <a
           href={APP_URL}
-          class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors"
+          class="inline-flex items-center whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-lg bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors "
           in:ctaIn
           out:ctaOut
         >
@@ -190,11 +193,11 @@
       {#if !heroCTAVisible}
         <a
           href={APP_URL}
-          class="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-md bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors"
+          class="inline-flex items-center whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-md bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors"
           in:ctaIn
           out:ctaOut
         >
-          Open App
+          Go to App
         </a>
       {/if}
       <ThemeToggle />

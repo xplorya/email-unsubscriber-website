@@ -153,7 +153,7 @@
             href={APP_URL}
             class="mt-8 inline-block w-full px-6 py-3.5 text-lg font-semibold rounded-lg bg-(--color-accent) text-white hover:bg-(--color-accent-hover) transition-colors duration-200"
           >
-            Start Cleaning
+            Get Started
           </a>
         </div>
       </div>
