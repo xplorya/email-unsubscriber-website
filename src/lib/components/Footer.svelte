@@ -65,47 +65,55 @@
 </script>
 
 <footer class="bg-(--color-bg-secondary) border-t border-(--color-border)">
-  {#if !minimal}
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
-      <!-- Footer columns -->
-      <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-        {#each COLUMNS as column (column.title)}
-          <div>
-            <h3 class="text-sm font-semibold text-(--color-text) uppercase tracking-wider">
-              {column.title}
-            </h3>
-            <ul class="mt-4 space-y-3">
-              {#each column.links as link (link.label)}
-                <li>
-                  <a
-                    href={link.href}
-                    target={link.external ? '_blank' : undefined}
-                    rel={link.external ? 'noopener noreferrer' : undefined}
-                    class="text-sm text-(--color-text-secondary) hover:text-(--color-text) transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              {/each}
-            </ul>
-          </div>
-        {/each}
+  <div class="px-4 sm:px-6 lg:px-8">
+    {#if !minimal}
+      <div class="mx-auto max-w-7xl pt-12 lg:pt-16">
+        <!-- Footer columns -->
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+          {#each COLUMNS as column (column.title)}
+            <div>
+              <h3 class="text-sm font-semibold text-(--color-text) uppercase tracking-wider">
+                {column.title}
+              </h3>
+              <ul class="mt-4 space-y-3">
+                {#each column.links as link (link.label)}
+                  <li>
+                    <a
+                      href={link.href}
+                      target={link.external ? '_blank' : undefined}
+                      rel={link.external ? 'noopener noreferrer' : undefined}
+                      class="text-sm text-(--color-text-secondary) hover:text-(--color-text) transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          {/each}
+        </div>
       </div>
-    </div>
-  {/if}
+    {/if}
 
-  <!-- Social links -->
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" class:pt-12={!minimal} class:pt-6={minimal}>
-    <div class="flex items-center justify-center gap-6">
-      {#each SOCIAL_LINKS as social (social.label)}
-        <a
-          href={social.href}
-          aria-label={social.label}
-          class="text-(--color-text-secondary) hover:text-(--color-text) transition-colors"
-        >
-          <span class="inline-block w-5 h-5 [&>svg]:w-full [&>svg]:h-full">{@html social.icon}</span>
-        </a>
-      {/each}
+    <!-- Brand + Social row -->
+    <div class="mx-auto max-w-7xl" class:pt-12={!minimal} class:pt-6={minimal}>
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-2">
+          <span class="inline-block h-5 [&>svg]:h-full [&>svg]:w-auto" aria-hidden="true">{@html icons.logoMark}</span>
+          <span class="text-sm font-semibold text-(--color-text)">Email Unsubscriber</span>
+        </div>
+        <div class="flex items-center gap-6">
+          {#each SOCIAL_LINKS as social (social.label)}
+            <a
+              href={social.href}
+              aria-label={social.label}
+              class="text-(--color-text-secondary) hover:text-(--color-text) transition-colors"
+            >
+              <span class="inline-block w-5 h-5 [&>svg]:w-full [&>svg]:h-full">{@html social.icon}</span>
+            </a>
+          {/each}
+        </div>
+      </div>
     </div>
   </div>
 
@@ -113,12 +121,14 @@
   <div class="mt-4 border-t border-(--color-border)"></div>
 
   <!-- Copyright bar -->
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-2 pb-4 text-center">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl pt-3 pb-4 text-center">
     <p class="text-xs text-(--color-text-secondary)">
       Email Unsubscriber&trade; is a product of {COMPANY_NAME}
     </p>
     <p class="text-xs text-(--color-text-secondary)">
       Reg. No. {COMPANY_UIC} &middot; &copy; {new Date().getFullYear()} All rights reserved
     </p>
+    </div>
   </div>
 </footer>

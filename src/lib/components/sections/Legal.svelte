@@ -2,7 +2,7 @@
   import { reveal } from '$lib/utilities/scroll-reveal'
 </script>
 
-<section id="legal" class="bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+<section id="legal" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div use:reveal class="max-w-7xl mx-auto text-center">
     <h2 class="text-3xl sm:text-4xl font-bold text-(--color-text)">
       Legal

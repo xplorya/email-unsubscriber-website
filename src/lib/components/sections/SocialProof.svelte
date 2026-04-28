@@ -258,7 +258,7 @@
   </div>
 {/snippet}
 
-<section id="trust" class="bg-(--color-bg-secondary) py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+<section id="trust" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <h2 use:revealHeading class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
       Trusted by Many

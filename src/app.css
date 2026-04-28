@@ -20,9 +20,9 @@
   --color-button-solid-bg: theme(colors.slate.800);
   --color-button-solid-bg-hover: theme(colors.slate.700);
   --color-button-solid-fg: theme(colors.white);
-  --logo-primary: theme(colors.teal.500);
-  --logo-secondary: theme(colors.teal.800);
-  --logo-highlight: theme(colors.white);
+  --logo-primary: #00bba7;
+  --logo-secondary: #00bba7;
+  --logo-highlight: #ffffff;
   --color-accent: theme(colors.teal.500);
   --color-accent-hover: theme(colors.teal.600);
   --color-accent-light: theme(colors.teal.50);
@@ -92,9 +92,6 @@
     --color-button-solid-bg: theme(colors.slate.200);
     --color-button-solid-bg-hover: theme(colors.slate.300);
     --color-button-solid-fg: theme(colors.slate.900);
-    --logo-primary: theme(colors.teal.600);
-    --logo-secondary: theme(colors.teal.400);
-    --logo-highlight: theme(colors.white);
     --color-accent: theme(colors.teal.500);
     --color-accent-hover: theme(colors.teal.400);
     --color-accent-light: theme(colors.teal.950);
@@ -156,9 +153,6 @@
   --color-button-solid-bg: theme(colors.slate.200);
   --color-button-solid-bg-hover: theme(colors.slate.300);
   --color-button-solid-fg: theme(colors.slate.900);
-  --logo-primary: theme(colors.teal.600);
-  --logo-secondary: theme(colors.teal.400);
-  --logo-highlight: theme(colors.white);
   --color-accent: theme(colors.teal.500);
   --color-accent-hover: theme(colors.teal.400);
   --color-accent-light: theme(colors.teal.950);

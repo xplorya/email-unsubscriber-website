@@ -28,6 +28,8 @@ export const icons = {
 
   verifyRibbonNoTail: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77a4 4 0 0 1 6.74 0a4 4 0 0 1 4.78 4.78a4 4 0 0 1 0 6.74a4 4 0 0 1-4.77 4.78a4 4 0 0 1-6.75 0a4 4 0 0 1-4.78-4.77a4 4 0 0 1 0-6.76"/><path d="m9 12l2 2l4-4"/></g></svg>`,
 
+  ban: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M4.929 4.929L19.07 19.071"/></g></svg>`,
+
   privacyByDesignGitCompare: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><circle cx="5" cy="6" r="3"/><path d="M5 9v12M15 9l-3-3l3-3"/><path d="M12 6h5a2 2 0 0 1 2 2v3m0 4v6m3-3h-6"/></g></svg>`,
 
   committedToCompliance: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5h8m-8 7h8m-8 7h8M3 17l2 2l4-4M3 7l2 2l4-4"/></svg>`,
@@ -59,6 +61,8 @@ export const icons = {
   /** Verified shield with checkmark (heavier stroke for emphasis) */
   shieldVerified: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
 
+  holdControl: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="m20 33l6 2s15-3 17-3s2 2 0 4s-9 8-15 8s-10-3-14-3H4"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 29c2-2 6-5 10-5s13.5 4 15 6s-3 5-3 5"/><rect width="16" height="6" x="26" y="15" rx="3"/><path stroke-linecap="round" d="M26 9h16"/></g></svg>`,
+
   lock: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
 
   /** Lucide lock-keyhole — used in GDPR trust badge EU-circle composition */
@@ -74,8 +78,6 @@ export const icons = {
 
   /** X / cross mark (used for "we don't do this" lists) */
   xMark: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>`,
-
-  ban: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>`,
 
   // ── Concepts ───────────────────────────────────────────────────────
   monitor: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
@@ -103,9 +105,15 @@ export const icons = {
   // ── Feature icons ─────────────────────────────────────────────────
   scan: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" y1="12" x2="17" y2="12"/></svg>`,
 
+  linkProvider: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg>`,
+
   clock: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
 
   list: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>`,
+
+  configure: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.5m-6.7 9.1l1-.4M15 3v7.5m.2 6.4l-.9-.3m2.3 5.1l.3-.9m-.1-5.5l-.4-1m2.7.9l.3-.9m.2 7.4l-.4-1m1.5-3.9l1-.4m0 3l-.9-.3M9 3v18"/><circle cx="18" cy="18" r="3"/></g></svg>`,
+
+  warningTriangle: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21.73 18l-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3M12 9v4m0 4h.01"/></svg>`,
 
   lightbulb: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>`,
 
@@ -157,6 +165,41 @@ export const icons = {
   linkedin: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
 
   github: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>`,
+
+  // ── OAuth providers (colored, for sign-in button mockups) ─────────
+  /** Google "G" mark — 4-color (Material Blue/Green/Yellow/Red). Hardcoded w-5 h-5. */
+  googleIcon: `<svg class="w-5 h-5" viewBox="0 0 24 24">
+    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+  </svg>`,
+
+  /** Microsoft 4-square mark (Red/Green/Blue/Yellow). Hardcoded w-5 h-5. */
+  microsoftIcon: `<svg class="w-5 h-5" viewBox="0 0 24 24">
+    <rect fill="#F25022" x="1" y="1" width="10" height="10"/>
+    <rect fill="#7FBA00" x="13" y="1" width="10" height="10"/>
+    <rect fill="#00A4EF" x="1" y="13" width="10" height="10"/>
+    <rect fill="#FFB900" x="13" y="13" width="10" height="10"/>
+  </svg>`,
+
+  // ── Brand ──────────────────────────────────────────────────────────
+  /** Official Email Unsubscriber logo mark (no wordmark). Theme-aware via --logo-* CSS vars. */
+  logoMark: `<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1127 750" aria-hidden="true"><path d="M60.056 430.609c-16.045-8.728-26.946-25.737-26.946-45.273 0-28.423 23.077-51.5 51.5-51.5h47v25h-47c-14.625 0-26.5 11.875-26.5 26.5 0 3.53.692 6.898 1.946 9.979zm42.025-18.773h29.529v25h-29.529z" style="fill:var(--logo-primary, #005f5a)"/><path d="M81.056 518.404c-8.278 0-15-6.721-15-15V389.009c0-8.279 6.722-15 15-15 8.279 0 15 6.721 15 15v114.395c0 8.279-6.721 15-15 15" style="fill:var(--logo-primary, #005f5a)"/><path d="m21.724 506.277 9.843-20.466c6.023-12.522 16.426-21.53 28.489-26.071v28.826c-2.411 2.231-4.45 4.943-5.959 8.08l-11.961 24.87-14.253 1.169.263-7.096-4.174 3.759.136-15.101zm68.896 38.597 11.976-24.902c3.861-8.026 3.377-17.027-.515-24.334v-33.494c24.927 12.802 35.262 43.261 23.045 68.664l-15.213 31.63-.644-.31 2.02-13.173-8.281 9.396.1-11.104-7.107 6.051z" style="fill:var(--logo-primary, #005f5a)"/><path d="M543.045 443.289c-36.932 17.374-82.368 10.809-112.873-19.696L123.921 117.342l35.355-35.356 306.252 306.252c19.357 19.357 50.788 19.357 70.145 0l12.083-12.083c-3.371 16.827-5.138 34.23-5.137 52.042 0 5.065.144 10.097.426 15.092m211.406-273.83 92.473-92.473 35.356 35.356-52.958 52.958c-7.536-.648-15.162-.978-22.864-.978-17.801.002-35.191 1.769-52.007 5.137" style="fill:var(--logo-secondary, #00bba7)"/><path d="M465.337 630.357h-15.235c3.359-3.759 5.402-8.718 5.402-14.151 0-11.728-9.522-21.25-21.25-21.25h-9.812c1.883-.566 3.879-.871 5.945-.872l39.027-.013c-8.949 4.044-14.175 13.928-11.992 23.903 1.124 5.139 4.024 9.434 7.915 12.383m59.894-48.972c-.243-.346-.488-.688-.738-1.028h5.434zm17.47 39.683c2.566 3.468 5.453 6.568 8.591 9.289h-17.677c.693-2.486 1.225-5.04 1.584-7.648zm-238.69 9.289H179.956c-36.756 0-67.239-27.076-72.572-62.354l8.156-2.859 15.213-31.63c13.419-27.901 2.55-61.247-24.197-76.058V135.757c0-40.51 32.89-73.4 73.4-73.4h648.2c40.511 0 73.4 32.89 73.4 73.4V182c-15.975-6.181-32.7-10.851-50-13.835v-32.408c0-12.915-10.485-23.4-23.4-23.4h-648.2c-12.915 0-23.4 10.485-23.4 23.4v421.2c0 12.915 10.485 23.4 23.4 23.4h83.809l-10.004 4.887 4.259 8.719-8.446 7.537 14.184-.215-1.811 2.154 17.47 11.007 24.038-11.743c-3.027 3.672-4.846 8.377-4.846 13.503 0 5.433 2.043 10.392 5.402 14.151m65.301-35.401-1.31-2.513c-2.327-4.464-5.161-8.505-8.395-12.086h23.891c-3.255 4.431-5.898 9.339-7.804 14.599zm263.412 31.732q2.1195 1.857 4.278 3.669h-9.537z" style="fill:var(--logo-secondary, #00bba7)"/><path d="M172.234 615.035c-9.757 9.756-25.599 9.756-35.355 0-9.757-9.757-9.757-25.599 0-35.356l240.142-240.142c9.757-9.757 25.599-9.757 35.355 0 9.757 9.756 9.757 25.599 0 35.355z" style="fill:var(--logo-secondary, #00bba7)"/><path d="M538.274 578.531c2.139-13.303 9.458-25.756 21.369-34.067l38.545-26.894 14.305 20.503-38.545 26.894c-2.894 2.019-5.261 4.514-7.069 7.305zm44.231 33.827c7.223 1.856 15.181.672 21.77-3.925l38.545-26.895 14.306 20.503-38.545 26.894c-22.126 15.438-52.198 11.069-69.106-9.35z" style="fill:var(--logo-primary, #005f5a)"/><path d="M808.458 182.321c136.521-.009 247.366 110.821 247.376 247.342.009 136.52-110.821 247.366-247.342 247.375-136.52.009-247.366-110.821-247.375-247.341-.009-136.521 110.821-247.366 247.341-247.376" style="fill:var(--logo-secondary, #00bba7)"/><path d="M947.392 225.035c65.429 44.524 108.436 119.592 108.442 204.628.009 136.52-110.821 247.366-247.342 247.375-105.858.007-196.279-66.627-231.56-160.207 43.238 47.033 105.264 76.526 174.124 76.526 130.528 0 236.5-105.972 236.5-236.5 0-48.789-14.805-94.146-40.164-131.822" style="fill:var(--logo-primary, #005f5a)"/><path d="M647.249 383.49c-2.731 7.571-11.096 11.501-18.667 8.769-7.571-2.731-11.5-11.095-8.769-18.666C648.5 294.07 720.889 237.11 805.493 228.431c8.006-.821 15.174 5.013 15.995 13.019.821 8.007-5.012 15.174-13.019 15.996-73.46 7.535-136.311 56.996-161.22 126.044" style="fill:var(--logo-highlight, #fff)"/><path d="M352.204 665.227c75.175-3.031 173.853-4.87 281.852-4.87 235.392 0 426.5 8.738 426.5 19.5s-191.108 19.5-426.5 19.5c-235.391 0-426.5-8.738-426.5-19.5 0-4.478 33.093-8.606 88.7-11.9l-.588 7.749-4.049 4.55 28.577-.433 1.369 1.752 20.406-9.969c3.694-1.804 7.111-3.95 10.233-6.379M604.585 585.774c1.77 8.088-3.359 16.09-11.447 17.86l-111.751 24.452c-8.088 1.769-16.09-3.36-17.86-11.448-1.769-8.087 3.36-16.09 11.447-17.859l111.752-24.452c8.087-1.769 16.09 3.36 17.859 11.447M449.254 615.206c0 8.279-6.721 15-15 15H319.859c-8.279 0-15-6.721-15-15 0-8.278 6.721-15 15-15h114.395c8.279 0 15 6.722 15 15" style="fill:var(--logo-primary, #005f5a)"/><path d="M362.262 594.956H327.79c-7.104-3.298-15.581-3.486-23.16.217l-24.827 12.129-8.458-5.329 6.007-7.145-11.102.169 9.344-8.338-13.16 2.101-.314-.643 31.536-15.407c25.199-12.31 55.541-2.327 68.606 22.246m-15.761 42.5h18.578c-4.48 12.043-13.407 22.455-25.852 28.535l-20.406 9.969 2.016-2.397-15.1.229 3.734-4.197-7.095.307 1.082-14.261 24.795-12.113c3.129-1.528 5.828-3.585 8.043-6.009zM487.392 589.664c-3.042-1.193-6.354-1.847-9.817-1.846l-47.19.016c-7.026.003-13.426 2.704-18.219 7.122h-29.77c7.784-18.839 26.343-32.114 47.98-32.122l47.19-.016c16.643-.006 31.47 7.838 40.976 20.03zm41.247 34.48c-4.434 24.152-25.609 42.482-51.036 42.491l-47.19.016c-20.512.008-38.266-11.91-46.7-29.195h32.255c4.173 2.658 9.126 4.197 14.436 4.195l47.19-.016c8.934-.003 16.855-4.369 21.748-11.08z" style="fill:var(--logo-primary, #005f5a)"/></svg>`,
+  /** Triangle-with-exclamation — used for "still emailing" violation rows */
+  warning: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="100%" height="100%"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>`,
 } as const
 
 export type IconName = keyof typeof icons
+
+/**
+ * Semantic icon color helpers — mirror of webapp `iconColor` map.
+ * Apply on the wrapper element: <div class="w-4 h-4 {iconColor.lock}">{@html icons.lock}</div>
+ */
+export const iconColor: Partial<Record<IconName, string>> & { failure?: string } = {
+  lock: 'text-slate-500 dark:text-slate-400',
+  mailUnsubscribe: 'text-teal-700 dark:text-teal-300',
+  warning: 'text-amber-600 dark:text-amber-400',
+  failure: 'text-red-600 dark:text-red-400',
+  checkBold: 'text-teal-700 dark:text-teal-300',
+}

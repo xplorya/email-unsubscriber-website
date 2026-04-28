@@ -1,12 +1,24 @@
 <script lang="ts">
   import { icons } from '$lib/icons'
   import DeviceScreenshot from '$lib/components/DeviceScreenshot.svelte'
+  import EmailScanningButtons from '$lib/components/EmailScanningButtons.svelte'
+  import ScanPeriodsButtons from '$lib/components/ScanPeriodsButtons.svelte'
+  import ResultsListButtons from '$lib/components/ResultsListButtons.svelte'
+  import HistoryShowcase from '$lib/components/HistoryShowcase.svelte'
+  import AccountErasingShowcase from '$lib/components/AccountErasingShowcase.svelte'
 
   interface CarouselPage {
     icon: string
     title: string
     description: string
     screenshotFeature?: string
+    /** Optional alternative visual for the page (instead of a device screenshot) */
+    media?:
+      | 'email-scanning-buttons'
+      | 'scan-periods-nuggets'
+      | 'results-list-nuggets'
+      | 'unsubscribe-history-nugget'
+      | 'account-erasing-nugget'
   }
 
   interface Props {
@@ -165,7 +177,7 @@
   >
     {#each pages as page, i (i)}
       <div
-        class="w-full shrink-0 flex flex-col items-center text-center px-6 py-8"
+        class="slide w-full shrink-0 flex flex-col items-center text-center px-6 py-8"
         role="group"
         aria-roledescription="slide"
         aria-label="Page {i + 1} of {pages.length}"
@@ -182,7 +194,7 @@
 
         <!-- Content container with subtle gradient -->
         <div
-          class="w-full rounded-xl px-4 py-4"
+          class="gradient-panel w-full rounded-xl px-4 py-4"
           style="background: linear-gradient(to bottom, var(--color-accent-gradient-from), transparent)"
         >
           <!-- Title -->
@@ -195,8 +207,28 @@
             {page.description}
           </p>
 
-          <!-- Optional screenshot -->
-          {#if page.screenshotFeature}
+          <!-- Optional media: scattered buttons OR device screenshot -->
+          {#if page.media === 'email-scanning-buttons'}
+            <div class="w-full max-w-sm mx-auto">
+              <EmailScanningButtons />
+            </div>
+          {:else if page.media === 'scan-periods-nuggets'}
+            <div class="w-full max-w-md mx-auto">
+              <ScanPeriodsButtons />
+            </div>
+          {:else if page.media === 'results-list-nuggets'}
+            <div class="w-full max-w-md mx-auto">
+              <ResultsListButtons />
+            </div>
+          {:else if page.media === 'unsubscribe-history-nugget'}
+            <div class="w-full max-w-md mx-auto">
+              <HistoryShowcase />
+            </div>
+          {:else if page.media === 'account-erasing-nugget'}
+            <div class="w-full max-w-md mx-auto">
+              <AccountErasingShowcase />
+            </div>
+          {:else if page.screenshotFeature}
             <div class="w-full max-w-sm mx-auto">
               <DeviceScreenshot feature={page.screenshotFeature} alt="{page.title} screenshot" />
             </div>
@@ -254,3 +286,31 @@
     {/each}
   </div>
 </div>
+
+<style>
+  /* Narrow phones: reclaim horizontal space so the gradient panel reaches
+     close to the screen edges and inner nuggets get more room. Outer
+     section already pads (px-4) — we only trim the carousel's own padding. */
+  @media (max-width: 480px) {
+    .slide {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .gradient-panel {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  /* Z-Fold-class viewports — squeeze further. */
+  @media (max-width: 360px) {
+    .slide {
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
+    .gradient-panel {
+      padding-left: 0.375rem;
+      padding-right: 0.375rem;
+    }
+  }
+</style>

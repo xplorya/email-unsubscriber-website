@@ -2,7 +2,6 @@
   import { onMount, onDestroy } from 'svelte'
   import { loadGsap, prefersReducedMotion, revealHeading } from '$lib/utilities/gsap-utils'
   import { icons } from '$lib/icons'
-  import FootnoteExpander from '$lib/components/FootnoteExpander.svelte'
   import FeatureCarousel from '$lib/components/FeatureCarousel.svelte'
 
   const steps = [
@@ -10,73 +9,55 @@
       number: 1,
       title: 'Authenticate',
       description:
-        'Sign in securely with Google or Microsoft. We use read-only access — no stored passwords, no persistent tokens.',
+        'Sign in securely with Google or Microsoft. We use OAuth and require read-only access.',
       icon: icons.authenticate
     },
     {
       number: 2,
-      title: 'Scan',
+      title: 'Scan your Inbox',
       description:
-        'Your inbox is scanned and processed locally, entirely in your browser. No email content ever leaves your device.',
+        'Run a scan to analyze your inbox directly in your browser. Your emails don\'t leave your device.',
       icon: icons.search
     },
     {
       number: 3,
       title: 'Unsubscribe',
       description:
-        "Review the list and unsubscribe from what you don't want. One click per subscription. That's it.",
+        "Review the list and unsubscribe from what you don't want in few clicks. That's it.",
       icon: icons.mailUnsubscribe
     }
   ] as const
 
   const featurePages = [
     {
-      icon: icons.scan,
-      title: 'Email Scanning',
-      description: 'Connect your email and scan for subscriptions across your inbox.',
-      screenshotFeature: 'email-scanning'
+      icon: icons.linkProvider,
+      title: 'Secure OAuth Provider Connection',
+      description: 'Connects your mailbox provider and grants permissions to scan it.',
+      media: 'email-scanning-buttons' as const
     },
     {
-      icon: icons.clock,
-      title: 'Scan Periods',
-      description: 'Choose how far back to scan — recent emails or your entire inbox history.',
-      screenshotFeature: 'scan-periods'
+      icon: icons.configure,
+      title: 'Scan Control and Feedback',
+      description: 'Set your scan preferences, watch the progress, stop at any time.',
+      media: 'scan-periods-nuggets' as const
     },
     {
-      icon: icons.list,
-      title: 'Results List',
-      description: 'See all discovered subscriptions organized in a clear, sortable list.',
-      screenshotFeature: 'results-list'
-    },
-    {
-      icon: icons.lightbulb,
-      title: 'Smart Insights',
-      description: "Understand each subscription's frequency, sender info, and relevance.",
-      screenshotFeature: 'smart-insights'
-    },
-    {
-      icon: icons.mailX,
-      title: 'Unsubscribe Actions',
-      description: 'One-tap unsubscribe from unwanted emails — we handle the process.',
-      screenshotFeature: 'unsubscribe-actions'
-    },
-    {
-      icon: icons.filter,
-      title: 'Filtered View',
-      description: 'Filter and sort your results to focus on what matters most.',
-      screenshotFeature: 'filtered-view'
+      icon: icons.warningTriangle,
+      title: 'Spot Violations',
+      description: "The 'Still Emailing' filter helps you focus on senders who ignore your unsubscribe requests and keep emailing you regardless.",
+      media: 'results-list-nuggets' as const
     },
     {
       icon: icons.history,
       title: 'History & Records',
-      description: 'Track all your past unsubscribe actions in your profile.',
-      screenshotFeature: 'history-records'
+      description: 'An audit log of your unsubscribe attempts in your profile.',
+      media: 'unsubscribe-history-nugget' as const
     },
     {
       icon: icons.trash,
       title: 'Account Erasing',
       description: 'GDPR-compliant full account deletion — your data, your control.',
-      screenshotFeature: 'account-erasing'
+      media: 'account-erasing-nugget' as const
     }
   ]
 
@@ -384,28 +365,17 @@
     </div>
   </div>
 
-  <!-- FootnoteExpander stays in normal document flow -->
-  <div class="px-4 mt-20 sm:px-6 lg:px-8">
+  <!-- Feature carousel — always visible continuation of the steps area -->
+  <div class="px-4 sm:px-6 lg:px-8 mb-16">
     <div class="max-w-7xl mx-auto">
-      <FootnoteExpander
-        id="features-detail"
-        triggerText="Explore all features in detail — tap to expand"
-      >
-        <FeatureCarousel pages={featurePages} />
-        <p class="mt-6 text-center text-sm text-(--color-text-secondary)/50">
-          <span
-            class="inline-flex items-center gap-1.5 cursor-not-allowed"
-            title="Coming soon"
-          >
-            <span class="w-4 h-4 [&>svg]:w-full [&>svg]:h-full">{@html icons.eye}</span>
-            See onboarding guide
-            <span
-              class="text-xs px-1.5 py-0.5 rounded bg-(--color-bg-secondary-solid) border border-(--color-border)"
-              >Coming soon</span
-            >
-          </span>
+      <div class="mt-2 border-t border-(--color-border) pt-6">
+        <p class="text-sm italic text-(--color-text-secondary)">
+          See more features in details
         </p>
-      </FootnoteExpander>
+        <div class="pt-4">
+          <FeatureCarousel pages={featurePages} />
+        </div>
+      </div>
     </div>
   </div>
 </section>

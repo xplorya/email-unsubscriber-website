@@ -197,10 +197,10 @@
 <section id="comparison" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8" bind:this={sectionEl}>
   <div class="max-w-7xl mx-auto">
     <h2 use:revealHeading class="text-3xl sm:text-4xl font-bold text-center text-(--color-text)">
-      The Landscape
+      Comparison To Other Services
     </h2>
     <p class="mt-4 text-center text-(--color-text-secondary) text-lg max-w-2xl mx-auto">
-      See how we compare on the things that matter
+      See how we stack against others on the things that matter.
     </p>
 
     <!-- Desktop: full table -->

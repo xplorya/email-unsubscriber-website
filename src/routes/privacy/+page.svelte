@@ -32,29 +32,15 @@
       <div class="flex items-start gap-4">
         <div>
           <div class="flex items-start gap-2 mb-2">
-            <div class="shrink-0">
-              <span class="inline-block w-8 h-8 text-teal-600 dark:text-teal-400 [&>svg]:w-full [&>svg]:h-full">{@html icons.shieldCheck}</span>
-            </div>
-            <h2 class="text-xl font-semibold text-teal-800 dark:text-teal-200 mt-0 mb-2">Your Privacy is Our Priority</h2>
+            <h2 class="text-xl font-semibold text-teal-800 dark:text-teal-200 mt-0 mb-2">TL;DR</h2>
           </div>
-          <div class="space-y-2 text-teal-700 dark:text-teal-300">
-            <p class="flex items-center gap-2 m-0">
-              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              <strong>100% Browser-Based:</strong> All email scanning happens entirely in YOUR browser
-            </p>
-            <p class="flex items-center gap-2 m-0">
-              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              <strong>Never Leaves Your Device:</strong> Your emails NEVER leave your computer
-            </p>
-            <p class="flex items-center gap-2 m-0">
-              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              <strong>Zero Server Storage:</strong> We NEVER see, store, or process your email content
-            </p>
-            <p class="flex items-center gap-2 m-0">
-              <span class="inline-block w-5 h-5 shrink-0 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              <strong>No AI blackbox:</strong> Our approach is purely algorithmic, leaving no room for surprises
-            </p>
-          </div>
+          <ul class="list-disc pl-5 space-y-2 text-teal-700 dark:text-teal-300">
+            <li><strong>All scanning and processing happens in your browser</strong></li>
+            <li><strong>You stay in full control of your data</strong></li>
+            <li><strong>We don't access, read, or store your emails</strong></li>
+            <li><strong>No 3rd party has access to your personal info or emails</strong></li>
+            <li><strong>Purely algorithmic approach &ndash; no AI blackbox so no surprises</strong></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -77,24 +63,32 @@
         <p class="text-(--color-text) font-medium mb-3">We want to be absolutely clear about what we never access:</p>
         <ul class="space-y-2 text-(--color-text-secondary)">
           <li class="flex items-start gap-2">
-            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.ban}</span>
             <span><strong>Email content</strong> - We never see the body, subject lines, or text of your emails</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.ban}</span>
             <span><strong>Email metadata</strong> - Senders, recipients, timestamps, or any header information</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
-            <span><strong>Subscription lists</strong> - Your scan results and subscription data stay on your device</span>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.ban}</span>
+            <span><strong>Subscription lists</strong> - Your scan results and subscription data</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.ban}</span>
             <span><strong>Inbox data</strong> - Any information from your email inbox</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.xMark}</span>
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.ban}</span>
             <span><strong>Email provider access tokens</strong> - The credentials that allow reading your emails stay in your browser and are never sent to our servers</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.ban}</span>
+            <span><strong>Other personal identifiers</strong> - Names, phone numbers, addresses, or any other personally identifiable information beyond your email address</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="inline-block w-5 h-5 text-red-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.ban}</span>
+            <span><strong>Device or behavioral fingerprinting</strong> - We do not do profiling to identify you. We only collect anonymized product analytics (see Section 9.4)</span>
           </li>
         </ul>
       </div>
@@ -181,7 +175,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+      <div id="token-separation" class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg scroll-mt-24">
         <p class="font-medium text-blue-800 dark:text-blue-200 m-0 mb-2">Token Separation Architecture</p>
         <p class="text-sm text-blue-700 dark:text-blue-300 m-0">
           When you sign in with your email provider, two different tokens are created: an <strong>access token</strong> (which can read your emails) and an <strong>identity token</strong> (which only proves who you are). The OAuth standard requires a backend intermediary to securely exchange your authorization code for these tokens. To maximize transparency, we have split this intermediary into a <strong>standalone, open-source, fully auditable service</strong> that is hosted separately on a public cloud (Cloudflare Workers). This token-exchange service is <strong>fully isolated from the rest of our backend</strong>, meaning our backend has no chance of ever seeing your access token. After the exchange, your browser keeps the access token and uses it to communicate directly with your email provider. Our backend only ever receives the identity token, which cannot be used to access your emails. This architectural choice means our servers are physically incapable of reading your emails, even if compromised.
@@ -225,10 +219,10 @@
           <strong>Microsoft (OAuth & Outlook API):</strong> We use Microsoft's OAuth 2.0 for authentication. Your browser communicates directly with Microsoft's Graph API to read email data. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">Microsoft's privacy statement</a> applies to data they process.
         </li>
         <li>
-          <strong>Stripe (Payment Processing):</strong> If you purchase access to our service, Stripe handles payment processing. We never see or store your full credit card information. Please note that after account deletion, your email address and payment details may still be retained by Stripe in accordance with their own data retention policies. We anonymize all payment records stored on our servers, but cannot force deletion of data held by Stripe.
+          <strong>Stripe (Payment Processing):</strong> If you purchase access to our service, Stripe handles payment processing. We never see or store your full credit card information. Please note that after account deletion, your email address and payment details may still be retained by Stripe in accordance with their own data retention policies. We anonymize all payment records stored on our servers, but cannot force deletion of data held by Stripe. <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">Stripe's privacy policy</a> applies to data they process.
         </li>
         <li>
-          <strong>Cloudflare (Hosting & CDN):</strong> Our service is hosted on Cloudflare. Cloudflare may collect standard server logs (IP addresses, request times) as part of their service.
+          <strong>Cloudflare (Hosting & CDN):</strong> Our service is hosted on Cloudflare. Cloudflare may collect standard server logs (IP addresses, request times) as part of their service. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">Cloudflare's privacy policy</a> applies to data they process.
         </li>
         <li>
           <strong>PostHog (Product Analytics):</strong> We use PostHog for basic product analytics. To protect your privacy, we only ever send a cryptographically hashed (obfuscated) version of your email address to PostHog — your real email address is never transmitted and cannot be recovered, even by PostHog themselves. The hashed identifier is used solely to distinguish between users, not to identify them. No email content, metadata, or inbox data is ever sent to PostHog. <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">PostHog's privacy policy</a> applies to data they process.

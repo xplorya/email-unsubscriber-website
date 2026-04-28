@@ -117,7 +117,7 @@
 <!--    Cell 1 -->
 {#snippet cell1()}
   <div class="cell cell-1 rounded-xl flex h-full">
-    <div class="cell cell-1 group bento-cell card-elevated rounded-xl p-6 pb-2 flex flex-col grow border border-(--color-border) border-l-4 border-l-(--color-accent-border)"
+    <div class="cell cell-1 group bento-cell card-elevated rounded-xl p-6 pb-2 sm:p-8 sm:pb-2 flex flex-col grow border border-(--color-border) border-l-4 border-l-(--color-accent-border)"
          style="background: linear-gradient(135deg, var(--color-accent-gradient-from), var(--color-bg-secondary-solid));">
       <div class="shrink-0 icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
         <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.neverReadYourMails}</span>
@@ -143,12 +143,12 @@
     >
       <div class="cell-2-dots"></div>
       <div class="relative z-10 h-full">
-        <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center ">
+        <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
           <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.verifyRibbonNoTail}</span>
         </div>
-        <h3 class="mt-3 text-lg font-semibold text-(--color-text)">Verifiable Zero-Trust Approach</h3>
+        <h3 class="text-lg font-semibold text-(--color-text)">Verifiable Zero-Trust Approach</h3>
         <p class="mt-2 text-(--color-text-secondary) leading-relaxed">
-          We don't want you to have to trust us. That's why <span class="font-bold">your</span> email <code class="text-sm bg-(--color-bg) px-1.5 py-0.5 rounded border border-(--color-border)">access_token</code> is never sent to our backend or passed through it — and you can verify this.
+          We don't want you to have to trust us. That's why <span class="font-bold">your</span> email <a href="/privacy#token-separation" class="hover:underline transition-colors"><code class="text-sm bg-(--color-bg) px-1.5 py-0.5 rounded border border-(--color-border) text-(--color-accent-text) hover:text-(--color-accent-hover) transition-colors">access_token</code></a> is never sent to our backend or passed through it — and you can verify this.
         </p>
         <div class="absolute top-65 bottom-6">
           <button
@@ -168,9 +168,6 @@
           <!-- Always rendered, clipped by overflow:hidden when collapsed -->
           <div class="pt-4 mt-4 border-t border-(--color-border) h-full flex flex-col">
             <div class="flex items-center gap-3 mb-3">
-<!--              <div class="icon-glow w-10 h-10 rounded-full bg-(&#45;&#45;color-accent-light) flex items-center justify-center">-->
-<!--                <span class="icon-hover-scale w-7 h-7 text-(&#45;&#45;color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.magnifyingGlassCode}</span>-->
-<!--              </div>-->
               <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center ">
                 <span class="icon-hover-scale inline-block w-7 h-7 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.magnifyingGlassCode}</span>
               </div>
@@ -203,11 +200,11 @@
       style="background: linear-gradient(to bottom, var(--color-bg-secondary-solid), var(--color-accent-gradient-from));"
     >
       <div class="icon-glow w-10 h-10 rounded-lg bg-(--color-accent-light) border border-(--color-accent-border) flex items-center justify-center mb-4">
-        <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.privacyByDesignGitCompare}</span>
+        <span class="icon-hover-scale inline-block w-6 h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html icons.holdControl}</span>
       </div>
-      <h3 class="text-lg font-semibold text-(--color-text)">Privacy by Design, Not by Marketing</h3>
+      <h3 class="text-lg font-semibold text-(--color-text)">You Stay in Control</h3>
       <p class="mt-2 text-(--color-text-secondary) leading-relaxed">
-        Most tools say they care about privacy. We built our entire architecture around it. Browser-only execution and isolated authentication aren't add-ons — they're the foundation.
+        We won't delete emails or unsubscribe on your behalf so your inbox is structurally safe; we surface the right data in the right order so you can perform the final action yourself in a few clicks rather than combing through emails for hours.
       </p>
     </div>
   </div>

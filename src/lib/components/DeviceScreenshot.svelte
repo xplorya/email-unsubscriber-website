@@ -1,74 +1,43 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
+
   interface Props {
     feature: string
     alt: string
+    fill?: boolean
+    index?: number
   }
 
-  let { feature, alt }: Props = $props()
+  let { feature, alt, fill = false, index = 1 }: Props = $props()
 
   let mounted = $state(false)
-  let device = $state<'mobile' | 'desktop'>('desktop')
-  let theme = $state<'light' | 'dark'>('light')
   let errorForPath = $state('')
 
-  let imagePath = $derived(`/screenshots/${feature}/${device}-${theme}.png`)
-  let hasError = $derived(!mounted || errorForPath === imagePath)
+  let imageUrl = $derived(`https://assets.email-unsubscriber.com/marketing/${feature}/${index}.png`)
+  let hasError = $derived(!mounted || errorForPath === imageUrl)
 
   // Mark as mounted (client-side only) to avoid SSR prerender fetching missing images.
-  $effect(() => {
+  onMount(() => {
     mounted = true
   })
 
-  // Detect device type via matchMedia — requires event listener setup/teardown,
-  // so $effect is the correct pattern here (cannot use $derived for browser APIs).
-  $effect(() => {
-    const mq = window.matchMedia('(max-width: 767px)')
-
-    function onDeviceChange(e: MediaQueryList | MediaQueryListEvent) {
-      device = e.matches ? 'mobile' : 'desktop'
-    }
-
-    onDeviceChange(mq)
-    mq.addEventListener('change', onDeviceChange)
-
-    return () => mq.removeEventListener('change', onDeviceChange)
-  })
-
-  // Observe theme changes on <html> element — requires MutationObserver
-  // setup/teardown, so $effect is the correct pattern here.
-  $effect(() => {
-    function readTheme() {
-      theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-    }
-
-    readTheme()
-
-    const observer = new MutationObserver(readTheme)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    })
-
-    return () => observer.disconnect()
-  })
-
   function handleImageError() {
-    errorForPath = imagePath
+    errorForPath = imageUrl
   }
 </script>
 
-<div class="rounded-lg overflow-hidden">
+<div class="rounded-lg overflow-hidden {fill ? 'h-full lg:absolute lg:inset-0 lg:h-auto' : ''}">
   {#if hasError}
     <div
-      class="flex min-h-[200px] items-center justify-center rounded-lg border-2 border-dashed border-(--color-border) bg-(--color-bg-secondary-solid)"
+      class="flex min-h-50 items-center justify-center rounded-lg border-2 border-dashed border-(--color-border) bg-(--color-bg-secondary-solid) {fill ? 'h-full' : ''}"
     >
       <p class="text-sm text-(--color-text-secondary)">Screenshot coming soon</p>
     </div>
   {:else}
     <img
-      src={imagePath}
+      src={imageUrl}
       {alt}
-      class="w-full object-contain"
+      class="opacity-60 w-full {fill ? 'h-full object-cover object-top' : 'object-contain'}"
       onerror={handleImageError}
     />
   {/if}
