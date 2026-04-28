@@ -3,7 +3,7 @@
   import { APP_URL } from '$lib/utilities/constants'
   import { loadGsap, prefersReducedMotion } from '$lib/utilities/gsap-utils'
   import { icons } from '$lib/icons'
-  import DeviceScreenshot from '$lib/components/DeviceScreenshot.svelte'
+  import HeroFloatingChips from '$lib/components/HeroFloatingChips.svelte'
 
   let h1El: HTMLHeadingElement | undefined = $state()
   let subtitleEl: HTMLParagraphElement | undefined = $state()
@@ -145,7 +145,7 @@
           <span class="hero-logo inline-block [&>svg]:h-full [&>svg]:w-auto">{@html icons.logoMark}</span>
         </div>
 
-        <h1 bind:this={h1El} class="min-w-0 lg:flex-1 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-(--color-text) leading-[1.1] text-left break-words">
+        <h1 bind:this={h1El} class="min-w-0 lg:flex-1 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-(--color-text) leading-[1.1] text-left wrap-break-word">
           Email<br>Unsubscriber
         </h1>
       </div>
@@ -175,13 +175,12 @@
       </p>
     </div>
 
-    <!-- Right column: product screenshot — desktop stretches to match left column height (lg:items-stretch on parent) -->
+    <!-- Right column: floating chips cluster (replaces prior DeviceScreenshot mockup) -->
     <div bind:this={screenshotWrapperEl} class="flex-1 w-full max-w-lg lg:max-w-none mx-auto lg:mx-0 lg:self-stretch lg:relative">
-      <DeviceScreenshot feature="hero" alt="Email Unsubscriber app screenshot" fill />
+      <HeroFloatingChips />
     </div>
   </div>
 </section>
-
 <style>
   .hero-cta-button {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);

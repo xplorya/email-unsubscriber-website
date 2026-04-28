@@ -11,6 +11,7 @@
     { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Pricing', href: '/#pricing' },
     { label: 'Compare', href: '/#comparison' },
+    { label: 'Preview', href: '/#demo' },
     { label: 'Trust', href: '/#trust' },
     { label: 'About', href: '/#about' }
   ] as const
@@ -140,7 +141,7 @@
   class="sticky top-0 z-50 header-base px-4 sm:px-6 lg:px-8"
   class:header-scrolled={scrolled}
 >
-  <nav class="flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between h-16 max-w-7xl mx-auto">
+  <nav class="flex min-[860px]:grid min-[860px]:grid-cols-[1fr_auto_1fr] items-center justify-between h-16 max-w-7xl mx-auto">
     <!-- Left: Logo -->
     <div class="flex items-center">
       <a
@@ -155,7 +156,7 @@
 
     {#if !hideNav}
       <!-- Center: Nav links (desktop only, always centered) -->
-      <div class="hidden md:flex items-center justify-center gap-0.5">
+      <div class="hidden min-[860px]:flex items-center justify-center gap-0.5">
         {#each NAV_ITEMS as item (item.href)}
           {@const id = item.href.split('#')[1]}
           {@const isActive = activeSection === id}
@@ -170,11 +171,11 @@
       </div>
     {:else}
       <!-- Placeholder keeps 3-track grid intact so right cluster lands in col 3. -->
-      <div class="hidden md:block" aria-hidden="true"></div>
+      <div class="hidden min-[860px]:block" aria-hidden="true"></div>
     {/if}
 
     <!-- Right: CTA + Theme Toggle (desktop) -->
-    <div class="hidden md:flex items-center justify-end gap-2">
+    <div class="hidden min-[860px]:flex items-center justify-end gap-2">
       {#if !heroCTAVisible}
         <a
           href={APP_URL}
@@ -189,7 +190,7 @@
     </div>
 
     <!-- Mobile right side: CTA + Theme Toggle + Hamburger -->
-    <div class="flex md:hidden items-center justify-end gap-2">
+    <div class="flex min-[860px]:hidden items-center justify-end gap-2">
       {#if !heroCTAVisible}
         <a
           href={APP_URL}

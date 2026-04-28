@@ -3,7 +3,6 @@
   import { loadGsap, prefersReducedMotion, revealHeading } from '$lib/utilities/gsap-utils'
   import { APP_URL } from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
-  import FootnoteExpander from '$lib/components/FootnoteExpander.svelte'
   import StepConnector from '$lib/components/StepConnector.svelte'
 
   const referralSteps = [
@@ -129,7 +128,7 @@
       Pricing
     </h2>
     <p class="mt-4 text-center text-(--color-text-secondary) text-lg max-w-2xl mx-auto">
-      It doesn't get any simpler
+      It doesn't get any simpler.
     </p>
 
     <div class="relative flex flex-col min-[860px]:flex-row justify-center items-center gap-8 lg:gap-12 mt-12 sm:mt-16">
@@ -174,26 +173,31 @@
       </div>
     </div>
 
-    <FootnoteExpander id="pricing-referral" triggerText="We also have a Referral Program — tap to expand">
-      <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-0">
-        {#each referralSteps as step, i (step.number)}
-          <div class="group card-elevated p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg-secondary-solid) flex flex-col items-center text-center max-w-xs w-full">
-            <div class="relative">
-              <div class="icon-glow w-12 h-12 rounded-full border-2 border-(--color-accent-border) bg-(--color-accent-light) flex items-center justify-center">
-                <span class="icon-hover-scale w-6  h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html step.icon}</span>
+    <div id="pricing-referral" class="mt-32 border-t border-(--color-border) pt-6">
+      <p class="text-sm italic text-(--color-text-secondary)">
+        We also have a Referral Program
+      </p>
+      <div class="pt-4">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-0">
+          {#each referralSteps as step, i (step.number)}
+            <div class="group card-elevated p-4 sm:p-6 rounded-xl border border-(--color-border) bg-(--color-bg-secondary-solid) flex flex-col items-center text-center w-full max-w-xs md:max-w-70 lg:max-w-sm">
+              <div class="relative">
+                <div class="icon-glow w-12 h-12 rounded-full border-2 border-(--color-accent-border) bg-(--color-accent-light) flex items-center justify-center">
+                  <span class="icon-hover-scale w-6  h-6 text-(--color-accent-text) [&>svg]:w-full [&>svg]:h-full">{@html step.icon}</span>
+                </div>
+                <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-(--color-accent) text-white text-xs font-bold flex items-center justify-center">
+                  {step.number}
+                </span>
               </div>
-              <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-(--color-accent) text-white text-xs font-bold flex items-center justify-center">
-                {step.number}
-              </span>
+              <p class="mt-3 font-semibold text-(--color-text)">{step.title}</p>
+              <p class="mt-1 text-sm text-(--color-text-secondary)">{step.description}</p>
             </div>
-            <p class="mt-3 font-semibold text-(--color-text)">{step.title}</p>
-            <p class="mt-1 text-sm text-(--color-text-secondary)">{step.description}</p>
-          </div>
-          {#if i < referralSteps.length - 1}
-            <StepConnector class="shrink-0 my-1 md:mx-2" />
-          {/if}
-        {/each}
+            {#if i < referralSteps.length - 1}
+              <StepConnector class="shrink-0 my-1 md:mx-4 lg:mx-8" />
+            {/if}
+          {/each}
+        </div>
       </div>
-    </FootnoteExpander>
+    </div>
   </div>
 </section>
