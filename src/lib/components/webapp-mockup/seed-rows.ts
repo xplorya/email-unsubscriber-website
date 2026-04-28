@@ -46,8 +46,8 @@ export const seedRows: MockSubscription[] = [
   },
   {
     id: 'r2',
-    senderName: 'LinkedIn Jobs',
-    senderEmail: 'jobs-noreply@linkedin.com',
+    senderName: 'Daily Promos',
+    senderEmail: 'news@daily-pro.com',
     emailCount: 128,
     lastEmailDate: day(2),
     firstEmailDate: pickFirstDate(128, 'daily'),
@@ -58,7 +58,7 @@ export const seedRows: MockSubscription[] = [
   {
     id: 'r3',
     senderName: 'The Pragmatic Engineer',
-    senderEmail: 'hello@substack.com',
+    senderEmail: 'hello@subbedex.com',
     emailCount: 14,
     lastEmailDate: day(6),
     firstEmailDate: pickFirstDate(14, 'weekly'),
@@ -68,8 +68,8 @@ export const seedRows: MockSubscription[] = [
   },
   {
     id: 'r4',
-    senderName: 'Airbnb Promotions',
-    senderEmail: 'promos@airbnb.com',
+    senderName: 'Random Promotions',
+    senderEmail: 'promos@rndm.com',
     emailCount: 9,
     lastEmailDate: day(14),
     firstEmailDate: pickFirstDate(9, 'monthly'),
