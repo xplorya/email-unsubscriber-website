@@ -32,11 +32,23 @@ function applyThemeToDOM(theme: Theme, isExplicit: boolean): void {
   }
 }
 
+function broadcastThemeToIframes(theme: Theme): void {
+  if (!isBrowser) return
+  document.querySelectorAll('iframe').forEach((f) => {
+    try {
+      f.contentWindow?.postMessage({ type: 'eu:theme', theme }, '*')
+    } catch {
+      // cross-origin frames without contentWindow access — ignore
+    }
+  })
+}
+
 export function toggleTheme(): void {
   const next: Theme = getEffectiveTheme() === 'dark' ? 'light' : 'dark'
   setCookie('theme', next)
   localStorage.setItem(STORAGE_KEY, next)
   applyThemeToDOM(next, true)
+  broadcastThemeToIframes(next)
 }
 
 export function initTheme(): void {
