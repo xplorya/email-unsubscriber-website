@@ -31,7 +31,7 @@
   const competitors: Competitor[] = [
     {
       name: 'Unroll.me',
-      privacy: 'On their loud',
+      privacy: 'On their cloud',
       pricing: 'Free (sells data)',
       dataAccess: 'Full read/write access',
       features: "Unsubscribing<br>" +
