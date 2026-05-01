@@ -1,7 +1,7 @@
 ---
 title: "One-off payments as a business model"
 date: "2026-04-17"
-excerpt: "Are one-off payments really a subscription in disguise? Here's why we beg to differ — and why pricing structure ends up shaping how much user data a product hoards."
+excerpt: "Are one-off payments just a subscription in disguise? No — and the difference is what each model forces you to measure, and therefore what user data you end up keeping."
 author: "Email Unsubscriber Team"
 categories: ["Product"]
 tags: ["pricing", "business-model", "anti-subscription", "saas", "privacy"]
@@ -37,147 +37,109 @@ Forbidden: gradients, drop shadows, inner shadows, glows, 3D, perspective, isome
 Subject: A large editorial price tag as the hero object in the center-left, with a hand offering a single coin toward it. Surround them with smaller floating objects that telegraph "no recurring billing, no data retention": a circular subscription-loop arrow with a clean diagonal slash cutting through it, a broken chain link, a small closed padlock, an empty folder, a calendar with no dates marked, a simple wallet, and a single checkmark. Arrange asymmetrically with the price tag dominant and the cut subscription-loop as the second-largest element; scatter small decorative stars and dots in the negative space between objects.
 -->
 
-Every few months, someone on a startup forum posts the same argument: "one-time payments are just subscriptions in disguise. You still need updates. You still need support. You still need servers. Call it whatever you want — the customer still ends up paying over time."
+A common pushback on one-off pricing goes like this: software needs ongoing maintenance, maintenance costs money, so a one-time price is just a prepaid subscription with the recurrence hidden. Therefore one-off = subscription minus transparency.
 
-It is a reasonable-sounding take. It is also wrong in the specific way that matters most: **subscription pricing and one-off pricing produce different incentives, and incentives quietly shape which features get built, which metrics get tracked, and which user data gets retained.**
+The argument sounds tidy. It misses the part that actually matters: **subscription pricing and one-off pricing force a business to measure different things, and what a business measures determines what user data it has to keep.**
 
-This is the post we wish existed when we were making the call for Email Unsubscriber. The decision looks superficial ("charge once or monthly?") but it cascades into architecture, privacy posture, and how the team spends its Mondays.
+## What subscriptions have to measure
 
-## The "subscription in disguise" argument, steel-manned
+A business living on monthly recurring revenue is anchored to a specific set of metrics — churn, retention cohorts, lifetime value, engagement, win-back rates. None of those are wrong on their own. The catch is what each one requires you to collect about every user, indefinitely:
 
-Start with the strongest version of the skeptic's case:
-
-1. Software needs ongoing maintenance — dependency updates, security patches, OS changes, API drift, customer support.
-2. That work has to be paid for somehow.
-3. If a one-time purchase price covers *N years* of future maintenance, then that price is really a *prepaid* subscription — you just hid the recurrence.
-4. Therefore: one-time = subscription minus transparency.
-
-Every one of those bullets is true in isolation. The conclusion is wrong because it ignores **what the two pricing models measure and reward**.
-
-## What subscriptions quietly optimize for
-
-A SaaS business with monthly recurring revenue (MRR) lives and dies by a specific set of metrics:
-
-- **Churn** — how many users cancel this month?
-- **Retention cohorts** — which signup cohorts are still paying at month 6, 12, 24?
-- **Lifetime value (LTV)** — projected revenue per user across their subscription arc.
-- **Engagement / DAU / MAU** — proxies for future retention.
-- **Re-engagement success** — win-back rates on inactive users.
-
-None of those metrics are wrong. The trouble is what each of them **requires you to collect and retain about every user**:
-
-- Churn → user-level last-active timestamps + cancel reasons + reactivation attempts.
-- Retention cohorts → signup date + activity signal over time, per user, indefinitely.
+- Churn → per-user last-active timestamps, cancel reasons, reactivation attempts.
+- Retention cohorts → signup date plus an activity signal over time, per user.
 - LTV → full per-user revenue history.
 - Engagement → session logs, feature-usage events, click-streams.
-- Re-engagement → email addresses (persisted), behavioral patterns (persisted), "last seen" (persisted).
+- Win-back → persistent email addresses, behavioural patterns, "last seen".
 
-**These metrics are what make a subscription business work.** You cannot operate a subscription SaaS without them. That's the incentive, and it runs downhill to your architecture: every metric needs a table, every table needs a retention policy, and "retention policy" in practice usually means "we'll keep it until someone asks us to stop."
+You can't run a subscription business without those tables. The metrics are what pay the bills, and the metrics need the data. "Retention policy" then quietly becomes "we'll keep it until someone forces us to stop."
 
-## What one-off payments actually change
+## What one-off changes
 
-A one-off purchase flips the revenue curve. Revenue is booked at the moment of sale. After that transaction, **the user's future activity does not move the revenue needle.**
+A one-off purchase books revenue at the moment of sale. After that, the user's future behaviour stops moving the revenue needle, so the metrics above stop being load-bearing:
 
-Which means the metrics above become uninteresting:
+- Churn — there is no cancel event.
+- Retention cohorts — no longer a leading indicator of revenue.
+- LTV — equals the price. Nothing to model.
+- Engagement — still a product-quality signal, no longer a revenue forecast.
+- Win-back — there's no renewal to fight for.
 
-- Churn — there is no "churn" event. Users don't cancel what they bought.
-- Retention cohorts — retention doesn't compound into revenue. Cohort curves stop being a leading indicator.
-- LTV — equals the one-time price. Nothing to model.
-- Engagement — still useful for *product quality* but not for *forecasting revenue*.
-- Re-engagement — there is no one to re-engage, because there is no renewal to fight for.
+The KPIs that matter sit *before* the purchase: visit-to-purchase conversion, word-of-mouth, review sentiment. Those can be measured from anonymous or aggregate signals at the top of the funnel. None of them require keeping a per-user history after checkout.
 
-The primary KPI for a one-off business sits **before** the purchase, not after:
+The result is structural: a one-off business has no business reason to retain behavioural data about individual users post-purchase. A subscription business has many.
 
-- Visit → trial / demo → purchase conversion rate.
-- Word-of-mouth / referral rate (drives future purchases).
-- Review sentiment and media mentions (top-of-funnel signal).
+## Where the argument is weakest
 
-Notice the data requirement. Those metrics are measured at the top of the funnel, from analytics events that can be fully anonymous or aggregate. They do not require you to keep a per-user history after purchase.
+"No incentive to hoard" is not the same as "impossible to hoard." Any team can choose to collect more than its model requires. Pricing is a necessary condition, not a sufficient one — the architecture has to back it up.
 
-**The outcome: a one-off business has no business reason to retain behavioral data about individual users past checkout.** Subscription businesses do. The difference is not cosmetic.
+In our case it does:
 
-## Where the claim is weakest (the honest part)
+- The scanner runs in the user's browser. The backend serves the algorithm and never sees email content, headers, or metadata.
+- Our database stores a thin unsubscribe record (sender domain, timestamp, provider) — not behavioural logs.
+- Analytics are opt-in, anonymised, and gated behind a cookie-consent banner.
+- Account deletion anonymises every record tied to the user across our collections.
 
-"No incentive to hoard" does not mean "impossible to hoard." Any team with any pricing model can choose to collect more data than their business needs. A one-off team can still:
+None of that is *forced* by the pricing model. But the pricing removed the business case for doing the opposite, which is the quiet reason small teams end up with bloated data pipelines: their metrics demand it, and the metrics come from the revenue model.
 
-- Track usage for product-analytics telemetry.
-- Stash email addresses for upsell to "premium" versions.
-- Retain logs "in case we need them" with no retention policy.
+## What one-off isn't
 
-Pricing is a necessary condition, not a sufficient one. The architecture has to back it up. In our case:
+The argument is also not a free pass. "One-off payment" does not mean any of these:
 
-- The scanner runs inside the user's browser; the backend never sees message contents, headers, or metadata.
-- The database stores a thin unsubscribe record (sender domain, timestamp, provider), not user-behavior logs.
-- Analytics are opt-in, anonymized, and routed through PostHog with cookie consent.
-- Account deletion anonymizes every record tied to the user, including Stripe receipts.
+- **"Ship it and walk away."** We still patch, update, and support. The price has to account for a reasonable window of maintenance.
+- **"Free updates forever."** A meaningfully larger product — say, a team plan — is a separate product. Existing customers keep what they paid for.
+- **"No infrastructure cost."** We still pay for servers. The price absorbs operating cost over the projected customer lifetime.
+- **"Anti-SaaS."** We use plenty of SaaS tools internally. This is about what our users pay, not a worldview.
 
-None of that is forced by our pricing. But the pricing **removed the business case for doing the opposite**, which is the quieter reason small teams end up building bloated data pipelines: because their metrics demand it, and the metrics come from the revenue model.
+Get any of these wrong and "pay once" turns into a tagline that collapses the first time a maintenance invoice lands.
 
-## What one-off *isn't*
+## When one-off fits
 
-This is where the skeptic's argument deserves a partial win. "One-off payment" does not mean any of the following:
+It tends to work when:
 
-- **"Ship it and walk away."** We still patch, update, and support. The price has to account for some reasonable window of maintenance; ours is priced to cover ≥3 years.
-- **"Free updates forever."** If we ship a major new version with significant scope expansion — say, a team plan — that's a separate product. Existing customers keep what they paid for; they don't inherit the new thing at no cost.
-- **"No server costs."** We still run infrastructure. The Firestore cluster doesn't subsidize itself. The price is set to absorb operating cost amortized over the projected customer lifetime.
-- **"Anti-SaaS."** We use plenty of SaaS tools internally. This is about what our users pay, not a philosophical war.
+- The tool solves a discrete problem rather than running an ongoing workflow.
+- Usage is bursty — users return when they need it, not every morning.
+- Value per use is high and measurable — people will pay once to reclaim hours of their time, but resent paying monthly for the same outcome.
+- Product scope is bounded. There's a product, not a platform.
 
-Getting those details wrong is how one-off pricing becomes performative. "Pay once" becomes a marketing tagline that collapses when the first maintenance invoice lands.
+It tends not to work when the product is fundamentally a service (hosted infrastructure, real-time data feeds), needs continuous content (news, video, live data), or depends on an active-user network effect (social, marketplaces, collaborative editors).
 
-## When one-off makes sense
+Email Unsubscriber sits in the first set. Most tool-shaped indie SaaS does too.
 
-Use case fit matters. One-off tends to work when:
+## The under-discussed angle: incentive alignment
 
-- **The tool solves a discrete problem**, not an ongoing workflow. Unsubscribing from marketing lists is discrete — you do it when your inbox gets out of hand, not every morning.
-- **Usage is bursty**, not daily. A user who touches the tool once a quarter resents paying monthly for it.
-- **Value per use is high and measurable**. People will pay $20 once to reclaim hours; they won't pay $3/month indefinitely for the same outcome.
-- **The product scope is bounded**. Feature sprawl that might justify "premium tiers" doesn't exist — you ship the product, not a platform.
+Most pricing write-ups frame the choice as a revenue question — which gets you more ARR, which raises better, which has stronger margins. Those matter.
 
-And when it doesn't:
+The angle that gets less airtime: **pricing is an alignment mechanism between the company and the user.**
 
-- **The product is fundamentally a service.** Hosted email, hosted databases, real-time infrastructure — these genuinely have per-user operating costs that scale with active usage.
-- **The product needs continuous content.** News aggregators, always-on video libraries, live data feeds.
-- **The product depends on a network effect requiring active users.** Social tools, marketplaces, collaborative editors.
+- Subscription → revenue grows when users stay logged in. Architectural pull: retention features, notification loops, engagement hooks, behavioural data to feed all three.
+- One-off → revenue grows when new users buy. Architectural pull: ship a product good enough that the next purchase comes from word-of-mouth. Post-purchase activity is orthogonal to revenue.
 
-Email Unsubscriber sits firmly in the first set. Most "tool-shaped" indie SaaS does too.
+The subscription incentive isn't evil. It builds great products (Notion, Figma, Linear). But it produces a slow gravitational pull toward hoarding user data, because the metrics that pay the bills need it.
 
-## The under-appreciated angle: incentive alignment
-
-Most write-ups of pricing models frame it as a revenue question — "which gets you more ARR, which is easier to raise on, which has better margins." Those matter.
-
-The angle we think gets under-discussed: **pricing model is an incentive alignment mechanism between the company and the user.**
-
-- Subscription → company's revenue grows when users stay logged in. Architectural incentive: retention features, notification loops, engagement hooks, behavioral data to personalize all of the above.
-- One-off → company's revenue grows when new users buy. Architectural incentive: ship a product that creates enough word-of-mouth to drive the next purchase. Post-purchase user activity is orthogonal to revenue.
-
-The subscription incentive isn't evil. It builds great products (Notion, Figma, Linear). But it creates a slow gravitational pull toward hoarding user data, because the metrics that pay the bills need it.
-
-A one-off model simply removes that pull. What replaces it — whether the product stays trustworthy, honest, and well-maintained — is entirely up to the team. Pricing doesn't guarantee any of that.
-
-But it does quietly change what the team's Monday looks like.
+A one-off model removes that pull. Whether the product stays well-maintained and trustworthy after that is up to the team, not the pricing model. Pricing doesn't guarantee anything — it only changes what the team's Monday looks like.
 
 ## Our position
 
-Email Unsubscriber is $20. Once. It includes:
+Email Unsubscriber is a one-off purchase: **€2.99 / $3.49**. One transaction, no auto-renew, no card on file pulling money next month.
 
-- Lifetime access to the current major version.
-- Security patches and dependency updates for the life of the app.
-- Bug fixes and feature refinements within the current major version.
-- Support via email.
+What that buys you:
 
-It does not include:
+- Full, unlimited use of the product for a 30-day window.
+- Support via email during that window.
+- A product that runs the scan in your browser and never sends your email content to our servers.
+
+What it doesn't include — and never will:
 
 - A login screen that phones home to check your subscription status.
-- Behavioral logs for "improving personalization."
-- Cohort-level tracking for churn prevention (there is no churn).
-- A roadmap designed to create reasons for you to keep paying.
+- Behavioural logs collected for "improving personalisation."
+- Cohort tracking for churn prevention. There is no churn.
+- A roadmap engineered to manufacture reasons for you to keep paying.
 
-We think that trade is worth it for a tool shaped like this. It is not the right trade for every product, and we're not claiming it is. But when people ask whether our one-time payment is "really a subscription in disguise" — no. It isn't. The incentives really are different. The architecture really is different because of it. And the data we never collect really doesn't exist on our servers, because we never built the table it would have lived in.
+The honest framing: this isn't a "lifetime licence" and we're not pretending it is. It's a one-shot purchase for the bursty kind of work — clear out your inbox, get on with your life. When the inbox fills up again in six months, you can buy another one. Or not. Either way, no recurring charge runs in the background, and no behavioural file on you sits in a database somewhere waiting to be useful.
 
-That is the short answer. The longer one is: look at what a business has to measure to stay alive, and you'll usually find the data it collects follows from there.
+That is the trade we think is right for a tool shaped like this. It isn't right for every product. But when people ask whether a one-time payment is "really a subscription in disguise" — no. The incentives are different, the architecture is different because of it, and the data we never collect doesn't exist on our servers, because we never built the table it would have lived in.
 
 ## Further reading
 
-- [Our /security page](/security) — what we actually store vs. what we don't.
-- [Passing CASA Tier 2 as a small team](/blog/passing-casa-t2-small-team-field-guide) — the third-party review that validated the above.
+- [Our /security page](/security) — what we actually store, what we don't, and how to verify it.
+- [Passing CASA Tier 2 as a small team](/blog/passing-casa-t2-small-team-field-guide) — the third-party security review behind the claims above.
 - [Email Unsubscriber is now CASA Tier 2 validated](/blog/casa-t2-validated) — the short-form announcement.
