@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Post } from '$lib/blog/types'
   import type { Component } from 'svelte'
+  import { afterNavigate } from '$app/navigation'
   import { SITE_URL } from '$lib/utilities/constants'
   import PostHero from '$lib/components/blog/PostHero.svelte'
   import TableOfContents from '$lib/components/blog/TableOfContents.svelte'
@@ -17,7 +18,7 @@
 
   const PostBody = $derived(data.post.Component as Component)
   const canonical = $derived(`${SITE_URL}/blog/${data.post.slug}`)
-  const pageTitle = $derived(`${data.post.title} — Email Unsubscriber`)
+  const pageTitle = $derived(`${data.post.title} - Email Unsubscriber`)
   // Only emit an og:image when the post actually has a cover. If none,
   // omit the meta entirely rather than pointing at a placeholder that 404s.
   const ogImage = $derived(
@@ -26,6 +27,17 @@
       : null
   )
   const ogImageAlt = $derived(data.post.coverAlt ?? data.post.title)
+
+  // Bypass the global `html { scroll-behavior: smooth }` for full-page nav
+  // between blog posts: SvelteKit auto-scrolls to top after content swaps,
+  // and animating that scroll over the already-swapped new content looks
+  // broken. Hash-link clicks (TOC, footnotes) keep the smooth behavior
+  // because they go through the CSS path, not this programmatic call.
+  afterNavigate(({ to, type }) => {
+    if (type === 'enter') return
+    if (to?.url.hash) return
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
+  })
 
   const jsonLd = $derived(
     JSON.stringify({
@@ -51,7 +63,7 @@
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.png` }
       },
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical }
-    }).replace(/<\/script>/gi, '<\\/script>')
+    }).replace(/</g, '\\u003c')
   )
 </script>
 
@@ -96,7 +108,7 @@
 
       <div class="min-w-0 lg:col-start-1 lg:row-start-2">
         <div class="lg:hidden">
-          <TableOfContents variant="mobile" />
+          <TableOfContents variant="mobile" slug={data.post.slug} />
         </div>
         <article class="prose">
           <PostBody />
@@ -105,7 +117,7 @@
       </div>
 
       <aside class="hidden lg:block lg:col-start-2 lg:row-start-2" aria-label="Page tools">
-        <TableOfContents variant="desktop" />
+        <TableOfContents variant="desktop" slug={data.post.slug} />
       </aside>
     </div>
 

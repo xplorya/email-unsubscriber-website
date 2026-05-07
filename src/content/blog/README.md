@@ -118,7 +118,7 @@ Every post embeds a `cover-generation-prompt` HTML comment block between the fro
 
 ## Style + quality checklist (before publishing)
 
-- [ ] **Voice** matches the site: calm, declarative, technical. No marketing fluff.
+- [ ] **Voice** matches the site: calm, declarative, friendly, slightly technical. No marketing fluff.
 - [ ] **Title** is short + literal. No clickbait, no capitalized "Our", "The Ultimate", etc.
 - [ ] **Excerpt** is one sentence, ≤160 chars — shows on cards + used verbatim as `og:description`.
 - [ ] **Categories** chosen from existing set (`Privacy`, `Product`, `Engineering`, `How-to`, `Changelog`, `News`). Add a new one only if posts across ≥2 future pieces would share it.
@@ -133,9 +133,6 @@ Every post embeds a `cover-generation-prompt` HTML comment block between the fro
 - [ ] **Preview locally** (`npm run dev`) → check light + dark theme + mobile viewport.
 - [ ] **Lighthouse** on the new post: SEO should hit 100, a11y ≥95.
 
-## Removing the placeholder post
-
-The `hello-world.md` file is a visual-spec smoke test. Delete it before shipping the first real post (and remove the corresponding entry from `user-todo.md` at the repo root).
 
 ## Common gotchas
 

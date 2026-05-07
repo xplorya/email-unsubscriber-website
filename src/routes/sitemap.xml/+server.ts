@@ -3,16 +3,34 @@ import { getAllPosts } from '$lib/blog/posts'
 
 export const prerender = true
 
-const STATIC_PATHS = ['/', '/privacy', '/terms', '/security', '/blog']
+const STATIC_LASTMOD: Record<string, string> = {
+  '/': '2026-05-02',
+  '/privacy': '2026-05-01',
+  '/terms': '2026-05-01',
+  '/security': '2026-05-01',
+  '/blog': '2026-05-07'
+}
+
+const FALLBACK_LASTMOD = '2026-05-07'
+
+const pageModules = import.meta.glob('/src/routes/**/+page.svelte')
+
+function discoverStaticPaths(): string[] {
+  const paths = Object.keys(pageModules)
+    .map((file) => file.replace(/^\/src\/routes/, '').replace(/\/\+page\.svelte$/, ''))
+    .map((path) => (path === '' ? '/' : path))
+    .filter((path) => !path.includes('['))
+  return Array.from(new Set(paths)).sort()
+}
 
 export function GET() {
   const posts = getAllPosts()
-  const today = new Date().toISOString().slice(0, 10)
+  const staticPaths = discoverStaticPaths()
 
   const urls = [
-    ...STATIC_PATHS.map((path) => ({
+    ...staticPaths.map((path) => ({
       loc: `${SITE_URL}${path === '/' ? '' : path}`,
-      lastmod: today
+      lastmod: STATIC_LASTMOD[path] ?? FALLBACK_LASTMOD
     })),
     ...posts.map((p) => ({
       loc: `${SITE_URL}/blog/${p.slug}`,

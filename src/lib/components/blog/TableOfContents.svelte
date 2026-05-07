@@ -1,47 +1,63 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import { tick } from 'svelte'
   import type { Heading } from '$lib/blog/types'
   import { icons } from '$lib/icons'
 
   interface Props {
     variant: 'desktop' | 'mobile'
+    /** Re-run DOM scrape whenever this changes (client-side nav between posts). */
+    slug: string
   }
 
-  let { variant }: Props = $props()
+  let { variant, slug }: Props = $props()
 
   let headings = $state<Heading[]>([])
   let activeId = $state<string>('')
   let detailsEl: HTMLDetailsElement | undefined = $state()
 
-  onMount(() => {
-    const nodes = Array.from(
-      document.querySelectorAll<HTMLElement>('.prose h2, .prose h3')
-    ).filter((el) => Boolean(el.id))
+  $effect(() => {
+    // Track slug so the effect re-runs on client-side post → post nav.
+    void slug
 
-    headings = nodes.map((el) => ({
-      id: el.id,
-      text: el.textContent?.trim() ?? '',
-      level: el.tagName === 'H2' ? 2 : 3
-    }))
+    let cancelled = false
+    let cleanupScroll: (() => void) | undefined
 
-    if (headings.length === 0) return
+    // Wait for the new post body to flush into the DOM before scraping.
+    tick().then(() => {
+      if (cancelled) return
 
-    const anchors = nodes.filter((el) => el.id)
-    function onScroll() {
-      const trigger = 120
-      let current = anchors[0]?.id ?? ''
-      for (const el of anchors) {
-        if (el.getBoundingClientRect().top <= trigger) {
-          current = el.id
+      const nodes = Array.from(
+        document.querySelectorAll<HTMLElement>('.prose h2, .prose h3')
+      ).filter((el) => Boolean(el.id))
+
+      headings = nodes.map((el) => ({
+        id: el.id,
+        text: el.textContent?.trim() ?? '',
+        level: el.tagName === 'H2' ? 2 : 3
+      }))
+      activeId = ''
+
+      if (headings.length === 0) return
+
+      const anchors = nodes
+      function onScroll() {
+        const trigger = 120
+        let current = anchors[0]?.id ?? ''
+        for (const el of anchors) {
+          if (el.getBoundingClientRect().top <= trigger) {
+            current = el.id
+          }
         }
+        if (current !== activeId) activeId = current
       }
-      if (current !== activeId) activeId = current
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
+      window.addEventListener('scroll', onScroll, { passive: true })
+      onScroll()
+      cleanupScroll = () => window.removeEventListener('scroll', onScroll)
+    })
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
+      cancelled = true
+      cleanupScroll?.()
     }
   })
 

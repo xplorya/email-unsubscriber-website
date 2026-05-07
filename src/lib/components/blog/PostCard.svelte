@@ -16,7 +16,7 @@
 <a
   href="/blog/{post.slug}"
   class="post-card block bg-(--color-bg) border border-(--color-border) rounded-[14px] overflow-hidden flex flex-col shadow-[0_1px_3px_var(--color-card-shadow)] transition-[box-shadow,transform,border-color] duration-[250ms] focus:outline-none"
-  aria-label="{post.title} — {post.readingTime}"
+  aria-label="{post.title} - {post.readingTime}"
 >
   <div class="card-cover relative aspect-[16/9] overflow-hidden">
     {#if hasCover}

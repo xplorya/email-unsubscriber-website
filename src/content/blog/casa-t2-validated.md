@@ -1,7 +1,7 @@
 ---
 title: "Email Unsubscriber is now CASA Tier 2 validated"
 date: "2026-04-17"
-excerpt: "Our app just cleared ADA's CASA Tier 2 and we're really hyped about it! Here's what it unlocks and what that means for users."
+excerpt: "Email Unsubscriber cleared ADA's CASA Tier 2. The validation unlocks Gmail support and confirms what we built behind the scenes."
 author: "Email Unsubscriber Team"
 categories: ["News"]
 tags: ["casa", "compliance", "security", "gmail"]
@@ -37,23 +37,22 @@ Forbidden: gradients, drop shadows, inner shadows, glows, 3D, perspective, isome
 Subject: A large editorial shield with a simple checkmark at its center as the hero object, paired with a cream certificate scroll carrying abstract squiggle lines that stand in for text. Surround them with smaller floating objects that telegraph email-security validation: a stylized envelope with a tiny padlock badge attached, a magnifying glass passing over a small code-window rectangle, a rubber stamp with an abstract mark, and a simple key. Arrange asymmetrically with the shield dominant and the certificate scroll as the second-largest element; scatter small decorative stars and dots in the negative space.
 -->
 
-Google has just received the Letter of Validation confirming that Email Unsubscriber<sup><small>&trade;</small></sup> passed App Defense Alliance's **CASA Tier 2** - the independent verification required by Google for every app requesting to read users' emails in Gmail.
+Google received the Letter of Validation confirming that Email Unsubscriber<sup><small>&trade;</small></sup> passed App Defense Alliance's **CASA Tier 2**. CASA Tier 2 is the independent verification Google requires of every app that reads users' emails in Gmail.
 
-The assessment was carried out by TAC Security -- Google's preferred authorized assessment lab -- and covered 100+ automated security checks against the [Cloud Application Security Assessment (CASA)](https://appdefensealliance.dev/casa) framework, plus a thorough review covering 20+ security aspects on how we handle data, credentials, access, and incidents.
+TAC Security, Google's authorized assessment lab, ran the assessment. The audit covered 100+ automated security checks against the [Cloud Application Security Assessment (CASA)](https://appdefensealliance.dev/casa) framework, plus a thorough review of 20+ security aspects covering data handling, credentials, access, and incidents.
 
 ## Why it matters
 
-- **Independent proof, not a marketing claim.** A third-party lab, authorized by ADA, reviewed our code and our operating practices. The word "secure" on our site is no longer a self-report.
-- **Reassurance that "No access to email data" was the right approach.** A recurring theme in the review: "Where does user data live and how do you protect it?" Our answer stayed simple — we don't store any of the users' email data anywhere because we never access it. Only the user's browser does - the scanner runs there directly.
-- **Formal confirmation of what we already built.** The assessment validates the things we architected from day one: read-only OAuth scopes, AES-256 encryption at rest, browser-side scanning, and one-off payments that remove the incentive to hoard data for retention metrics.
+- **Independent proof of our security claims.** A third-party lab, authorized by ADA, reviewed our code and our operating practices. Outside validation now backs the word "secure" on our site.
+- **Validation of "No access to email data."** A recurring theme in the review: "Where does user data live and how do you protect it?" Our answer is short. We don't store users' email data because we never access it. The scanner runs in the user's browser. Our servers see nothing.
+- **Formal sign-off on what we built.** The assessment validates the architecture we picked from day one: read-only OAuth scopes, AES-256 encryption at rest, browser-side scanning, and one-off payments that remove the incentive to hoard data for retention metrics.
 
 ## What this unlocks
 
-**Gmail is now supported.** Until today, Microsoft/Outlook was the only provider we supported, and Gmail sat behind a "Coming soon" label pointing to our [security page](/security). With the CASA validation in hand, Google has finalized our verification and we officially support Gmail accounts.
+**We support Gmail now.** Until today, Microsoft/Outlook was the only provider we supported. Gmail sat behind a "Coming soon" label pointing to our [security page](/security). With CASA validation in hand, Google finalized our verification, and Gmail accounts work today.
 
 ## What's next
 
-We're committed to making Email Unsubscriber available to as many users as possible, so expanding the support to other well-known email providers -- and maybe even custom integrations, who knows? -- is on the roadmap. Stay tuned!
+We want Email Unsubscriber to reach more users. The roadmap covers more email providers, with custom integrations as a longer-term goal.
 
-Thanks for being patient while we worked through it. It took us a few weeks of infrastructure improvements, paperwork, and back-and-forth with Google and our chosen assessor, but it was worth it: outside validation is the only way a privacy claim means anything.
-
+The validation took a few weeks of infrastructure improvements, paperwork, and back-and-forth with Google and the assessor. Outside validation backs a privacy claim better than self-reporting can, and that's why we did it.

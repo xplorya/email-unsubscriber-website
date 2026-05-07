@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import { icons } from '$lib/icons'
 
   interface Props {
@@ -8,45 +9,96 @@
 
   let { title, url }: Props = $props()
 
+  const shareMessage = $derived(`${title}\n${url}`)
+
   const tweetUrl = $derived(
     `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`
   )
+  const whatsappUrl = $derived(`https://wa.me/?text=${encodeURIComponent(shareMessage)}`)
+  const telegramUrl = $derived(
+    `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`
+  )
+  // FB / Messenger / LinkedIn sharers ignore text params — copy message + open separately
+  const facebookUrl = $derived(
+    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+  )
+  const messengerUrl = $derived(`fb-messenger://share/?link=${encodeURIComponent(url)}`)
   const linkedInUrl = $derived(
     `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
+  )
+  const mailtoUrl = $derived(
+    `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`Thought you'd find this interesting:\n\n${title}\n${url}`)}`
   )
 
   let copied = $state(false)
   let copyError = $state(false)
   let copyTimer: ReturnType<typeof setTimeout> | null = null
 
-  async function onCopy() {
+  let copiedShareMessage = $state('')
+  let copiedShareUrl = $state('')
+
+  let canNativeShare = $state(false)
+
+  onMount(() => {
+    canNativeShare = typeof navigator !== 'undefined' && typeof navigator.share === 'function'
+  })
+
+  async function copyText(text: string): Promise<boolean> {
     try {
       if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(url)
-      } else {
-        // Legacy fallback
-        const ta = document.createElement('textarea')
-        ta.value = url
-        ta.setAttribute('readonly', '')
-        ta.style.position = 'absolute'
-        ta.style.left = '-9999px'
-        document.body.appendChild(ta)
-        ta.select()
-        const ok = document.execCommand('copy')
-        document.body.removeChild(ta)
-        if (!ok) throw new Error('execCommand copy failed')
+        await navigator.clipboard.writeText(text)
+        return true
       }
+      // Legacy fallback
+      const ta = document.createElement('textarea')
+      ta.value = text
+      ta.setAttribute('readonly', '')
+      ta.style.position = 'absolute'
+      ta.style.left = '-9999px'
+      document.body.appendChild(ta)
+      ta.select()
+      const ok = document.execCommand('copy')
+      document.body.removeChild(ta)
+      return ok
+    } catch {
+      return false
+    }
+  }
+
+  async function onCopy() {
+    const ok = await copyText(url)
+    if (ok) {
       copied = true
       copyError = false
       if (copyTimer) clearTimeout(copyTimer)
       copyTimer = setTimeout(() => {
         copied = false
       }, 2000)
-    } catch {
-      // Don't lie — don't show "Copied" on failure.
+    } else {
       copied = false
       copyError = true
     }
+  }
+
+  async function shareViaCopyThenOpen(networkLabel: string, openUrl: string) {
+    const ok = await copyText(shareMessage)
+    if (ok) {
+      copiedShareMessage = `open ${networkLabel}`
+      copiedShareUrl = openUrl
+    }
+  }
+
+  async function shareNative() {
+    try {
+      await navigator.share({ title, text: title, url })
+    } catch {
+      // User cancelled or unavailable — silently ignore
+    }
+  }
+
+  function dismissCopiedHint() {
+    copiedShareMessage = ''
+    copiedShareUrl = ''
   }
 </script>
 
@@ -64,35 +116,85 @@
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Share on X"
-    class="share-btn inline-flex items-center justify-center w-9 h-9 rounded-full border border-(--color-border) bg-(--color-bg) text-(--color-accent-text) transition-colors focus:outline-none"
+    class="share-btn"
   >
-    <span class="w-4 h-4 inline-flex [&>svg]:w-full [&>svg]:h-full" aria-hidden="true">
-      {@html icons.twitter}
-    </span>
+    <span class="icon-slot" aria-hidden="true">{@html icons.twitter}</span>
   </a>
 
   <a
-    href={linkedInUrl}
+    href={whatsappUrl}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Share on LinkedIn"
-    class="share-btn inline-flex items-center justify-center w-9 h-9 rounded-full border border-(--color-border) bg-(--color-bg) text-(--color-accent-text) transition-colors focus:outline-none"
+    aria-label="Share on WhatsApp"
+    class="share-btn"
   >
-    <span class="w-4 h-4 inline-flex [&>svg]:w-full [&>svg]:h-full" aria-hidden="true">
-      {@html icons.linkedin}
-    </span>
+    <span class="icon-slot" aria-hidden="true">{@html icons.whatsapp}</span>
+  </a>
+
+  <a
+    href={telegramUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Share on Telegram"
+    class="share-btn"
+  >
+    <span class="icon-slot" aria-hidden="true">{@html icons.telegram}</span>
+  </a>
+
+  <button
+    type="button"
+    onclick={() => shareViaCopyThenOpen('Facebook', facebookUrl)}
+    aria-label="Share on Facebook"
+    class="share-btn"
+  >
+    <span class="icon-slot" aria-hidden="true">{@html icons.facebook}</span>
+  </button>
+
+  <button
+    type="button"
+    onclick={() => shareViaCopyThenOpen('Messenger', messengerUrl)}
+    aria-label="Share on Messenger"
+    class="share-btn"
+  >
+    <span class="icon-slot" aria-hidden="true">{@html icons.messenger}</span>
+  </button>
+
+  <button
+    type="button"
+    onclick={() => shareViaCopyThenOpen('LinkedIn', linkedInUrl)}
+    aria-label="Share on LinkedIn"
+    class="share-btn"
+  >
+    <span class="icon-slot" aria-hidden="true">{@html icons.linkedin}</span>
+  </button>
+
+  <a
+    href={mailtoUrl}
+    aria-label="Share via email"
+    class="share-btn"
+  >
+    <span class="icon-slot" aria-hidden="true">{@html icons.email}</span>
   </a>
 
   <button
     type="button"
     onclick={onCopy}
     aria-label="Copy link to this post"
-    class="share-btn inline-flex items-center justify-center w-9 h-9 rounded-full border border-(--color-border) bg-(--color-bg) text-(--color-accent-text) transition-colors focus:outline-none"
+    class="share-btn"
   >
-    <span class="w-4 h-4 inline-flex [&>svg]:w-full [&>svg]:h-full" aria-hidden="true">
-      {@html icons.copy}
-    </span>
+    <span class="icon-slot" aria-hidden="true">{@html icons.copy}</span>
   </button>
+
+  {#if canNativeShare}
+    <button
+      type="button"
+      onclick={shareNative}
+      aria-label="Share via system share sheet"
+      class="share-btn"
+    >
+      <span class="icon-slot" aria-hidden="true">{@html icons.shareNative}</span>
+    </button>
+  {/if}
 
   <span
     role="status"
@@ -105,7 +207,56 @@
   </span>
 </div>
 
+{#if copiedShareMessage && copiedShareUrl}
+  <div
+    class="share-hint flex flex-wrap items-center gap-3 -mt-6 mb-8 px-4 py-3 border border-(--color-accent-border) rounded-xl bg-(--color-accent-light) text-sm text-(--color-accent-text)"
+    role="status"
+    aria-live="polite"
+  >
+    <span class="flex-1 min-w-0">
+      Message copied. Tap to {copiedShareMessage} and paste in your post!
+    </span>
+    <a
+      href={copiedShareUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      onclick={dismissCopiedHint}
+      class="inline-flex items-center justify-center px-3 py-1.5 rounded-full border border-(--color-accent) bg-transparent text-(--color-accent-text) text-xs font-semibold transition-colors hover:bg-(--color-accent) hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-(--color-accent-glow)"
+    >
+      {copiedShareMessage.replace(/^open /, 'Open ')}
+    </a>
+    <button
+      type="button"
+      onclick={dismissCopiedHint}
+      aria-label="Dismiss"
+      class="text-(--color-text-secondary) hover:text-(--color-text-primary) text-lg leading-none px-1"
+    >
+      &times;
+    </button>
+  </div>
+{/if}
+
 <style>
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-accent-text);
+    transition:
+      color 0.15s,
+      background 0.15s,
+      border-color 0.15s;
+  }
+
+  .share-btn:focus {
+    outline: none;
+  }
+
   .share-btn:hover {
     color: var(--color-accent-hover);
     border-color: var(--color-accent-border);
@@ -115,6 +266,17 @@
   .share-btn:focus-visible {
     box-shadow: 0 0 0 3px var(--color-accent-glow);
     border-color: var(--color-accent);
+  }
+
+  .icon-slot {
+    display: inline-flex;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .icon-slot :global(svg) {
+    width: 100%;
+    height: 100%;
   }
 
   .copy-feedback {

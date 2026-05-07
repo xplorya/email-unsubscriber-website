@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CONTACT_EMAIL } from '$lib/utilities/constants'
+  import { CONTACT_EMAIL, SITE_URL } from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
 
   function handleClose() {
@@ -9,7 +9,26 @@
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  const pageTitle = 'Terms of Service - Email Unsubscriber'
+  const pageDescription =
+    'Service terms for Email Unsubscriber. Pay-once license, refund policy, EU consumer rights.'
+  const canonical = `${SITE_URL}/terms`
 </script>
+
+<svelte:head>
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Email Unsubscriber" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
+</svelte:head>
 
 <div class="max-w-3xl mx-auto px-4 pt-4 py-8 sm:px-6 lg:px-8">
   <article class="max-w-none">

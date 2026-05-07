@@ -6,6 +6,7 @@
   import Header from '$lib/components/Header.svelte'
   import Footer from '$lib/components/Footer.svelte'
   import CookieConsent from '$lib/components/CookieConsent.svelte'
+  import { SITE_URL, CONTACT_EMAIL, COMPANY_NAME, SOCIAL_LINKS } from '$lib/utilities/constants'
 
   let { children } = $props()
 
@@ -22,6 +23,41 @@
   // Parallax offset: dots move at 1/10th scroll speed
   let dotOffset = $derived(reducedMotion ? 0 : Math.round(scrollY * -0.15))
 
+  const SITE_DESCRIPTION = 'Privacy-first one-click email unsubscribe tool for Gmail and Outlook.'
+  const ORG_ID = `${SITE_URL}#organization`
+
+  function escapeJsonLd(value: unknown): string {
+    return JSON.stringify(value).replace(/</g, '\\u003c')
+  }
+
+  const organizationJsonLd = escapeJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': ORG_ID,
+    name: 'Email Unsubscriber',
+    legalName: COMPANY_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/icons/Email_Unsubscriber_v1_logo.svg`,
+    email: CONTACT_EMAIL,
+    description: SITE_DESCRIPTION,
+    sameAs: [
+      SOCIAL_LINKS.x,
+      SOCIAL_LINKS.linkedin,
+      SOCIAL_LINKS.facebook,
+      SOCIAL_LINKS.instagram
+    ]
+  })
+
+  const websiteJsonLd = escapeJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Email Unsubscriber',
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    inLanguage: 'en',
+    publisher: { '@id': ORG_ID }
+  })
+
   onMount(() => {
     initTheme()
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -29,6 +65,11 @@
     mq.addEventListener('change', (e) => { reducedMotion = e.matches })
   })
 </script>
+
+<svelte:head>
+  {@html `<script type="application/ld+json">${organizationJsonLd}</script>`}
+  {@html `<script type="application/ld+json">${websiteJsonLd}</script>`}
+</svelte:head>
 
 <svelte:window bind:scrollY />
 

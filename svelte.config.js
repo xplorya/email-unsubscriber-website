@@ -10,6 +10,17 @@ import path from 'node:path'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+// mdsvex only copies `file.data.fm` to the exported `metadata` object;
+// values written elsewhere on `file.data` (like remark-reading-time's
+// `file.data.readingTime`) are dropped. This shim copies it into `fm`.
+function remarkExposeReadingTimeToFrontmatter() {
+  return (_tree, file) => {
+    if (file.data?.fm && file.data.readingTime) {
+      file.data.fm.readingTime = file.data.readingTime
+    }
+  }
+}
+
 const highlighter = await createHighlighter({
   themes: ['github-light', 'github-dark-default'],
   langs: ['js', 'ts', 'tsx', 'svelte', 'bash', 'json', 'go', 'html', 'css', 'yaml', 'md', 'text']
@@ -32,7 +43,7 @@ const config = {
           return `{@html \`${html.replace(/`/g, '\\`').replace(/\{/g, '\\{').replace(/\}/g, '\\}')}\`}`
         }
       },
-      remarkPlugins: [remarkGfm, remarkReadingTime],
+      remarkPlugins: [remarkGfm, remarkReadingTime, remarkExposeReadingTimeToFrontmatter],
       rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
     })
   ],
