@@ -48,7 +48,7 @@
     activeCategory = 'All'
   }
 
-  const pageTitle = 'Writing — Email Unsubscriber'
+  const pageTitle = 'Blog - Email Unsubscriber'
   const pageDescription =
     'Notes on inbox hygiene, privacy-first engineering, and what we learn running Email Unsubscriber.'
   const canonical = `${SITE_URL}/blog`
@@ -62,6 +62,7 @@
   <meta property="og:description" content={pageDescription} />
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Email Unsubscriber" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={pageDescription} />
@@ -126,7 +127,7 @@
         {:else}
           <EmptyState
             title="No posts yet."
-            message="Come back soon — we're writing."
+            message="Come back soon - we're writing."
           />
         {/if}
       {:else}

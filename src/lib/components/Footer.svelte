@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {APP_URL, CONTACT_EMAIL, COMPANY_NAME, COMPANY_UIC} from '$lib/utilities/constants'
+  import {APP_URL, CONTACT_EMAIL, COMPANY_NAME, COMPANY_UIC, SOCIAL_LINKS as SOCIAL_URLS} from '$lib/utilities/constants'
   import { icons } from '$lib/icons'
 
   interface Props {
@@ -58,9 +58,10 @@
   ]
 
   const SOCIAL_LINKS = [
-    { label: 'Twitter / X', href: '#', icon: icons.twitter },
-    { label: 'LinkedIn', href: '#', icon: icons.linkedin },
-    { label: 'GitHub', href: '#', icon: icons.github }
+    { label: 'X (Twitter)', href: SOCIAL_URLS.x, icon: icons.twitter },
+    { label: 'LinkedIn', href: SOCIAL_URLS.linkedin, icon: icons.linkedin },
+    { label: 'Facebook', href: SOCIAL_URLS.facebook, icon: icons.facebook },
+    { label: 'Instagram', href: SOCIAL_URLS.instagram, icon: icons.instagram }
   ] as const
 </script>
 
@@ -106,6 +107,8 @@
           {#each SOCIAL_LINKS as social (social.label)}
             <a
               href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={social.label}
               class="text-(--color-text-secondary) hover:text-(--color-text) transition-colors"
             >

@@ -18,7 +18,7 @@
 
   const PostBody = $derived(data.post.Component as Component)
   const canonical = $derived(`${SITE_URL}/blog/${data.post.slug}`)
-  const pageTitle = $derived(`${data.post.title} — Email Unsubscriber`)
+  const pageTitle = $derived(`${data.post.title} - Email Unsubscriber`)
   // Only emit an og:image when the post actually has a cover. If none,
   // omit the meta entirely rather than pointing at a placeholder that 404s.
   const ogImage = $derived(
@@ -63,7 +63,7 @@
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.png` }
       },
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical }
-    }).replace(/<\/script>/gi, '<\\/script>')
+    }).replace(/</g, '\\u003c')
   )
 </script>
 
