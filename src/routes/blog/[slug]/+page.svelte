@@ -6,6 +6,7 @@
   import PostHero from '$lib/components/blog/PostHero.svelte'
   import TableOfContents from '$lib/components/blog/TableOfContents.svelte'
   import ShareCluster from '$lib/components/blog/ShareCluster.svelte'
+  import BlogPostCta from '$lib/components/blog/BlogPostCta.svelte'
   import RelatedPosts from '$lib/components/blog/RelatedPosts.svelte'
   import ReadingProgressBar from '$lib/components/blog/ReadingProgressBar.svelte'
 
@@ -112,6 +113,7 @@
         </div>
         <article class="prose">
           <PostBody />
+          <BlogPostCta slug={data.post.slug} />
           <ShareCluster title={data.post.title} url={canonical} />
         </article>
       </div>

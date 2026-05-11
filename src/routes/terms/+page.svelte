@@ -215,7 +215,7 @@
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">8.3 Re-Registration After Deletion</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        If you choose to re-register after deleting your account, you will have full access to all features and functionality of the service — your experience will not be restricted or degraded in any way. The only difference is that returning users will not receive a welcome discount coupon that is normally offered to first-time users who sign up through a referral link. This is because our system uses the retained anonymized identifier to detect returning accounts solely for the purpose of preventing abuse of promotional and referral incentives. This detection does not affect your access to any features, functionality, or service tiers.
+        If you choose to re-register after deleting your account, you will have full access to all features and functionality of the service. Your experience will not be restricted or degraded in any way. The only difference is that returning users will not receive a welcome discount coupon that is normally offered to first-time users who sign up through a referral link. This is because our system uses the retained anonymized identifier to detect returning accounts solely for the purpose of preventing abuse of promotional and referral incentives. This detection does not affect your access to any features, functionality, or service tiers.
       </p>
     </section>
 
@@ -279,7 +279,7 @@
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.3 Abnormal Activity</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        We monitor referral activity across our platform. Referral patterns that are significantly disproportionate to typical usage — including but not limited to unusually high referral frequency relative to platform-wide averages — may be flagged as abnormal activity and investigated.
+        We monitor referral activity across our platform. Referral patterns that are significantly disproportionate to typical usage, including but not limited to unusually high referral frequency relative to platform-wide averages, may be flagged as abnormal activity and investigated.
       </p>
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.4 Enforcement</h3>
@@ -295,7 +295,7 @@
 
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.5 Program Changes</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        We reserve the right to modify, suspend, or discontinue the referral program — including bonus percentages, stacking limits, and qualification criteria — at any time and at our sole discretion, with or without notice.
+        We reserve the right to modify, suspend, or discontinue the referral program, including bonus percentages, stacking limits, and qualification criteria, at any time and at our sole discretion, with or without notice.
       </p>
     </section>
 
