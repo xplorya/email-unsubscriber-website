@@ -18,7 +18,6 @@
   const telegramUrl = $derived(
     `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`
   )
-  // FB / Messenger / LinkedIn sharers ignore text params — copy message + open separately
   const facebookUrl = $derived(
     `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
   )
@@ -33,9 +32,6 @@
   let copied = $state(false)
   let copyError = $state(false)
   let copyTimer: ReturnType<typeof setTimeout> | null = null
-
-  let copiedShareMessage = $state('')
-  let copiedShareUrl = $state('')
 
   let canNativeShare = $state(false)
 
@@ -80,25 +76,12 @@
     }
   }
 
-  async function shareViaCopyThenOpen(networkLabel: string, openUrl: string) {
-    const ok = await copyText(shareMessage)
-    if (ok) {
-      copiedShareMessage = `open ${networkLabel}`
-      copiedShareUrl = openUrl
-    }
-  }
-
   async function shareNative() {
     try {
       await navigator.share({ title, text: title, url })
     } catch {
       // User cancelled or unavailable — silently ignore
     }
-  }
-
-  function dismissCopiedHint() {
-    copiedShareMessage = ''
-    copiedShareUrl = ''
   }
 </script>
 
@@ -141,32 +124,35 @@
     <span class="icon-slot" aria-hidden="true">{@html icons.telegram}</span>
   </a>
 
-  <button
-    type="button"
-    onclick={() => shareViaCopyThenOpen('Facebook', facebookUrl)}
+  <a
+    href={facebookUrl}
+    target="_blank"
+    rel="noopener noreferrer"
     aria-label="Share on Facebook"
     class="share-btn"
   >
     <span class="icon-slot" aria-hidden="true">{@html icons.facebook}</span>
-  </button>
+  </a>
 
-  <button
-    type="button"
-    onclick={() => shareViaCopyThenOpen('Messenger', messengerUrl)}
+  <a
+    href={messengerUrl}
+    target="_blank"
+    rel="noopener noreferrer"
     aria-label="Share on Messenger"
     class="share-btn"
   >
     <span class="icon-slot" aria-hidden="true">{@html icons.messenger}</span>
-  </button>
+  </a>
 
-  <button
-    type="button"
-    onclick={() => shareViaCopyThenOpen('LinkedIn', linkedInUrl)}
+  <a
+    href={linkedInUrl}
+    target="_blank"
+    rel="noopener noreferrer"
     aria-label="Share on LinkedIn"
     class="share-btn"
   >
     <span class="icon-slot" aria-hidden="true">{@html icons.linkedin}</span>
-  </button>
+  </a>
 
   <a
     href={mailtoUrl}
@@ -206,35 +192,6 @@
     {#if copyError}<span class="sr-only">Copy failed</span>{/if}
   </span>
 </div>
-
-{#if copiedShareMessage && copiedShareUrl}
-  <div
-    class="share-hint flex flex-wrap items-center gap-3 -mt-6 mb-8 px-4 py-3 border border-(--color-accent-border) rounded-xl bg-(--color-accent-light) text-sm text-(--color-accent-text)"
-    role="status"
-    aria-live="polite"
-  >
-    <span class="flex-1 min-w-0">
-      Message copied. Tap to {copiedShareMessage} and paste in your post!
-    </span>
-    <a
-      href={copiedShareUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick={dismissCopiedHint}
-      class="inline-flex items-center justify-center px-3 py-1.5 rounded-full border border-(--color-accent) bg-transparent text-(--color-accent-text) text-xs font-semibold transition-colors hover:bg-(--color-accent) hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-(--color-accent-glow)"
-    >
-      {copiedShareMessage.replace(/^open /, 'Open ')}
-    </a>
-    <button
-      type="button"
-      onclick={dismissCopiedHint}
-      aria-label="Dismiss"
-      class="text-(--color-text-secondary) hover:text-(--color-text-primary) text-lg leading-none px-1"
-    >
-      &times;
-    </button>
-  </div>
-{/if}
 
 <style>
   .share-btn {

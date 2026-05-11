@@ -154,7 +154,7 @@
           <strong>Contract Performance (Art. 6(1)(b)):</strong> Processing your email address and account data to provide the email unsubscription service, process payments, and maintain your account.
         </li>
         <li>
-          <strong>Consent (Art. 6(1)(a)):</strong> Analytics cookies, session recording, and behavioral tracking — only activated when you explicitly consent via our cookie banner.
+          <strong>Consent (Art. 6(1)(a)):</strong> Analytics cookies, session recording, and behavioral tracking, activated only when you explicitly consent via our cookie banner.
         </li>
         <li>
           <strong>Legitimate Interest (Art. 6(1)(f)):</strong> Essential error tracking and performance monitoring to maintain service reliability; security measures including blacklist maintenance for fraud and abuse prevention.
@@ -244,7 +244,7 @@
           <strong>Cloudflare (Hosting & CDN):</strong> Our service is hosted on Cloudflare. Cloudflare may collect standard server logs (IP addresses, request times) as part of their service. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">Cloudflare's privacy policy</a> applies to data they process.
         </li>
         <li>
-          <strong>PostHog (Product Analytics):</strong> We use PostHog for basic product analytics. To protect your privacy, we only ever send a cryptographically hashed (obfuscated) version of your email address to PostHog — your real email address is never transmitted and cannot be recovered, even by PostHog themselves. The hashed identifier is used solely to distinguish between users, not to identify them. No email content, metadata, or inbox data is ever sent to PostHog. <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">PostHog's privacy policy</a> applies to data they process.
+          <strong>PostHog (Product Analytics):</strong> We use PostHog for basic product analytics. To protect your privacy, we only ever send a cryptographically hashed (obfuscated) version of your email address to PostHog. Your real email address is never transmitted and cannot be recovered, even by PostHog themselves. The hashed identifier is used solely to distinguish between users, not to identify them. No email content, metadata, or inbox data is ever sent to PostHog. <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">PostHog's privacy policy</a> applies to data they process.
         </li>
       </ul>
 
@@ -304,12 +304,12 @@
             <p class="font-semibold text-teal-800 dark:text-teal-200 m-0">Third-Party Transfer Restrictions</p>
           </div>
           <p class="text-sm text-teal-700 dark:text-teal-300 mb-3">
-            Sensitive email user data — including email content, metadata, headers, and access tokens — is <strong>never transferred to any third party, for any purpose whatsoever</strong>, regardless of whether you use Gmail, Outlook, or any other supported email provider. This data is processed exclusively within your browser and is architecturally inaccessible to our servers and any third party. Specifically:
+            Sensitive email user data, including email content, metadata, headers, and access tokens, is <strong>never transferred to any third party, for any purpose whatsoever</strong>, regardless of whether you use Gmail, Outlook, or any other supported email provider. This data is processed exclusively within your browser and is architecturally inaccessible to our servers and any third party. Specifically:
           </p>
           <ul class="space-y-2 text-sm text-teal-700 dark:text-teal-300">
             <li class="flex items-start gap-2">
               <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              <span>We do not share, sell, rent, or disclose email content, metadata, headers, or access tokens to any third party for any reason — including for service-related purposes</span>
+              <span>We do not share, sell, rent, or disclose email content, metadata, headers, or access tokens to any third party for any reason, including for service-related purposes</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
@@ -321,7 +321,7 @@
             </li>
             <li class="flex items-start gap-2">
               <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-              <span>For payment processing, Stripe collects payment information directly from your browser — we never collect, handle, or transmit your payment or banking data to Stripe or any other party. Data retained by Stripe is subject to Stripe's own privacy policy and is outside our control</span>
+              <span>For payment processing, Stripe collects payment information directly from your browser; we never collect, handle, or transmit your payment or banking data to Stripe or any other party. Data retained by Stripe is subject to Stripe's own privacy policy and is outside our control</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
@@ -399,7 +399,7 @@
           </p>
           <p class="flex items-start gap-2 m-0">
             <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
-            <span>Email data processed entirely in your browser — never on our servers</span>
+            <span>Email data processed entirely in your browser, never on our servers</span>
           </p>
           <p class="flex items-start gap-2 m-0">
             <span class="inline-block w-4 h-4 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.checkBold}</span>
@@ -425,7 +425,7 @@
       <!-- 9.2 Client-Side Processing Architecture -->
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.2 Client-Side Processing Architecture</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        All email data — including content, headers, metadata, and subscription information — is processed entirely within your browser. Email data never reaches our servers, architecturally eliminating the possibility of server-side data breaches for this information.
+        All email data, including content, headers, metadata, and subscription information, is processed entirely within your browser. Email data never reaches our servers, architecturally eliminating the possibility of server-side data breaches for this information.
       </p>
 
       <!-- 9.3 Token Isolation -->
@@ -443,7 +443,7 @@
       <!-- 9.5 Data Minimization -->
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">9.5 Data Minimization</h3>
       <p class="text-(--color-text-secondary) leading-relaxed">
-        We follow the principle of data minimization — we collect only the absolute minimum data required to provide and improve the Email Unsubscriber service. We do not collect or retain any data beyond what is strictly necessary for service functionality.
+        We follow the principle of data minimization. We collect only the absolute minimum data required to provide and improve the Email Unsubscriber service. We do not collect or retain any data beyond what is strictly necessary for service functionality.
       </p>
 
       <!-- 9.6 Open-Source Transparency -->
@@ -468,7 +468,7 @@
       <h3 class="text-lg font-medium text-(--color-text) mt-6 mb-3">10.2 Data That Is Permanently Deleted</h3>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li>
-          <strong>Unsubscribe history:</strong> All records of your unsubscribe actions, which may contain third-party sender information, are permanently and fully deleted — not anonymized.
+          <strong>Unsubscribe history:</strong> All records of your unsubscribe actions, which may contain third-party sender information, are permanently and fully deleted, not anonymized.
         </li>
         <li>
           <strong>Whitelist/early access entries:</strong> Any early access or whitelist entries associated with your account are removed.
@@ -481,10 +481,10 @@
       </p>
       <ul class="space-y-3 text-(--color-text-secondary)">
         <li>
-          <strong>Payment records (up to 7 years):</strong> Anonymized payment records — including payment amounts, dates, currency, and Stripe transaction identifiers — are retained to comply with tax and financial reporting obligations. This retention is permitted under GDPR Article 17(3)(b), which allows data controllers to retain data necessary for compliance with a legal obligation.
+          <strong>Payment records (up to 7 years):</strong> Anonymized payment records, including payment amounts, dates, currency, and Stripe transaction identifiers, are retained to comply with tax and financial reporting obligations. This retention is permitted under GDPR Article 17(3)(b), which allows data controllers to retain data necessary for compliance with a legal obligation.
         </li>
         <li>
-          <strong>Anonymized user identifier:</strong> A one-way cryptographic hash derived from your email address is retained to detect returning users and prevent abuse of promotional offers (such as referral incentives). This hash cannot be reversed to recover your email address. This retention is justified under legitimate interest as recognized by GDPR Recital 47 — specifically, the prevention of fraud and misuse of services.
+          <strong>Anonymized user identifier:</strong> A one-way cryptographic hash derived from your email address is retained to detect returning users and prevent abuse of promotional offers (such as referral incentives). This hash cannot be reversed to recover your email address. This retention is justified under legitimate interest as recognized by GDPR Recital 47, specifically the prevention of fraud and misuse of services.
         </li>
         <li>
           <strong>Blacklist entries:</strong> If your account was placed on a security blacklist prior to deletion, that entry is retained for ongoing security and abuse prevention purposes.

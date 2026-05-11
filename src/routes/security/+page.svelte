@@ -53,29 +53,29 @@
     <!-- Section 1: Google Verification Status -->
     <section class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">1. Google Verification Status</h2>
-      <p class="text-(--color-text-secondary) leading-relaxed">Our Google OAuth integration has completed every stage of Google's multi-stage verification pipeline, including <a href="https://appdefensealliance.dev/casa" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">CASA</a> (Cloud Application Security Assessment) — a security framework administered by the <a href="https://appdefensealliance.dev" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">App Defense Alliance</a> that Google requires for apps accessing sensitive user data:
+      <p class="text-(--color-text-secondary) leading-relaxed">Our Google OAuth integration has completed every stage of Google's multi-stage verification pipeline, including <a href="https://appdefensealliance.dev/casa" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">CASA</a> (Cloud Application Security Assessment), a security framework administered by the <a href="https://appdefensealliance.dev" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">App Defense Alliance</a> that Google requires for apps accessing sensitive user data:
       </p>
       <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-4 mb-4">
         <ul class="space-y-3 text-(--color-text-secondary)">
           <li class="flex items-start gap-2">
             <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.verifyRibbonNoTail}</span>
-            <span><strong>OAuth compliance</strong> — Approved</span>
+            <span><strong>OAuth compliance</strong>: Approved</span>
           </li>
           <li class="flex items-start gap-2">
             <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.verifyRibbonNoTail}</span>
-            <span><strong>Privacy policy</strong> — Approved</span>
+            <span><strong>Privacy policy</strong>: Approved</span>
           </li>
           <li class="flex items-start gap-2">
             <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.verifyRibbonNoTail}</span>
-            <span><strong>Scope justification</strong> — Approved</span>
+            <span><strong>Scope justification</strong>: Approved</span>
           </li>
           <li class="flex items-start gap-2">
             <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.verifyRibbonNoTail}</span>
-            <span><strong>Limited Use compliance</strong> — Approved</span>
+            <span><strong>Limited Use compliance</strong>: Approved</span>
           </li>
           <li class="flex items-start gap-2">
             <span class="inline-block w-5 h-5 text-teal-500 shrink-0 mt-0.5 [&>svg]:w-full [&>svg]:h-full">{@html icons.verifyRibbonNoTail}</span>
-            <span><strong>CASA security assessment</strong> — Approved</span>
+            <span><strong>CASA security assessment</strong>: Approved</span>
           </li>
         </ul>
       </div>
@@ -88,7 +88,7 @@
     <section class="mb-8">
       <h2 class="text-xl font-semibold text-(--color-text) border-b border-(--color-border) pb-2">2. Security Assessment</h2>
       <p class="text-(--color-text-secondary) leading-relaxed mb-4">
-        We perform continuous static application security testing (SAST) and software composition analysis (SCA) using <strong>FluidAttacks</strong> — the same tool used by ADA-authorized assessment labs to evaluate applications.
+        We perform continuous static application security testing (SAST) and software composition analysis (SCA) using <strong>FluidAttacks</strong>, the same tool used by ADA-authorized assessment labs to evaluate applications.
       </p>
 
       <!-- Comparison table -->
@@ -114,25 +114,25 @@
             </tr>
             <tr>
               <td class="py-3 px-4 font-medium border-b border-(--color-border)">Open critical/high findings</td>
-              <td class="py-3 px-4 border-b border-(--color-border)">—</td>
+              <td class="py-3 px-4 border-b border-(--color-border)">N/A</td>
               <td class="py-3 px-4 border-b border-(--color-border) text-teal-700 dark:text-teal-300 font-medium">0</td>
             </tr>
             <tr>
               <td class="py-3 px-4 font-medium border-b border-(--color-border)">Open medium findings</td>
-              <td class="py-3 px-4 border-b border-(--color-border)">—</td>
+              <td class="py-3 px-4 border-b border-(--color-border)">N/A</td>
               <td class="py-3 px-4 border-b border-(--color-border) text-teal-700 dark:text-teal-300 font-medium">0</td>
             </tr>
             <tr>
               <td class="py-3 px-4 font-medium">Tolerance</td>
               <td class="py-3 px-4">Low-risk acceptable</td>
-              <td class="py-3 px-4 text-teal-700 dark:text-teal-300 font-medium">Zero tolerance — all findings addressed</td>
+              <td class="py-3 px-4 text-teal-700 dark:text-teal-300 font-medium">Zero tolerance: all findings addressed</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <p class="text-(--color-text-secondary) leading-relaxed">
-        Our most recent assessment found <strong>0 open CWEs</strong> across all severity levels. We don't limit ourselves to the minimum CASA threshold — every finding is resolved before release, regardless of severity. Our testing covers the full <a href="https://owasp.org/www-project-application-security-verification-standard/" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">OWASP ASVS</a> catalog;
+        Our most recent assessment found <strong>0 open CWEs</strong> across all severity levels. We don't limit ourselves to the minimum CASA threshold. Every finding is resolved before release, regardless of severity. Our testing covers the full <a href="https://owasp.org/www-project-application-security-verification-standard/" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 underline hover:text-slate-800 dark:hover:text-slate-200">OWASP ASVS</a> catalog;
       </p>
     </section>
 
@@ -150,7 +150,7 @@
         </p>
         <p class="flex items-start gap-3 m-0">
           <span class="inline-block w-5 h-5 shrink-0 text-center">2.</span>
-          <span>Our backend receives an identity token only — it cannot access your emails</span>
+          <span>Our backend receives an identity token only; it cannot access your emails</span>
         </p>
         <p class="flex items-start gap-3 m-0">
           <span class="inline-block w-5 h-5 shrink-0 text-center">3.</span>
@@ -158,7 +158,7 @@
         </p>
         <p class="flex items-start gap-3 m-0">
           <span class="inline-block w-5 h-5 shrink-0 text-center">4.</span>
-          <span>We request read-only access — we cannot modify, delete, or send emails</span>
+          <span>We request read-only access; we cannot modify, delete, or send emails</span>
         </p>
       </div>
 

@@ -116,6 +116,6 @@ Senders know the law. That's why the unsubscribe button exists at all. Most legi
 
 Document each step, and use the channels that exist for it.
 
-If you're tired of clicking 'unsubscribe' again and again and your inbox keeps being bombarded with all kinds of 'exciting news' from services and products you no longer care about, you should jump to our [**Homepage**](https://app.email-unsubscriber.com/) to learn how we could help you.
+If you're tired of clicking 'unsubscribe' again and again and your inbox keeps being bombarded with all kinds of 'exciting news' from services and products you no longer care about, you should jump to our Homepage to learn how we could help you.
 
 Or check out our [**Email Unsubscriber App**](https://app.email-unsubscriber.com/).
