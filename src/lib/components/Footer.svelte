@@ -33,7 +33,7 @@
       links: [
         { label: 'About Us', href: '/#about' },
         { label: 'Mission', href: '/#why' },
-        { label: 'Blog (coming soon)', href: '/blog' }
+        { label: 'Blog', href: '/blog' }
         // { label: 'Careers', href: '#' }
       ]
     },

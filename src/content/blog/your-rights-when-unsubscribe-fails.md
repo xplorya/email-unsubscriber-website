@@ -3,7 +3,7 @@ title: "Your rights when 'unsubscribe' doesn't stop the emails"
 date: "2026-05-07"
 excerpt: "You unsubscribed. They kept emailing. Under CAN-SPAM and GDPR you have legal recourse, and the FTC's settlement record proves senders take it seriously."
 author: "Email Unsubscriber Team"
-categories: ["Privacy", "How-to"]
+categories: ["How-to", "Privacy"]
 tags: ["unsubscribe", "can-spam", "gdpr", "ftc", "email-rights"]
 cover: "/blog/covers/your-rights-when-unsubscribe-fails.webp"
 coverAlt: "Flat vector illustration of a dated clipboard with day 11 circled, a fan of three dated envelopes beside it, a magnifying glass over one date, and a calendar pinned at day 10."
@@ -81,7 +81,7 @@ Three things might be happening. The right next step depends on which.
 
 Before you click anything, the sender knows you opened the email. Most marketing emails contain a 1×1 transparent image (a tracking pixel) that reports the open back to the sender along with your IP address, device type, and rough location.
 
-Under GDPR, embedding a tracking pixel without prior consent counts the same as sending the email itself without consent. CAN-SPAM doesn't address pixels, but if a sender ignores your unsubscribe request and keeps firing pixel pings, you can report them on the unsubscribe violation alone. Unsubscribing stops future pixel pings at the source. One more reason to clear out senders you don't want.
+Under GDPR, embedding a tracking pixel without prior consent counts the same as sending the email itself without consent. CAN-SPAM doesn't address pixels, but if a sender ignores your unsubscribe request and keeps firing pixel pings, you can report them on the unsubscribe violation alone. Unsubscribing stops future pixel pings at the source. One more reason to clear out senders you don't want. For how pixels work and how to block them, see [spy pixels: the invisible trackers in more than half of your emails](/blog/tracking-pixels).
 
 ## How to file a complaint
 
