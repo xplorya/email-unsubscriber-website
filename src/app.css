@@ -708,6 +708,12 @@ html {
     /*}*/
   }
 
+  & > pre {
+    padding: 1rem 1.5rem;
+    margin-inline: 1.1rem;
+    font-size: 0.85rem;
+  }
+
   & > *:last-child { padding-bottom: 1rem; }
 
   &[open] > *:not(summary) {
