@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
-  import { reveal } from '$lib/utilities/scroll-reveal'
+  import { reveal, revealStaggered } from '$lib/utilities/scroll-reveal'
   import { loadGsap, prefersReducedMotion, revealHeading } from '$lib/utilities/gsap-utils'
   import { icons } from '$lib/icons'
   import { fetchStats, FLOOR_STATS } from '$lib/utilities/stats'
@@ -162,6 +162,34 @@
     }
     badgeScrollTriggers = []
   })
+
+  // PLACEHOLDER TESTIMONIALS — not real user quotes.
+  // Replace `quote`, `name`, and `role` with verified feedback before launch.
+  // See user-todo.md for the tracking entry.
+  const testimonials = [
+    {
+      quote:
+        'Found forty-odd newsletters I forgot I ever signed up for and cleared them in one sitting. My inbox finally feels like mine again.',
+      name: 'Placeholder Name',
+      role: 'Gmail user'
+    },
+    {
+      quote:
+        'What sold me was that the scanning happens in my browser. No inbox access parked on someone else’s server. Paid once, done.',
+      name: 'Placeholder Name',
+      role: 'Privacy-minded user'
+    },
+    {
+      quote:
+        'I’ve tried the subscription cleaners. This one just does the job and never tries to bill me again. Refreshing.',
+      name: 'Placeholder Name',
+      role: 'Outlook user'
+    }
+  ] as const
+
+  const CLAPSTORM_URL = 'https://www.clapstorm.com/p/email-unsubscriber'
+  const badgeSrc = (theme: 'light' | 'dark') =>
+    `https://www.clapstorm.com/badge?slug=email-unsubscriber&variant=featured&theme=${theme}`
 </script>
 
 <!-- GDPR Compliant: custom layout (EU-flag circle of stars + keyhole lock + 2-line label + verification rosette) -->
@@ -289,6 +317,35 @@
       </div>
     </div>
 
+    <!-- Testimonials grid -->
+<!--    <div class="mt-16 sm:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">-->
+<!--      {#each testimonials as t, i (i)}-->
+<!--        <figure-->
+<!--          use:revealStaggered={{ delay: i * 100 }}-->
+<!--          class="card-elevated flex flex-col rounded-xl border border-(&#45;&#45;color-border) bg-(&#45;&#45;color-bg) p-6 sm:p-8"-->
+<!--        >-->
+<!--          <span class="quote-glyph text-(&#45;&#45;color-accent) leading-none select-none" aria-hidden="true"-->
+<!--          >&ldquo;</span-->
+<!--          >-->
+<!--          <blockquote class="mt-1 flex-1 text-(&#45;&#45;color-text) text-lg leading-relaxed">-->
+<!--            {t.quote}-->
+<!--          </blockquote>-->
+<!--          <figcaption class="mt-6 flex items-center gap-3">-->
+<!--            <span-->
+<!--              class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-(&#45;&#45;color-accent-light) text-(&#45;&#45;color-accent-text) [&>svg]:w-6 [&>svg]:h-6"-->
+<!--              aria-hidden="true"-->
+<!--            >-->
+<!--              {@html icons.userCircle}-->
+<!--            </span>-->
+<!--            <span class="flex flex-col">-->
+<!--              <span class="font-medium text-(&#45;&#45;color-text) leading-tight">{t.name}</span>-->
+<!--              <span class="text-sm text-(&#45;&#45;color-text-secondary) leading-tight">{t.role}</span>-->
+<!--            </span>-->
+<!--          </figcaption>-->
+<!--        </figure>-->
+<!--      {/each}-->
+<!--    </div>-->
+
     <!-- Trust Badges -->
     <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       {@render casaVerifiedCard()}
@@ -297,5 +354,43 @@
       {@render noDataSellingCard()}
     </div>
 
+    <!-- Featured-on strip: theme-swapped CLAPSTORM badge -->
+<!--    <div use:reveal class="mt-12 sm:mt-16 flex flex-col items-center gap-4">-->
+<!--      <p class="text-sm font-semibold text-(&#45;&#45;color-accent-text)">Featured on</p>-->
+<!--      <a-->
+<!--        href={CLAPSTORM_URL}-->
+<!--        target="_blank"-->
+<!--        rel="noopener"-->
+<!--        class="badge-link inline-flex rounded-lg transition-opacity duration-200 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(&#45;&#45;color-accent)"-->
+<!--      >-->
+<!--        <img-->
+<!--          class="badge-light"-->
+<!--          src={badgeSrc('light')}-->
+<!--          alt="Email Unsubscriber — Featured on CLAPSTORM"-->
+<!--          width="250"-->
+<!--          height="61"-->
+<!--          loading="lazy"-->
+<!--          decoding="async"-->
+<!--        />-->
+<!--        <img-->
+<!--          class="badge-dark"-->
+<!--          src={badgeSrc('dark')}-->
+<!--          alt="Email Unsubscriber — Featured on CLAPSTORM"-->
+<!--          width="250"-->
+<!--          height="61"-->
+<!--          loading="lazy"-->
+<!--          decoding="async"-->
+<!--        />-->
+<!--      </a>-->
+<!--    </div>-->
+
   </div>
 </section>
+ <style>
+   /* Decorative opening quote — a restrained serif accent against the DM Sans body. */
+   .quote-glyph {
+     font-family: Georgia, 'Times New Roman', serif;
+     font-size: 3.5rem;
+     height: 2rem;
+   }
+ </style>
