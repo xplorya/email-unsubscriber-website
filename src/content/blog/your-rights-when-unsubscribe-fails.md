@@ -10,6 +10,19 @@ coverAlt: "Flat vector illustration of a dated clipboard with day 11 circled, a 
 featured: false
 draft: false
 readiness: "Waiting for users feedback"
+faq:
+  - question: "Is it illegal for a company to keep emailing me after I unsubscribe?"
+    answer: "In the U.S., yes. CAN-SPAM requires commercial senders to honor an opt-out within 10 business days, and ignoring it is a violation the FTC can penalize. In the EU, GDPR and the ePrivacy Directive go further: withdrawing consent must be as easy as giving it, so a sender that keeps mailing you after you opt out breaks the rule."
+  - question: "How long does a sender legally have to stop emailing me?"
+    answer: "Ten business days under CAN-SPAM. That means up to roughly two weeks of legitimate continued sending after a clean unsubscribe. Mark the date you clicked. If emails are still arriving past that window, you have moved from the grace period into a violation, and you can start documenting it for a complaint."
+  - question: "Why do I still get spam after unsubscribing?"
+    answer: "Usually one of three things. The company runs several lists and you left only one, so look for a 'manage preferences' page that exposes them all. Or you are still inside the 10-business-day grace period. Or the sender is simply non-compliant, in which case you block them, report them, and file a complaint."
+  - question: "What are the penalties for breaking CAN-SPAM?"
+    answer: "The FTC's 2025 inflation-adjusted ceiling is $53,088 per non-compliant email, republished each January and used as settlement leverage. Actual settlements land lower: Experian paid $650,000 in 2023 for sending marketing email with no unsubscribe option, and Verkada paid $2.95 million in 2024, the largest CAN-SPAM penalty the FTC has ever imposed."
+  - question: "How do I report a company that ignores my unsubscribe request?"
+    answer: "In the U.S., forward the offending email with full headers to reportfraud.ftc.gov, including the original From address, the date you first unsubscribed, and the dates of every email received after the 10-business-day window. EU residents file with their national Data Protection Authority via the EDPB directory. The FTC builds cases from accumulated complaints, so yours counts."
+  - question: "Do email tracking pixels have anything to do with unsubscribing?"
+    answer: "Yes. Most marketing emails hide a 1x1 transparent pixel that reports your open, IP address, device type, and rough location back to the sender. Under GDPR, a pixel without consent counts the same as sending the email without consent. Unsubscribing stops future pixel pings at the source, one more reason to clear out senders you do not want."
 ---
 
 <!--
@@ -38,6 +51,8 @@ Subject: A hero cream-paper clipboard sitting left-of-center as the dominant ele
 -->
 
 You unsubscribed last week. The emails kept coming. Under U.S. and EU law, the sender broke the rules. The penalties for ignoring an unsubscribe request are big enough that real companies pay millions to settle.
+
+> If a company keeps emailing after you unsubscribe, it is likely breaking the law. Under U.S. CAN-SPAM, senders must honor an opt-out within 10 business days or face FTC penalties. Under EU GDPR, withdrawing consent must be as easy as giving it. Document the dates, block the sender, and report them.
 
 *If you haven't clicked yet, see [Is it safe to click unsubscribe?](/blog/is-it-safe-to-click-unsubscribe) first.*
 
@@ -69,11 +84,11 @@ EU rules go further. Under GDPR and the ePrivacy Directive, a sender needs your 
 
 ## Why you still get spam after unsubscribing
 
-Three things might be happening. The right next step depends on which.
+Three things might be happening. The right next step depends on which. [Seven reasons you're still getting emails](/blog/unsubscribed-but-still-getting-emails) covers the full list; the three below are the ones with a legal angle.
 
 **You unsubscribed from one list, but the company has several.** A retailer might run a promotional list, a "back in stock" list, a loyalty list, and a "we miss you" win-back list (all separate). Unsubscribing from one doesn't touch the others. Look for "manage preferences" instead of a single "unsubscribe" link. A preferences page exposes all of them in one place.
 
-**You're inside the legal grace period.** The 10-business-day clock means up to two weeks of legitimate continued sending after a perfect unsubscribe. Mark the date you clicked. If emails keep arriving past that window, you've moved from grace period to violation.
+**You're inside the legal grace period.** The [10-business-day clock](/blog/how-long-after-unsubscribe-can-they-email-you) means up to two weeks of legitimate continued sending after a perfect unsubscribe. Mark the date you clicked. If emails keep arriving past that window, you've moved from grace period to violation.
 
 **The sender is non-compliant.** Block, report, file a complaint.
 

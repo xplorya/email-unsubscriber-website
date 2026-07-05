@@ -7,6 +7,7 @@
   import TableOfContents from '$lib/components/blog/TableOfContents.svelte'
   import ShareCluster from '$lib/components/blog/ShareCluster.svelte'
   import BlogPostCta from '$lib/components/blog/BlogPostCta.svelte'
+  import PostFaq from '$lib/components/blog/PostFaq.svelte'
   import RelatedPosts from '$lib/components/blog/RelatedPosts.svelte'
   import ReadingProgressBar from '$lib/components/blog/ReadingProgressBar.svelte'
 
@@ -66,6 +67,23 @@
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical }
     }).replace(/</g, '\\u003c')
   )
+
+  // FAQPage JSON-LD. Only emitted when the post declares `faq` frontmatter.
+  // The `text` values MUST match the visible PostFaq answers verbatim, or
+  // Google flags the structured data as mismatched.
+  const faqJsonLd = $derived(
+    data.post.faq && data.post.faq.length > 0
+      ? JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: data.post.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer }
+          }))
+        }).replace(/</g, '\\u003c')
+      : null
+  )
 </script>
 
 <svelte:head>
@@ -96,6 +114,9 @@
     <meta name="twitter:image:alt" content={ogImageAlt} />
   {/if}
   {@html `<script type="application/ld+json">${jsonLd}</script>`}
+  {#if faqJsonLd}
+    {@html `<script type="application/ld+json">${faqJsonLd}</script>`}
+  {/if}
 </svelte:head>
 
 <ReadingProgressBar />
@@ -116,6 +137,9 @@
           <BlogPostCta slug={data.post.slug} />
           <ShareCluster title={data.post.title} url={canonical} />
         </article>
+        {#if data.post.faq && data.post.faq.length > 0}
+          <PostFaq items={data.post.faq} />
+        {/if}
       </div>
 
       <aside class="hidden lg:block lg:col-start-2 lg:row-start-2" aria-label="Page tools">

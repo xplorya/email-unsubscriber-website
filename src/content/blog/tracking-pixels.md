@@ -10,6 +10,21 @@ coverAlt: "Flat vector illustration of an open envelope under a magnifying glass
 featured: false
 draft: false
 readiness: "Awaiting cover image"
+faq:
+  - question: "What is a tracking pixel in an email?"
+    answer: "A tracking pixel is a 1x1 transparent image embedded in an email's HTML, meant to be invisible. When your mail client renders the message, it fetches that image from the sender's server, and the fetch itself is the tracking event. It reports back that you opened the email, along with metadata about you."
+  - question: "What information does a tracking pixel collect?"
+    answer: "When it fires, a tracking pixel can report a timestamp for each time you open the message, your IP address that resolves to city-level location, your device, operating system, and mail client, and a token unique to you baked into the pixel's URL. That token tells the sender exactly which recipient opened."
+  - question: "How do I block tracking pixels in email?"
+    answer: "Blocking remote images in your mail client is the most reliable fix, though it breaks legitimate images too. You can also move to a privacy-first service like Proton Mail or Tuta that hold back remote images by default, use a client such as Hey that strips pixels, add a webmail extension, or read messages in plain text."
+  - question: "Does Apple Mail Privacy Protection stop tracking pixels?"
+    answer: "Partly. Apple Mail pre-fetches every remote image through Apple's proxy before you open a message, masking your IP address and the open timestamp, so the data the pixel returns becomes noise. But it only protects the Apple Mail app. Read the same message in Gmail, Outlook, or another app and you are tracked normally."
+  - question: "Does Gmail block tracking pixels?"
+    answer: "Not fully. Gmail has routed remote images through Google's proxy servers since 2013, which hides your IP address from the sender. But the open event still fires the first time the proxy fetches the pixel, and the timing is close enough for marketers to act on. No mainstream client gives you total pixel privacy by default."
+  - question: "How common are tracking pixels?"
+    answer: "Very common. Every major email platform uses them, including Mailchimp, Klaviyo, HubSpot, most newsletters, and most news organizations. In 2021 the email service Hey reviewed inbound mail to personal accounts for the BBC and found spy pixels in two-thirds of it after setting spam aside. Pixels are the rule, not the exception."
+  - question: "Does unsubscribing stop tracking pixels?"
+    answer: "Yes, at the source. Blocking pixels in one client only protects you in that client; open the same inbox on another device or app and the pings resume. Unsubscribing removes the sender entirely, so their pixels stop firing on every device you own. Fewer senders mean fewer tracking pixels everywhere."
 ---
 
 <!--
@@ -38,6 +53,8 @@ Subject: A large editorial cream-paper email letter as the hero object in the ce
 -->
 
 Most marketing emails report back the moment you open them. The mechanism is a single transparent pixel, and it has been hiding in plain sight for two decades.
+
+> A tracking pixel is a 1x1 transparent image hidden in an email. When your mail app loads it, it silently reports your open time, IP address, rough location, and device back to the sender, tied to a token unique to you. To block them, turn off remote images in your mail client or switch to a privacy-first service.
 
 ## What a tracking pixel is, and what it sees
 
@@ -94,4 +111,4 @@ Regulators are starting to treat pixels like cookies. France's data authority, t
 
 Every marketing email you open is a small data leak unless you closed it yourself. The pixel never asks for permission. Rendering the message is consent enough, as far as the sender is concerned.
 
-Blocking pixels in one client only protects you in that client. Open the same inbox on your phone, or in another app, and the pings resume. The one fix that follows you everywhere is removing the sender. Unsubscribing stops the pixels at the source, on every device, for good. That is the same reasoning behind [the rules for safely unsubscribing](/blog/is-it-safe-to-click-unsubscribe), and it is why we built our tool to opt you out for real instead of hiding the mail behind a filter. Fewer senders mean fewer tracking pixels on every device you own.
+Blocking pixels in one client only protects you in that client. Open the same inbox on your phone, or in another app, and the pings resume. The one fix that follows you everywhere is removing the sender. Unsubscribing stops the pixels at the source, on every device, for good. That is the same reasoning behind [the rules for safely unsubscribing](/blog/is-it-safe-to-click-unsubscribe), and it is why we built our tool to opt you out for real instead of hiding the mail behind a filter. A filter needs ongoing access to your inbox to keep working; if you're weighing any unsubscribe app, [check what inbox access it really needs first](/blog/are-email-unsubscribe-apps-safe). Fewer senders mean fewer tracking pixels on every device you own.

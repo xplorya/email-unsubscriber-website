@@ -536,6 +536,16 @@ html {
   margin: 0;
 }
 
+/* "Quick Answer" treatment: the first blockquote in a post (by the authoring
+   playbook, the direct-answer paragraph right after the lede) gets a slightly
+   stronger teal accent than a regular pull-quote. */
+.prose > blockquote:first-of-type {
+  border-left-width: 4px;
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  font-size: 1.05em;
+  color: var(--color-text);
+}
+
 .prose hr {
   border: 0;
   border-top: 1px solid var(--prose-hr);

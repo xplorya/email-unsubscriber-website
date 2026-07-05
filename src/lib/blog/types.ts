@@ -4,6 +4,13 @@
  * Authoring schema is documented in `src/content/blog/README.md`.
  */
 
+export interface FaqItem {
+  /** The question, rendered as an accordion trigger + JSON-LD `Question.name`. */
+  question: string
+  /** Plain-text answer. Rendered verbatim in the page AND in FAQPage JSON-LD. */
+  answer: string
+}
+
 export interface Post {
   /** Required frontmatter: post title (used in h1 + meta). */
   title: string
@@ -27,6 +34,8 @@ export interface Post {
   featured?: boolean
   /** If true, the post is excluded from every listing + sitemap + route. */
   draft?: boolean
+  /** Optional Q&A pairs. Renders a visible FAQ section + FAQPage JSON-LD. */
+  faq?: FaqItem[]
   /** Human-readable reading time (written by remark-reading-time). */
   readingTime: string
   /** Compiled Svelte component exported from the .md file. */

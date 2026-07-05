@@ -557,12 +557,13 @@ Whatever the subject is:
 - Render it as a **simplified, stylized, friendly** version of itself. Rounded proportions, slightly chunky, approachable.
 - **No photorealistic details.** A computer is three rectangles and a stand — not a brand-accurate MacBook.
 - **No faces** unless explicitly required by subject. When hands appear, draw them as simple outlined shapes — no fingernails, no wrinkles, no skin tone.
-- Text inside the illustration (labels on books, words on screens) is **abstracted into squiggles or short bars**, never real readable text. Cover images are wordless.
+- Text inside the illustration defaults to **abstracted squiggles or short bars**, not real words — this keeps covers clean and avoids garbled AI lettering. **Exception:** one or two deliberate, correctly-spelled labels are allowed when the word *is* the subject (e.g. the word on an unsubscribe button). Spend real text only where it earns the hero; everywhere else (envelope headers, screens, tags, secondary buttons) stays squiggles. Never allow misspelled or garbled lettering.
 
 ### 14.8 What NEVER to Produce
 
 - ❌ Gradients (background or fills)
 - ❌ Drop shadows, inner shadows, glows
+- ❌ Soft background blobs or halos behind the object cluster (the canvas stays one flat teal)
 - ❌ 3D perspective, isometric views, vanishing points
 - ❌ Photorealism, mixed media, collage of photos
 - ❌ Pixel art, low-poly, voxel, cel-shaded anime
@@ -570,7 +571,7 @@ Whatever the subject is:
 - ❌ Watercolor, painterly, or oil-paint styles
 - ❌ Emoji, stock-photo clip-art, 3D rendered icons
 - ❌ Colors outside the teal + cream palette (except the rare single-signal accent noted in §14.2)
-- ❌ Readable text or logos baked into the image
+- ❌ Logos or brand marks baked into the image; misspelled or garbled lettering (deliberate, correctly-spelled subject labels are allowed — see §14.7)
 - ❌ Human faces or identifiable people
 - ❌ Heavy symmetry or centered "hero-product" compositions
 
@@ -586,19 +587,23 @@ Whatever the subject is:
 Paste this verbatim at the top of any image-generation prompt, then add one or two sentences describing the **subject matter** of the cover. Do not describe style in your subject sentence — the block below already locks style.
 
 ```
-Style: flat vector editorial illustration, hand-drawn feel with subtle organic line wobble, bold uniform stroke weight (like a confident marker), 2D frontal orthographic composition, no perspective or 3D.
+Flat vector editorial illustration in one strict house style. Match the attached reference cover exactly if one is provided.
 
-Color palette (strict): solid pale teal background (#99f6e4). All outlines in dark teal (#115e59). Interior fills use mid teal (#2dd4bf) and darker teal (#0d9488). Warm cream (#faf6ed) is the only non-teal surface color, reserved for paper / screen / label elements. No other colors. No gradients. No shadows. No glows. No textures. No 3D.
+HARD RULE — obey above all else: ABSOLUTELY FLAT. No shadows of any kind — no drop shadow, no soft ambient shadow beneath objects, no inner shadow, no glow, no gradient, no soft background blobs behind the cluster. Every fill is one solid flat color; all objects float on one flat solid teal canvas.
 
-Composition: clustered arrangement of 5–12 stylized objects floating on the teal canvas, asymmetric editorial layout, varied scale (one or two hero objects, several secondary, small decorative fillers). Objects may overlap each other and bleed slightly past the frame edges. Keep the hero subject inside the middle 60% of the frame (sides may be cropped by card aspect ratios).
+Text: legible words are allowed where they meaningfully label an object (e.g. the word on an unsubscribe button). Keep any text short, correctly spelled, and drawn in dark teal on a cream or teal label. Where a word is not needed, default to 3–5 wavy squiggle lines or solid bars instead — do not fill every surface with text.
 
-Objects: simplified friendly shapes with rounded proportions, not photorealistic, not brand-accurate. No human faces. Any text on objects is abstracted into squiggles or short bars, never real words. All internal details (buttons, windows, lines) share the same stroke weight as outer contours.
+Technique: hand-drawn feel with a subtle organic line wobble; bold uniform outline on every shape — same chunky-marker thickness everywhere, inner details included; 2D frontal orthographic; objects float on a flat plane — no ground line, no perspective, no 3D.
 
-Decorative fillers (sparingly, 5–8 total): small 4-point outline stars, tiny solid dots, short parallel sparkle lines, small outline circles, small plus signs — all in the dark teal outline color.
+Palette — only these five colors, nothing else: background solid pale mint teal #99f6e4 (full bleed, one flat fill — this lock matters most); outlines deep pine teal #115e59 (every contour and every decorative mark); primary fill bright teal #2dd4bf; secondary fill deep teal #0d9488; cream #faf6ed ONLY for paper / screen / label surfaces (the sole non-teal color). No other hues. No gradients, texture, grain, or noise.
 
-Canvas: 1200×630 solid teal background, full bleed, no border, no framing, no logo, no watermark, no caption.
+Composition: 5–12 simplified friendly objects, rounded chunky proportions, clustered asymmetrically at varied scale — one or two hero objects plus medium and small ones. Objects overlap each other and bleed slightly off the frame edges. Keep the hero inside the middle 60% of the frame (sides get cropped by card ratios). Leave breathing room; season gaps with 5–8 small fillers — 4-point outline stars, tiny solid dots, short parallel sparkle strokes, small outline circles, small plus signs — all in the outline teal.
 
-Forbidden: gradients, drop shadows, inner shadows, glows, 3D, perspective, isometric, photorealism, pixel art, low-poly, anime, watercolor, painterly, brush texture, grain, noise, emoji, stock clip-art, readable text, human faces, colors outside the teal + cream palette.
+Objects: no human faces or people. No brand-accurate logos or devices — a laptop is three rounded rectangles, not a real MacBook. Avoid stock clip-art clichés (spy hats, incognito sunglasses, generic lightbulbs) unless the Subject names them.
+
+Canvas: 1200×630, full bleed, no border, no framing, no logo, no watermark, no caption.
+
+Forbidden: logos, watermark, caption, misspelled or garbled words, gradients, drop shadows, soft/ambient shadows, inner shadows, glows, soft background blobs behind the cluster, 3D, perspective, isometric, depth of field, photorealism, pixel art, low-poly, anime, watercolor, painterly, brush texture, grain, noise, emoji, stock clip-art, human faces, colors outside the teal + cream palette.
 
 Subject: [DESCRIBE THE CONCEPT / OBJECTS HERE IN ONE OR TWO PLAIN SENTENCES]
 ```
@@ -610,7 +615,8 @@ Subject: [DESCRIBE THE CONCEPT / OBJECTS HERE IN ONE OR TWO PLAIN SENTENCES]
 - [ ] Fills are flat — no gradients, no shading, no shadows.
 - [ ] Palette contains only the approved teal shades + cream (plus at most one small signal accent).
 - [ ] Composition is clustered and asymmetric, with visible breathing room.
-- [ ] No readable text, no logos, no faces.
+- [ ] No stray/garbled text, no logos, no faces (at most one or two deliberate correctly-spelled subject labels — see §14.7).
+- [ ] Canvas is one flat teal — no soft background blobs or halos behind the cluster.
 - [ ] Objects are stylized, not photorealistic.
 - [ ] Hero subject is safe inside the middle 60% of the frame (survives 16:9 / 21:9 / 21:10 crops).
 - [ ] Looks consistent next to `casa-t2-validated.png` in the blog listing grid — if it visually clashes, it fails.

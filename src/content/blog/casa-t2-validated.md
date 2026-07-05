@@ -10,6 +10,19 @@ coverAlt: "CASA Tier 2 validation badge"
 featured: true
 draft: false
 readiness: "Ready to publish"
+faq:
+  - question: "What is CASA Tier 2 validation?"
+    answer: "CASA Tier 2 is the independent security verification Google requires of every app that reads users' emails in Gmail. It checks an app's code and operating practices against the App Defense Alliance's Cloud Application Security Assessment framework. Passing it means an authorized lab, not the app maker, confirmed the security claims."
+  - question: "Who ran Email Unsubscriber's CASA assessment?"
+    answer: "TAC Security, one of Google's authorized assessment labs, ran the assessment. The audit covered more than 100 automated security checks against the CASA framework, plus a review of over 20 security aspects spanning data handling, credentials, access, and incidents. Google issued the Letter of Validation once the lab signed off."
+  - question: "Why does Google require CASA for Gmail apps?"
+    answer: "Google requires CASA Tier 2 of any app that requests access to read Gmail messages. The assessment gives users independent proof that the app handles email data safely, rather than relying on the developer's own word. Until Email Unsubscriber cleared it, Gmail sat behind a Coming soon label."
+  - question: "Does Email Unsubscriber store my email data?"
+    answer: "No. Email Unsubscriber never accesses your email data, so there is nothing to store. The scanner runs inside your browser, and the servers see none of your message content. The CASA review confirmed this architecture: read-only OAuth scopes, AES-256 encryption at rest, and browser-side scanning."
+  - question: "What did the CASA Tier 2 audit check?"
+    answer: "The audit ran more than 100 automated security checks against the Cloud Application Security Assessment framework, plus a review of over 20 security aspects covering data handling, credentials, access, and incidents. It examined both the code and the operating practices behind Email Unsubscriber, not just a questionnaire."
+  - question: "Does Email Unsubscriber support Gmail now?"
+    answer: "Yes. With CASA validation confirmed, Google finalized the verification and Gmail accounts work today. Before this, Microsoft and Outlook were the only supported providers, and Gmail sat behind a Coming soon label. The roadmap covers more email providers next."
 ---
 
 <!--
@@ -39,6 +52,8 @@ Subject: A large editorial shield with a simple checkmark at its center as the h
 
 Google received the Letter of Validation confirming that Email Unsubscriber<sup><small>&trade;</small></sup> passed App Defense Alliance's **CASA Tier 2**. CASA Tier 2 is the independent verification Google requires of every app that reads users' emails in Gmail.
 
+> Email Unsubscriber passed CASA Tier 2, the independent security assessment Google requires of any app that reads Gmail. TAC Security, an ADA-authorized lab, ran 100+ automated checks plus a review of 20+ security aspects covering data handling, credentials, and access. The validation unlocked Gmail support and confirms our servers never touch your email.
+
 TAC Security, Google's authorized assessment lab, ran the assessment. The audit covered 100+ automated security checks against the [Cloud Application Security Assessment (CASA)](https://appdefensealliance.dev/casa) framework, plus a thorough review of 20+ security aspects covering data handling, credentials, access, and incidents.
 
 ## Why it matters
@@ -56,3 +71,5 @@ TAC Security, Google's authorized assessment lab, ran the assessment. The audit 
 We want Email Unsubscriber to reach more users. The roadmap covers more email providers, with custom integrations as a longer-term goal.
 
 The validation took a few weeks of infrastructure improvements, paperwork, and back-and-forth with Google and the assessor. Outside validation backs a privacy claim better than self-reporting can, and that's why we did it.
+
+For anyone weighing an inbox tool, that same standard applies: independent proof beats a privacy promise. [Are email unsubscribe apps safe?](/blog/are-email-unsubscribe-apps-safe) walks through the OAuth scopes and processing questions worth asking before you connect one.

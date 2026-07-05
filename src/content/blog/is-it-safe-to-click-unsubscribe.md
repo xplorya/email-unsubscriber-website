@@ -10,6 +10,19 @@ coverAlt: "Flat vector illustration of a pointer hand hovering over a cream-pape
 featured: false
 draft: false
 readiness: "Waiting for users feedback"
+faq:
+  - question: "Is it safe to click unsubscribe on spam?"
+    answer: "No. Clicking unsubscribe on a spam message usually confirms your address is live, so spammers send more and resell you to other lists. If you don't recognize the sender or the email landed in your spam folder, mark it as spam instead. That trains your filter and sends no signal back to the sender."
+  - question: "How can I tell if an unsubscribe link is safe?"
+    answer: "Confirm you recognize the sender, that the From address is a real domain you have seen before, and that you can reconstruct how you joined the list. A real unsubscribe never asks for your password or payment. On desktop, hover over the link first to see where it actually points before clicking."
+  - question: "What is the safest way to unsubscribe from emails?"
+    answer: "Use your email client's native Unsubscribe button, the one near the sender's name at the top of the message. When it is backed by the one-click protocol, clicking it never opens a website; your mail app sends a quiet request straight to the sender. If that button is missing, mark unknown senders as spam."
+  - question: "What happens when I click an unsubscribe link?"
+    answer: "A click takes one of three paths. It may open a legitimate web form on the sender's site, trigger a silent one-click protocol request that never opens a website, or, if the sender is an imposter, lead to a scam page. The native top-bar button is the safest of these."
+  - question: "Can an unsubscribe link give me a virus?"
+    answer: "It is rare but possible. A malicious page can exploit an out-of-date browser, or more commonly show a fake update or verify prompt that tricks you into running malware yourself. The fake-prompt route needs no exploit kit. Never download or run anything a page pushes after you click a suspicious link."
+  - question: "Should I unsubscribe or mark as spam?"
+    answer: "Mark as spam when you don't recognize the sender or the message looks suspicious; you cannot be phished by a spam-marking action, and it improves your filter. Use unsubscribe for senders you know and trust. When in doubt, marking as spam is the safer of the two."
 ---
 
 <!--
@@ -38,6 +51,8 @@ Subject: A hero pointer hand with a single index finger hovering above an underl
 -->
 
 Your inbox is full of deals you didn't ask for. Your finger hovers over the gray *unsubscribe* link at the bottom of one of them. For most legitimate emails, clicking is fine. For some, it's the worst thing you can do.
+
+> Clicking unsubscribe is safe when the email comes from a company you recognize; legitimate senders must honor the request, and U.S. law gives them 10 business days. It is risky when the sender is a stranger, the email asks for a password, or it landed in spam. In that case, mark it as spam instead.
 
 ## The short answer
 
@@ -129,7 +144,7 @@ Before clicking any unsubscribe link, run this:
 In order of how strongly we'd recommend each.
 
 # Use your email provider's native unsubscribe button:
-- The one at the top of the email next to the sender, not the one buried in the footer. When the button is backed by the one-click protocol (Gmail and most modern clients only show it when it is), it's the safe path. If the button isn't there, the sender either doesn't send enough volume to qualify or hasn't bothered with modern bulk-sender standards. Either way, the sender hasn't earned the safer path.
+- The one at the top of the email next to the sender, not the one buried in the footer. When the button is backed by the [one-click protocol](/blog/what-is-one-click-unsubscribe) (Gmail and most modern clients only show it when it is), it's the safe path. If the button isn't there, the sender either doesn't send enough volume to qualify or hasn't bothered with modern bulk-sender standards. Either way, the sender hasn't earned the safer path.
 
 # Mark suspicious emails as spam:
 - The right move for anything you don't recognize. It costs you a click, protects you from any link the message contains, and improves your future filtering.
@@ -148,12 +163,14 @@ In order of how strongly we'd recommend each.
 - Where does the processing of your private emails happen, and is there a risk of leaking?
 - Does it unsubscribe your address for real, or masks the unsubscribing behind inbox filters that need ongoing access to keep working?
 
+We walk through each of these in [are email unsubscribe apps safe?](/blog/are-email-unsubscribe-apps-safe).
+
 ## The takeaway
 
 Unsubscribe is, on balance, a useful feature. The internet would be worse without it. The trouble is that scammers know how strong the urge to click is when your inbox is overflowing, and they design fake unsubscribe links to exploit that urge.
 
 Two habits cover almost every case. Use your email provider's native unsubscribe button when it's there. Use "Mark as spam" when it isn't and you don't recognize the sender. Save the link in the email body for senders you know.
 
-If you've unsubscribed and the emails won't stop, that's a different problem with different tools. [Your rights when 'unsubscribe' doesn't stop the emails](/blog/your-rights-when-unsubscribe-fails) covers what to do next.
+If you've unsubscribed and the emails won't stop, that's a different problem with different tools. [Seven reasons you're still getting emails](/blog/unsubscribed-but-still-getting-emails) and [your rights when 'unsubscribe' doesn't stop the emails](/blog/your-rights-when-unsubscribe-fails) cover what to do next.
 
 And if you're tired of opting out one email at a time, but you don't want to give away custody of your inbox, tap the button below to learn how we could help you.

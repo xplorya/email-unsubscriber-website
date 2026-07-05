@@ -1,4 +1,4 @@
-import type { Post } from './types'
+import type { FaqItem, Post } from './types'
 
 /**
  * Eagerly import every markdown file under `src/content/blog/`.
@@ -17,6 +17,7 @@ type MdsvexModule = {
     coverAlt?: string
     featured?: boolean
     draft?: boolean
+    faq?: FaqItem[]
     /** Written by remark-reading-time plugin. Shape: { text, minutes, time, words } */
     readingTime?: { text: string; minutes: number; time: number; words: number }
   }
@@ -45,6 +46,7 @@ function toPost(path: string, mod: MdsvexModule): Post {
     coverAlt: md.coverAlt,
     featured: md.featured,
     draft: md.draft,
+    faq: md.faq,
     readingTime: readingTimeText,
     Component: mod.default
   }
