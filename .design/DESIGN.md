@@ -488,8 +488,6 @@ Because `website/` is a git submodule, creating or editing a mockup under `websi
 
 This section governs any generated artwork used as **blog cover images, section illustrations, social-share cards, and other editorial visuals** on the marketing website. It is written as a **copy-paste style block** — paste the whole block below (§14.10) into an image-generation prompt, then append the concrete subject description. The goal is visual consistency across every piece of creative artwork on the site, regardless of subject matter.
 
-Reference anchor: `website/static/blog/covers/casa-t2-validated.png` is the first asset produced under this spec. Treat it as the visual north star when grading new generations.
-
 ### 14.1 Medium & Technique
 
 - **Flat vector illustration**, editorial style. Think modern tech-blog cover, not photorealism, not 3D, not pixel art, not painterly, not isometric.
