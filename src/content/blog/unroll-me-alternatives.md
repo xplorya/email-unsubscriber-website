@@ -3,12 +3,13 @@ title: "Unroll.me alternatives that don't sell your data"
 date: "2026-05-29"
 excerpt: "Why people leave Unroll.me, and a fair comparison of the real alternatives — Clean Email, Leave Me Alone, Cleanfox, Gmail's built-in tool, and us — on price, access, and data use."
 author: "Email Unsubscriber Team"
-categories: ["Privacy"]
+categories: ["Tools"]
 tags: ["unroll-me", "alternatives", "privacy", "clean-email", "cleanfox", "gdpr"]
 cover: "/blog/covers/unroll-me-alternatives.webp"
 coverAlt: "Flat teal vector illustration of a padlocked cream envelope revealing a private list of senders at the center, while smaller envelopes tagged SOLD and marked with dollar signs drift away around it."
 featured: false
 draft: false
+readiness: "Done and published. Frozen"
 faq:
   - question: "Why is Unroll.me not available in Europe?"
     answer: "Unroll.me stopped serving EU residents just before GDPR took effect in May 2018. The company said its service was not designed to comply with all GDPR requirements and deleted EU accounts by May 24, 2018, one day before the regulation started. It has not returned to the EU since."

@@ -3,12 +3,13 @@ title: "How to report a company that ignores your unsubscribe request"
 date: "2026-05-28"
 excerpt: "The click-by-click filing process: pull the full email headers, attach the dates, and report the sender to the FTC, your EU DPA, or the UK ICO."
 author: "Email Unsubscriber Team"
-categories: ["How-to", "Privacy"]
+categories: ["Your Rights"]
 tags: ["unsubscribe", "can-spam", "gdpr", "ftc", "ico", "email-rights"]
 coverAlt: "Flat vector illustration of a cream complaint form dropping into an official filing slot, beside a document of email headers, a magnifying glass, a calendar marked at day 11, and a shield."
 cover: "/blog/covers/how-to-report-a-company-that-ignores-unsubscribe.webp"
 featured: false
 draft: false
+readiness: "Done and published. Frozen"
 faq:
   - question: "How do I report a company that keeps emailing after I unsubscribe?"
     answer: "Wait until the legal window closes, then file with your regulator and attach proof. In the U.S., report at reportfraud.ftc.gov with the email's full headers, the date you first opted out, and the dates of every message that arrived after the 10-business-day deadline. In the EU, file with your national data protection authority; in the UK, report to the ICO."

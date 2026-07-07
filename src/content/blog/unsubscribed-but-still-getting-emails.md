@@ -3,13 +3,13 @@ title: "Unsubscribed but still getting emails? 7 reasons and what to do"
 date: "2026-05-25"
 excerpt: "You unsubscribed and the emails kept coming. Here are the seven reasons it happens and the exact fix for each one."
 author: "Email Unsubscriber Team"
-categories: ["How-to", "Privacy"]
+categories: ["Your Rights"]
 tags: ["unsubscribe", "email-cleanup", "can-spam", "spam", "inbox"]
 cover: "/blog/covers/unsubscribed-but-still-getting-emails.webp"
 coverAlt: "Flat vector illustration of an envelope arriving past a crossed-out unsubscribe button, beside a numbered checklist, a stack of list tags, a snapped chain link, and a calendar pinned at day 10."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "Why do I still get emails after I unsubscribed?"
     answer: "Usually one of seven reasons. The sender is inside its legal 10-business-day processing window, you left one of several lists it runs, the mail is transactional rather than marketing, the unsubscribe silently failed, the sender ignores opt-outs, you confirmed a live address to a spammer, or the mail comes from a different sender than you think."

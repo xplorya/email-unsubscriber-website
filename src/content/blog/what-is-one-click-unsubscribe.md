@@ -3,13 +3,13 @@ title: "One-click unsubscribe, explained: what RFC 8058 does for your inbox"
 date: "2026-05-26"
 excerpt: "One-click unsubscribe is the RFC 8058 standard behind the Unsubscribe button at the top of some emails. Here's what it does and why it's safer."
 author: "Email Unsubscriber Team"
-categories: ["Privacy", "How-to"]
+categories: ["Guides"]
 tags: ["one-click-unsubscribe", "rfc-8058", "list-unsubscribe-header", "gmail", "email-security"]
 cover: "/blog/covers/what-is-one-click-unsubscribe.webp"
 coverAlt: "Flat vector illustration of a finger tapping an unsubscribe button on a cream email card, an arrow flying past a crossed-out browser window to a mailbox, with a small shield nearby."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "What is one-click unsubscribe?"
     answer: "One-click unsubscribe is an email standard called RFC 8058, published by the IETF in January 2017. It lets your email app remove you from a mailing list with a single tap. Your client sends a quiet POST request straight to the sender's server, and no website opens in your browser. Gmail and Yahoo have required it from bulk senders since February 2024."

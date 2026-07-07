@@ -3,13 +3,13 @@ title: "Is it safe to unsubscribe from emails?"
 date: "2026-05-08"
 excerpt: "About 1 in 644 unsubscribe links are traps. A guide-and-FAQ walkthrough: when clicking is safe, when it isn't, and the safer alternatives."
 author: "Email Unsubscriber Team"
-categories: ["Privacy", "How-to"]
+categories: ["Privacy & Safety"]
 tags: ["unsubscribe", "phishing", "can-spam", "rfc-8058", "email-security"]
 cover: "/blog/covers/is-it-safe-to-click-unsubscribe.webp"
 coverAlt: "Flat vector illustration of a pointer hand hovering over a cream-paper unsubscribe link, with a tooltip showing an abstract URL squiggle, and a tilted envelope paused beside the hand."
 featured: false
 draft: true
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 ---
 
 In most cases, yes.

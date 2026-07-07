@@ -3,13 +3,13 @@ title: "How to unsubscribe from emails in Outlook (2026)"
 date: "2026-05-30"
 excerpt: "Outlook has no single button that clears every subscription at once. Here are the real ways to unsubscribe across new Outlook, the desktop app, and mobile, plus why Sweep and Block don't opt you out."
 author: "Email Unsubscriber Team"
-categories: ["How-to", "Privacy"]
+categories: ["Guides"]
 tags: ["outlook", "outlook-com", "unsubscribe", "sweep", "block-sender", "inbox-cleanup"]
 cover: "/blog/covers/unsubscribe-emails-outlook.webp"
 coverAlt: "Flat teal illustration of promotional email envelopes floating around a cream message card with an Unsubscribe button, surrounded by a broom, a blocked-sender sign over a bin, and a settings gear beside a stack of envelopes, representing Outlook's different unsubscribe tools."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "How do I unsubscribe from emails in Outlook?"
     answer: "Open the marketing email and look for the Unsubscribe prompt next to the sender's name at the top of the message. It appears when the sender includes a valid List-Unsubscribe header. Click it and confirm, and Outlook sends the request for you. To clear several at once, open Settings, then Mail, then Subscriptions, and unsubscribe from each sender in the list."

@@ -3,13 +3,13 @@ title: "Notes on inbox hygiene, one year in"
 date: "2026-04-16"
 excerpt: "What we've learned after a year of helping people tame their inbox — and why we still think one-time payments beat subscriptions for tools you use once a quarter."
 author: "Email Unsubscriber Team"
-categories: ["Privacy", "Product"]
+categories: ["Privacy & Safety", "Product"]
 tags: ["gdpr", "oauth", "retention"]
 cover: "/blog/covers/hello-world.png"
 coverAlt: "Flat vector illustration of an inbox tray with stacked envelopes under a magnifying glass, surrounded by a padlock, a clipboard with checkmarks, an empty folder, a wall clock, and a small gear."
 featured: true
 draft: true
-readiness: "WIP"
+readiness: "Done and published. Frozen"
 ---
 
 <!--

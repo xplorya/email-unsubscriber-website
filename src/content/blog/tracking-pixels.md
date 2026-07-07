@@ -3,13 +3,13 @@ title: "Spy pixels: the invisible trackers in more than half of your emails"
 date: "2026-05-20"
 excerpt: "Open a marketing email and a hidden 1×1 pixel often reports your open time, location, and device back to the sender. Here's how to block it."
 author: "Email Unsubscriber Team"
-categories: ["Privacy", "How-to"]
+categories: ["Privacy & Safety"]
 tags: ["tracking-pixels", "email-tracking", "mail-privacy-protection", "cnil", "email-security"]
 cover: "/blog/covers/tracking-pixels.webp"
 coverAlt: "Flat vector illustration of an open envelope under a magnifying glass revealing a tiny 1×1 square, ringed by a peeping eye, a location pin, a clock, a smartphone, and a cracked shield."
 featured: false
 draft: false
-readiness: "Awaiting cover image"
+readiness: "Done and published. Frozen"
 faq:
   - question: "What is a tracking pixel in an email?"
     answer: "A tracking pixel is a 1x1 transparent image embedded in an email's HTML, meant to be invisible. When your mail client renders the message, it fetches that image from the sender's server, and the fetch itself is the tracking event. It reports back that you opened the email, along with metadata about you."

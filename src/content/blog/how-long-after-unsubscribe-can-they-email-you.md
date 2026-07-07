@@ -3,13 +3,13 @@ title: "How long can a company email you after you unsubscribe?"
 date: "2026-05-23"
 excerpt: "Under CAN-SPAM a sender has 10 business days to stop emailing you after you unsubscribe, and Gmail and Yahoo bulk senders get just 48 hours."
 author: "Email Unsubscriber Team"
-categories: ["Privacy", "How-to"]
+categories: ["Your Rights"]
 tags: ["unsubscribe", "can-spam", "gdpr", "email-rights", "rfc-8058"]
 cover: "/blog/covers/how-long-after-unsubscribe-can-they-email-you.webp"
 coverAlt: "Flat vector illustration of a tear-off calendar counting down ten days, a stopwatch set to 48, an hourglass, a pressed unsubscribe button, and a crossed-out envelope."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "How long after unsubscribing should emails stop?"
     answer: "In the U.S., up to 10 business days under CAN-SPAM, which works out to about two weeks once you count weekends. Gmail and Yahoo require their bulk senders to process a one-click unsubscribe within 48 hours. If a company is still emailing you well past those windows, it has crossed from a legal grace period into a violation."

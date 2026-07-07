@@ -15,8 +15,6 @@
 3. Update frontmatter (see schema below). `title`, `date`, `excerpt`, `categories` are required.
 4. Write body in standard markdown.
 5. **Update the `cover-generation-prompt` HTML comment block** at the top of the post (sits between the frontmatter and the body — see "Cover generation prompt block" below). Only the `Subject:` line changes per post; the rest is the locked style block from `website/.design/DESIGN.md` §14.10. Copy the whole block into your image generator, save the output as `website/static/blog/covers/my-new-slug.webp` (WebP preferred; PNG OK), and reference it in frontmatter as `cover: "/blog/covers/my-new-slug.webp"`. **Also write a `coverAlt:`** — one sentence describing what's actually drawn in the image, not the post topic. It drives `<img alt>`, `og:image:alt`, `twitter:image:alt`, and the JSON-LD `image.description` for SEO / GEO / accessibility. See the "coverAlt" section below.
-6. From `website/`: `npm run dev` → visit `http://localhost:5173/blog/my-new-slug` → verify.
-7. Commit in the `website/` submodule → push to the submodule's `main` → CF Pages auto-deploys → bump parent-repo pointer + commit in parent.
 
 ## Frontmatter schema
 
@@ -28,10 +26,11 @@ excerpt: "One-sentence summary."        # REQUIRED. Shown on cards + og:descript
 author: "Email Unsubscriber Team"       # Optional. Defaults to team name.
 categories: ["Privacy"]                 # REQUIRED. ≥1. First is the primary.
 tags: ["gdpr", "oauth"]                 # Optional. Used by related-post matching.
-cover: "/blog/covers/my-post.webp"      # Optional. Path under static/.
+cover: "/blog/covers/my-new-slug.webp"  # REQUIRED. Path under static/. Filename matches the slug
 coverAlt: "Flat vector illustration of …"  # Optional but STRONGLY recommended. See §coverAlt below.
 featured: false                         # Optional. Marks as the listing hero.
 draft: false                            # Optional. true = excluded from build.
+readiness: "Ready for review"           # Optional but recommended.
 faq:                                    # Optional. Renders a visible FAQ section + FAQPage JSON-LD. See §FAQ schema.
   - question: "A real question a reader would type?"
     answer: "Plain-text answer, 40-80 words, derived from the post body."
@@ -153,7 +152,6 @@ Every post embeds a `cover-generation-prompt` HTML comment block between the fro
 2. Rewrite **only** the `Subject:` line to match this post's topic. Think hero object + 3–6 supporting objects + decorative fillers, all subject-agnostic to palette/style.
 3. Copy the whole block (style + tailored Subject) into your image-generation tool (Nano Banana, Midjourney, DALL·E, etc.).
 4. Save the output to `website/static/blog/covers/<slug>.webp` and reference it in frontmatter.
-5. If the style block ever updates in `DESIGN.md` §14.10, **repropagate** the new block to every existing post. The Subject line stays; only the style portion above it gets replaced.
 
 ### Why it lives in the `.md` file (not a skill / not a separate file)
 
@@ -167,7 +165,8 @@ Every post embeds a `cover-generation-prompt` HTML comment block between the fro
 - [ ] **Voice** matches the site: calm, declarative, friendly, slightly technical. No marketing fluff.
 - [ ] **Title** is short + literal. No clickbait, no capitalized "Our", "The Ultimate", etc.
 - [ ] **Excerpt** is one sentence, ≤160 chars — shows on cards + used verbatim as `og:description`.
-- [ ] **Categories** chosen from existing set (`Privacy`, `Product`, `Engineering`, `How-to`, `Changelog`, `News`). Add a new one only if posts across ≥2 future pieces would share it.
+- [ ] **Categories** chosen from existing set (`Privacy & Safety`, `Your Rights`, `Guides`, `Tools`, `Your Inbox`, `Behind the Scenes`, `Product`, `Changelog`, `News`). Add a new one only if posts across ≥2 future pieces would share it. First entry = primary (drives the card badge + related-post matching), so pick it deliberately.
+    - Categories mirror the content-strategy clusters (`docs/content-strategy/topic-backlog.md`): A→`Privacy & Safety`, B→`Your Rights`, C+D→`Guides`, E→`Tools`, F→`Your Inbox`, G→`Behind the Scenes`.
     - `News` = milestones, compliance wins, PR-worthy announcements (keep these short; link to deep-dive blog post when the topic has substance).
 - [ ] **Tags** are lowercase, hyphenated, specific (`oauth`, `gdpr`, `session-storage`).
 - [ ] **Body** opens with a punchy 1–2 sentence lede. Don't bury the lede in setup.

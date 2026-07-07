@@ -9,7 +9,7 @@ cover: "/blog/covers/casa-t2-validated.webp"
 coverAlt: "CASA Tier 2 validation badge"
 featured: true
 draft: false
-readiness: "Ready to publish"
+readiness: "Done and published. Frozen"
 faq:
   - question: "What is CASA Tier 2 validation?"
     answer: "CASA Tier 2 is the independent security verification Google requires of every app that reads users' emails in Gmail. It checks an app's code and operating practices against the App Defense Alliance's Cloud Application Security Assessment framework. Passing it means an authorized lab, not the app maker, confirmed the security claims."

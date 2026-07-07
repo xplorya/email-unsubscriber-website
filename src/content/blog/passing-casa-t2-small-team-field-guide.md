@@ -3,7 +3,7 @@ title: "Passing CASA Tier 2 as a small team: what the process actually looks lik
 date: "2026-04-17"
 excerpt: "A first-hand account of Google's CASA Tier 2 assessment — the timeline, the $540 price tag, the SAST findings, and the five follow-up questions we didn't see coming."
 author: "Email Unsubscriber Team"
-categories: ["Engineering"]
+categories: ["Behind the Scenes"]
 tags: ["casa", "compliance", "security", "oauth", "sast", "fluidattacks"]
 cover: "/blog/covers/passing-casa-t2-small-team-field-guide.png"
 coverAlt: "Flat vector illustration of a clipboard checklist with a pencil, alongside a checkmark shield, a magnifying glass over a code window, a rubber stamp, a calendar, and a stack of documents."

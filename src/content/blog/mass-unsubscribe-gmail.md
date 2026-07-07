@@ -3,13 +3,13 @@ title: "How to mass unsubscribe from emails in Gmail (2026)"
 date: "2026-05-24"
 excerpt: "Gmail has no single button that clears every subscription at once. Here are the four real ways to mass unsubscribe, with the limits and privacy trade-offs of each."
 author: "Email Unsubscriber Team"
-categories: ["How-to", "Privacy"]
+categories: ["Guides"]
 tags: ["gmail", "unsubscribe", "mass-unsubscribe", "manage-subscriptions", "inbox-cleanup"]
 cover: "/blog/covers/mass-unsubscribe-gmail.webp"
 coverAlt: "Flat vector illustration of a subscription-list panel with sender rows and unsubscribe toggles flipped off, a broom sweeping a pile of tilted envelopes, a promo-tagged folder, a magnifying glass, and a padlock."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "Can you mass unsubscribe from all emails in Gmail at once?"
     answer: "No. Gmail has no single button that opts you out of every sender in one tap. The built-in Manage subscriptions panel, rolled out in July 2025, lists your senders by frequency and unsubscribes one sender at a time. To clear a large backlog faster you either work through the list by hand or use a third-party app that batches the review for you."

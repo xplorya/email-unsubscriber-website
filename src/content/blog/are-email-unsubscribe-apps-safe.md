@@ -3,13 +3,13 @@ title: "Are email unsubscribe apps safe? What inbox access really means"
 date: "2026-05-22"
 excerpt: "Some unsubscribe apps are safe, some sell your data. Learn what OAuth scopes, refresh tokens, and cloud processing mean so you can vet any app before you connect it."
 author: "Email Unsubscriber Team"
-categories: ["Privacy"]
+categories: ["Privacy & Safety"]
 tags: ["oauth", "privacy", "unroll-me", "casa", "email-security", "refresh-tokens"]
 cover: "/blog/covers/are-email-unsubscribe-apps-safe.webp"
 coverAlt: "Flat vector illustration of an open padlock resting on a torn cream email strip, ringed by a magnifying glass over a permissions checklist, a broken chain link, a cloud with a downward arrow, and a small verification badge."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "Are email unsubscribe apps safe?"
     answer: "Some are, some aren't. An unsubscribe app is only as safe as the access it requests and what it does with that access. Apps that use read-only scopes, process email in your browser, and keep no persistent access are low-risk. Free apps that upload your inbox to their servers have been caught selling user data. Vet each app before you connect it."

@@ -3,7 +3,7 @@ title: "One-off payments as a business model"
 date: "2026-04-17"
 excerpt: "Are one-off payments just a subscription in disguise? No — and the difference is what each model forces you to measure, and therefore what user data you end up keeping."
 author: "Email Unsubscriber Team"
-categories: ["Product"]
+categories: ["Behind the Scenes"]
 tags: ["pricing", "business-model", "anti-subscription", "saas", "privacy"]
 cover: "/blog/covers/one-off-payments-as-a-business-model.webp"
 coverAlt: "Flat vector illustration of a price tag paired with a single coin, surrounded by a cut subscription-loop arrow, a broken chain, a padlock, an empty folder, a wallet, and a calendar."

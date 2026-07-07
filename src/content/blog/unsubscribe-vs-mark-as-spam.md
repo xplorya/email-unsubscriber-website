@@ -3,12 +3,13 @@ title: "Unsubscribe or mark as spam? A decision guide"
 date: "2026-05-31"
 excerpt: "Two buttons, two very different jobs. Here is exactly when to unsubscribe, when to mark as spam, and what each one does under the hood."
 author: "Email Unsubscriber Team"
-categories: ["How-to", "Privacy"]
+categories: ["Guides"]
 tags: ["unsubscribe", "mark-as-spam", "spam", "email-cleanup", "can-spam"]
 cover: "/blog/covers/unsubscribe-vs-mark-as-spam.webp"
 coverAlt: "Flat teal illustration of two chunky floating buttons pointing opposite ways — a cream 'Unsubscribe' button with an arrow curving outward to a mailbox, and a teal 'Spam' button with an arrow curving inward to a funnel-shaped inbox filter catching falling envelopes."
 featured: false
 draft: false
+readiness: "Done and published. Frozen"
 faq:
   - question: "Is it better to unsubscribe or mark as spam?"
     answer: "Unsubscribe when you recognize the sender and remember opting in, since a legitimate company must honor the request. Mark as spam when the sender is unknown, the email looks suspicious, or it already landed in your spam folder. Unsubscribe sends a request to the sender. Marking as spam trains your own provider's filter and sends no request to the sender at all."

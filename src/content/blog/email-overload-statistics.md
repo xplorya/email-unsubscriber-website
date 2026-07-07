@@ -3,10 +3,11 @@ title: "Email overload statistics: a sourced 2026 roundup"
 date: "2026-05-27"
 excerpt: "How big is inbox overload, really? A roundup of email volume, spam, time-cost, and subscription-fatigue statistics for 2026, every number with a named source."
 author: "Email Unsubscriber Team"
-categories: ["Privacy"]
+categories: ["Your Inbox"]
 tags: ["email-overload", "statistics", "spam", "subscription-fatigue", "inbox-cleanup"]
 cover: "/blog/covers/email-overload-statistics.webp"
 coverAlt: "Flat vector illustration of a bar chart built from stacked envelopes, an overflowing inbox tray, a clock, a spam can, and a single unsubscribe toggle, scattered with small dots and outline stars."
+readiness: "Done and published. Frozen"
 featured: false
 draft: false
 faq:

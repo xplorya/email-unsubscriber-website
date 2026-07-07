@@ -3,13 +3,13 @@ title: "Is it safe to click unsubscribe?"
 date: "2026-04-30"
 excerpt: "Roughly 1 in 644 unsubscribe links leads to a malicious site. Here's how to tell the safe ones from the traps in under 30 seconds."
 author: "Email Unsubscriber Team"
-categories: ["Privacy", "How-to"]
+categories: ["Privacy & Safety"]
 tags: ["unsubscribe", "phishing", "can-spam", "rfc-8058", "email-security"]
 cover: "/blog/covers/is-it-safe-to-click-unsubscribe.webp"
 coverAlt: "Flat vector illustration of a pointer hand hovering over a cream-paper unsubscribe link, with a tooltip showing an abstract URL squiggle, and a tilted envelope paused beside the hand."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "Is it safe to click unsubscribe on spam?"
     answer: "No. Clicking unsubscribe on a spam message usually confirms your address is live, so spammers send more and resell you to other lists. If you don't recognize the sender or the email landed in your spam folder, mark it as spam instead. That trains your filter and sends no signal back to the sender."

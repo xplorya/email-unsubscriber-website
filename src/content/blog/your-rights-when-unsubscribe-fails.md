@@ -3,13 +3,13 @@ title: "Your rights when 'unsubscribe' doesn't stop the emails"
 date: "2026-05-07"
 excerpt: "You unsubscribed. They kept emailing. Under CAN-SPAM and GDPR you have legal recourse, and the FTC's settlement record proves senders take it seriously."
 author: "Email Unsubscriber Team"
-categories: ["How-to", "Privacy"]
+categories: ["Your Rights"]
 tags: ["unsubscribe", "can-spam", "gdpr", "ftc", "email-rights"]
 cover: "/blog/covers/your-rights-when-unsubscribe-fails.webp"
 coverAlt: "Flat vector illustration of a dated clipboard with day 11 circled, a fan of three dated envelopes beside it, a magnifying glass over one date, and a calendar pinned at day 10."
 featured: false
 draft: false
-readiness: "Waiting for users feedback"
+readiness: "Done and published. Frozen"
 faq:
   - question: "Is it illegal for a company to keep emailing me after I unsubscribe?"
     answer: "In the U.S., yes. CAN-SPAM requires commercial senders to honor an opt-out within 10 business days, and ignoring it is a violation the FTC can penalize. In the EU, GDPR and the ePrivacy Directive go further: withdrawing consent must be as easy as giving it, so a sender that keeps mailing you after you opt out breaks the rule."
