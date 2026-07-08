@@ -617,7 +617,6 @@ Subject: [DESCRIBE THE CONCEPT / OBJECTS HERE IN ONE OR TWO PLAIN SENTENCES]
 - [ ] Canvas is one flat teal — no soft background blobs or halos behind the cluster.
 - [ ] Objects are stylized, not photorealistic.
 - [ ] Hero subject is safe inside the middle 60% of the frame (survives 16:9 / 21:9 / 21:10 crops).
-- [ ] Looks consistent next to `casa-t2-validated.png` in the blog listing grid — if it visually clashes, it fails.
 
 ### 14.12 Iterating on These Guidelines
 
