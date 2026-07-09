@@ -165,8 +165,9 @@ Every post embeds a `cover-generation-prompt` HTML comment block between the fro
 - [ ] **Voice** matches the site: calm, declarative, friendly, slightly technical. No marketing fluff.
 - [ ] **Title** is short + literal. No clickbait, no capitalized "Our", "The Ultimate", etc.
 - [ ] **Excerpt** is one sentence, ≤160 chars — shows on cards + used verbatim as `og:description`.
-- [ ] **Categories** chosen from existing set (`Privacy & Safety`, `Your Rights`, `Guides`, `Tools`, `Your Inbox`, `Behind the Scenes`, `Product`, `Changelog`, `News`). Add a new one only if posts across ≥2 future pieces would share it. First entry = primary (drives the card badge + related-post matching), so pick it deliberately.
-    - Categories mirror the content-strategy clusters (`docs/content-strategy/topic-backlog.md`): A→`Privacy & Safety`, B→`Your Rights`, C+D→`Guides`, E→`Tools`, F→`Your Inbox`, G→`Behind the Scenes`.
+- [ ] **Categories** chosen from existing set (`Privacy & Safety`, `Your Rights`, `Guides`, `Tools`, `Your Inbox`, `Behind the Scenes`, `AI & I`, `Product`, `Changelog`, `News`). Add a new one only if posts across ≥2 future pieces would share it. First entry = primary (drives the card badge + related-post matching), so pick it deliberately.
+    - Categories mirror the content-strategy clusters (`docs/content-strategy/topic-backlog.md`): A→`Privacy & Safety`, B→`Your Rights`, C+D→`Guides`, E→`Tools`, F→`Your Inbox`, G→`Behind the Scenes`, H→`AI & I` (H3, a deliverability-news item, is `News`), I→`Privacy & Safety`/`Your Inbox`, J→`Privacy & Safety`, K→`Your Inbox`.
+    - `AI & I` = how AI (Gemini in Gmail, Apple Intelligence, generative marketing AI) changes the reader's own inbox experience. Reader-first "what this means for me" framing, never marketer-advice.
     - `News` = milestones, compliance wins, PR-worthy announcements (keep these short; link to deep-dive blog post when the topic has substance).
 - [ ] **Tags** are lowercase, hyphenated, specific (`oauth`, `gdpr`, `session-storage`).
 - [ ] **Body** opens with a punchy 1–2 sentence lede. Don't bury the lede in setup.
