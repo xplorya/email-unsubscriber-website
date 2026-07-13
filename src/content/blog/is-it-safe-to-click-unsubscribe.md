@@ -9,12 +9,12 @@ cover: "/blog/covers/is-it-safe-to-click-unsubscribe.webp"
 coverAlt: "Flat vector illustration of a pointer hand hovering over a cream-paper unsubscribe link, with a tooltip showing an abstract URL squiggle, and a tilted envelope paused beside the hand."
 featured: false
 draft: false
-readiness: "Done and published. Frozen"
+readiness: "Ready for review"
 faq:
   - question: "Is it safe to click unsubscribe on spam?"
     answer: "No. Clicking unsubscribe on a spam message usually confirms your address is live, so spammers send more and resell you to other lists. If you don't recognize the sender or the email landed in your spam folder, mark it as spam instead. That trains your filter and sends no signal back to the sender."
-  - question: "How can I tell if an unsubscribe link is safe?"
-    answer: "Confirm you recognize the sender, that the From address is a real domain you have seen before, and that you can reconstruct how you joined the list. A real unsubscribe never asks for your password or payment. On desktop, hover over the link first to see where it actually points before clicking."
+  - question: "When is it safe to click an unsubscribe link?"
+    answer: "It is safe when you recognize the sender, the From address is a real domain you have seen before, and you can reconstruct how you joined the list. A legitimate unsubscribe never asks for your password or payment. When the sender is a stranger or the email landed in spam, mark it as spam instead of clicking."
   - question: "What is the safest way to unsubscribe from emails?"
     answer: "Use your email client's native Unsubscribe button, the one near the sender's name at the top of the message. When it is backed by the one-click protocol, clicking it never opens a website; your mail app sends a quiet request straight to the sender. If that button is missing, mark unknown senders as spam."
   - question: "What happens when I click an unsubscribe link?"
@@ -89,7 +89,7 @@ Spam accounted for 46% of global email traffic in 2024 ([Statista](https://www.s
 - The boring, high-volume scam. Clicking unsubscribe on a spam message can *increase* your spam volume, because it confirms a live address. Spammers promote your address to a higher-quality list and resell it.
 
 ### 2. Phishing
-- This usually aims at identity or credentials theft. DNSFilter CTO Tim Keanini summed it for [*The Wall Street Journal*](https://www.wsj.com/tech/cybersecurity/unsubscribe-email-security-38b40abf): "Trust is relative. I trust my email client, but I don't trust what's inside the email." The moment you leave your inbox for a browser, your email provider's protections stop applying.
+- This usually aims at identity or credentials theft. DNSFilter CTO Tim Keanini summed it for [*The Wall Street Journal*](https://www.wsj.com/tech/cybersecurity/unsubscribe-email-security-38b40abf): "Trust is relative. I trust my email client, but I don't trust what's inside the email." The moment you leave your inbox for a browser, your email provider's protections stop applying. We take apart the whole scam, and what to do if you already typed a password, in [how phishing hides behind fake unsubscribe links](/blog/fake-unsubscribe-link-phishing).
 
 <details class="curious-fact">
 <summary>Learn: what's phishing?</summary>
@@ -138,6 +138,8 @@ Before clicking any unsubscribe link, run this:
 2. **Prefer your client's top-bar Unsubscribe button.** Gmail, Apple Mail, and Outlook surface their own "Unsubscribe" button near the sender's name when the email supports it. Pick it over the link in the email body.
 3. **Watch for credential prompts.** A real unsubscribe doesn't need your password. If the page wants you to "log in to confirm," close the tab.
 4. **If anything feels off, mark as spam.** "Mark as spam" is safer than "unsubscribe" when you're unsure. You can't get phished by a spam-marking action.
+
+Each of these checks has wrinkles worth knowing, like how to read a link's real domain past a lookalike subdomain and how to preview a link on a phone that has no hover. Our [60-second link-inspection checklist](/blog/is-this-unsubscribe-link-safe) walks through them one at a time.
 
 ## The safer alternatives, ranked
 

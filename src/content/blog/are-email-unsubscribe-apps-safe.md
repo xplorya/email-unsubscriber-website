@@ -142,7 +142,7 @@ Fair is fair, so here are our own answers to the five questions, and one thing c
 
 Competitors beat us in one area: the full cloud tools do more. Because they hold your mail on their servers, they can offer standing filter rules, scheduled digests, automatic sorting, and inbox analytics that an in-browser tool with no persistent access simply cannot. If you want a mailbox-management suite, one of them may suit you better. We traded that breadth for an architecture where the privacy is structural, not a policy you have to trust.
 
-If read-only, on-device, pay-once is the trade you want, you can [connect your inbox and see it work](https://app.email-unsubscriber.com). And if your worry is less about apps and more about the unsubscribe links inside individual emails, our guide on whether [it is safe to click unsubscribe](/blog/is-it-safe-to-click-unsubscribe) covers that separate risk.
+If read-only, on-device, pay-once is the trade you want, you can [connect your inbox and see it work](https://app.email-unsubscriber.com). And if your worry is less about apps and more about the unsubscribe links inside individual emails, our full guide on whether [it is safe to click unsubscribe](/blog/is-it-safe-to-click-unsubscribe) answers that separate question in depth.
 
 ## The takeaway
 

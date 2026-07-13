@@ -14,7 +14,7 @@ faq:
   - question: "What is a masked email alias?"
     answer: "A masked email alias is a randomly generated email address that forwards everything it receives to your real inbox. The website or app you sign up with only ever sees the alias, like k7f2x@duck.com, while you keep reading mail in Gmail or Outlook. It hides your true address without making you open a second account."
   - question: "Are masked email aliases free?"
-    answer: "Several are. DuckDuckGo Email Protection gives unlimited @duck.com aliases for free. Addy.io offers unlimited standard aliases free with bandwidth caps. Firefox Relay includes 5 masks free, SimpleLogin 10. Apple Hide My Email needs an iCloud+ subscription. Paid tiers on Relay and SimpleLogin lift the caps and add replies and custom domains."
+    answer: "Several are. DuckDuckGo Email Protection gives unlimited @duck.com aliases for free. Addy.io offers unlimited standard aliases free with bandwidth caps. Firefox Relay includes 5 masks free, SimpleLogin 10. Apple Hide My Email needs an iCloud+ subscription. Paid tiers on Relay and SimpleLogin lift the caps and add custom domains."
   - question: "Do masked email aliases stop spam?"
     answer: "Not on their own. Mail sent to an active alias still lands in your inbox, so you keep receiving it until you disable that alias or unsubscribe from the sender. An alias hides who you are; it does not reduce how much mail arrives. Its real power is switching off one alias to cut a spammy sender loose."
   - question: "Do email aliases remove tracking pixels?"
@@ -22,7 +22,7 @@ faq:
   - question: "What is the difference between Hide My Email and DuckDuckGo Email Protection?"
     answer: "Hide My Email is built into Apple's ecosystem and needs a paid iCloud+ subscription, but it does not strip trackers. DuckDuckGo Email Protection is free, works in any browser, gives unlimited @duck.com aliases, and removes known email trackers before forwarding. Apple wins on convenience for iPhone users; DuckDuckGo wins on price and tracker removal."
   - question: "Can you reply from a masked email alias?"
-    answer: "Sometimes. Replying so the sender never sees your real address is free on Apple Hide My Email and DuckDuckGo Email Protection. On Firefox Relay and SimpleLogin, sending or replying from an alias is a paid feature. Check the service before you rely on two-way conversations through an alias."
+    answer: "Sometimes. Replying so the sender never sees your real address is free on Apple Hide My Email, DuckDuckGo Email Protection, and SimpleLogin. On Firefox Relay, replying from an alias is a paid feature. SimpleLogin charges only when you start a brand-new email to someone who has not messaged your alias first. Check the service before you rely on two-way conversations through an alias."
   - question: "Do I still need to unsubscribe if I use email aliases?"
     answer: "Yes. Aliases protect future signups, not the senders already in your inbox, and a reused alias floods just like your real address. Killing an alias also nukes every message to it, including receipts you wanted. Unsubscribing removes a single sender at the source, on every device and every alias. The two tools work together."
   - question: "Is Apple Hide My Email safe?"
@@ -88,7 +88,7 @@ Pick by two questions: do you want tracker removal, and do you want to pay. Here
 
 A few details the table flattens. [Firefox Relay's free tier](https://relay.firefox.com/premium/) caps you at 5 masks; its premium tier lifts that to unlimited and adds a custom subdomain and replies. [SimpleLogin's free plan](https://simplelogin.io/pricing/) allows 10 aliases and is fully open source under Proton AG, and if you already pay for Proton you get its premium features at no extra cost. [Addy.io](https://addy.io/) is open source too, formerly known as AnonAddy, with unlimited standard aliases on the free plan behind a monthly bandwidth cap. [Apple Hide My Email](https://support.apple.com/guide/icloud/set-up-hide-my-email-mm9d9012c9e8/icloud) is the smoothest option on an iPhone but rides on the paid iCloud+ subscription.
 
-Bottom line: for a free start with tracker removal, DuckDuckGo is the easy pick. For long-term control and custom domains, SimpleLogin or Addy.io reward the effort. Hide My Email is the path of least resistance if you already live in iCloud.
+Bottom line: for a free start with tracker removal, DuckDuckGo is the easy pick. For long-term control and custom domains, SimpleLogin or Addy.io reward the effort. Hide My Email is the path of least resistance if you already live in iCloud. For a service-by-service breakdown of reply support, pricing, and portability, see [how the alias services compare](/blog/email-alias-services-compared).
 
 ## What masked aliases actually protect you from
 
@@ -100,7 +100,7 @@ Aliases solve three specific problems, and they solve them well.
 
 **They let you cut a sender off cleanly.** Disable the alias and every message to it dies at the relay, before it reaches you. No unsubscribe form, no waiting period, no argument.
 
-Replying so the sender never sees your real address is free on Apple Hide My Email and DuckDuckGo, and a paid feature on Firefox Relay and SimpleLogin. For forward-looking privacy, this is a genuinely strong toolkit.
+Replying so the sender never sees your real address is free on Apple Hide My Email, DuckDuckGo, and SimpleLogin, and a paid feature on Firefox Relay. SimpleLogin only charges when you want to start a brand-new email from an alias to someone who has not written to you first. For forward-looking privacy, this is a genuinely strong toolkit.
 
 ## What masked email aliases don't fix
 

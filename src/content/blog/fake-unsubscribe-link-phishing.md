@@ -23,8 +23,8 @@ faq:
     answer: "Because people trust the word. Years of inbox cleanup have taught you the unsubscribe link is the safe, boring one, so attackers hide their lure inside it. The link confirms your address is active, sends you to a credential-harvesting page, or triggers a malware prompt. The trusted label lowers your guard at the moment they need it low."
   - question: "What should I do after entering my password on a fake unsubscribe page?"
     answer: "Act fast. Change that password immediately, and change it anywhere you reused the same one. Turn on two-factor authentication so a stolen password alone cannot open the account. If a download ran, scan your device. Then report the message as phishing in your email client so your provider can flag similar mail."
-  - question: "Is it safe to click unsubscribe at the bottom of an email?"
-    answer: "It depends on the sender. For a company you recognize and remember joining, the footer link is almost always fine. For a stranger, a spam-folder message, or a brand impersonation, the footer link is the riskiest path. In those cases mark the message as spam instead, or use your email app's built-in unsubscribe button."
+  - question: "Are one-click unsubscribe buttons safe from phishing?"
+    answer: "Largely yes. The one-click button your mail app shows at the top of a message sends a quiet request to the sender under RFC 8058, with no web page to load, so there is nothing for an attacker to clone. RFC 8058 also requires a valid DKIM signature, which is why genuine one-click buttons almost never appear on spam. The footer link in the message body carries no such protection."
 ---
 
 <!--

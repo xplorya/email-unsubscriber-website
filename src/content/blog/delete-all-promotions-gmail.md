@@ -1,7 +1,7 @@
 ---
-title: "How to delete all Promotions in Gmail (and stop them coming back)"
+title: "How to delete all Promotions in Gmail at once"
 date: "2026-06-07"
-excerpt: "Clear every email in Gmail's Promotions category in about a minute with one search operator, then unsubscribe at the source so the tab stays empty."
+excerpt: "Clear Gmail's entire Promotions category in about a minute with the category:promotions search operator, select-all, and an optional auto-delete filter."
 author: "Email Unsubscriber Team"
 categories: ["Guides"]
 tags: ["gmail", "promotions", "delete-emails", "inbox-cleanup", "unsubscribe"]
@@ -101,19 +101,13 @@ One honest caveat about the tab itself: the mobile app never displayed the Prima
 
 No. Deleting clears the mail already sitting in the category and does nothing to the sender's list, so you stay subscribed and the next campaign lands the moment the company sends it. This is the single most common misunderstanding about the Promotions tab.
 
-Emptying the tab feels like progress, and for storage and sanity it is, but it treats the symptom rather than the cause. The mail keeps arriving until you send an actual opt-out, and that opt-out is a separate action from anything in the delete flow. Delete when you want the pile gone today. Unsubscribe when you want it to stop refilling. For the full menu of ways to actually opt out in Gmail, see our guide to [mass unsubscribing from emails in Gmail](/blog/mass-unsubscribe-gmail).
+Emptying the tab feels like progress, and for storage and sanity it is, but it treats the symptom rather than the cause. The mail keeps arriving until you send an actual opt-out, and that opt-out is a separate action from anything in the delete flow. Delete when you want the pile gone today. Want the promos to stop arriving altogether? That is a separate job, walked step by step in [how to mass unsubscribe from emails in Gmail](/blog/mass-unsubscribe-gmail).
 
-## How do you stop the Promotions tab filling back up?
+## How do you keep the Promotions tab from filling back up?
 
-You stop the refill by unsubscribing at the source, not by deleting faster. Three routes, from least to most effort:
+You keep it empty by unsubscribing at the source, not by deleting faster. Every sender you just trashed still has you on its list, so the category refills on their schedule until you send a real opt-out. That is a separate job with its own playbook. Want the promos to stop arriving altogether? See how to [mass unsubscribe from emails in Gmail](/blog/mass-unsubscribe-gmail), which walks through Gmail's Manage subscriptions panel, the per-email Unsubscribe link, and reviewing every sender in one pass.
 
-1. **Gmail's Manage subscriptions panel.** Rolled out from July 2025, it lists your senders by how often they email and opts you out with one click. We walk the whole feature and its limits in the [Manage subscriptions guide](/blog/gmail-manage-subscriptions).
-2. **The per-email Unsubscribe link.** Open one newsletter and click the Unsubscribe link Gmail shows next to the sender's name at the top. Gmail sends the request for you.
-3. **A whole-inbox review.** For years of buildup across every promotional sender, a browser-based app clears the review in one pass instead of one link at a time.
-
-Even after a clean sweep, most inboxes refill within about 90 days as you sign up for new accounts and stores. We cover why in [subscription fatigue: why your inbox fills back up in 90 days](/blog/email-subscription-fatigue).
-
-This is the gap [Email Unsubscriber](https://app.email-unsubscriber.com) was built for. It reviews every promotional sender across your inbox in one pass, flags the ones who keep mailing after you leave, and keeps a record of every unsubscribe. The scan runs in your browser, so your email content never reaches our servers, the access is read-only, and the session expires in about an hour with no lingering token. Gmail's own tools are free and worth using for a light pass; a dedicated review earns its keep when the backlog is large.
+For years of buildup across every promotional sender, a browser-based app like [Email Unsubscriber](https://app.email-unsubscriber.com) clears that review in one pass. The scan runs in your browser, so your email content never reaches our servers, the access is read-only, and the session expires in about an hour with no lingering token. Even after a clean sweep, most inboxes refill within about 90 days as you sign up for new accounts and stores, which is the churn we cover in [subscription fatigue](/blog/email-subscription-fatigue).
 
 ## How do you auto-delete Promotions with a filter?
 

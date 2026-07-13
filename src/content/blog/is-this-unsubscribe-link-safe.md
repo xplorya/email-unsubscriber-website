@@ -17,8 +17,8 @@ faq:
     answer: "Yes, on desktop. Rest your mouse over the link without clicking and read the real destination in the status bar at the bottom of the window. If the domain there does not match the sender, do not click. On a phone there is no hover, so press and hold the link to open a preview showing the same destination."
   - question: "How do I check if the unsubscribe link's domain matches the sender?"
     answer: "Read the real domain from the destination address. It is the last two words before the first single slash. In example.mail.brand.com/unsub the real domain is brand.com, and in brand.com.secure-verify.xyz it is secure-verify.xyz, not brand. Compare that root domain to the sender's From address. If they differ, treat the link as unsafe."
-  - question: "Is it safe to unsubscribe from a spam email?"
-    answer: "No. Clicking any link in a genuine spam message, unsubscribe included, tends to confirm your address is live, which invites more spam and can sell you to other lists. If you do not recognize the sender or your provider already flagged the message, skip the unsubscribe link entirely and mark it as spam. That trains your filter and sends nothing back to the sender."
+  - question: "When should I skip the checklist and mark the email as spam?"
+    answer: "Skip the checks entirely when you do not recognize the sender, the message is already in your spam folder, it impersonates a brand you use, or it demands a login or payment. Running the checklist on those wastes the minute and risks the click. Mark the message as spam instead. You cannot be phished by a spam-marking action."
   - question: "Does a real unsubscribe page ask you to log in?"
     answer: "No. A genuine unsubscribe confirms one thing: that you want the emails to stop. Under the U.S. CAN-SPAM Act a sender cannot charge a fee, demand personal details beyond your email address, or force you to log in to opt out. A login box, a payment field, or a download prompt on an unsubscribe page is the single loudest sign of a trap."
   - question: "How do I check an unsubscribe link on my phone?"
@@ -64,7 +64,7 @@ You have the email open, your cursor is resting on the small gray unsubscribe li
 
 "Safe" here covers two different risks, and the checklist below handles each one separately. The first risk lives in the link's *destination*: a fake unsubscribe page can copy a real one to steal your password or push malware. The second risk lives in the *act of clicking at all*: on a genuine spam message, any click confirms your address is live and invites more mail.
 
-The checks that follow defend against the destination risk for senders you have some reason to trust. The address-confirmation risk is why strangers and spam-folder messages never get the checklist at all. They get marked as spam. Keep both risks in mind as you read, because the right move depends on which one you are facing.
+The checks that follow defend against the destination risk for senders you have some reason to trust. The address-confirmation risk is why strangers and spam-folder messages never get the checklist at all. They get marked as spam. Keep both risks in mind as you read, because the right move depends on which one you are facing. This post stays on one link at a time; for the broad verdict on when clicking unsubscribe is safe or risky across your whole inbox, [when it is safe to click unsubscribe](/blog/is-it-safe-to-click-unsubscribe) is the full answer.
 
 ## The 60-second checklist before you click
 
