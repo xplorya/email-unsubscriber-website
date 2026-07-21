@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
   import { replaceState } from '$app/navigation'
   import { APP_URL } from '$lib/utilities/constants'
+  import { captureEvent } from '$lib/utilities/posthog'
   import { icons } from '$lib/icons'
   import ThemeToggle from './ThemeToggle.svelte'
 
@@ -36,6 +37,10 @@
 
   function handleNavClick() {
     closeMobileMenu()
+  }
+
+  function trackGetStarted(location: string) {
+    captureEvent('get_started_click', { location })
   }
 
   function ctaIn(node: HTMLElement) {
@@ -179,6 +184,7 @@
       {#if !heroCTAVisible}
         <a
           href={APP_URL}
+          onclick={() => trackGetStarted('header')}
           class="inline-flex items-center whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-lg bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors "
           in:ctaIn
           out:ctaOut
@@ -194,6 +200,7 @@
       {#if !heroCTAVisible}
         <a
           href={APP_URL}
+          onclick={() => trackGetStarted('header')}
           class="inline-flex items-center whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-md bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors"
           in:ctaIn
           out:ctaOut
@@ -248,6 +255,7 @@
       {/each}
       <a
         href={APP_URL}
+        onclick={() => trackGetStarted('mobile_menu')}
         class="mt-4 inline-flex items-center px-6 py-3 text-base font-medium rounded-lg bg-(--color-button-solid-bg) text-(--color-button-solid-fg) hover:bg-(--color-button-solid-bg-hover) transition-colors"
       >
         Get Started

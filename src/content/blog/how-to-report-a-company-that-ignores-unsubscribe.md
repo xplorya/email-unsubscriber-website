@@ -1,7 +1,7 @@
 ---
-title: "How to report a company that ignores your unsubscribe request"
+title: "How to report a company that keeps ignoring your unsubscribe"
 date: "2026-05-28"
-excerpt: "The click-by-click filing process: pull the full email headers, attach the dates, and report the sender to the FTC, your EU DPA, or the UK ICO."
+excerpt: "Still emailing you past day 10? Pull the full headers, log the dates, and file with the FTC, your EU DPA, or the UK ICO. Here is the step-by-step."
 author: "Email Unsubscriber Team"
 categories: ["Your Rights"]
 tags: ["unsubscribe", "can-spam", "gdpr", "ftc", "ico", "email-rights"]
@@ -65,7 +65,7 @@ You marked the date you unsubscribed. Ten business days went by. The same sender
 
 File only after the legal window has closed, or your complaint has no violation to point at. Under U.S. CAN-SPAM, a commercial sender has 10 business days to honor your opt-out. A Gmail or Yahoo bulk sender gets 48 hours under those providers' deliverability rules. Under EU and UK law, withdrawal must be honored without undue delay, which a modern system should treat as near-immediate.
 
-The date you clicked is the whole case. Emails that arrive inside the window are legitimate timing artifacts, and reporting them wastes your effort and the regulator's. Emails that arrive after it are the violation you file on. For the exact day-counting (weekends and holidays do not count toward the 10), read [how long a company can email you after you unsubscribe](/blog/how-long-after-unsubscribe-can-they-email-you). Once you are past day 10 and the mail keeps coming, you have something to report.
+The date you clicked is the whole case. Emails that arrive inside the window are legitimate timing artifacts, and reporting them wastes your effort and the regulator's. Emails that arrive after it are the violation you file on. For the exact day-counting (weekends and holidays do not count toward the 10), read [how long a company can email you after you unsubscribe](/blog/how-long-after-unsubscribe-can-they-email-you). If you are not sure the sender is truly ignoring you rather than running late or mailing you from a second list, our guide to [why you still get emails after unsubscribing](/blog/unsubscribed-but-still-getting-emails) sorts the honest delays from the real violations. Once you are past day 10 and the mail keeps coming, you have something to report.
 
 ## What evidence do you need before you file?
 

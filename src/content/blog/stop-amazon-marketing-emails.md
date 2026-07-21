@@ -1,7 +1,7 @@
 ---
 title: "How to stop Amazon marketing emails"
 date: "2026-06-29"
-excerpt: "Amazon spreads its email controls across several settings. Here is how to stop Amazon marketing emails while keeping order and shipping updates."
+excerpt: "Amazon runs marketing email across many separate lists. Here is how to stop Amazon marketing emails in two settings, and keep your order and shipping updates."
 author: "Email Unsubscriber Team"
 categories: ["Guides"]
 tags: ["amazon", "marketing-emails", "communication-preferences", "unsubscribe", "inbox-cleanup"]
@@ -62,13 +62,17 @@ Amazon emails you more than almost anyone. Daily deals, Kindle picks, "customers
 
 > On a desktop browser, sign in and open Accounts & Lists, then Your Account, then Communication preferences. Under the email settings, select "Do not send me any marketing email for now" and Save. That stops the promotional mail. Order and shipping confirmations are transactional and keep coming. Service newsletters like Kindle and Audible are separate, under Email subscriptions.
 
+## What counts as an Amazon marketing email?
+
+An Amazon marketing email is any message Amazon sends to promote products, deals, or services rather than to confirm something you did. Daily deals, "customers who bought this also bought" recommendations, Kindle and Audible newsletters, Prime Video reminders, and price-drop alerts are all marketing. Every one of them has an off switch somewhere in your account.
+
+Transactional email is the other bucket, and it plays by different rules. Order confirmations, shipping and delivery updates, returns, and account or security notices are tied to a purchase or your account, so Amazon sends them no matter what you switch off. Under the U.S. CAN-SPAM Act, only the marketing bucket carries a required opt-out. Knowing which bucket a message sits in tells you whether a setting to stop it exists at all, which is the difference between a five-minute fix and a filter you build yourself.
+
 ## Why does Amazon keep emailing after I unsubscribe?
 
 Amazon splits your mail across many lists, so leaving one list does nothing to the others. Deals sit on one program, recommendations on another, and Kindle, Audible, Prime Video, and Amazon Music each run their own. Click the Unsubscribe link at the foot of a Kindle Daily Deals email and you leave that single list. The recommendation engine, the Prime Video nudges, and the storewide promotions never got the message.
 
-This is the core of the problem, and it is why a one-off unsubscribe feels like it fails. You did opt out. You just opted out of one channel out of many. To actually go quiet, you set the account-level marketing switch that covers the bulk of it, then clear the service newsletters that live in a second panel. Two settings, not one, and both sit behind a menu most people never open.
-
-There is also a line Amazon draws that no setting crosses. Marketing email is optional and you can leave it. Order confirmations, shipping updates, and delivery notices are transactional, tied to a purchase you made, and Amazon sends them regardless. Knowing which bucket a message falls into tells you whether a setting exists for it at all.
+This is the core of the problem, and it is why a one-off unsubscribe feels like it fails. You did opt out. You just opted out of one channel out of many. [Temu and Shein run the same many-lists playbook](/blog/stop-temu-shein-emails), so [unsubscribing once rarely stops the flow](/blog/unsubscribed-but-still-getting-emails) from any large retailer. To actually go quiet, you set the account-level marketing switch that covers the bulk of it, then clear the service newsletters that live in a second panel. Two settings, not one, and both sit behind a menu most people never open.
 
 ## How do I turn off Amazon marketing emails?
 
@@ -88,7 +92,7 @@ You switch those off under Email subscriptions, a separate list from the marketi
 
 From the same **Communication and content** section, click **Email subscriptions** (also reachable at amazon.com/gp/subscriptions). Amazon shows every newsletter, product update, and alert you are signed up for. Toggle off the ones you never read: Kindle Daily Deals, Kindle Monthly Editors' Picks, Audible sale alerts, and the rest, one by one. Amazon's [subscription-preferences page](https://www.amazon.com/gp/help/customer/display.html?nodeId=GXSTUM6E6RZDAQRY) covers this second panel and notes changes can take up to five business days to register.
 
-The tedium here is real. There is no master switch for the service newsletters, so you clear them individually, and a service you enroll in later adds a fresh line. This is the same seasonal churn that fills every inbox around [Black Friday and Prime Day](/blog/black-friday-email-overload), when Amazon and every store timing a sale to the same days open the taps at once.
+The tedium here is real. There is no master switch for the service newsletters, so you clear them individually, and a service you enroll in later adds a fresh line. Amazon is not alone in scattering these controls; [LinkedIn](/blog/stop-linkedin-emails) and [YouTube](/blog/stop-youtube-emails) bury their email switches across just as many menus. This is the same seasonal churn that fills every inbox around [Black Friday and Prime Day](/blog/black-friday-email-overload), when Amazon and every store timing a sale to the same days open the taps at once.
 
 ## Can I stop order and shipping confirmation emails?
 
@@ -123,7 +127,7 @@ That link works, but it only leaves the one list. Every Amazon marketing email c
 
 The link has one quiet advantage worth knowing. When your mail app exposes its own unsubscribe control, built from the message's List-Unsubscribe header, you can opt out [without opening the email at all](/blog/unsubscribe-without-opening-email), so no tracking pixel fires and nothing confirms your address is active. That is the cleaner move for a single sender.
 
-For years of buildup across Amazon's many lists plus every other store in your inbox, clearing them one footer link at a time is slow. A browser-based tool like [Email Unsubscriber](https://app.email-unsubscriber.com) scans your Gmail or personal Outlook inbox in one pass, surfaces every sending address Amazon and others mail you from, and fires a genuine one-click opt-out wherever the sender supports the standard. The scan runs on your device, so we never read, analyze, or monetize your email content, the access is read-only, and the session expires in about an hour with no lingering token. Its "still emailing" filter also flags the senders that keep mailing after you left, so you know exactly which ones ignored the request.
+For years of buildup across Amazon's many lists plus every other store in your inbox, clearing them one footer link at a time is slow. If most of that backlog is retail promotions, [clearing the Gmail Promotions tab in bulk](/blog/delete-all-promotions-gmail) empties months of it in a single pass. To shut the senders off at the source instead, a browser-based tool like [Email Unsubscriber](https://app.email-unsubscriber.com) scans your Gmail or personal Outlook inbox in one pass, surfaces every sending address Amazon and others mail you from, and fires a genuine one-click opt-out wherever the sender supports the standard. The scan runs on your device, so we never read, analyze, or monetize your email content, the access is read-only, and the session expires in about an hour with no lingering token. Its "still emailing" filter also flags the senders that keep mailing after you left, so you know exactly which ones ignored the request.
 
 ## The takeaway
 

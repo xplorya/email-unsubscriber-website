@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
   import { APP_URL } from '$lib/utilities/constants'
+  import { captureEvent } from '$lib/utilities/posthog'
   import { loadGsap, prefersReducedMotion } from '$lib/utilities/gsap-utils'
   import { icons } from '$lib/icons'
   import HeroFloatingChips from '$lib/components/HeroFloatingChips.svelte'
@@ -164,6 +165,7 @@
           bind:this={ctaEl}
           id="hero-cta"
           href={APP_URL}
+          onclick={() => captureEvent('get_started_click', { location: 'hero' })}
           class="hero-cta-button inline-block px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg bg-(--color-accent) text-white hover:bg-(--color-accent-hover) transition-all duration-200"
         >
           Get Started

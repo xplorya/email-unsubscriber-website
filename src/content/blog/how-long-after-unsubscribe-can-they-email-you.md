@@ -1,7 +1,7 @@
 ---
-title: "How long can a company email you after you unsubscribe?"
+title: "How long can a company keep emailing you after unsubscribing?"
 date: "2026-05-23"
-excerpt: "Under CAN-SPAM a sender has 10 business days to stop emailing you after you unsubscribe, and Gmail and Yahoo bulk senders get just 48 hours."
+excerpt: "The clock is 10 business days under CAN-SPAM, or just 48 hours if the sender is a Gmail or Yahoo bulk mailer. Anything after that is a violation you can report."
 author: "Email Unsubscriber Team"
 categories: ["Your Rights"]
 tags: ["unsubscribe", "can-spam", "gdpr", "email-rights", "rfc-8058"]
@@ -107,7 +107,7 @@ Move in this order once the window has closed:
 1. **Confirm the date.** Check the timestamp of your original unsubscribe against today. Only count emails that arrived after the 10-business-day (or 48-hour) mark as evidence.
 2. **Block the sender.** Every major email provider supports per-sender or per-domain blocking. This stops the messages reaching you right now, regardless of whether the sender ever complies.
 3. **Keep the evidence.** Save the offending emails with full headers and the dates they arrived. Without timestamps, no regulator can act.
-4. **Report it.** In the U.S., forward the emails to the FTC; in the EU, file with your national data protection authority.
+4. **Report it.** In the U.S., report the sender to the FTC; in the EU, file with your national data protection authority. Our [step-by-step guide to reporting a company that ignores your unsubscribe](/blog/how-to-report-a-company-that-ignores-unsubscribe) walks the whole filing process, form by form.
 
 The reporting step has real teeth, and the penalties and exact filing process are worth their own read. Our companion guide, [your rights when 'unsubscribe' doesn't stop the emails](/blog/your-rights-when-unsubscribe-fails), covers the FTC's civil-penalty ceiling, the settlements that prove it is enforced, and how to file a complaint that lands.
 

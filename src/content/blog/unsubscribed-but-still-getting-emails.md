@@ -1,7 +1,7 @@
 ---
-title: "Unsubscribed but still getting emails? 7 reasons and what to do"
+title: "Unsubscribed but still getting emails? 7 reasons why (and fixes)"
 date: "2026-05-25"
-excerpt: "You unsubscribed and the emails kept coming. Here are the seven reasons it happens and the exact fix for each one."
+excerpt: "You unsubscribed and the emails keep coming. Here are the seven reasons why you still get emails after unsubscribing, and the exact fix for each."
 author: "Email Unsubscriber Team"
 categories: ["Your Rights"]
 tags: ["unsubscribe", "email-cleanup", "can-spam", "spam", "inbox"]
@@ -54,9 +54,9 @@ Subject: A hero cream-paper envelope arriving from the right past a large crosse
 
 You clicked unsubscribe. Maybe you clicked it twice. A week later the same sender is back with another "20% off, today only," and you're starting to wonder whether the button does anything at all.
 
-> You still get emails after unsubscribing for a handful of reasons: the sender is inside its legal 10-business-day processing window, you left one of several lists it runs, the mail is transactional rather than marketing, the unsubscribe silently failed, the sender ignores opt-outs, or you clicked inside spam and confirmed a live address. Each cause has a different fix.
+> You still get emails after unsubscribing for a handful of reasons: the sender is still inside its legal 10-business-day window, you left one list of several, the mail is transactional not marketing, the unsubscribe silently failed, the sender ignores opt-outs, or you clicked inside spam and confirmed a live address. Each cause has its own fix.
 
-## Why am I still getting emails after I unsubscribed?
+## Why do I still get emails after unsubscribing?
 
 Seven things cause it, and they sort into three groups: normal (wait it out), fixable (you missed a step), and abusive (block and report). The trick is telling which one you're looking at before you keep clicking a button that isn't the problem.
 
@@ -118,6 +118,12 @@ Sometimes the sender isn't who you think, so the list you're trying to leave was
 
 What to do: if you can't reconstruct how you ended up on the list and the sender is a stranger, don't click the unsubscribe. Mark it as spam. For a forwarded old address, unsubscribe from the account that actually holds the subscription, not the inbox where it lands.
 
+## What if one specific store keeps emailing no matter what?
+
+A few senders are worse than the rest, and you already know their names. Fast-fashion and marketplace apps like Temu and Shein mail several times a day, run a stack of overlapping lists, and often re-add your address after a purchase or an app update. Leaving one campaign barely dents the flow.
+
+What to do: work the full preference center instead of the footer link, and clear every stream the sender exposes. If the account keeps re-adding you after you buy something, block the sending domain at your provider so new campaigns never reach the inbox. Our playbook for [stopping Temu and Shein emails for good](/blog/stop-temu-shein-emails) walks the per-sender steps for the worst repeat offenders. Once the new mail stops, [clearing the promotions already piled up in Gmail](/blog/delete-all-promotions-gmail) gets the backlog off your screen in one pass.
+
 ## How do I actually stop the emails when unsubscribing fails?
 
 Work the escalation in order, and stop as soon as the emails do:
@@ -126,7 +132,7 @@ Work the escalation in order, and stop as soon as the emails do:
 2. **Leave every list.** Open the preference center and clear all of the sender's streams, not just the one in the footer.
 3. **Use the native button.** Prefer your email client's top-bar unsubscribe over the link in the body.
 4. **Block the sender.** For anyone still mailing you past the window, block at the provider level so the messages stop reaching you.
-5. **Report the holdouts.** File with the FTC or your DPA, with headers and timestamps, using the steps in the [rights guide](/blog/your-rights-when-unsubscribe-fails).
+5. **Report the holdouts.** File with the FTC or your DPA, with headers and timestamps. Our [step-by-step guide to reporting a company that ignores your unsubscribe](/blog/how-to-report-a-company-that-ignores-unsubscribe) walks the filing process form by form, and the [rights guide](/blog/your-rights-when-unsubscribe-fails) covers the penalties senders actually pay.
 
 If you're doing this across years of accumulated senders, one at a time is a long afternoon. That's the job [Email Unsubscriber](/) was built for: it scans your Gmail or Outlook in your own browser, lists every subscription sender in one place, and sends real unsubscribe requests using the one-click standard where senders support it. Your email content never reaches our servers, and there's a "still emailing" filter that flags the senders who ignore you so you know exactly who to block. You can [try it on your own inbox](https://app.email-unsubscriber.com/) and see the full list before you do anything.
 

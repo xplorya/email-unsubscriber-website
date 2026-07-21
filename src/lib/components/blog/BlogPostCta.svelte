@@ -1,5 +1,6 @@
 <script lang="ts">
   import { SITE_URL } from '$lib/utilities/constants'
+  import { captureEvent } from '$lib/utilities/posthog'
 
   interface Props {
     slug: string
@@ -18,6 +19,10 @@
   const href = $derived(
     `${SITE_URL}/?utm_source=blog&utm_medium=post&utm_campaign=${encodeURIComponent(slug)}`
   )
+
+  function handleClick() {
+    captureEvent('blog_cta_click', { slug, cta_label: ctaTitle, cta_target: href })
+  }
 </script>
 
 <aside class="blog-cta my-12" aria-label="Try Email Unsubscriber">
@@ -29,6 +34,7 @@
     <a
       {href}
       data-sveltekit-preload-data="hover"
+      onclick={handleClick}
       class="blog-cta-button inline-block px-4 py-2 text-base sm:text-lg font-semibold rounded-lg bg-(--color-accent) text-white hover:bg-(--color-accent-hover) transition-all duration-200"
     >
       {ctaTitle}

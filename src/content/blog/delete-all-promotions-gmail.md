@@ -1,7 +1,7 @@
 ---
-title: "How to delete all Promotions in Gmail at once"
+title: "How to delete all Promotions in Gmail at once (with search operators)"
 date: "2026-06-07"
-excerpt: "Clear Gmail's entire Promotions category in about a minute with the category:promotions search operator, select-all, and an optional auto-delete filter."
+excerpt: "Clear Gmail's Promotions category in about a minute: search category:promotions, select all, and trash it. Use older_than: or date filters to spare recent deals."
 author: "Email Unsubscriber Team"
 categories: ["Guides"]
 tags: ["gmail", "promotions", "delete-emails", "inbox-cleanup", "unsubscribe"]
@@ -15,6 +15,8 @@ faq:
     answer: "On a desktop browser, type category:promotions in the search bar and press Enter. Click the checkbox at the top-left to select the visible page, then click the Select all conversations that match this search link that appears. Click the trash-can icon. Every promotional email moves to Trash, where Gmail keeps it for 30 days before deleting it permanently."
   - question: "What is the search operator for Promotions in Gmail?"
     answer: "The operator is category:promotions. Typed into the Gmail search bar, it finds every email Gmail filed under Promotions, whether or not a Promotions tab is visible. You can narrow it with modifiers such as older_than:1y, from:sender@example.com, or is:unread to spare the deals you still want and target only the mail you are ready to clear."
+  - question: "How do I delete Gmail promotions older than a year?"
+    answer: "Search category:promotions older_than:1y in the Gmail search bar on desktop, then run the normal cleanup: click the top-left checkbox, click Select all conversations that match this search, and hit the trash icon. Only promotions more than a year old move to Trash. Swap in older_than:6m for six months, or use after: and before: with YYYY/MM/DD dates for an exact window."
   - question: "Can I delete all Promotions in the Gmail app on my phone?"
     answer: "Not in one move. The Gmail app on iPhone and Android has no select-all, so you either long-press the first message and tap each one by hand, or open mail.google.com in a mobile browser, request the desktop site, and run the desktop select-all steps. The desktop route is far faster for a large backlog."
   - question: "Does deleting Promotions in Gmail unsubscribe me?"
@@ -74,6 +76,8 @@ On a desktop browser you can empty the whole Promotions category in about a minu
 
 The category empties. Deleted mail sits in Trash for 30 days before Gmail removes it for good, which gives you a safety window to pull something back if you cleared too eagerly.
 
+If the "Select all conversations that match this search" line never appears, your matches already fit on one page, so the top-left checkbox has grabbed everything and there is nothing more to add. To reclaim the storage right away instead of waiting out the 30 days, open Trash from the left menu and click "Empty Trash now."
+
 ## What search operators find the promotions worth deleting?
 
 Typing `category:promotions` on its own grabs everything, and a few modifiers let you spare the mail you actually want. Chain them in the same search bar to target a slice of the category instead of nuking it whole.
@@ -82,11 +86,20 @@ Typing `category:promotions` on its own grabs everything, and a few modifiers le
 |---|---|
 | `category:promotions` | Every email Gmail filed under Promotions |
 | `category:promotions older_than:1y` | Promotions more than a year old, sparing recent deals |
+| `category:promotions newer_than:7d` | Only this week's promos, to clear a fresh burst |
+| `category:promotions after:2026/01/01 before:2026/06/30` | Promotions inside one date range |
 | `category:promotions from:store@example.com` | Promotions from one specific sender |
+| `category:promotions -from:receipts@store.com` | Promotions except one sender you want to keep |
 | `category:promotions is:unread` | Promotions you never opened |
 | `category:promotions has:attachment larger:5m` | Bulky promos eating your storage quota |
 
-The `older_than:` and `newer_than:` operators take `d`, `m`, or `y` for days, months, or years, so `older_than:6m` keeps the last half-year and clears the rest. Running a dated search before the select-all is the difference between a surgical cleanup and deleting a receipt you needed.
+The `older_than:` and `newer_than:` operators take `d`, `m`, or `y` for days, months, or years, so `older_than:6m` keeps the last half-year and clears the rest. For an exact span rather than a rolling one, `after:` and `before:` read dates as `YYYY/MM/DD`, and a leading minus sign drops anything you name. Running a dated search before the select-all is the difference between a surgical cleanup and deleting a receipt you needed.
+
+## How do you delete Gmail Promotions older than a year or six months?
+
+Add a date operator to the category search, then run the same select-all and trash steps. `category:promotions older_than:1y` selects every promotion more than a year old, and `category:promotions older_than:6m` clears anything older than six months while sparing the last half-year of deals.
+
+The unit letter does the work: `d` for days, `m` for months, `y` for years, so `older_than:2y`, `older_than:90d`, and `older_than:6m` all read cleanly. When you want a fixed window instead of a rolling one, switch to `after:` and `before:` with slash-separated dates, for example `category:promotions before:2025/01/01` to wipe everything filed before the start of 2025. Type the dated search, click the top-left checkbox, click "Select all conversations that match this search," and hit the trash icon. Only the promotions inside your date range move to Trash, and the recent deals you still want stay in place.
 
 ## How do you delete all Promotions in the Gmail app?
 
@@ -101,11 +114,11 @@ One honest caveat about the tab itself: the mobile app never displayed the Prima
 
 No. Deleting clears the mail already sitting in the category and does nothing to the sender's list, so you stay subscribed and the next campaign lands the moment the company sends it. This is the single most common misunderstanding about the Promotions tab.
 
-Emptying the tab feels like progress, and for storage and sanity it is, but it treats the symptom rather than the cause. The mail keeps arriving until you send an actual opt-out, and that opt-out is a separate action from anything in the delete flow. Delete when you want the pile gone today. Want the promos to stop arriving altogether? That is a separate job, walked step by step in [how to mass unsubscribe from emails in Gmail](/blog/mass-unsubscribe-gmail).
+Emptying the tab feels like progress, and for storage and sanity it is, but it treats the symptom rather than the cause. The mail keeps arriving until you send an actual opt-out, and that opt-out is a separate action from anything in the delete flow. Delete when you want the pile gone today. Want the promos to stop arriving altogether? That is a separate job, walked step by step in [how to mass unsubscribe from emails in Gmail](/blog/mass-unsubscribe-gmail). And if you already opted out of a sender yet the promos keep landing, that is a different problem covered in [unsubscribed but still getting emails](/blog/unsubscribed-but-still-getting-emails).
 
 ## How do you keep the Promotions tab from filling back up?
 
-You keep it empty by unsubscribing at the source, not by deleting faster. Every sender you just trashed still has you on its list, so the category refills on their schedule until you send a real opt-out. That is a separate job with its own playbook. Want the promos to stop arriving altogether? See how to [mass unsubscribe from emails in Gmail](/blog/mass-unsubscribe-gmail), which walks through Gmail's Manage subscriptions panel, the per-email Unsubscribe link, and reviewing every sender in one pass.
+You keep it empty by unsubscribing at the source, not by deleting faster. Every sender you just trashed still has you on its list, so the category refills on their schedule until you send a real opt-out. That is a separate job with its own playbook. Do it through Gmail's Manage subscriptions panel, the [per-email Unsubscribe button](/blog/gmail-unsubscribe-button-missing) at the top of a newsletter, or by reviewing every sender in one pass.
 
 For years of buildup across every promotional sender, a browser-based app like [Email Unsubscriber](https://app.email-unsubscriber.com) clears that review in one pass. The scan runs in your browser, so your email content never reaches our servers, the access is read-only, and the session expires in about an hour with no lingering token. Even after a clean sweep, most inboxes refill within about 90 days as you sign up for new accounts and stores, which is the churn we cover in [subscription fatigue](/blog/email-subscription-fatigue).
 
@@ -119,7 +132,7 @@ A filter is the closest Gmail comes to auto-deleting promotions, and you build i
 4. **Choose the action.** Check "Delete it." New promotional mail will now skip the inbox and go straight to Trash.
 5. **Clear the backlog too.** Check "Also apply to matching conversations" to send the promotions already in your account to Trash in the same step, then click "Create filter."
 
-One warning before you build this: a blanket delete filter buries every promotion, including the sale you were waiting on and the order-related offer you meant to read. It is a blunt instrument. Most people are better served pairing a narrower filter (say, one scoped to a few relentless senders) with unsubscribing from the rest, so the wanted mail survives and the unwanted mail stops at the source.
+One warning before you build this: a blanket delete filter buries every promotion, including the sale you were waiting on and the order-related offer you meant to read. It is a blunt instrument. Most people are better served pairing a narrower filter (say, one scoped to relentless senders like [Temu and Shein](/blog/stop-temu-shein-emails) or [Amazon](/blog/stop-amazon-marketing-emails)) with unsubscribing from the rest, so the wanted mail survives and the unwanted mail stops at the source.
 
 ## Should you just turn off the Promotions tab?
 

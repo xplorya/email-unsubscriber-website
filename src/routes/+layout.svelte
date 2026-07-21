@@ -2,13 +2,25 @@
   import '../app.css'
   import { initTheme } from '$lib/utilities/theme'
   import { onMount } from 'svelte'
+  import { browser } from '$app/environment'
   import { page } from '$app/state'
   import Header from '$lib/components/Header.svelte'
   import Footer from '$lib/components/Footer.svelte'
   import CookieConsent from '$lib/components/CookieConsent.svelte'
+  import { initPostHog, enableAnalytics } from '$lib/utilities/posthog'
+  import { isAnalyticsAllowed } from '$lib/utilities/consent'
   import { SITE_URL, CONTACT_EMAIL, COMPANY_NAME, SOCIAL_LINKS } from '$lib/utilities/constants'
 
   let { children } = $props()
+
+  // Init PostHog in the layout's instance script (browser-only) so it runs
+  // before any child page's onMount — page-view events must never fire before
+  // PostHog is ready. Error tracking is always on; the analytics tier (and the
+  // shared cross-subdomain cookie) only turns on with consent.
+  if (browser) {
+    initPostHog()
+    if (isAnalyticsAllowed()) enableAnalytics()
+  }
 
   const isLegalPage = $derived(
     page.url.pathname === '/privacy' || page.url.pathname === '/terms' || page.url.pathname === '/security'

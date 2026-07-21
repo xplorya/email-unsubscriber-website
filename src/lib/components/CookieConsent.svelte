@@ -5,6 +5,7 @@
     saveConsent,
     type ConsentPreferences
   } from '$lib/utilities/consent'
+  import { enableAnalytics } from '$lib/utilities/posthog'
 
   const LEGACY_LS_KEY = 'cookie-consent'
 
@@ -31,6 +32,7 @@
 
   function accept() {
     saveConsent({ essential: true, analytics: true })
+    enableAnalytics()
     visible = false
   }
 

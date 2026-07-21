@@ -3,6 +3,7 @@
   import type { Component } from 'svelte'
   import { afterNavigate } from '$app/navigation'
   import { SITE_URL } from '$lib/utilities/constants'
+  import { captureEvent } from '$lib/utilities/posthog'
   import PostHero from '$lib/components/blog/PostHero.svelte'
   import TableOfContents from '$lib/components/blog/TableOfContents.svelte'
   import ShareCluster from '$lib/components/blog/ShareCluster.svelte'
@@ -39,6 +40,28 @@
     if (type === 'enter') return
     if (to?.url.hash) return
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
+  })
+
+  function isGoogleReferrer(referrer: string): boolean {
+    if (!referrer) return false
+    try {
+      return /(^|\.)google\./.test(new URL(referrer).hostname)
+    } catch {
+      return false
+    }
+  }
+
+  // Fire per post view. Keyed on the slug so it also fires on client-side
+  // blog -> blog navigation, where SvelteKit reuses this component instead of
+  // remounting it (so onMount would only fire for the first post).
+  $effect(() => {
+    const slug = data.post.slug
+    const referrer = document.referrer
+    captureEvent('blog_view', {
+      slug,
+      referrer,
+      referrer_is_google: isGoogleReferrer(referrer)
+    })
   })
 
   const jsonLd = $derived(

@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import { SITE_URL } from '$lib/utilities/constants'
+  import { captureEvent } from '$lib/utilities/posthog'
   import Hero from '$lib/components/sections/Hero.svelte'
   import HowItWorks from '$lib/components/sections/HowItWorks.svelte'
   import Mission from '$lib/components/sections/Mission.svelte'
@@ -31,6 +33,10 @@
     },
     publisher: { '@id': `${SITE_URL}#organization` }
   }).replace(/</g, '\\u003c')
+
+  onMount(() => {
+    captureEvent('homepage_view')
+  })
 </script>
 
 <svelte:head>
